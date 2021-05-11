@@ -22,6 +22,7 @@ Werkzeug = "==1.0.1"
 Jinja2 = "==2.11.2"
 Pillow = "==7.1.2"
 MarkupSafe = "==1.1.1"
+poppler-utils = "==0.1.0"
 
 [dev-packages]
 flake8 = "==3.8.1"
@@ -30,6 +31,7 @@ responses = "==0.10.14"
 pytest = "==5.4.2"
 pytest-cov = "==2.8.1"
 PyYAML = "==5.3.1"
+install = "*"
 
 [requires]
 python_version = "3.8"
