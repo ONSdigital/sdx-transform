@@ -1,6 +1,6 @@
-# sdx-transform-cs
+# sdx-transform
 
-[![Build Status](https://github.com/ONSdigital/sdx-transform-cs/workflows/Build/badge.svg)](https://github.com/ONSdigital/sdx-transform-cs) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0d8f1899b0054322b9d0ec8f2bd62d86)](https://www.codacy.com/app/ons-sdc/sdx-transform-cs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ONSdigital/sdx-transform-cs&amp;utm_campaign=Badge_Grade) [![codecov](https://codecov.io/gh/ONSdigital/sdx-transform-cs/branch/master/graph/badge.svg)](https://codecov.io/gh/ONSdigital/sdx-transform-cs)
+[![Build Status](https://github.com/ONSdigital/sdx-transform-cs/workflows/Build/badge.svg)](https://github.com/ONSdigital/sdx-transform-cs) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0d8f1899b0054322b9d0ec8f2bd62d86)](https://www.codacy.com/app/ons-sdc/sdx-transform-cs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ONSdigital/sdx-transform-cs&amp;utm_campaign=Badge_Grade)
 
 The sde-transform-cs app is used within the Office National of Statistics (ONS) for transforming Survey Data Exchange (SDX) Surveys to formats in use in Common Software.
 
@@ -44,7 +44,7 @@ A simple way to remove it is to do the following command `perl -pi -e 'chomp if 
 It's also possible to build sdx-transform-cs within a container using docker. From the sdx-transform-cs directory:
 
 ```bash
-$ docker build -t sdx-transform-cs .
+$ docker build -t sdx-transform .
 ```
 
 ## Usage
@@ -58,14 +58,14 @@ $ python server.py
 If you've built the image under docker, you can start using the following:
 
 ```bash
-$ docker run -p 5000:5000 sdx-transform-cs
+$ docker run -p 5000:5000 sdx-transform
 ```
 
-sdx-transform-cs by default binds to port 5000 on localhost. It exposes several endpoints for transforming to idbr and pck formats. It returns a response formatted in the type requested. Post requests are made aginst the uri endpoints /pck, /idbr, /images, /common-software or /cord. Responses are delivered in the format requested, except the /images, /common-software, /cord and /cora endpoints which return archived zips of requested data. There is also a health check endpoint (get /healtcheck), which returns a json response with a key/value pairs describing the service state.
+sdx-transform by default binds to port 5000 on localhost. It exposes several endpoints for transforming to idbr and pck formats. It returns a response formatted in the type requested. Post requests are made aginst the uri endpoints /pck, /idbr, /images, /common-software or /cord. Responses are delivered in the format requested, except the /images, /common-software, /cord and /cora endpoints which return archived zips of requested data. There is also a health check endpoint (get /healtcheck), which returns a json response with a key/value pairs describing the service state.
 
 ### Example
 
-The example below uses the Python library [requests](https://github.com/kennethreitz/requests) to confirm some data is valid using sdx-transform-cs.
+The example below uses the Python library [requests](https://github.com/kennethreitz/requests) to confirm some data is valid using sdx-transform.
 
 ```python
 import requests

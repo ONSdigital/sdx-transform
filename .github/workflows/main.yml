@@ -23,10 +23,12 @@ jobs:
     - name: install python dependencies
       run: |
         pip install pipenv
-        pipenv install --system --deploy --ignore-pipfile
         pipenv install --dev --system --deploy --ignore-pipfile
-        pip install codecov
     - name: run tests
-      run: pytest -v tests/ --cov=transform --cov-report html
-    - name: get coverage
-      run: codecov
+      run: pytest --cache-clear --cov=app tests/ > pytest-coverage.txt
+    - name: Comment coverage
+      uses: coroo/pytest-coverage-commentator@v1.0.2
+    - name: pytest-coverage-commentator
+      uses: coroo/pytest-coverage-commentator@v1.0.2
+      with:
+        pytest-coverage: pytest-coverage.txt
