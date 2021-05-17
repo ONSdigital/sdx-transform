@@ -45,14 +45,14 @@ def server_error(error=None):
     return resp
 
 
-@app.route('/common-software', methods=['POST'])
-@app.route('/common-software/<sequence_no>', methods=['POST'])
-@app.route('/cora', methods=['POST'])
-@app.route('/cora/<sequence_no>', methods=['POST'])
-@app.route('/cord', methods=['POST'])
-@app.route('/cord/<sequence_no>', methods=['POST'])
-@app.route('/transform', methods=['POST'])
-@app.route('/transform/<sequence_no>', methods=['POST'])
+@app.post('/common-software')
+@app.post('/common-software/<sequence_no>')
+@app.post('/cora')
+@app.post('/cora/<sequence_no>')
+@app.post('/cord')
+@app.post('/cord/<sequence_no>')
+@app.post('/transform')
+@app.post('/transform/<sequence_no>')
 def transform(sequence_no=1000):
     survey_response = request.get_json(force=True)
     tx_id = survey_response.get("tx_id")
@@ -82,8 +82,8 @@ def transform(sequence_no=1000):
         return server_error(e)
 
 
-@app.route('/info', methods=['GET'])
-@app.route('/healthcheck', methods=['GET'])
+@app.get('/info')
+@app.get('/healthcheck')
 def healthcheck():
     """A simple endpoint that reports the health of the application"""
     return jsonify({'status': 'OK'})
