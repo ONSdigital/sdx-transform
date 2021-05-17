@@ -67,7 +67,7 @@ def transform(sequence_no=1000):
         transformer = get_transformer(survey_response, sequence_no)
         zip_file = transformer.get_zip()
         logger.info("Transformation was a success, returning zip file")
-        return send_file(zip_file, mimetype='application/zip', add_etags=False)
+        return send_file(zip_file, mimetype='application/zip', etag=False)
 
     except MissingIdsException as e:
         return client_error(str(e))
