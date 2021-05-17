@@ -53,7 +53,7 @@ def server_error(error=None):
 @app.route('/cord/<sequence_no>', methods=['POST'])
 @app.route('/transform', methods=['POST'])
 @app.route('/transform/<sequence_no>', methods=['POST'])
-async def transform(sequence_no=1000):
+def transform(sequence_no=1000):
     survey_response = request.get_json(force=True)
     tx_id = survey_response.get("tx_id")
     bind_contextvars(app="sdx-transform")
