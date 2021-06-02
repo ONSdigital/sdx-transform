@@ -31,7 +31,7 @@ spec:
           httpGet:
             path: /healthcheck
             port: 5000
-          timeoutSeconds: 1
-          periodSeconds: 10
+          timeoutSeconds: 5
+          periodSeconds: 30
           failureThreshold: 3
       serviceAccountName: sdx-workload-identity
