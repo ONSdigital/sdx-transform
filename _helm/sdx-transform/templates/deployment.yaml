@@ -18,6 +18,13 @@ spec:
       - image: eu.gcr.io/{{ .Values.registry_location }}/sdx-transform:{{ .Chart.AppVersion }}
         imagePullPolicy: Always
         name: sdx-transform
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         ports:
         - containerPort: 5000
         livenessProbe:
