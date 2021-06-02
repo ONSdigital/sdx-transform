@@ -20,8 +20,8 @@ spec:
         name: sdx-transform
         resources:
           requests:
-            memory: "150Mi"
-            cpu: "500m"
+            memory: "300Mi"
+            cpu: "1000m"
           limits:
             memory: "600Mi"
             cpu: "2000m"
