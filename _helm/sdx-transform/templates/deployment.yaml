@@ -20,8 +20,8 @@ spec:
         name: sdx-transform
         resources:
           requests:
-            memory: "300Mi"
-            cpu: "1000m"
+            memory: "150Mi"
+            cpu: "500m"
           limits:
             memory: "600Mi"
             cpu: "2000m"
@@ -31,7 +31,6 @@ spec:
           httpGet:
             path: /healthcheck
             port: 5000
-          initialDelaySeconds: 30
           timeoutSeconds: 1
           periodSeconds: 10
           failureThreshold: 3

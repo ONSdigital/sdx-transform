@@ -9,4 +9,4 @@ spec:
     name: sdx-transform
   minReplicas: 1
   maxReplicas: 3
-  targetCPUUtilizationPercentage: 50
+  targetCPUUtilizationPercentage: 80
