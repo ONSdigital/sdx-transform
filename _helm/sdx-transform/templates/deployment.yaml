@@ -20,11 +20,11 @@ spec:
         name: sdx-transform
         resources:
           requests:
-            memory: "500Mi"
-            cpu: "700m"
+            memory: "512Mi"
+            cpu: "250m"
           limits:
-            memory: "1000Mi"
-            cpu: "1000m"
+            memory: "512Mi"
+            cpu: "250m"
         ports:
         - containerPort: 5000
         livenessProbe:
