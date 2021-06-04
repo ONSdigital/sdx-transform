@@ -1,5 +1,4 @@
 import requests
-from flask import Flask
 from fastapi import FastAPI
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry

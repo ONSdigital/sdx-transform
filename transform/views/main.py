@@ -20,9 +20,18 @@ class Survey(BaseModel):
     json_survey: str
 
 
+@app.post('/common-software')
+@app.post('/common-software/<sequence_no>')
+@app.post('/cora')
+@app.post('/cora/<sequence_no>')
+@app.post('/cord')
+@app.post('/cord/<sequence_no>')
+@app.post('/transform')
+@app.post('/transform/<sequence_no>')
 @app.post('/transform')
 async def transform(survey: Survey, sequence_no=1000):
     survey_response = json.loads(survey.json_survey)
+    print(survey_response)
     tx_id = survey_response.get("tx_id")
     bind_contextvars(app="sdx-transform")
     bind_contextvars(tx_id=tx_id)
@@ -34,6 +43,7 @@ async def transform(survey: Survey, sequence_no=1000):
     try:
         transformer = get_transformer(survey_response, sequence_no)
         zip_file = transformer.get_zip()
+        print('IM HERE')
         logger.info("Transformation was a success, returning zip file")
         # return send_file(zip_file, mimetype='application/zip', etag=False)
         response = FileResponse(zip_file, media_type='application/zip')
@@ -46,7 +56,6 @@ async def transform(survey: Survey, sequence_no=1000):
         return HTTPException(status_code=400, detail="Unsupported survey/instrument id")
 
     except Exception as e:
-        tx_id = survey_response.get("tx_id")
         survey_id = survey_response.get("survey_id")
         logger.exception("TRANSFORM:could not create files for survey", survey_id=survey_id, tx_id=tx_id)
         return HTTPException(status_code=500, detail=str(e))
