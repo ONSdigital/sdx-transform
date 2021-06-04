@@ -22,14 +22,16 @@ class Survey(BaseModel):
 
 @app.post('/transform')
 async def transform(survey: Survey):
-    survey_response = json.loads(survey.json_survey)
-    tx_id = survey_response["tx_id"]
+    survey_response = survey.json_survey
+    survey_dict = json.loads(survey_response)
+    tx_id = survey_dict.get("tx_id")
+    print(tx_id)
     bind_contextvars(app="sdx-transform")
     bind_contextvars(tx_id=tx_id)
     bind_contextvars(thread=threading.currentThread().getName())
 
     try:
-        transformer = get_transformer(survey_response)
+        transformer = get_transformer(survey_dict)
         zip_file = transformer.get_zip()
         logger.info("Transformation was a success, returning zip file")
         # return send_file(zip_file, mimetype='application/zip', etag=False)
@@ -43,7 +45,7 @@ async def transform(survey: Survey):
         return HTTPException(status_code=400, detail="Unsupported survey/instrument id")
 
     except Exception as e:
-        survey_id = survey_response.get("survey_id")
+        survey_id = survey_dict.get("survey_id")
         logger.exception("TRANSFORM:could not create files for survey", survey_id=survey_id, tx_id=tx_id)
         return HTTPException(status_code=500, detail=str(e))
 

@@ -5,7 +5,7 @@ from requests.packages.urllib3.util.retry import Retry
 
 from transform.logger import logging_config
 
-logging_config()
+logger_status = logging_config()
 
 app = FastAPI()
 
