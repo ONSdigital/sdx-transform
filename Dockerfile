@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM tiangolo/uvicorn-gunicorn:python3.8
 RUN apt-get update && apt-get install -y poppler-utils
 COPY . /app
 WORKDIR /app
