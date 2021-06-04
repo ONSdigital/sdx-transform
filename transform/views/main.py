@@ -23,7 +23,7 @@ class Survey(BaseModel):
 @app.post('/transform')
 async def transform(survey: Survey):
     survey_response = json.loads(survey.json_survey)
-    tx_id = survey_response.get("tx_id")
+    tx_id = survey_response["tx_id"]
     bind_contextvars(app="sdx-transform")
     bind_contextvars(tx_id=tx_id)
     bind_contextvars(thread=threading.currentThread().getName())
@@ -31,7 +31,6 @@ async def transform(survey: Survey):
     try:
         transformer = get_transformer(survey_response)
         zip_file = transformer.get_zip()
-        print('IM HERE')
         logger.info("Transformation was a success, returning zip file")
         # return send_file(zip_file, mimetype='application/zip', etag=False)
         response = FileResponse(zip_file, media_type='application/zip')
