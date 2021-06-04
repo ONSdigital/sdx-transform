@@ -20,14 +20,13 @@ class SurveyTransformer(ABC):
 
     """
 
-    def __init__(self, response, sequence_no):
+    def __init__(self, response):
         self.response = response
-        self.sequence_no = sequence_no
         self.logger = logger
-        self.ids = Survey.identifiers(response, seq_nr=sequence_no)
+        self.ids = Survey.identifiers(response)
         self.survey = Survey.load_survey(self.ids)
         self.image_transformer = ImageTransformer(self.logger, self.survey, self.response,
-                                                  sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
+                                                  base_image_path=SDX_FTP_IMAGE_PATH)
 
     @abstractmethod
     def create_pck(self):

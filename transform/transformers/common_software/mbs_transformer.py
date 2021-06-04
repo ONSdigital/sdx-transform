@@ -88,9 +88,9 @@ class MBSTransformer(SurveyTransformer):
             except ValueError:
                 return None
 
-    def __init__(self, response, seq_nr=0):
+    def __init__(self, response):
 
-        super().__init__(response, seq_nr)
+        super().__init__(response)
 
         self.employment_questions = ("51", "52", "53", "54")
         self.turnover_questions = ("49",)
@@ -119,7 +119,7 @@ class MBSTransformer(SurveyTransformer):
             "0873": "T873G",
         }
 
-    def get_identifiers(self, batch_nr=0, seq_nr=0):
+    def get_identifiers(self, batch_nr=0):
         """Parse common metadata from the survey.
 
         Return a named tuple which code can use to access the various ids and discriminators.
@@ -135,7 +135,6 @@ class MBSTransformer(SurveyTransformer):
         ts = datetime.datetime.now(datetime.timezone.utc)
         ids = {
             "batch_nr": batch_nr,
-            "seq_nr": seq_nr,
             "ts": ts,
             "tx_id": self.response.get("tx_id"),
             "survey_id": self.response.get("survey_id"),

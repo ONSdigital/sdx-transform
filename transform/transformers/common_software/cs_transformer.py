@@ -16,8 +16,8 @@ env = Environment(loader=PackageLoader('transform', 'templates'))
 
 class CSTransformer(SurveyTransformer):
 
-    def __init__(self, response, sequence_no=1000):
-        super().__init__(response, sequence_no)
+    def __init__(self, response):
+        super().__init__(response)
         self._logger = logger
         self._batch_number = False
         self._idbr = StringIO()

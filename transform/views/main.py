@@ -1,82 +1,56 @@
+import json
 import threading
-
 import structlog
-from flask import request, send_file, jsonify
+
 from jinja2 import Environment, PackageLoader
 from structlog.contextvars import bind_contextvars
-
+from fastapi import HTTPException
+from fastapi.responses import StreamingResponse, FileResponse
 from transform import app
 from transform.transformers.survey import MissingSurveyException, MissingIdsException
 from transform.transformers.transform_selector import get_transformer
+from pydantic import BaseModel
 
 env = Environment(loader=PackageLoader('transform', 'templates'))
 
 logger = structlog.get_logger()
 
 
-@app.errorhandler(400)
-def errorhandler_400(e):
-    return client_error(repr(e))
-
-
-def client_error(error=None):
-    logger.error("Client error", error=error)
-    message = {
-        'status': 400,
-        'message': error,
-        'uri': request.url,
-    }
-    resp = jsonify(message)
-    resp.status_code = 400
-
-    return resp
-
-
-@app.errorhandler(500)
-def server_error(error=None):
-    logger.error("Server error", error=repr(error))
-    message = {
-        'status': 500,
-        'message': "Internal server error: " + repr(error),
-    }
-    resp = jsonify(message)
-    resp.status_code = 500
-
-    return resp
+class Survey(BaseModel):
+    json_survey: str
 
 
 @app.post('/transform')
-def transform(sequence_no=1000):
-    survey_response = request.get_json(force=True)
+async def transform(survey: Survey):
+    survey_response = json.loads(survey.json_survey)
     tx_id = survey_response.get("tx_id")
     bind_contextvars(app="sdx-transform")
     bind_contextvars(tx_id=tx_id)
     bind_contextvars(thread=threading.currentThread().getName())
 
-    if sequence_no:
-        sequence_no = int(sequence_no)
-
     try:
-        transformer = get_transformer(survey_response, sequence_no)
+        transformer = get_transformer(survey_response)
         zip_file = transformer.get_zip()
+        print('IM HERE')
         logger.info("Transformation was a success, returning zip file")
-        return send_file(zip_file, mimetype='application/zip', etag=False)
+        # return send_file(zip_file, mimetype='application/zip', etag=False)
+        response = FileResponse(zip_file, media_type='application/zip')
+        return response
 
     except MissingIdsException as e:
-        return client_error(str(e))
+        return HTTPException(status_code=400, detail=str(e))
 
     except MissingSurveyException:
-        return client_error("Unsupported survey/instrument id")
+        return HTTPException(status_code=400, detail="Unsupported survey/instrument id")
 
     except Exception as e:
-        tx_id = survey_response.get("tx_id")
         survey_id = survey_response.get("survey_id")
         logger.exception("TRANSFORM:could not create files for survey", survey_id=survey_id, tx_id=tx_id)
-        return server_error(e)
+        return HTTPException(status_code=500, detail=str(e))
 
 
 @app.get('/info')
 @app.get('/healthcheck')
-def healthcheck():
+async def healthcheck():
     """A simple endpoint that reports the health of the application"""
-    return jsonify({'status': 'OK'})
+    return {'status': 'OK'}

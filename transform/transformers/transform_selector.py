@@ -7,7 +7,7 @@ from transform.transformers.cord import Ecommerce2019Transformer, EcommerceTrans
 from transform.transformers.survey import MissingIdsException
 
 
-def get_transformer(response, sequence_no=1000):
+def get_transformer(response):
     """Returns the appropriate survey transformer based on survey_id
 
     :param dict response: A dictionary like object representing the survey response
@@ -22,27 +22,27 @@ def get_transformer(response, sequence_no=1000):
 
     # CORA
     if survey_id == "144":
-        transformer = UKISTransformer(response, sequence_no)
+        transformer = UKISTransformer(response)
     elif survey_id == "092":
-        transformer = MESTransformer(response, sequence_no)
+        transformer = MESTransformer(response)
 
     # CORD
     elif survey_id == "187":
         if response['collection']['instrument_id'] in ['0001', '0002']:
-            transformer = Ecommerce2019Transformer(response, sequence_no)
+            transformer = Ecommerce2019Transformer(response)
         else:
-            transformer = EcommerceTransformer(response, sequence_no)
+            transformer = EcommerceTransformer(response)
 
     # COMMON SOFTWARE
     elif survey_id == "007":
-        transformer = LCTransformer(response, sequence_no)
+        transformer = LCTransformer(response)
     elif survey_id == "009":
-        transformer = MBSTransformer(response, sequence_no)
+        transformer = MBSTransformer(response)
     elif survey_id == "134":
-        transformer = MWSSTransformer(response, sequence_no)
+        transformer = MWSSTransformer(response)
     elif survey_id == "147":
-        transformer = EPETransformer(response, sequence_no)
+        transformer = EPETransformer(response)
     else:
-        transformer = CSTransformer(response, sequence_no)
+        transformer = CSTransformer(response)
 
     return transformer
