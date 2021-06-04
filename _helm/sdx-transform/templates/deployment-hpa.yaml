@@ -8,5 +8,5 @@ spec:
     kind: Deployment
     name: sdx-transform
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 5
   targetCPUUtilizationPercentage: 50
