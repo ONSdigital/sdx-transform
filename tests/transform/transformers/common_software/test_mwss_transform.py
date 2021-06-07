@@ -874,7 +874,7 @@ class BatchFileTests(unittest.TestCase):
                 "user_id": "123456789",
                 "ru_ref": "12345678901A"
             }
-        }, batch_nr=0, seq_nr=0)
+        }, batch_nr=0)
         return_value = Survey.load_survey(ids, MWSSTransformer.pattern)
         self.assertIsNotNone(return_value)
 
@@ -894,7 +894,7 @@ class BatchFileTests(unittest.TestCase):
                 "user_id": "123456789",
                 "ru_ref": "12345678901A"
             }
-        }, batch_nr=0, seq_nr=0)
+        }, batch_nr=0)
 
         with pytest.raises(MissingSurveyException):
             Survey.load_survey(ids, MWSSTransformer.pattern)
@@ -932,7 +932,7 @@ class BatchFileTests(unittest.TestCase):
         reply = json.loads(f.read())
         f.close()
         reply["tx_id"] = "27923934-62de-475c-bc01-433c09fd38b8"
-        ids = Survey.identifiers(reply, batch_nr=3866, seq_nr=0)
+        ids = Survey.identifiers(reply, batch_nr=3866)
         id_dict = ids._asdict()
 
         return_value = CSFormatter._idbr_receipt(id_dict["survey_id"], id_dict["ru_ref"], id_dict["ru_check"],
@@ -949,10 +949,9 @@ class BatchFileTests(unittest.TestCase):
         f.close()
         reply["tx_id"] = "27923934-62de-475c-bc01-433c09fd38b8"
         reply["collection"]["period"] = "200911"
-        ids = Survey.identifiers(reply, batch_nr=0, seq_nr=0)
+        ids = Survey.identifiers(reply, batch_nr=0)
         self.assertIsInstance(ids, Survey.Identifiers)
         self.assertEqual(0, ids.batch_nr)
-        self.assertEqual(0, ids.seq_nr)
         self.assertEqual(reply["tx_id"], ids.tx_id)
         self.assertEqual(datetime.date.today(), ids.ts.date())
         self.assertEqual("134", ids.survey_id)
@@ -978,7 +977,7 @@ class BatchFileTests(unittest.TestCase):
             ("0140", 124),
             ("0151", 217222)
         ])
-        ids = Survey.identifiers(reply, batch_nr=3866, seq_nr=0)
+        ids = Survey.identifiers(reply, batch_nr=3866)
         id_dict = ids._asdict()
         return_value = CSFormatter._pck_lines(reply["data"], id_dict["inst_id"], id_dict["ru_ref"], id_dict["ru_check"],
                                               id_dict["period"])
@@ -1002,7 +1001,7 @@ class BatchFileTests(unittest.TestCase):
         reply["survey_id"] = "134"
         reply["collection"]["period"] = "200911"
         reply["metadata"]["ru_ref"] = "49900001225C"
-        ids = Survey.identifiers(reply, batch_nr=3866, seq_nr=0)
+        ids = Survey.identifiers(reply, batch_nr=3866)
         data = MWSSTransformer.transform(
             OrderedDict([
                 ("40", 2),
@@ -1036,7 +1035,6 @@ class PackingTests(unittest.TestCase):
             MissingIdsException,
             MWSSTransformer,
             {},
-            seq_nr=0
         )
 
     def test_original_response_is_stored(self):
@@ -1055,9 +1053,8 @@ class PackingTests(unittest.TestCase):
             "submitted_at": "2017-04-12T13:01:26Z",
             "data": {"something": "some data", "something else": "some other data"}
         }
-        seq_nr = 12345
 
-        transformer = get_transformer(expected_json_data, sequence_no=seq_nr)
+        transformer = get_transformer(expected_json_data)
         result = transformer.get_zip(img_seq=itertools.count())
 
         z = zipfile.ZipFile(result)

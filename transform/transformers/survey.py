@@ -24,7 +24,7 @@ class Survey:
 
     #: A named tuple type to capture ids and discriminators from a survey response.
     Identifiers = namedtuple("Identifiers", [
-        "batch_nr", "seq_nr", "ts", "tx_id", "survey_id", "inst_id",
+        "batch_nr", "ts", "tx_id", "survey_id", "inst_id",
         "user_ts", "user_id", "ru_ref", "ru_check", "period"
     ])
 
@@ -128,14 +128,13 @@ class Survey:
             return None
 
     @staticmethod
-    def identifiers(data, batch_nr=0, seq_nr=0, log=None):
+    def identifiers(data, batch_nr=0, log=None):
         """Parse common metadata from the survey.
 
         Return a named tuple which code can use to access the various ids and discriminators.
 
         :param dict data:   A survey reply.
         :param int batch_nr: A batch number for the reply.
-        :param int seq_nr: An image sequence number for the reply.
 
         """
         log = log or logging.getLogger(__name__)
@@ -143,7 +142,6 @@ class Survey:
         ts = datetime.datetime.now(datetime.timezone.utc)
         rv = Survey.Identifiers(
             batch_nr,
-            seq_nr,
             ts,
             data.get("tx_id"),
             data.get("survey_id"),

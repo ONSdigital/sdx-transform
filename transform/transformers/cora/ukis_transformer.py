@@ -12,8 +12,8 @@ logger = structlog.get_logger()
 class UKISTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the UKIS survey."""
 
-    def __init__(self, response, seq_nr=0):
-        super().__init__(response, seq_nr)
+    def __init__(self, response):
+        super().__init__(response)
 
     def get_qcode(self, qcode, lowercase=False, not_found_value=None):
         """ Return the value of a qcode from the 'data' key of the response.

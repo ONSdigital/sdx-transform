@@ -83,10 +83,10 @@ class MWSSTransformer(SurveyTransformer):
 
     pattern = "./transform/surveys/{survey_id}.{inst_id}.json"
 
-    def __init__(self, response, seq_nr=0, log=None):
+    def __init__(self, response):
         """Create a transformer object to process a survey response."""
 
-        super().__init__(response, seq_nr)
+        super().__init__(response)
 
         # Enforce that child classes have defn and pattern attributes
         for attr in ("defn", "pattern"):

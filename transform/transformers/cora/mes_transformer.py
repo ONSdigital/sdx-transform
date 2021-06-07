@@ -209,8 +209,8 @@ class MESTransformer(SurveyTransformer):
     instance = '00000'
     page = '1'
 
-    def __init__(self, response, seq_nr=0):
-        super().__init__(response, seq_nr)
+    def __init__(self, response):
+        super().__init__(response)
 
     def transform(self):
         result = {

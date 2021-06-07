@@ -125,7 +125,6 @@ class MBSTransformer(SurveyTransformer):
         Return a named tuple which code can use to access the various ids and discriminators.
 
         :param int batch_nr: A batch number for the reply.
-        :param int seq_nr: An image sequence number for the reply.
 
         """
 

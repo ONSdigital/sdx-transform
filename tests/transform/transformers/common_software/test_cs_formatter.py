@@ -68,7 +68,6 @@ class BatchFileTests(unittest.TestCase):
         ids = Survey.identifiers(self.reply)
         self.assertIsInstance(ids, Survey.Identifiers)
         self.assertEqual(0, ids.batch_nr)
-        self.assertEqual(0, ids.seq_nr)
         self.assertEqual(self.reply["tx_id"], ids.tx_id)
         self.assertEqual(datetime.date.today(), ids.ts.date())
         self.assertEqual("134", ids.survey_id)

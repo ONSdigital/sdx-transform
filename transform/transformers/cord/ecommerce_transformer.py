@@ -19,9 +19,9 @@ class EcommerceTransformer(SurveyTransformer):
     YYYY period used only for creating the pck
     """
 
-    def __init__(self, response, seq_nr=0):
+    def __init__(self, response):
 
-        super().__init__(response, seq_nr)
+        super().__init__(response)
 
         period = response['collection']['period']
         if len(period) == 4:
