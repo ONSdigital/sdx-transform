@@ -21,7 +21,7 @@ class Survey(BaseModel):
 
 
 @app.post('/transform')
-async def transform(survey: Survey):
+def transform(survey: Survey):
     survey_response = survey.json_survey
     survey_dict = json.loads(survey_response)
     tx_id = survey_dict.get("tx_id")
