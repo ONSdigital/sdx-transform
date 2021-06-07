@@ -25,7 +25,6 @@ async def transform(survey: Survey):
     survey_response = survey.json_survey
     survey_dict = json.loads(survey_response)
     tx_id = survey_dict.get("tx_id")
-    print(tx_id)
     bind_contextvars(app="sdx-transform")
     bind_contextvars(tx_id=tx_id)
     bind_contextvars(thread=threading.currentThread().getName())
@@ -35,7 +34,7 @@ async def transform(survey: Survey):
         zip_file = transformer.get_zip()
         logger.info("Transformation was a success, returning zip file")
         # return send_file(zip_file, mimetype='application/zip', etag=False)
-        response = FileResponse(zip_file, media_type="application/x-zip-compressed")
+        response = FileResponse(zip_file, media_type='application/zip')
         return response
 
     except MissingIdsException as e:
