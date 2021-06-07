@@ -5,7 +5,7 @@ import structlog
 from jinja2 import Environment, PackageLoader
 from structlog.contextvars import bind_contextvars
 from fastapi import HTTPException
-from fastapi.responses import StreamingResponse, FileResponse
+from fastapi.responses import StreamingResponse
 from transform import app
 from transform.transformers.survey import MissingSurveyException, MissingIdsException
 from transform.transformers.transform_selector import get_transformer
@@ -33,7 +33,6 @@ async def transform(survey: Survey):
         transformer = get_transformer(survey_dict)
         zip_file = transformer.get_zip()
         logger.info("Transformation was a success, returning zip file")
-        # return send_file(zip_file, mimetype='application/zip', etag=False)
         response = StreamingResponse(zip_file, media_type='application/zip')
         return response
 
