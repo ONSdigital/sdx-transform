@@ -40,4 +40,4 @@ def logging_config():
             structlog.processors.JSONRenderer(),
         ],
     )
-    return "Logger Loaded"
+    return True
