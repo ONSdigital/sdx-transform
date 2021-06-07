@@ -35,7 +35,7 @@ async def transform(survey: Survey):
         zip_file = transformer.get_zip()
         logger.info("Transformation was a success, returning zip file")
         # return send_file(zip_file, mimetype='application/zip', etag=False)
-        response = StreamingResponse(zip_file, media_type="application/x-zip-compressed")
+        response = FileResponse(zip_file, media_type="application/x-zip-compressed")
         return response
 
     except MissingIdsException as e:
