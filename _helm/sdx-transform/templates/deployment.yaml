@@ -18,6 +18,13 @@ spec:
       - image: eu.gcr.io/{{ .Values.registry_location }}/sdx-transform:{{ .Chart.AppVersion }}
         imagePullPolicy: Always
         name: sdx-transform
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
         ports:
         - containerPort: 5000
         livenessProbe:
@@ -25,7 +32,7 @@ spec:
             path: /healthcheck
             port: 5000
           initialDelaySeconds: 30
-          timeoutSeconds: 1
-          periodSeconds: 10
+          timeoutSeconds: 10
+          periodSeconds: 30
           failureThreshold: 3
       serviceAccountName: sdx-workload-identity
