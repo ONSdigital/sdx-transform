@@ -23,15 +23,16 @@ spec:
             memory: "512Mi"
             cpu: "250m"
           limits:
-            memory: "1000Mi"
-            cpu: "1000m"
+            memory: "512Mi"
+            cpu: "250m"
         ports:
         - containerPort: 5000
         livenessProbe:
           httpGet:
             path: /healthcheck
             port: 5000
-          timeoutSeconds: 5
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
           periodSeconds: 30
           failureThreshold: 3
       serviceAccountName: sdx-workload-identity
