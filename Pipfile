@@ -20,6 +20,7 @@ fastapi = "0.63.0"
 uvloop = "==0.15.2"
 httptools = "==0.2.0"
 aiofiles = "==0.7.0"
+flask = "==2.0.1"
 
 [dev-packages]
 flake8 = "==3.8.1"
