@@ -3,17 +3,17 @@ class Formatter:
 
     @staticmethod
     def response_json_name(survey_id, tx_id):
-        return "{0}_{1}.json".format(survey_id, Formatter._get_tx_code(tx_id))
+        return "{0}_{1}_GCP.json".format(survey_id, Formatter._get_tx_code(tx_id))
 
     @staticmethod
     def idbr_name(user_ts, tx_id):
         """Generate the name of an IDBR file."""
-        return "REC{0}_{1}.DAT".format(user_ts.strftime("%d%m"), Formatter._get_tx_code(tx_id))
+        return "REC{0}_{1}_GCP.DAT".format(user_ts.strftime("%d%m"), Formatter._get_tx_code(tx_id))
 
     @staticmethod
     def pck_name(survey_id, tx_id):
         """Generate the name of a PCK file."""
-        return f"{survey_id}_{Formatter._get_tx_code(tx_id)}"
+        return f"{survey_id}_{Formatter._get_tx_code(tx_id)}_GCP"
 
     @staticmethod
     def get_idbr(survey_id, ru_ref, ru_check, period):
@@ -29,12 +29,12 @@ class Formatter:
 
     @staticmethod
     def get_image_name(tx_id: str, i: int):
-        return f"S{Formatter._get_tx_code(tx_id)}_{i}.JPG"
+        return f"S{Formatter._get_tx_code(tx_id)}_{i}_GCP.JPG"
 
     @staticmethod
     def get_index_name(survey_id: str, submission_date: str, tx_id: str):
         tx_code = Formatter._get_tx_code(tx_id)
-        return "EDC_{0}_{1}_{2}.csv".format(survey_id, submission_date, tx_code)
+        return "EDC_{0}_{1}_{2}_GCP.csv".format(survey_id, submission_date, tx_code)
 
     @staticmethod
     def _get_tx_code(tx_id: str):
