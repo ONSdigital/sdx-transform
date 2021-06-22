@@ -179,23 +179,23 @@ class TestTransformerUnits:
         actual = transformer.image_transformer.zip.get_filenames()
 
         expected = [
-            'EDC_QData/144_16328a9912994f09',
-            'EDC_QReceipts/REC1501_16328a9912994f09.DAT',
-            'EDC_QImages/Images/S16328a9912994f09_1.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_2.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_3.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_4.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_5.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_6.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_7.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_8.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_9.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_10.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_11.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_12.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_13.JPG',
-            'EDC_QImages/Images/S16328a9912994f09_14.JPG',
-            'EDC_QImages/Index/EDC_144_20210115_16328a9912994f09.csv',
-            'EDC_QJson/144_16328a9912994f09.json'
+            'EDC_QData/144_16328a9912994f09_GCP',
+            'EDC_QReceipts/REC1501_16328a9912994f09_GCP.DAT',
+            'EDC_QImages/Images/S16328a9912994f09_1_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_2_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_3_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_4_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_5_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_6_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_7_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_8_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_9_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_10_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_11_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_12_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_13_GCP.JPG',
+            'EDC_QImages/Images/S16328a9912994f09_14_GCP.JPG',
+            'EDC_QImages/Index/EDC_144_20210115_16328a9912994f09_GCP.csv',
+            'EDC_QJson/144_16328a9912994f09_GCP.json'
         ]
         assert expected == actual

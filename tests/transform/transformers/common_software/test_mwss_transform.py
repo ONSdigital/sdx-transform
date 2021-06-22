@@ -1061,7 +1061,7 @@ class PackingTests(unittest.TestCase):
         result = transformer.get_zip(img_seq=itertools.count())
 
         z = zipfile.ZipFile(result)
-        zfile = z.open('EDC_QJson/134_2792393462de475c.json', 'r')
+        zfile = z.open('EDC_QJson/134_2792393462de475c_GCP.json', 'r')
         actual_json_data = json.loads(zfile.read().decode('utf-8'))
         z.close()
 
