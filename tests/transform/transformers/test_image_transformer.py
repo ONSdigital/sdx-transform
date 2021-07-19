@@ -1,3 +1,5 @@
+import datetime
+import itertools
 import json
 import logging
 import time
@@ -21,17 +23,17 @@ class ImageTransformTests(unittest.TestCase):
             self.check = fb.read()
         self.log = wrap_logger(logging.getLogger(__name__))
 
-    # def test_image_index(self):
-    #
-    #     # Create page images from PDF
-    #     img_tfr = ImageTransformer(self.log, self.survey, self.reply, current_time=datetime.datetime(2017, 3, 7, 9, 45, 4))
-    #
-    #     img_tfr.get_zipped_images(itertools.count())
-    #
-    #     with img_tfr.index_file.in_memory_index as f:
-    #         csv = f.read()
-    #
-    #     self.assertEqual(self.check.splitlines(), csv.splitlines())
+    def test_image_index(self):
+
+        # Create page images from PDF
+        img_tfr = ImageTransformer(self.log, self.survey, self.reply, current_time=datetime.datetime(2017, 3, 7, 9, 45, 4))
+
+        img_tfr.get_zipped_images(itertools.count())
+
+        with img_tfr.index_file.in_memory_index as f:
+            csv = f.read()
+
+        self.assertEqual(self.check.splitlines(), csv.splitlines())
 
     def test_current_time_not_set_at_initialisation(self):
 

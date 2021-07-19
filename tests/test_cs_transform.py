@@ -97,12 +97,12 @@ class TestCSTransformService(unittest.TestCase):
 
         # Check that all expected contents are listed in the zip
         expected = [
-            'EDC_QData/023_897fbe8cfa674406_GCP',
-            'EDC_QReceipts/REC1203_897fbe8cfa674406_GCP.DAT',
-            'EDC_QImages/Images/S897fbe8cfa674406_1_GCP.JPG',
-            'EDC_QImages/Images/S897fbe8cfa674406_2_GCP.JPG',
-            'EDC_QImages/Index/EDC_023_20160312_897fbe8cfa674406_GCP.csv',
-            'EDC_QJson/023_897fbe8cfa674406_GCP.json'
+            'EDC_QData/023_897fbe8cfa674406',
+            'EDC_QReceipts/REC1203_897fbe8cfa674406.DAT',
+            'EDC_QImages/Images/S897fbe8cfa674406_1.JPG',
+            'EDC_QImages/Images/S897fbe8cfa674406_2.JPG',
+            'EDC_QImages/Index/EDC_023_20160312_897fbe8cfa674406.csv',
+            'EDC_QJson/023_897fbe8cfa674406.json'
         ]
 
         self.assertEqual(expected, ziplist)
@@ -116,11 +116,11 @@ class TestCSTransformService(unittest.TestCase):
 
         # Check that all expected contents are listed in the zip
         expected = [
-            'EDC_QData/181_897fbe8cfa674406_GCP',
-            'EDC_QReceipts/REC0501_897fbe8cfa674406_GCP.DAT',
-            'EDC_QImages/Images/S897fbe8cfa674406_1_GCP.JPG',
-            'EDC_QImages/Index/EDC_182_20200105_897fbe8cfa674406_GCP.csv',
-            'EDC_QJson/182_897fbe8cfa674406_GCP.json'
+            'EDC_QData/181_897fbe8cfa674406',
+            'EDC_QReceipts/REC0501_897fbe8cfa674406.DAT',
+            'EDC_QImages/Images/S897fbe8cfa674406_1.JPG',
+            'EDC_QImages/Index/EDC_182_20200105_897fbe8cfa674406.csv',
+            'EDC_QJson/182_897fbe8cfa674406.json'
         ]
 
         self.assertEqual(expected, ziplist)
@@ -131,12 +131,12 @@ class TestCSTransformService(unittest.TestCase):
 
         # Check that all expected contents are listed in the zip
         expected = [
-            'EDC_QData/023_897fbe8cfa674406_GCP',
-            'EDC_QReceipts/REC1203_897fbe8cfa674406_GCP.DAT',
-            'EDC_QImages/Images/S897fbe8cfa674406_1_GCP.JPG',
-            'EDC_QImages/Images/S897fbe8cfa674406_2_GCP.JPG',
-            'EDC_QImages/Index/EDC_023_20160312_897fbe8cfa674406_GCP.csv',
-            'EDC_QJson/023_897fbe8cfa674406_GCP.json'
+            'EDC_QData/023_897fbe8cfa674406',
+            'EDC_QReceipts/REC1203_897fbe8cfa674406.DAT',
+            'EDC_QImages/Images/S897fbe8cfa674406_1.JPG',
+            'EDC_QImages/Images/S897fbe8cfa674406_2.JPG',
+            'EDC_QImages/Index/EDC_023_20160312_897fbe8cfa674406.csv',
+            'EDC_QJson/023_897fbe8cfa674406.json'
         ]
 
         self.assertEqual(expected, ziplist)
@@ -145,12 +145,12 @@ class TestCSTransformService(unittest.TestCase):
 
         # Check that all expected contents are listed in the zip
         expected = [
-            'EDC_QData/023_897fbe8cfa674406_GCP',
-            'EDC_QReceipts/REC1203_897fbe8cfa674406_GCP.DAT',
-            'EDC_QImages/Images/S897fbe8cfa674406_1_GCP.JPG',
-            'EDC_QImages/Images/S897fbe8cfa674406_2_GCP.JPG',
-            'EDC_QImages/Index/EDC_023_20160312_897fbe8cfa674406_GCP.csv',
-            'EDC_QJson/023_897fbe8cfa674406_GCP.json'
+            'EDC_QData/023_897fbe8cfa674406',
+            'EDC_QReceipts/REC1203_897fbe8cfa674406.DAT',
+            'EDC_QImages/Images/S897fbe8cfa674406_1.JPG',
+            'EDC_QImages/Images/S897fbe8cfa674406_2.JPG',
+            'EDC_QImages/Index/EDC_023_20160312_897fbe8cfa674406.csv',
+            'EDC_QJson/023_897fbe8cfa674406.json'
         ]
 
         self.assertEqual(expected, ziplist)
@@ -162,7 +162,7 @@ class TestCSTransformService(unittest.TestCase):
         zip_contents = self.get_zip_file_contents(self.transform_cs_endpoint + "/2345")
 
         z = zipfile.ZipFile(zip_contents)
-        zfile = z.open('EDC_QJson/023_897fbe8cfa674406_GCP.json', 'r')
+        zfile = z.open('EDC_QJson/023_897fbe8cfa674406.json', 'r')
         actual_json_data = json.loads(zfile.read().decode('utf-8'))
 
         self.assertEqual(actual_json_data, expected_json_data)

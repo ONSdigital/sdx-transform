@@ -489,12 +489,12 @@ class TestTransform(unittest.TestCase):
         actual = transformer.image_transformer.zip.get_filenames()
 
         expected = [
-            'EDC_QData/009_40e659ec013f4993_GCP',
-            'EDC_QReceipts/REC0103_40e659ec013f4993_GCP.DAT',
-            'EDC_QImages/Images/S40e659ec013f4993_1_GCP.JPG',
-            'EDC_QImages/Images/S40e659ec013f4993_2_GCP.JPG',
-            'EDC_QImages/Index/EDC_009_20170301_40e659ec013f4993_GCP.csv',
-            'EDC_QJson/009_40e659ec013f4993_GCP.json'
+            'EDC_QData/009_40e659ec013f4993',
+            'EDC_QReceipts/REC0103_40e659ec013f4993.DAT',
+            'EDC_QImages/Images/S40e659ec013f4993_1.JPG',
+            'EDC_QImages/Images/S40e659ec013f4993_2.JPG',
+            'EDC_QImages/Index/EDC_009_20170301_40e659ec013f4993.csv',
+            'EDC_QJson/009_40e659ec013f4993.json'
         ]
         self.assertEqual(expected, actual)
 

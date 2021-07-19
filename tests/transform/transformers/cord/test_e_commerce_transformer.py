@@ -313,17 +313,17 @@ class TestTransformerUnits:
         actual = transformer.image_transformer.zip.get_filenames()
 
         expected = [
-            'EDC_QData/187_40e659ec013f4888_GCP',
-            'EDC_QReceipts/REC0103_40e659ec013f4888_GCP.DAT',
-            'EDC_QImages/Images/S40e659ec013f4888_1_GCP.JPG',
-            'EDC_QImages/Images/S40e659ec013f4888_2_GCP.JPG',
-            'EDC_QImages/Images/S40e659ec013f4888_3_GCP.JPG',
-            'EDC_QImages/Images/S40e659ec013f4888_4_GCP.JPG',
-            'EDC_QImages/Images/S40e659ec013f4888_5_GCP.JPG',
-            'EDC_QImages/Images/S40e659ec013f4888_6_GCP.JPG',
-            'EDC_QImages/Images/S40e659ec013f4888_7_GCP.JPG',
-            'EDC_QImages/Images/S40e659ec013f4888_8_GCP.JPG',
-            'EDC_QImages/Index/EDC_187_20170301_40e659ec013f4888_GCP.csv',
-            'EDC_QJson/187_40e659ec013f4888_GCP.json'
+            'EDC_QData/187_40e659ec013f4888',
+            'EDC_QReceipts/REC0103_40e659ec013f4888.DAT',
+            'EDC_QImages/Images/S40e659ec013f4888_1.JPG',
+            'EDC_QImages/Images/S40e659ec013f4888_2.JPG',
+            'EDC_QImages/Images/S40e659ec013f4888_3.JPG',
+            'EDC_QImages/Images/S40e659ec013f4888_4.JPG',
+            'EDC_QImages/Images/S40e659ec013f4888_5.JPG',
+            'EDC_QImages/Images/S40e659ec013f4888_6.JPG',
+            'EDC_QImages/Images/S40e659ec013f4888_7.JPG',
+            'EDC_QImages/Images/S40e659ec013f4888_8.JPG',
+            'EDC_QImages/Index/EDC_187_20170301_40e659ec013f4888.csv',
+            'EDC_QJson/187_40e659ec013f4888.json'
         ]
         assert expected == actual
