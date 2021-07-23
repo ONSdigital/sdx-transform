@@ -45,12 +45,6 @@ def server_error(error=None):
     return resp
 
 
-@app.post('/common-software')
-@app.post('/common-software/<sequence_no>')
-@app.post('/cora')
-@app.post('/cora/<sequence_no>')
-@app.post('/cord')
-@app.post('/cord/<sequence_no>')
 @app.post('/transform')
 @app.post('/transform/<sequence_no>')
 def transform(sequence_no=1000):

@@ -8,7 +8,7 @@ from transform import app
 
 class TestCSTransformService(unittest.TestCase):
 
-    transform_cs_endpoint = "/common-software"
+    transform_cs_endpoint = "/transform"
     test_message = '''{
         "type": "uk.gov.ons.edc.eq:surveyresponse",
         "origin": "uk.gov.ons.edc.eq",
