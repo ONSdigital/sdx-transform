@@ -489,12 +489,12 @@ class PCKTransformer:
 
     def parse_yes_no_questions(self):
         """
-        For QSS (Stocks), the estimation question needs to be converted from Yes/No to 1/0.
+        For QSS (Stocks), the estimation question needs to be converted from Yes/No to 1/2.
         For Construction, some of the section questions need to be converted from Yes/No to 1/2.  The actual question
         text is much longer, but searching for 'Yes' is a good enough test.
         """
         if self.survey.get('survey_id') == self.qss_survey_id:
-            self.data['15'] = "1" if self.response["data"].get("15") == "Yes" else "0"
+            self.data['15'] = "1" if self.response["data"].get("15") == "Yes" else "2"
 
         if self.survey.get('survey_id') == self.construction_survey_id:
             self.data['901'] = "1" if self.data.get('901') and "Yes" in self.response["data"].get("901") else "2"
