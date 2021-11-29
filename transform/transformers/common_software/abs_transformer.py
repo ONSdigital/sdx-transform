@@ -26,12 +26,12 @@ def combine_sum(values: list):
     total = 0
     for v in values:
         total += float(v)
+    total = round_and_divide_by_one_thousand(total)
     return total
 
 
 def convert_period_data(value):
-    derived_date = datetime.strptime(value, "%d/%m/%Y")
-    return derived_date.strftime("%d%m%y")
+    return datetime.strptime(value, "%d/%m/%Y")
 
 
 # This dict defines how the transformation is done.  The key is the qcode, the value describes what transformation
@@ -41,8 +41,8 @@ transforms = {
     '11': 'period_data',
     '12': 'period_data',
     '399': 'nearest_thousand',
-    '80': {'Yes': '10', 'No': '1', None: '0'},
-    '81': {'0-9%': '10000', '10-24%': '1000', '25-49%': '100', '50-74%': '0100', '75-100%': '1', None: '0'},
+    '80': {'Yes': 10, 'No': 1, None: 0},
+    '81': {'0-9%': 10000, '10-24%': 1000, '25-49%': 100, '50-74%': 10, '75-100%': 1, None: 0},
     '450': 'nearest_thousand',
     '403': 'nearest_thousand',
     '420': 'nearest_thousand',
@@ -53,9 +53,9 @@ transforms = {
     '699': 'nearest_thousand',
     '163': 'nearest_thousand',
     '164': 'nearest_thousand',
-    '15': {'Yes': '10', 'No': '1', None: '0'},
-    '16': {'Yes': '10', 'No': '1', None: '0'},
-    '9': {'Yes': '10', 'No': '1', None: '0'},
+    '15': {'Yes': 10, 'No': 1, None: 0},
+    '16': {'Yes': 10, 'No': 1, None: 0},
+    '9': {'Yes': 10, 'No': 1, None: 0},
     '146': 'comment',
     '499': ['sum', '403', '420']
 }
@@ -86,17 +86,18 @@ class ABSTransformer(SurveyTransformer):
             if value is None:
                 if type(transformation) == dict:
                     transformed_value = transformation.get(value)
+
+                elif type(transformation) == list:
+                    if transformation[0] == 'sum':
+                        inputs = []
+                        for q in transformation[1:]:
+                            inputs.append(self._get_value(q))
+                        transformed_value = combine_sum(inputs)
                 else:
                     continue
 
             if type(transformation) == dict:
                 transformed_value = transformation.get(value)
-            elif type(transformation) == list:
-                if transformation[0] == 'sum':
-                    inputs = []
-                    for q in transformation[1:]:
-                        inputs.append(self._get_value(q))
-                    transformed_value = combine_sum(inputs)
             elif transformation == 'nearest_thousand':
                 transformed_value = round_and_divide_by_one_thousand(value)
             elif transformation == 'period_data':
