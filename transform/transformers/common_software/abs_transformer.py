@@ -1,10 +1,10 @@
 import decimal
+from datetime import datetime
 from decimal import Decimal, ROUND_HALF_UP
 
 import structlog
 
 from transform.transformers.common_software.cs_formatter import CSFormatter
-from transform.transformers.cora.cora_formatter import CORAFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
@@ -29,12 +29,17 @@ def combine_sum(values: list):
     return total
 
 
+def convert_period_data(value):
+    derived_date = datetime.strptime(value, "%d/%m/%Y")
+    return derived_date.strftime("%d%m%y")
+
+
 # This dict defines how the transformation is done.  The key is the qcode, the value describes what transformation
 # needs to be done on the value.  A dict for the value generally describes what to do with a radio button input and a
 # string describes all other inputs.
 transforms = {
-    '11': None,
-    '12': None,
+    '11': 'period_data',
+    '12': 'period_data',
     '399': 'nearest_thousand',
     '80': {'Yes': '10', 'No': '1', None: '0'},
     '81': {'0-9%': '10000', '10-24%': '1000', '25-49%': '100', '50-74%': '0100', '75-100%': '1', None: '0'},
@@ -94,6 +99,8 @@ class ABSTransformer(SurveyTransformer):
                     transformed_value = combine_sum(inputs)
             elif transformation == 'nearest_thousand':
                 transformed_value = round_and_divide_by_one_thousand(value)
+            elif transformation == 'period_data':
+                transformed_value = convert_period_data(value)
             elif transformation == 'comment':
                 transformed_value = '1' if value != "" else '2'
 
