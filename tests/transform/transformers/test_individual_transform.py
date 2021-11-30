@@ -21,7 +21,6 @@ def get_file_as_dict(filename):
 class TestIndividualSurveyTransformer(unittest.TestCase):
 
     def test_transform_pck(self):
-        pass
 
         filename = "./tests/pck/common_software/202.1802.json"
         expected_filename = "./tests/pck/common_software/202.1802.nobatch"

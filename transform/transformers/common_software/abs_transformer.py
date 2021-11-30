@@ -9,6 +9,8 @@ from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
 
+FORM_TYPE = '1802'
+
 
 def round_and_divide_by_one_thousand(value):
     """Rounding is done on a ROUND_HALF_UP basis and values are divided by 1000 for the pck"""
@@ -113,7 +115,7 @@ class ABSTransformer(SurveyTransformer):
         """Return a pck file using provided data"""
         pck = CSFormatter.get_pck(
             transformed_data,
-            self.ids.survey_id,
+            FORM_TYPE,
             self.ids.ru_ref,
             self.ids.ru_check,
             self.ids.period
