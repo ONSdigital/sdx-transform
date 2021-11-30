@@ -25,10 +25,11 @@ def round_and_divide_by_one_thousand(value):
 
 
 def combine_sum(values: list):
+    """Add the values in the list"""
     total = 0
     for v in values:
-        total += float(v)
-    total = round_and_divide_by_one_thousand(total)
+        if v is not None and v != '':
+            total += round_and_divide_by_one_thousand(v)
     return total
 
 
@@ -38,7 +39,7 @@ def convert_period_data(value):
 
 # This dict defines how the transformation is done.  The key is the qcode, the value describes what transformation
 # needs to be done on the value.  A dict for the value generally describes what to do with a radio button input and a
-# string describes all other inputs.
+# list indicates a function to call (at index 0) and the arguments to pass to that function.
 transforms = {
     '11': 'period_data',
     '12': 'period_data',
@@ -98,7 +99,7 @@ class ABSTransformer(SurveyTransformer):
                 else:
                     continue
 
-            if type(transformation) == dict:
+            elif type(transformation) == dict:
                 transformed_value = transformation.get(value)
             elif transformation == 'nearest_thousand':
                 transformed_value = round_and_divide_by_one_thousand(value)
