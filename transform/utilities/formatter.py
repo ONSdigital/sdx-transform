@@ -24,7 +24,11 @@ class Formatter:
     def _idbr_receipt(survey_id, ru_ref, ru_check, period):
         """Format a receipt in IDBR format."""
         # ensure the period is 6 digits
-        period = "20" + period if len(period) == 4 else period
+        if len(period) == 2:
+            period = "20" + period + "12"
+        elif len(period) == 4:
+            period = "20" + period
+
         return "{0}:{1}:{2:03}:{3}".format(ru_ref, ru_check, int(survey_id), period)
 
     @staticmethod

@@ -1,0 +1,166 @@
+{
+    "title": "Annual Business Survey",
+    "survey_id": "202",
+    "form_type": "1802",
+    "question_groups": [
+        {
+            "title": "Reporting Period",
+            "questions": [
+                {
+                    "text": "From",
+                    "question_id": "11",
+                    "number": "11",
+                    "type": "date"
+                },
+                {
+                    "text": "To",
+                    "question_id": "12",
+                    "number": "12",
+                    "type": "date"
+                }
+            ]
+        },
+        {
+            "title": "Income",
+            "questions": [
+                {
+                    "text": "What is the business' total turnover for the above period?",
+                    "question_id": "399",
+                    "number": "399",
+                    "type": "currency"
+                },
+                {
+                    "text": "Does your business produce goods or services that protect the environment?",
+                    "question_id": "80",
+                    "number": "80",
+                    "type": "radio"
+                },
+                {
+                    "text": "Of the total turnover, approximately what percentage related to the production of environmental goods or services?",
+                    "question_id": "81",
+                    "number": "81",
+                    "type": "radio"
+                }
+            ]
+        },
+        {
+            "title": "Expenditure",
+            "questions": [
+                {
+                    "text": "What was the business' expenditure on employment costs for the above period?",
+                    "question_id": "450",
+                    "number": "450",
+                    "type": "currency"
+                },
+                {
+                    "text": "What was the business' expenditure on goods and energy products bought for resale?",
+                    "question_id": "403",
+                    "number": "403",
+                    "type": "currency"
+                },
+                {
+                    "text": "What was the business' expenditure for all other materials, goods and services?",
+                    "question_id": "420",
+                    "number": "420",
+                    "type": "currency"
+                },
+                {
+                    "text": "What was the business' expenditure on rates, duties, levies and taxes paid to the government?",
+                    "question_id": "400",
+                    "number": "400",
+                    "type": "currency"
+                }
+            ]
+        },
+        {
+            "title": "Value of Stocks Held",
+            "questions": [
+                {
+                    "text": "What was the business' total value of all stocks held at the beginning of the period?",
+                    "question_id": "500",
+                    "number": "500",
+                    "type": "currency"
+                },
+                {
+                    "text": "What was the business' total value of all stocks held at the end of the period?",
+                    "question_id": "599",
+                    "number": "599",
+                    "type": "currency"
+                }
+            ]
+        },
+        {
+            "title": "Capital Assets",
+            "questions": [
+                {
+                    "text": "What was the business' total value of acquisitions?",
+                    "question_id": "600",
+                    "number": "600",
+                    "type": "currency"
+                },
+                {
+                    "text": "What was the business' total value of proceeds from disposals?",
+                    "question_id": "699",
+                    "number": "699",
+                    "type": "currency"
+                }
+            ]
+        },
+        {
+            "title": "ITIS",
+            "questions": [
+                {
+                    "text": "What was the total income from services provided to individuals, enterprises or other organisations?",
+                    "question_id": "163",
+                    "number": "163",
+                    "type": "currency"
+                },
+                {
+                    "text": "What was the total expenditure on services provided by individuals, enterprises or other organisations?",
+                    "question_id": "164",
+                    "number": "164",
+                    "type": "currency"
+                }
+            ]
+        },
+        {
+            "title": "ITIG",
+            "questions": [
+                {
+                    "text": "Did the business export goods to individuals, enterprises or other organisations based outside the UK?",
+                    "question_id": "15",
+                    "number": "15",
+                    "type": "radio"
+                },
+                {
+                    "text": "Did the business import goods from individuals, enterprises or other organisations based outside the UK?",
+                    "question_id": "16",
+                    "number": "16",
+                    "type": "radio"
+                }
+            ]
+        },
+        {
+            "title": "Research and Development",
+            "questions": [
+                {
+                    "text": "Did the business carry out any in-house Research and Development, or intend to do so in the next reporting period?",
+                    "question_id": "9",
+                    "number": "9",
+                    "type": "radio"
+                }
+            ]
+        },
+        {
+            "title": "Comments",
+            "questions": [
+                {
+                    "text": "Please provide any further details that will help us understand your figures and tell an industry story",
+                    "question_id": "146",
+                    "number": "146",
+                    "type": "contains"
+                }
+            ]
+        }
+    ]
+}
