@@ -6,6 +6,7 @@ import structlog
 
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
+from transform.utilities.formatter import Formatter
 
 logger = structlog.get_logger()
 
@@ -112,22 +113,55 @@ class ABSTransformer(SurveyTransformer):
 
         return result
 
-    def _create_pck(self, transformed_data):
+    def populate_period_data(self):
+        """If questions 11 or 12 don't appear in the survey data, then populate
+        them with the period start and end date found in the metadata
+        """
+        data = self.response['data']
+        if '11' not in data:
+            start_date = datetime.strptime(self.response['metadata']['ref_period_start_date'], "%Y-%m-%d")
+            data['11'] = start_date.strftime("%d/%m/%Y")
+        if '12' not in data:
+            end_date = datetime.strptime(self.response['metadata']['ref_period_end_date'], "%Y-%m-%d")
+            data['12'] = end_date.strftime("%d/%m/%Y")
+
+    def extract_year(self):
+        """Extract the reference period as YY from the metadata"""
+        start_date = datetime.strptime(self.response['metadata']['ref_period_start_date'], "%Y-%m-%d")
+        return start_date.strftime("%y")
+
+    def _format_pck(self, transformed_data):
         """Return a pck file using provided data"""
+        period = self.extract_year()
         pck = CSFormatter.get_pck(
             transformed_data,
             FORM_TYPE,
             self.ids.ru_ref,
             self.ids.ru_check,
-            self.ids.period
+            period
         )
         return pck
 
     def create_pck(self):
         bound_logger = logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
         bound_logger.info("Transforming data for processing")
+        self.populate_period_data()
         transformed_data = self.transform()
         bound_logger.info("Data successfully transformed")
         pck_name = CSFormatter.pck_name(self.ids.survey_id, self.ids.tx_id)
-        pck = self._create_pck(transformed_data)
+        pck = self._format_pck(transformed_data)
         return pck_name, pck
+
+    def create_receipt(self):
+        bound_logger = self.logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
+        bound_logger.info("Creating IDBR receipt")
+        idbr_name = Formatter.idbr_name(self.ids.user_ts, self.ids.tx_id)
+        period = self.extract_year()
+        idbr = Formatter.get_idbr(
+            self.ids.survey_id,
+            self.ids.ru_ref,
+            self.ids.ru_check,
+            period,
+        )
+        bound_logger.info("Successfully created IDBR receipt")
+        return idbr_name, idbr
