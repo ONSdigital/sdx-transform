@@ -68,6 +68,9 @@ transforms = {
 class ABSTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the ABS survey."""
 
+    # a dictionary mapping the instrument id to the sector id required downstream
+    inst_map = {'1802': '053'}
+
     def __init__(self, response, seq_nr=0):
         super().__init__(response, seq_nr)
 
@@ -148,7 +151,8 @@ class ABSTransformer(SurveyTransformer):
         self.populate_period_data()
         transformed_data = self.transform()
         bound_logger.info("Data successfully transformed")
-        pck_name = CSFormatter.pck_name(self.ids.survey_id, self.ids.tx_id)
+        sector_id = self.inst_map[self.ids.inst_id]
+        pck_name = CSFormatter.pck_name(sector_id, self.ids.tx_id)
         pck = self._format_pck(transformed_data)
         return pck_name, pck
 
