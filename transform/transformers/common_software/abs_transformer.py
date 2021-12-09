@@ -100,6 +100,10 @@ class ABSTransformer(SurveyTransformer):
                         for q in transformation[1:]:
                             inputs.append(self._get_value(q))
                         transformed_value = combine_sum(inputs)
+
+                elif transformation == 'comment':
+                    transformed_value = 2
+
                 else:
                     continue
 
@@ -110,7 +114,7 @@ class ABSTransformer(SurveyTransformer):
             elif transformation == 'period_data':
                 transformed_value = convert_period_data(value)
             elif transformation == 'comment':
-                transformed_value = '1' if value != "" else '2'
+                transformed_value = 1 if value != "" else 2
 
             result[q_code] = transformed_value
 
