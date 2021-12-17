@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from transform.transformers.common_software.abs_transformer import ABSTransformer
+from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
 from transform.transformers.common_software.cs_formatter import CSFormatter
 
 

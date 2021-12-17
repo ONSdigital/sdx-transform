@@ -4,13 +4,12 @@ from decimal import Decimal, ROUND_HALF_UP
 
 import structlog
 
+from transform.transformers.common_software.abs.abs_transforms import motor_trades, whole_sale
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 from transform.utilities.formatter import Formatter
 
 logger = structlog.get_logger()
-
-FORM_TYPE = '1802'
 
 
 def round_and_divide_by_one_thousand(value):
@@ -38,38 +37,15 @@ def convert_period_data(value):
     return datetime.strptime(value, "%d/%m/%Y")
 
 
-# This dict defines how the transformation is done.  The key is the qcode, the value describes what transformation
-# needs to be done on the value.  A dict for the value generally describes what to do with a radio button input and a
-# list indicates a function to call (at index 0) and the arguments to pass to that function.
-transforms = {
-    '11': 'period_data',
-    '12': 'period_data',
-    '399': 'nearest_thousand',
-    '80': {'Yes': 10, 'No': 1, None: 0},
-    '81': {'0-9%': 10000, '10-24%': 1000, '25-49%': 100, '50-74%': 10, '75-100%': 1, None: 0},
-    '450': 'nearest_thousand',
-    '403': 'nearest_thousand',
-    '420': 'nearest_thousand',
-    '400': 'nearest_thousand',
-    '500': 'nearest_thousand',
-    '599': 'nearest_thousand',
-    '600': 'nearest_thousand',
-    '699': 'nearest_thousand',
-    '163': 'nearest_thousand',
-    '164': 'nearest_thousand',
-    '15': {'Yes': 10, 'No': 1, None: 0},
-    '16': {'Yes': 10, 'No': 1, None: 0},
-    '9': {'Yes': 10, 'No': 1, None: 0},
-    '146': 'comment',
-    '499': ['sum', '403', '420']
-}
-
-
 class ABSTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the ABS survey."""
 
     # a dictionary mapping the instrument id to the sector id required downstream
     inst_map = {'1802': '053'}
+
+    # a dictionary mapping the instrument id to the required transformations
+    transformation_map = {'1802': motor_trades,
+                          '1804': whole_sale}
 
     def __init__(self, response, seq_nr=0):
         super().__init__(response, seq_nr)
@@ -85,7 +61,9 @@ class ABSTransformer(SurveyTransformer):
     def transform(self):
         result = {}
 
-        for q_code, transformation in transforms.items():
+        transformations = self.transformation_map.get(self.ids.inst_id)
+
+        for q_code, transformation in transformations.items():
 
             value = self._get_value(q_code)
             transformed_value = value
@@ -142,7 +120,7 @@ class ABSTransformer(SurveyTransformer):
         period = self.extract_year()
         pck = CSFormatter.get_pck(
             transformed_data,
-            FORM_TYPE,
+            self.ids.inst_id,
             self.ids.ru_ref,
             self.ids.ru_check,
             period
