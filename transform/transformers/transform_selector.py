@@ -1,5 +1,5 @@
 from transform.transformers.common_software import MBSTransformer, MWSSTransformer, CSTransformer
-from transform.transformers.common_software.abs_transformer import ABSTransformer
+from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
 from transform.transformers.common_software.epe_transformer import EPETransformer
 from transform.transformers.common_software.low_carbon_transformer import LCTransformer
 from transform.transformers.cora import UKISTransformer
