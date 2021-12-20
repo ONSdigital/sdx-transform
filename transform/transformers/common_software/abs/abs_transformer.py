@@ -41,7 +41,8 @@ class ABSTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the ABS survey."""
 
     # a dictionary mapping the instrument id to the sector id required downstream
-    inst_map = {'1802': '053'}
+    inst_map = {'1802': '053',
+                '1804': '051'}
 
     # a dictionary mapping the instrument id to the required transformations
     transformation_map = {'1802': motor_trades,

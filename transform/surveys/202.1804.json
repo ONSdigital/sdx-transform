@@ -1,7 +1,7 @@
 {
     "title": "Annual Business Survey",
     "survey_id": "202",
-    "form_type": "1802",
+    "form_type": "1804",
     "question_groups": [
         {
             "title": "Reporting Period",
@@ -30,6 +30,18 @@
                     "type": "currency"
                 },
                 {
+                    "text": "What was the business's turnover arising from the sale of goods purchased and resold without further processing?",
+                    "question_id": "311",
+                    "number": "311",
+                    "type": "currency"
+                },
+                {
+                    "text": "What was the business's turnover arising from all other sales of goods and services during the reporting period?",
+                    "question_id": "327",
+                    "number": "327",
+                    "type": "currency"
+                },
+                {
                     "text": "Does your business produce goods or services that protect the environment?",
                     "question_id": "80",
                     "number": "80",
@@ -53,7 +65,7 @@
                     "type": "currency"
                 },
                 {
-                    "text": "What was the business's expenditure on goods and energy products bought for resale?",
+                    "text": "What was the business's expenditure on goods bought for resale?",
                     "question_id": "403",
                     "number": "403",
                     "type": "currency"
@@ -68,6 +80,18 @@
                     "text": "What was the business's expenditure on rates, duties, levies and taxes paid to the government?",
                     "question_id": "400",
                     "number": "400",
+                    "type": "currency"
+                },
+                {
+                    "text": "What was the business's expenditure on HM Revenue and Customs duty during the reporting period?",
+                    "question_id": "415",
+                    "number": "415",
+                    "type": "currency"
+                },
+                {
+                    "text": "What was the business's total amount of excise drawback and allowances receivable from HM Revenue and Customs?",
+                    "question_id": "416",
+                    "number": "416",
                     "type": "currency"
                 }
             ]
