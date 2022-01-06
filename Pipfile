@@ -9,7 +9,6 @@ reportlab = "==3.5.42"
 structlog = "==20.1.0"
 arrow = "==0.15.6"
 six = "==1.14.0"
-gunicorn = "==20.0.4"
 requests = "==2.25.1"
 chardet = "==3.0.4"
 urllib3 = "==1.26.5"
@@ -17,6 +16,8 @@ idna = "==2.9"
 certifi = "==2020.4.5.1"
 Flask = "==2.0.0"
 pillow = "==8.3.2"
+waitress = "==2.0.0"
+
 
 [dev-packages]
 flake8 = "==3.8.1"
