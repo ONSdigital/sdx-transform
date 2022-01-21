@@ -1,0 +1,46 @@
+{
+  "case_id": "e4249973-7e7c-49ad-8652-d8f071365154",
+  "tx_id": "487dddd4-fcd0-4672-a7cf-e4a2d2dfbca2",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "0.0.1",
+  "origin": "uk.gov.ons.edc.eq",
+  "survey_id": "007",
+  "flushed": false,
+  "submitted_at": "2022-01-21T10:15:28+00:00",
+  "collection": {
+    "exercise_sid": "96888d51-c9b9-49c2-9413-b1e40e43a85b",
+    "schema_name": "lcree_0009",
+    "period": "201605",
+    "instrument_id": "0009"
+  },
+  "metadata": {
+    "user_id": "UNKNOWN",
+    "ru_ref": "12346789012A",
+    "ref_period_start_date": "2016-05-01",
+    "ref_period_end_date": "2016-05-31"
+  },
+  "launch_language_code": "en",
+  "data": {
+    "0010": "Yes, I can report for these dates",
+    "0201": "Offshore wind",
+    "0132": "1000",
+    "0134": "1000",
+    "0136": "1000",
+    "0138": "1000",
+    "0142": "1000",
+    "0144": "1000",
+    "0147": "1000",
+    "0148": "1000",
+    "0140": "1",
+    "0161": "Yes, this is correct",
+    "0150": "25",
+    "0153": "25",
+    "0151": "25",
+    "0152": "25",
+    "0063": "No",
+    "0060": "EQ to SDX Testing"
+  },
+  "form_type": "0009",
+  "started_at": "2022-01-21T10:13:11.570441+00:00",
+  "submission_language_code": "en"
+}
