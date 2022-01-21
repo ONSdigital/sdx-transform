@@ -105,6 +105,11 @@ class Survey:
             pass
 
         try:
+            return cls.strptime(text, "%Y-%m-%dT%H:%M:%S%z")
+        except ValueError:
+            pass
+
+        try:
             return cls.strptime(text.partition(".")[0], "%Y-%m-%dT%H:%M:%S")
         except ValueError:
             pass
