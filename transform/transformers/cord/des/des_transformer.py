@@ -22,6 +22,21 @@ def round_and_divide_by_one_thousand(value):
         return ''
 
 
+def checkbox(value, ticked, unticked):
+    if value is None or value == "":
+        return unticked
+    return ticked
+
+
+def radio_button(value, mapping: dict):
+    if value is None or value == "":
+        return None
+    for k, v in mapping.items():
+        if k.startswith(value):
+            return v
+    return None
+
+
 class DESTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the DES survey."""
 
@@ -47,21 +62,10 @@ class DESTransformer(SurveyTransformer):
         for q_code, transformation in transformations.items():
 
             value = self._get_value(q_code)
-            transformed_value = value
 
-            if value is None:
-                if type(transformation) == dict:
-                    transformed_value = transformation.get(value)
-
-                elif transformation == 'comment':
-                    transformed_value = 2
-
-                else:
-                    continue
-
-            elif type(transformation) == dict:
-                transformed_value = transformation.get(value)
-            elif transformation == 'nearest_thousand':
+            if transformation == 'value':
+                transformed_value = value
+            elif transformation == 'thousands':
                 transformed_value = round_and_divide_by_one_thousand(value)
             elif transformation == 'value':
                 transformed_value = value
