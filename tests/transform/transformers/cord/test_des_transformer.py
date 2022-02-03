@@ -1,6 +1,8 @@
 import unittest
 
 from transform.transformers.cord.des import des_transformer
+from transform.transformers.cord.des.des_transformer import perform_transform
+from transform.transformers.cord.des.des_transforms import Transform
 
 
 class DESTransformerTest(unittest.TestCase):
@@ -52,3 +54,70 @@ class DESTransformerTest(unittest.TestCase):
     def test_comment(self):
         self.assertEqual("10", des_transformer.comment("my comment", "10", "01"))
         self.assertEqual("01", des_transformer.comment("", "10", "01"))
+
+    def test_comment(self):
+        self.assertEqual("10", des_transformer.comment("my comment", "10", "01"))
+        self.assertEqual("01", des_transformer.comment("", "10", "01"))
+
+    def test_transforms(self):
+        transformations = {
+            "022": [Transform.VALUE],
+            "356": [
+                Transform.RADIO,
+                {
+                    "Yes": "10",
+                    "No": "01"
+                }
+            ],
+            "277": [
+                Transform.MULTI_RADIO,
+                {
+                    "Less than 2Mbps": {
+                        "qcode": "277",
+                        "ticked": "1",
+                        "unticked": "0"
+                    },
+                    "2Mbps or more, but less than 10Mbps": {
+                        "qcode": "278",
+                        "ticked": "1",
+                        "unticked": "0"
+                    },
+                    "10Mbps or more, but less than 30Mbps": {
+                        "qcode": "279",
+                        "ticked": "1",
+                        "unticked": "0"
+                    }
+                }
+            ],
+            "600": [Transform.CHECKBOX, "1", "0"],
+            "601": [Transform.CHECKBOX, "1", "0"],
+            "610": [Transform.THOUSANDS],
+            "612": [Transform.THOUSANDS],
+            "500": [Transform.COMMENT, "10", "01"]
+        }
+
+        response_data = {
+            "022": "80",
+            "356": "Yes, we use a fixed broadband connection",
+            "277": "Less than 2Mbps",
+            "600": "App",
+            "612": "42700",
+            "500": "My comment!"
+        }
+
+        expected = {
+            "022": "80",
+            "356": "10",
+            "277": "1",
+            "278": "0",
+            "279": "0",
+            "600": "1",
+            "601": "0",
+            "610": "",
+            "612": "43",
+            "500": "10",
+        }
+
+        actual = perform_transform(response_data, transformations)
+
+        self.assertEqual(expected, actual)

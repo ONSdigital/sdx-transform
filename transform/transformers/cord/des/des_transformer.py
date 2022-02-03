@@ -67,7 +67,7 @@ def multi_qcode_radio_button(value, qcode_mapping: dict) -> dict:
     options are mutually exclusive we can assume all but the received value are unticked.
 
     :param value: the received value
-    :param mapping: a dictionary of mappings from the answer to a
+    :param qcode_mapping: a dictionary of mappings from the answer to a
                     dict containing the qcode and values for if it is ticked or unticked
                     e.g. {
                         "qcode": "277",
@@ -105,6 +105,45 @@ def comment(value, present, not_present) -> str:
         return present
 
 
+def perform_transform(response_data: dict, transformations_dict: dict) -> dict:
+    """
+    Returns a dictionary of qcode to transformed answer
+    by applying the transforms stipulated in the 'transformations' dictionary
+    """
+    result = {}
+
+    for q_code, t_list in transformations_dict.items():
+
+        if q_code in response_data:
+            value = response_data.get(q_code)
+        else:
+            value = ''
+
+        transformation = t_list[0]
+
+        if transformation == Transform.MULTI_RADIO:
+            transformed_values = multi_qcode_radio_button(value, qcode_mapping=t_list[1])
+            for k, v in transformed_values.items():
+                result[k] = v
+
+        else:
+
+            if transformation == Transform.THOUSANDS:
+                transformed_value = thousands(value)
+            elif transformation == Transform.COMMENT:
+                transformed_value = comment(value, present=t_list[1], not_present=t_list[2])
+            elif transformation == Transform.RADIO:
+                transformed_value = radio_button(value, mapping=t_list[1])
+            elif transformation == Transform.CHECKBOX:
+                transformed_value = checkbox(value, ticked=t_list[1], unticked=t_list[2])
+            else:
+                transformed_value = value
+
+            result[q_code] = transformed_value
+
+    return result
+
+
 class DESTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the DES survey.
 
@@ -123,49 +162,6 @@ class DESTransformer(SurveyTransformer):
 
         self.period = period
 
-    def _get_value(self, q_code) -> str:
-        """Extract the corresponding response from the data for the qcode given"""
-        input_dict = self.response['data']
-        if q_code in input_dict:
-            value = input_dict.get(q_code)
-            return value
-        else:
-            return ''
-
-    def transform(self) -> dict:
-        """
-        Returns a dictionary of qcode to transformed answer
-        by applying the transforms stipulated in the 'transformations' dictionary
-        """
-        result = {}
-
-        for q_code, t_list in transformations.items():
-
-            value = self._get_value(q_code)
-            transformation = t_list[0]
-
-            if transformation == Transform.MULTI_RADIO:
-                transformed_values = multi_qcode_radio_button(value, qcode_mapping=t_list[1])
-                for k, v in transformed_values.items():
-                    result[k] = v
-
-            else:
-
-                if transformation == Transform.THOUSANDS:
-                    transformed_value = thousands(value)
-                elif transformation == Transform.COMMENT:
-                    transformed_value = comment(value, present=t_list[1], not_present=t_list[2])
-                elif transformation == Transform.RADIO:
-                    transformed_value = radio_button(value, mapping=t_list[1])
-                elif transformation == Transform.CHECKBOX:
-                    transformed_value = checkbox(value, ticked=t_list[1], unticked=t_list[2])
-                else:
-                    transformed_value = value
-
-                result[q_code] = transformed_value
-
-        return result
-
     def _create_pck(self, transformed_data):
         """Return a pck file using provided data"""
         pck = CORDFormatter.get_pck(
@@ -179,7 +175,7 @@ class DESTransformer(SurveyTransformer):
     def create_pck(self):
         bound_logger = logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
         bound_logger.info("Transforming data for processing")
-        transformed_data = self.transform()
+        transformed_data = perform_transform(self.response['data'], transformations)
         bound_logger.info("Data successfully transformed")
 
         bound_logger.info("Creating PCK")
