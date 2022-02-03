@@ -17,6 +17,8 @@ def thousands(value: str) -> str:
 
     :param value:  the value to round
     """
+    if value is None or value == '':
+        return ''
     try:
         decimal.getcontext().rounding = ROUND_HALF_UP
         return str(Decimal(round(Decimal(float(value))) / 1000).quantize(1))
@@ -99,10 +101,10 @@ def comment(value, present, not_present) -> str:
 class DESTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the DES survey.
 
-    The period for Ecommerce is different to other surveys and comes in as YYYY (e.g. 2019).
+    The period for DES is different to other surveys and comes in as YYYY (e.g. 2021).
     This is the required form for pck file.
     However, the ImageTransformer and IDBR receipt formatter will prefix it with a 20, to make 202019.
-    The required value for both is actually YYYY12 (e.g. 201912) where the 12 represents the month.
+    The required value for both is actually YYYY12 (e.g. 202112) where the 12 represents the month.
     To adjust for this the period is changed to YYMM before further processing takes place and the initial
     YYYY period used only for creating the pck
     """
@@ -114,14 +116,14 @@ class DESTransformer(SurveyTransformer):
 
         self.period = period
 
-    def _get_value(self, q_code):
+    def _get_value(self, q_code) -> str:
         """Extract the corresponding response from the data for the qcode given"""
         input_dict = self.response['data']
         if q_code in input_dict:
             value = input_dict.get(q_code)
-            return value if value != '' else None
+            return value
         else:
-            return None
+            return ''
 
     def transform(self) -> dict:
         """

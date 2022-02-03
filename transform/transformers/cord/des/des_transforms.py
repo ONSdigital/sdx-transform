@@ -15,7 +15,7 @@ class Transform(Enum):
 # and any arguments to pass.
 
 transformations = {
-    "22": [Transform.VALUE],
+    "022": [Transform.VALUE],
     "356": [
         Transform.RADIO,
         {
