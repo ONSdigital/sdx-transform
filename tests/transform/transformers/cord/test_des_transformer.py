@@ -93,7 +93,7 @@ class DESTransformerTest(unittest.TestCase):
             "601": [Transform.CHECKBOX, "1", "0"],
             "610": [Transform.THOUSANDS],
             "612": [Transform.THOUSANDS],
-            "500": [Transform.COMMENT, "10", "01"]
+            "500": [Transform.COMMENT, "1", "0"]
         }
 
         response_data = {
@@ -115,7 +115,7 @@ class DESTransformerTest(unittest.TestCase):
             "601": "0",
             "610": "",
             "612": "43",
-            "500": "10",
+            "500": "1",
         }
 
         actual = perform_transform(response_data, transformations)

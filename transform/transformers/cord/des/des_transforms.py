@@ -774,92 +774,92 @@ transformations = {
     ],
     "792": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "793": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "794": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "795": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "796": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "797": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "484": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "483": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "486": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "487": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "481": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "275": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "274": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "272": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "482": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "485": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "798": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "500": [
         Transform.COMMENT,
-        "10",
-        "01"
+        "1",
+        "0"
     ]
 }
