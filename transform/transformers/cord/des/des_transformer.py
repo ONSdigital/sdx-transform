@@ -53,7 +53,7 @@ def radio_button(value, mapping: dict) -> str:
     if value is None or value == "":
         return ""
     for k, v in mapping.items():
-        if k.startswith(value):
+        if value.startswith(k):
             return v
     return ""
 
@@ -76,11 +76,18 @@ def multi_qcode_radio_button(value, qcode_mapping: dict) -> dict:
                     }
     """
     result = {}
+    answered = False
+    if value in qcode_mapping:
+        answered = True
+
     for k, v in qcode_mapping.items():
         if value == k:
             result[v['qcode']] = v['ticked']
         else:
-            result[v['qcode']] = v['unticked']
+            if answered:
+                result[v['qcode']] = v['unticked']
+            else:
+                result[v['qcode']] = ''
     return result
 
 
@@ -103,7 +110,7 @@ class DESTransformer(SurveyTransformer):
 
     The period for DES is different to other surveys and comes in as YYYY (e.g. 2021).
     This is the required form for pck file.
-    However, the ImageTransformer and IDBR receipt formatter will prefix it with a 20, to make 202019.
+    However, the ImageTransformer and IDBR receipt formatter will prefix it with a 20, to make 202021.
     The required value for both is actually YYYY12 (e.g. 202112) where the 12 represents the month.
     To adjust for this the period is changed to YYMM before further processing takes place and the initial
     YYYY period used only for creating the pck
