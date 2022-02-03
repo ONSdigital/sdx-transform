@@ -4,7 +4,7 @@ from transform.transformers.common_software.epe_transformer import EPETransforme
 from transform.transformers.common_software.low_carbon_transformer import LCTransformer
 from transform.transformers.cora import UKISTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
-from transform.transformers.cord import Ecommerce2019Transformer, EcommerceTransformer
+from transform.transformers.cord import EcommerceTransformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.survey import MissingIdsException
 

@@ -55,10 +55,6 @@ class DESTransformerTest(unittest.TestCase):
         self.assertEqual("10", des_transformer.comment("my comment", "10", "01"))
         self.assertEqual("01", des_transformer.comment("", "10", "01"))
 
-    def test_comment(self):
-        self.assertEqual("10", des_transformer.comment("my comment", "10", "01"))
-        self.assertEqual("01", des_transformer.comment("", "10", "01"))
-
     def test_transforms(self):
         transformations = {
             "022": [Transform.VALUE],

@@ -22,7 +22,7 @@ class TestIndividualSurveyTransformer(unittest.TestCase):
 
     def test_transform_pck(self):
 
-        filename = "./tests/pck/cord/des.json"
+        filename = "./tests/pck/cord/187.0001.json"
         # expected_filename = "./tests/pck/common_software/202.1802.min.nobatch"
 
         submission_dict = get_file_as_dict(filename)

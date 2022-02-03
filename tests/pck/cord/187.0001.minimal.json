@@ -1,21 +1,49 @@
 {
-  "origin": "uk.gov.ons.edc.eq",
-  "survey_id": "187",
-  "tx_id": "40e659ec-013f-4888-9a31-ec1e0ad37888",
-  "case_id": "d9e9ce29-d755-4370-b96c-6c4176b722d1",
-  "data": {
-    "010": "No"
-  },
-  "type": "uk.gov.ons.edc.eq:surveyresponse",
-  "version": "0.0.1",
-  "metadata": {
-    "user_id": "K5O86M2NU1",
-    "ru_ref": "49901484596"
-  },
-  "submitted_at": "2017-03-01T14:25:46.101447+00:00",
+  "case_id": "3d751f85-745b-419c-9f74-946b4bcca029",
   "collection": {
-    "period": "2019",
-    "exercise_sid": "82R1VDWN74",
-    "instrument_id": "0001"
-  }
-} 
+    "exercise_sid": "2331368a-d071-48ae-875f-4ec559e16b02",
+    "instrument_id": "0001",
+    "period": "2021"
+  },
+  "data": {
+    "022": "0",
+    "356": "No, we do not use a fixed broadband connection",
+    "495": "Own employees",
+    "518": "No, another business did not carry out big data analysis for us",
+    "604": "None of the above",
+    "607": "No, we did not make e-commerce sales",
+    "686": "No, we did not make e-commerce purchases",
+    "734": "0",
+    "736": "0",
+    "738": "0",
+    "743": "0",
+    "744": "0",
+    "745": "0",
+    "746": "0",
+    "751": "0",
+    "752": "0",
+    "764": "None of the business software specified in this list",
+    "765": "0",
+    "771": "Did not purchase any cloud services",
+    "772": "We did not analyse big data",
+    "773": "No, we did not gain access to third party big data",
+    "778": "We did not hold any big data",
+    "784": "0",
+    "785": "No, we did not engage in any digital activities",
+    "798": "None of the security measures specified in this list"
+  },
+  "flushed": false,
+  "metadata": {
+    "ref_period_end_date": "2016-05-31",
+    "ref_period_start_date": "2016-05-01",
+    "ru_ref": "34434271705k",
+    "user_id": "UNKNOWN"
+  },
+  "origin": "uk.gov.ons.edc.eq",
+  "started_at": "2022-02-03T15:47:00.273447",
+  "submitted_at": "2022-02-03T15:49:47.603683",
+  "survey_id": "187",
+  "tx_id": "40f2d3fd-37c5-4d35-9973-293f15af440d",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "0.0.1"
+}
