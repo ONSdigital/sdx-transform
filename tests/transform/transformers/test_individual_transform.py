@@ -23,12 +23,12 @@ class TestIndividualSurveyTransformer(unittest.TestCase):
     def test_transform_pck(self):
 
         filename = "./tests/pck/cord/187.0001.json"
-        # expected_filename = "./tests/pck/common_software/202.1802.min.nobatch"
+        expected_filename = "./tests/pck/common_software/202.1802.min.nobatch"
 
         submission_dict = get_file_as_dict(filename)
-        # expected = get_file_as_string(expected_filename)
-        # print("Expected:")
-        # print(expected)
+        expected = get_file_as_string(expected_filename)
+        print("Expected:")
+        print(expected)
 
         transformer = get_transformer(submission_dict)
         pck_name, pck = transformer.create_pck()
