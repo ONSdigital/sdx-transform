@@ -17,7 +17,7 @@ def thousands(value: str) -> str:
 
     :param value:  the value to round
     """
-    if value is None or value == '':
+    if not value:
         return ''
     try:
         decimal.getcontext().rounding = ROUND_HALF_UP
@@ -37,7 +37,7 @@ def checkbox(value, ticked, unticked) -> str:
     :param ticked: the return value if ticked
     :param unticked: the return value if not ticked
     """
-    if value is None or value == "":
+    if not value:
         return unticked
     return ticked
 
@@ -50,7 +50,7 @@ def radio_button(value, mapping: dict) -> str:
     :param mapping: a dictionary of return values mapped to
                     the first word of each possible response.
     """
-    if value is None or value == "":
+    if not value:
         return ""
     for k, v in mapping.items():
         if value.startswith(k):
@@ -99,7 +99,7 @@ def comment(value, present, not_present) -> str:
     :param present: return value if comment is present
     :param not_present: return value if comment is not present
     """
-    if value is None or value == "":
+    if not value:
         return not_present
     else:
         return present
