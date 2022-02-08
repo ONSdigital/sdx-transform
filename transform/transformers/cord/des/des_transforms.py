@@ -694,10 +694,24 @@ transformations = {
         "0"
     ],
     "778": [
-        Transform.RADIO,
+        Transform.MULTI_RADIO,
         {
-            "Yes": "10",
-            "No": "01"
+            "Yes, we gave third parties access to our big data": {
+                "qcode": "778",
+                "ticked": "10",
+                "unticked": "01"
+            },
+            "No, we did not give third parties access to our big data": {
+                "qcode": "778",
+                "ticked": "10",
+                "unticked": "01"
+            },
+            "We did not hold any big data": {
+                "qcode": "779",
+                "ticked": "1",
+                "unticked": "0"
+
+            }
         }
     ],
     "780": [

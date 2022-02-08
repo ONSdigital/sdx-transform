@@ -77,17 +77,32 @@ def multi_qcode_radio_button(value, qcode_mapping: dict) -> dict:
     """
     result = {}
     answered = False
+    q_code_list = []
     if value in qcode_mapping:
         answered = True
 
     for k, v in qcode_mapping.items():
+        q_code = v['qcode']
+        # check the q_code at v
+        if q_code in q_code_list:
+            continue
         if value == k:
-            result[v['qcode']] = v['ticked']
+            result[q_code] = v['ticked']
         else:
             if answered:
-                result[v['qcode']] = v['unticked']
+                result[q_code] = v['unticked']
             else:
-                result[v['qcode']] = ''
+                result[q_code] = ''
+        # if non_mutually_exclusive:
+        #     pass
+            # this will need to be the logic for changing the result[q_code]
+            # for qc in q_code_list:
+            #     if q_code in q_code_list:
+            #         continue
+            #     else:
+            #         result[q_code] = ''
+        # keep a list of seen q_codes
+        q_code_list.append(q_code)
     return result
 
 

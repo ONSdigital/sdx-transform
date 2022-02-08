@@ -51,6 +51,38 @@ class DESTransformerTest(unittest.TestCase):
         actual = des_transformer.multi_qcode_radio_button("", qcode_mapping)
         self.assertEqual(expected, actual)
 
+    def test_non_mutually_exclusive_multi_qcode_radio_button(self):
+        qcode_mapping = {
+            "Yes, we gave third parties access to our big data": {
+                "qcode": "778",
+                "ticked": "10",
+                "unticked": "01"
+            },
+            "No, we did not give third parties access to our big data": {
+                "qcode": "778",
+                "ticked": "10",
+                "unticked": "01"
+            },
+            "We did not hold any big data": {
+                "qcode": "779",
+                "ticked": "1",
+                "unticked": "0"
+
+            }
+        }
+
+        expected = {"778": "10", "779": "0"}
+        actual = des_transformer.multi_qcode_radio_button("Yes, we gave third parties access to our big data", qcode_mapping)
+        self.assertEqual(expected, actual)
+
+        expected = {"778": "01", "779": "0"}
+        actual = des_transformer.multi_qcode_radio_button("No, we did not give third parties access to our big data", qcode_mapping)
+        self.assertEqual(expected, actual)
+
+        expected = {"778": "", "779": "1"}
+        actual = des_transformer.multi_qcode_radio_button("We did not hold any big data", qcode_mapping)
+        self.assertEqual(expected, actual)
+
     def test_comment(self):
         self.assertEqual("10", des_transformer.comment("my comment", "10", "01"))
         self.assertEqual("01", des_transformer.comment("", "10", "01"))
