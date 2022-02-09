@@ -4,7 +4,8 @@ from transform.transformers.common_software.epe_transformer import EPETransforme
 from transform.transformers.common_software.low_carbon_transformer import LCTransformer
 from transform.transformers.cora import UKISTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
-from transform.transformers.cord import Ecommerce2019Transformer, EcommerceTransformer
+from transform.transformers.cord import EcommerceTransformer
+from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.survey import MissingIdsException
 
 
@@ -30,7 +31,7 @@ def get_transformer(response, sequence_no=1000):
     # CORD
     elif survey_id == "187":
         if response['collection']['instrument_id'] in ['0001', '0002']:
-            transformer = Ecommerce2019Transformer(response, sequence_no)
+            transformer = DESTransformer(response, sequence_no)
         else:
             transformer = EcommerceTransformer(response, sequence_no)
 
