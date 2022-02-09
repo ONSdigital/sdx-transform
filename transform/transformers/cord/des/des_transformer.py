@@ -85,29 +85,23 @@ def multi_qcode_radio_button(value, qcode_mapping: dict) -> dict:
 
     for k, v in qcode_mapping.items():
         q_code = v['qcode']
+
         if 'excluder' not in v:
             yes_no_choices.append(q_code)
-            if value == k:
-                result[q_code] = v['ticked']
-            else:
-                if answered:
-                    result[q_code] = v['unticked']
-                else:
-                    result[q_code] = ''
+        elif value == k:
+            is_other_and_ticked = True
+
+        if value == k:
+            result[q_code] = v['ticked']
         else:
-            if value == k:
-                is_other_and_ticked = True
-                result[q_code] = v['ticked']
+            if answered:
+                result[q_code] = v['unticked']
             else:
-                if answered:
-                    result[q_code] = v['unticked']
-                else:
-                    result[q_code] = ''
+                result[q_code] = ''
+
     if is_other_and_ticked:
-        dict2 = {key: '' for key, value in result.items() if key in yes_no_choices}
-        for k, v in dict2.items():
-            if k in result:
-                result[k] = v
+        result = {key: '' if key in yes_no_choices else value for key, value in result.items()}
+
     return result
 
 
