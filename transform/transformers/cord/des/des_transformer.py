@@ -77,46 +77,38 @@ def multi_qcode_radio_button(value, qcode_mapping: dict) -> dict:
     """
     result = {}
     answered = False
-    list_of_seen_q_codes = []
-    last_qcode_mapping_key = list(qcode_mapping)[-1]
-    # The 'ticked' value of the last question may be different to the other questions, so it's cached in a var here.
-    ticked_value_of_last_qcode_mapping_key = qcode_mapping[last_qcode_mapping_key]['ticked']
+    is_other_and_ticked = False
+    yes_no_choices = []
 
     if value in qcode_mapping:
         answered = True
 
     for k, v in qcode_mapping.items():
         q_code = v['qcode']
-        # Check the q_code at v has not been seen before.
-        if q_code in list_of_seen_q_codes:
-            # If q_code has already been seen: continue from top of loop as we know the second option is no.
-            # This prevents us overwriting the value for the q_code with the no.
-            continue
-        if value == k:
-            result[q_code] = v['ticked']
-        else:
-            if answered:
-                result[q_code] = v['unticked']
+        if 'excluder' not in v:
+            yes_no_choices.append(q_code)
+            if value == k:
+                result[q_code] = v['ticked']
             else:
-                result[q_code] = ''
-        list_of_seen_q_codes.append(q_code)
-    # Now check if last value of the result dictionary is ticked.
-    last_result_value = list(result)[-1]
-    if result[last_result_value] == ticked_value_of_last_qcode_mapping_key:
-        # The last value is ticked so all values for all the previous q_codes must be blank.
-        convert_dicts_values_to_empty_strings(list(result)[0:-1], result)
+                if answered:
+                    result[q_code] = v['unticked']
+                else:
+                    result[q_code] = ''
+        else:
+            if value == k:
+                is_other_and_ticked = True
+                result[q_code] = v['ticked']
+            else:
+                if answered:
+                    result[q_code] = v['unticked']
+                else:
+                    result[q_code] = ''
+    if is_other_and_ticked:
+        dict2 = {key: '' for key, value in result.items() if key in yes_no_choices}
+        for k, v in dict2.items():
+            if k in result:
+                result[k] = v
     return result
-
-
-def convert_dicts_values_to_empty_strings(list_of_keys_to_change: list, dict_to_transform: dict) -> None:
-    """
-    Transform dictionary passed to function by replacing passed key values with ''
-    :param list_of_keys_to_change: the list of keys to replace values for in dictionary
-    :param dict_to_transform: the dictionary to transform
-    """
-    for key_to_replace in list_of_keys_to_change:
-        dict_to_transform[key_to_replace] = ''
-    return
 
 
 def comment(value, present, not_present) -> str:

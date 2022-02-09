@@ -60,14 +60,14 @@ class DESTransformerTest(unittest.TestCase):
             },
             "No, we did not give third parties access to our big data": {
                 "qcode": "778",
-                "ticked": "10",
-                "unticked": "01"
+                "ticked": "01",
+                "unticked": "10"
             },
             "We did not hold any big data": {
                 "qcode": "779",
                 "ticked": "1",
-                "unticked": "0"
-
+                "unticked": "0",
+                "excluder": "True"
             }
         }
 
