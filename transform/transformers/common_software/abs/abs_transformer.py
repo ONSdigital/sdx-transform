@@ -4,7 +4,8 @@ from decimal import Decimal, ROUND_HALF_UP
 
 import structlog
 
-from transform.transformers.common_software.abs.abs_transforms import motor_trades, whole_sale
+from transform.transformers.common_software.abs.abs_transforms import motor_trades, whole_sale, catering, \
+    computer_industry
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 from transform.utilities.formatter import Formatter
@@ -40,13 +41,36 @@ def convert_period_data(value):
 class ABSTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the ABS survey."""
 
+    """
+    1802 = 053
+    1804 = 051
+    1808 = 050
+    1810 = 055
+    1812 = 052
+    1814= 052
+    1818= 052
+    1820= 052
+    1824 = 052
+    1826 = 052
+    1862 = 001
+    1864 = 001
+    1874 = 001`
+    """
     # a dictionary mapping the instrument id to the sector id required downstream
     inst_map = {'1802': '053',
-                '1804': '051'}
+                '1804': '051',
+                '1808': '050',
+                '1810': '055',
+                '1812': '052',
+                '1814': '052',
+                '1818': '052',
+                }
 
     # a dictionary mapping the instrument id to the required transformations
     transformation_map = {'1802': motor_trades,
-                          '1804': whole_sale}
+                          '1804': whole_sale,
+                          '1808': catering,
+                          '1818': computer_industry}
 
     def __init__(self, response, seq_nr=0):
         super().__init__(response, seq_nr)
