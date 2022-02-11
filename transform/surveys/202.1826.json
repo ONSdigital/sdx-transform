@@ -8,13 +8,13 @@
             "questions": [
                 {
                     "text": "What dates will you be reporting for?",
-                    "type": "Date range",
+                    "type": "date",
                     "question_id": "11",
                     "number": "11"
                 },
                 {
                     "text": "What dates will you be reporting for?",
-                    "type": "Date range",
+                    "type": "date",
                     "question_id": "12",
                     "number": "12"
                 }
