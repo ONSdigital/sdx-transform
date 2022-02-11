@@ -1,19 +1,11 @@
 {
-    
+    "title": "Annual Business Survey",
+    "survey_id": "202",
+    "form_type": "1808",
     "question_groups": [
         {
-            "title": "Info page",
+            "title": "Reporting Period",
             "questions": [
-                {
-                    "Options": [
-                        "Yes, I can report for this period",
-                        "No, I need to report for a different period"
-                    ],
-                    "text": "Are you able to report for the calendar year during this time?",
-                    "type": "Radio",
-                    "question_id": "N/A",
-                    "number": "N/A"
-                },
                 {
                     "text": "What dates will you be reporting for?",
                     "type": "Date range",
