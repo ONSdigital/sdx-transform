@@ -182,7 +182,6 @@ other_services = {
     '15': {'Yes': 10, 'No': 1, None: 0},
     '16': {'Yes': 10, 'No': 1, None: 0},
     '9': {'Yes': 10, 'No': 1, None: 0},
-    '146': 'comment',
 }
 
 # 1824 - Postal
