@@ -4,7 +4,9 @@ from decimal import Decimal, ROUND_HALF_UP
 
 import structlog
 
-from transform.transformers.common_software.abs.abs_transforms import *
+from transform.transformers.common_software.abs.abs_transforms import motor_trades, whole_sale, catering, \
+    property_survey, transport_services, service_commission, computer_industry, other_services, postal, non_marketing, \
+    duty, standard, construction
 
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
