@@ -205,8 +205,82 @@ postal = {
     '9': {'Yes': 10, 'No': 1, None: 0},
     '146': 'comment',
 }
-# TODO put others here
 
+# 1826 - Marketing
+non_marketing = {
+    '11': 'period_data',
+    '12': 'period_data',
+    '399': 'nearest_thousand',
+    '318': 'nearest_thousand',
+    '80': {'Yes': 10, 'No': 1, None: 0},
+    '81': {'0-9%': 10000, '10-24%': 1000, '25-49%': 100, '50-74%': 10, '75-100%': 1, None: 0},
+    '450': 'nearest_thousand',
+    '499': 'nearest_thousand',
+    '475': 'nearest_thousand',
+    '476': 'nearest_thousand',
+    '400': 'nearest_thousand',
+    '600': 'nearest_thousand',
+    '699': 'nearest_thousand',
+    '163': 'nearest_thousand',
+    '164': 'nearest_thousand',
+    '15': {'Yes': 10, 'No': 1, None: 0},
+    '16': {'Yes': 10, 'No': 1, None: 0},
+    '9': {'Yes': 10, 'No': 1, None: 0},
+    '146': 'comment',
+}
+
+# 1862 - Duty's
+duty = {
+    '11': 'period_data',
+    '12': 'period_data',
+    '399': 'nearest_thousand',
+    '80': {'Yes': 10, 'No': 1, None: 0},
+    '81': {'0-9%': 10000, '10-24%': 1000, '25-49%': 100, '50-74%': 10, '75-100%': 1, None: 0},
+    '450': 'nearest_thousand',
+    '499': 'nearest_thousand',
+    '412': 'nearest_thousand',
+    '431': 'nearest_thousand',
+    '455': 'nearest_thousand',
+    '415': 'nearest_thousand',
+    '419': 'nearest_thousand',
+    '414': 'nearest_thousand',
+    '416': 'nearest_thousand',
+    '500': 'nearest_thousand',
+    '599': 'nearest_thousand',
+    '600': 'nearest_thousand',
+    '699': 'nearest_thousand',
+    '163': 'nearest_thousand',
+    '164': 'nearest_thousand',
+    '15': {'Yes': 10, 'No': 1, None: 0},
+    '16': {'Yes': 10, 'No': 1, None: 0},
+    '9': {'Yes': 10, 'No': 1, None: 0},
+    '146': 'comment',
+}
+
+# 1864 - Standard
+standard = {
+    '11': 'period_data',
+    '12': 'period_data',
+    '399': 'nearest_thousand',
+    '80': {'Yes': 10, 'No': 1, None: 0},
+    '81': {'0-9%': 10000, '10-24%': 1000, '25-49%': 100, '50-74%': 10, '75-100%': 1, None: 0},
+    '450': 'nearest_thousand',
+    '499': 'nearest_thousand',
+    '400': 'nearest_thousand',
+    '414': 'nearest_thousand',
+    '500': 'nearest_thousand',
+    '599': 'nearest_thousand',
+    '600': 'nearest_thousand',
+    '699': 'nearest_thousand',
+    '163': 'nearest_thousand',
+    '164': 'nearest_thousand',
+    '15': {'Yes': 10, 'No': 1, None: 0},
+    '16': {'Yes': 10, 'No': 1, None: 0},
+    '9': {'Yes': 10, 'No': 1, None: 0},
+    '146': 'comment',
+}
+
+# 1874 - Construction
 construction = {
     '11': 'period_data',
     '12': 'period_data',

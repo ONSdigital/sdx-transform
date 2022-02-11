@@ -67,6 +67,9 @@ class ABSTransformer(SurveyTransformer):
                           '1818': computer_industry,
                           '1820': other_services,
                           '1824': postal,
+                          '1826': non_marketing,
+                          '1862': duty,
+                          '1864': standard,
                           '1874': construction,
                           }
 
