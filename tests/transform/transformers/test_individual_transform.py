@@ -24,20 +24,19 @@ class TestIndividualSurveyTransformer(unittest.TestCase):
 
         self.maxDiff = None
 
-        filename = "./tests/pck/common_software/202.1808.json"
-        expected_filename = "./tests/pck/common_software/202.1808.nobatch"
+        filename = "./tests/pck/common_software/202.1824.json"
+        expected_filename = "./tests/pck/common_software/202.1824.nobatch"
 
         submission_dict = get_file_as_dict(filename)
         expected = get_file_as_string(expected_filename)
-        print("Expected:")
+        print("\n======EXPECTED=======\n")
         print(expected)
 
         transformer = get_transformer(submission_dict)
         pck_name, pck = transformer.create_pck()
 
         actual = pck
-        print(" ")
-        print("Actual:")
+        print("\n======ACTUAL=======\n")
         print(actual)
 
         self.assertEqual(expected, actual)

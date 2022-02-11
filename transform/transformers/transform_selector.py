@@ -16,7 +16,6 @@ def get_transformer(response, sequence_no=1000):
     :param int sequence_no: A number used by the transformer for naming files
     :raises MissingIdsException if no survey_id
     """
-
     if 'survey_id' not in response:
         raise MissingIdsException("Missing field survey_id from response")
 
