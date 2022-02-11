@@ -1,0 +1,147 @@
+{
+    "question_groups": [
+        {
+            "title": "Info page",
+            "questions": [
+                {
+                    "Options": [
+                        "Yes, I can report for this period",
+                        "No, I need to report for a different period"
+                    ],
+                    "text": "Are you able to report for the calendar year during this time?",
+                    "type": "Radio"
+                },
+                {
+                    "text": "What dates will you be reporting for?",
+                    "type": "Date range"
+                },
+                {
+                    "text": "What dates will you be reporting for?",
+                    "type": "Date range"
+                }
+            ]
+        },
+        {
+            "title": "Income",
+            "questions": [
+                {
+                    "text": "During the period, what was the business' total turnover?",
+                    "type": "Currency"
+                },
+                {
+                    "text": "Of total turnover, what was your business's turnover arising from commission and fees during the reporting period?",
+                    "type": "Currency"
+                },
+                {
+                    "text": "Of [total turnover], what was your business's turnover from sales on own account?",
+                    "type": "Currency"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "text": "Does your business produce goods or services that protect the environment?",
+                    "type": "Radio"
+                },
+                {
+                    "Options": [
+                        "75-100%",
+                        "50-74%",
+                        "25-49%",
+                        "10-24%",
+                        "0-9%"
+                    ],
+                    "text": "Of total turnover, approximately what percentage related to the production of environmental goods or services?",
+                    "type": "Radio"
+                }
+            ]
+        },
+        {
+            "title": "Expenditure",
+            "questions": [
+                {
+                    "text": "For the period, what was the business' expenditure on employment costs?",
+                    "type": "Currency"
+                },
+                {
+                    "text": "For the reporting period, what was your business's expenditure for all other energy, materials, goods and services?",
+                    "type": "Currency"
+                },
+                {
+                    "text": "During the reporting period, what was your business's expenditure on rates, duties, levies and taxes paid to the government?",
+                    "type": "Currency"
+                }
+            ]
+        },
+        {
+            "title": "Capital assets",
+            "questions": [
+                {
+                    "text": "During the period, what was the business' total value of capital assets acquired and disposed of?",
+                    "type": "Currency"
+                },
+                {
+                    "text": "During the period, what was the business' total value of capital assets acquired and disposed of?",
+                    "type": "Currency"
+                }
+            ]
+        },
+        {
+            "title": "International trade in services",
+            "questions": [
+                {
+                    "text": "During the period, what was the business' income from services provided to individuals, enterprises or other organisations based outside the UK?",
+                    "type": "Currency"
+                },
+                {
+                    "text": "During the reporting period, what was your business's expenditure on services provided by individuals, enterprises or other organisations based outside the UK?",
+                    "type": "Currency"
+                }
+            ]
+        },
+        {
+            "title": "International trade in goods",
+            "questions": [
+                {
+                    "Options": [
+                        "Yes ",
+                        "No "
+                    ],
+                    "text": "During the period, did the business' export goods to individuals, enterprises or other organisations based outside the UK?",
+                    "type": "Radio"
+                },
+                {
+                    "Options": [
+                        "Yes ",
+                        "No "
+                    ],
+                    "text": "During the reporting period, did your business import goods from individuals, enterprises or other organisations based outside the UK?",
+                    "type": "Radio"
+                }
+            ]
+        },
+        {
+            "title": "Research and Development",
+            "questions": [
+                {
+                    "Options": [
+                        "Yes ",
+                        "No "
+                    ],
+                    "text": "Did the business' carry out any in-house Research and Development for the period, or intend to do so in the next reporting period?",
+                    "type": "Radio"
+                }
+            ]
+        },
+        {
+            "title": "Comments",
+            "questions": [
+                {
+                    "text": "Please provide any further details that will help us understand your figures and tell an industry story",
+                    "type": "Text area"
+                }
+            ]
+        }
+    ]
+}
