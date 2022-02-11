@@ -1,10 +1,7 @@
 {
-    "title": "Annual Business Survey",
-    "survey_id": "202",
-    "form_type": "1814",
     "question_groups": [
         {
-            "title": "Reporting Period",
+            "title": "Info page",
             "questions": [
                 {
                     "Options": [
@@ -12,15 +9,21 @@
                         "No, I need to report for a different period"
                     ],
                     "text": "Are you able to report for the calendar year during this time?",
-                    "type": "Radio"
+                    "type": "Radio",
+                    "question_id": "N/A",
+                    "number": "N/A"
                 },
                 {
                     "text": "What dates will you be reporting for?",
-                    "type": "Date range"
+                    "type": "Date range",
+                    "question_id": "11",
+                    "number": "11"
                 },
                 {
                     "text": "What dates will you be reporting for?",
-                    "type": "Date range"
+                    "type": "Date range",
+                    "question_id": "12",
+                    "number": "12"
                 }
             ]
         },
@@ -29,15 +32,21 @@
             "questions": [
                 {
                     "text": "During the period, what was the business' total turnover?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "399",
+                    "number": "399"
                 },
                 {
                     "text": "Of total turnover, what was your business's turnover arising from commission and fees during the reporting period?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "337",
+                    "number": "337"
                 },
                 {
                     "text": "Of [total turnover], what was your business's turnover from sales on own account?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "339",
+                    "number": "339"
                 },
                 {
                     "Options": [
@@ -45,7 +54,9 @@
                         "No"
                     ],
                     "text": "Does your business produce goods or services that protect the environment?",
-                    "type": "Radio"
+                    "type": "Radio",
+                    "question_id": "80",
+                    "number": "80"
                 },
                 {
                     "Options": [
@@ -56,7 +67,9 @@
                         "0-9%"
                     ],
                     "text": "Of total turnover, approximately what percentage related to the production of environmental goods or services?",
-                    "type": "Radio"
+                    "type": "Radio",
+                    "question_id": "81",
+                    "number": "81"
                 }
             ]
         },
@@ -65,15 +78,21 @@
             "questions": [
                 {
                     "text": "For the period, what was the business' expenditure on employment costs?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "450",
+                    "number": "450"
                 },
                 {
                     "text": "For the reporting period, what was your business's expenditure for all other energy, materials, goods and services?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "499",
+                    "number": "499"
                 },
                 {
                     "text": "During the reporting period, what was your business's expenditure on rates, duties, levies and taxes paid to the government?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "400",
+                    "number": "400"
                 }
             ]
         },
@@ -82,11 +101,15 @@
             "questions": [
                 {
                     "text": "During the period, what was the business' total value of capital assets acquired and disposed of?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "600",
+                    "number": "600"
                 },
                 {
                     "text": "During the period, what was the business' total value of capital assets acquired and disposed of?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "699",
+                    "number": "699"
                 }
             ]
         },
@@ -95,11 +118,15 @@
             "questions": [
                 {
                     "text": "During the period, what was the business' income from services provided to individuals, enterprises or other organisations based outside the UK?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "163",
+                    "number": "163"
                 },
                 {
                     "text": "During the reporting period, what was your business's expenditure on services provided by individuals, enterprises or other organisations based outside the UK?",
-                    "type": "Currency"
+                    "type": "Currency",
+                    "question_id": "164",
+                    "number": "164"
                 }
             ]
         },
@@ -112,7 +139,9 @@
                         "No "
                     ],
                     "text": "During the period, did the business' export goods to individuals, enterprises or other organisations based outside the UK?",
-                    "type": "Radio"
+                    "type": "Radio",
+                    "question_id": "15",
+                    "number": "15"
                 },
                 {
                     "Options": [
@@ -120,7 +149,9 @@
                         "No "
                     ],
                     "text": "During the reporting period, did your business import goods from individuals, enterprises or other organisations based outside the UK?",
-                    "type": "Radio"
+                    "type": "Radio",
+                    "question_id": "16",
+                    "number": "16"
                 }
             ]
         },
@@ -133,7 +164,9 @@
                         "No "
                     ],
                     "text": "Did the business' carry out any in-house Research and Development for the period, or intend to do so in the next reporting period?",
-                    "type": "Radio"
+                    "type": "Radio",
+                    "question_id": "9",
+                    "number": "9"
                 }
             ]
         },
@@ -142,7 +175,9 @@
             "questions": [
                 {
                     "text": "Please provide any further details that will help us understand your figures and tell an industry story",
-                    "type": "Text area"
+                    "type": "Text area",
+                    "question_id": "146",
+                    "number": "146"
                 }
             ]
         }
