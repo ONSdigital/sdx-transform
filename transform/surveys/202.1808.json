@@ -6,7 +6,6 @@
                 {
                     "Options": [
                         "Yes, I can report for this period",
-                        "",
                         "No, I need to report for a different period"
                     ],
                     "text": "Are you able to report for the calendar year during this time?",
