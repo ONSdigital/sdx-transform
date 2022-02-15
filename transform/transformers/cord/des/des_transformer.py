@@ -161,14 +161,20 @@ def perform_transform(response_data: dict, transformations_dict: dict) -> dict:
 class DESTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the DES survey.
 
-    The period for DES will come in as YYYY (e.g. 2021), which is correct for the pck.
-    However, the required form for idbr is YYYY12 (e.g. 202112).
-    As receipt creation is done in the superclass we change the period here to conform to idbr.
+    The period for DES is different to other surveys and comes in as YYYY (e.g. 2021).
+    This is the required form for pck file.
+    However, the ImageTransformer and IDBR receipt formatter will prefix it with a 20, to make 202021.
+    The required value for both is actually YYYY12 (e.g. 202112) where the 12 represents the month.
+    To adjust for this the period is changed to YYMM before further processing takes place and the initial
+    YYYY period used only for creating the pck
     """
     def __init__(self, response, seq_nr=0):
         super().__init__(response, seq_nr)
         period = response['collection']['period']
-        self.period = f'{period}12'
+        if len(period) == 4:
+            response['collection']['period'] = period[2:] + '12'
+
+        self.period = period
 
     def _create_pck(self, transformed_data):
         """Return a pck file using provided data"""
@@ -176,7 +182,7 @@ class DESTransformer(SurveyTransformer):
             transformed_data,
             self.ids.survey_id,
             self.ids.ru_ref,
-            self.period[:4],
+            self.period,
         )
         return pck
 
