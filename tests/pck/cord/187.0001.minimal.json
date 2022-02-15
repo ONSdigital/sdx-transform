@@ -3,12 +3,12 @@
   "collection": {
     "exercise_sid": "2331368a-d071-48ae-875f-4ec559e16b02",
     "instrument_id": "0001",
-    "period": "202112"
+    "period": "2021"
   },
   "data": {
     "022": "0",
     "356": "No, we do not use a fixed broadband connection",
-    "495": "Own employees",
+    "495": "External suppliers",
     "518": "No, another business did not carry out big data analysis for us",
     "604": "None of the above",
     "607": "No, we did not make e-commerce sales",

@@ -60,11 +60,6 @@ transformations = {
                 "qcode": "499",
                 "ticked": "1",
                 "unticked": "0"
-            },
-            "Don't know": {
-                "qcode": "029",
-                "ticked": "1",
-                "unticked": "0"
             }
         }
     ],
@@ -555,7 +550,7 @@ transformations = {
             "No": "01"
         }
     ],
-    "761": "\u00a3's",
+    "761": [Transform.THOUSANDS],
     "762": [
         Transform.CHECKBOX,
         "1",
@@ -744,8 +739,8 @@ transformations = {
     "495": [
         Transform.RADIO,
         {
-            "Yes": "10",
-            "No": "01"
+            "Own employees": "10",
+            "External suppliers": "01"
         }
     ],
     "784": [Transform.THOUSANDS],
@@ -758,33 +753,33 @@ transformations = {
     ],
     "786": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "787": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "788": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "789": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "790": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "791": [
         Transform.CHECKBOX,
-        "10",
-        "01"
+        "1",
+        "0"
     ],
     "792": [
         Transform.CHECKBOX,
