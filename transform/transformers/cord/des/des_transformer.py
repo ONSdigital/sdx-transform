@@ -161,13 +161,13 @@ def perform_transform(response_data: dict, transformations_dict: dict) -> dict:
 class DESTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the DES survey.
 
-    The period for DES will come in as YYYYMM (e.g. 202112), which is correct for IDBR.
-    However, the required form for pck file is YYYY (e.g. 2021).
+    The period for DES comes in as YYYY (e.g. 2021).
+    This is the required form for pck file.
+    However, the ImageTransformer and IDBR receipt require YYYY12 (e.g. 202112).
     """
     def __init__(self, response, seq_nr=0):
         super().__init__(response, seq_nr)
-        period = response['collection']['period']
-        self.period = period[:4]
+        self.period = response['collection']['period']
 
     def _create_pck(self, transformed_data):
         """Return a pck file using provided data"""
@@ -190,3 +190,17 @@ class DESTransformer(SurveyTransformer):
         pck = self._create_pck(transformed_data)
         bound_logger.info("Successfully created PCK")
         return pck_name, pck
+
+    def create_receipt(self):
+        bound_logger = self.logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
+        bound_logger.info("Creating IDBR receipt")
+        idbr_name = CORDFormatter.idbr_name(self.ids.user_ts, self.ids.tx_id)
+        idbr_period = self.period + '12'
+        idbr = CORDFormatter.get_idbr(
+            self.ids.survey_id,
+            self.ids.ru_ref,
+            self.ids.ru_check,
+            idbr_period,
+        )
+        bound_logger.info("Successfully created IDBR receipt")
+        return idbr_name, idbr
