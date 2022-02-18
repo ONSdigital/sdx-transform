@@ -739,8 +739,8 @@ transformations = {
     "495": [
         Transform.RADIO,
         {
-            "Own employees": "10",
-            "External suppliers": "01"
+            "Own employees": "1",
+            "External suppliers": "0"
         }
     ],
     "784": [Transform.THOUSANDS],
