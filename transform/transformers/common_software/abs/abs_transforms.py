@@ -76,7 +76,6 @@ catering = {
     '15': {'Yes': 10, 'No': 1, None: 0},
     '16': {'Yes': 10, 'No': 1, None: 0},
     '9': {'Yes': 10, 'No': 1, None: 0},
-    '146': 'comment',
 }
 
 # 1810 - Property
