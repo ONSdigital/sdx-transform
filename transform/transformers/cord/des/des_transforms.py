@@ -737,10 +737,18 @@ transformations = {
         }
     ],
     "495": [
-        Transform.RADIO,
+        Transform.MULTI_RADIO,
         {
-            "Own employees": "1",
-            "External suppliers": "0"
+            "Own employees": {
+                "qcode": "495",
+                "ticked": "1",
+                "unticked": "0"
+            },
+            "External suppliers": {
+                "qcode": "496",
+                "ticked": "1",
+                "unticked": "0"
+            }
         }
     ],
     "784": [Transform.THOUSANDS],
