@@ -375,6 +375,12 @@ class PCKTransformer:
                 self.data.update({k: '0' for k in self.employee_questions})  # noqa
                 del self.data['d50']
 
+        # EQv3 will not send qcode 50 if it was not input by the user.
+        # Therefore, we set a default value of 0 if it is not present.
+        if self.survey.get('survey_id') == self.qbs_survey_id:
+            if '50' not in self.data:
+                self.data['50'] = '0'
+
         if self.survey.get('survey_id') == self.qcas_survey_id:
             if 'd12' in self.data:
                 del self.data['d12']
