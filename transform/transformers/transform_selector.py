@@ -7,6 +7,7 @@ from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cord import EcommerceTransformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.survey import MissingIdsException
+from transform.transformers.image_only.nopcktransformer import NoPCKTransformer
 
 
 def get_transformer(response, sequence_no=1000):
@@ -33,6 +34,10 @@ def get_transformer(response, sequence_no=1000):
             transformer = DESTransformer(response, sequence_no)
         else:
             transformer = EcommerceTransformer(response, sequence_no)
+
+    # IMAGE ONLY INQUIRIES
+    elif survey_id == "194":
+        transformer = NoPCKTransformer(response, sequence_no)
 
     # COMMON SOFTWARE
     elif survey_id == "007":

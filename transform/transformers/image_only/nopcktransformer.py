@@ -1,12 +1,11 @@
 import structlog
 
 from transform.transformers.survey_transformer import SurveyTransformer
-from transform.utilities.formatter import Formatter
 
 logger = structlog.get_logger()
 
 
-class QFITransformer(SurveyTransformer):
+class NoPCKTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the QFI survey."""
 
     def __init__(self, response, seq_nr=0):

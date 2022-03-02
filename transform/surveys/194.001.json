@@ -1,0 +1,93 @@
+{
+    "title": "Annual Railways Investment Survey",
+    "survey_id": "194",
+    "form_type": "001",
+    "question_groups": [
+        {
+            "title": "Track and signalling",
+            "questions": [
+                {
+                    "text": "For the period during this time, what was the business' total value of acquisitions and proceeds from disposals for track and signalling?",
+                    "type": "currency",
+                    "question_id": "2",
+                    "number": "2"
+                },
+                {
+                    "text": "For the period during this time, what was the business' total value of acquisitions and proceeds from disposals for track and signalling?",
+                    "type": "currency",
+                    "question_id": "3",
+                    "number": "3"
+                }
+            ]
+        },
+        {
+            "title": "Rolling Stock",
+            "questions": [
+                {
+                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for rolling stock?",
+                    "type": "currency",
+                    "question_id": "4",
+                    "number": "4"
+                },
+                {
+                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for rolling stock?",
+                    "type": "currency",
+                    "question_id": "5",
+                    "number": "5"
+                }
+            ]
+        },
+        {
+            "title": "Stations",
+            "questions": [
+                {
+                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for stations?",
+                    "type": "currency",
+                    "question_id": "6",
+                    "number": "6"
+                },
+                {
+                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for stations?",
+                    "type": "currency",
+                    "question_id": "7",
+                    "number": "7"
+                },
+                {
+                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for stations?",
+                    "type": "currency",
+                    "question_id": "8",
+                    "number": "8"
+                },
+                {
+                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for stations?",
+                    "type": "currency",
+                    "question_id": "9",
+                    "number": "9"
+                }
+            ]
+        },
+        {
+            "title": "Other Rail",
+            "questions": [
+                {
+                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for other rail?",
+                    "type": "currency",
+                    "question_id": "10",
+                    "number": "10"
+                },
+                {
+                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for other rail?",
+                    "type": "currency",
+                    "question_id": "13",
+                    "number": "13"
+                },
+                {
+                    "text": "Please provide any further details that will help us understand your figures and to tell an industry story",
+                    "type": "text area",
+                    "question_id": "146",
+                    "number": "146"
+                }
+            ]
+        }
+    ]
+}
