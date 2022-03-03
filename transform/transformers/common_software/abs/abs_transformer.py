@@ -10,7 +10,6 @@ from transform.transformers.common_software.abs.abs_transforms import motor_trad
 
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
-from transform.utilities.formatter import Formatter
 
 logger = structlog.get_logger()
 
@@ -76,7 +75,15 @@ class ABSTransformer(SurveyTransformer):
                           }
 
     def __init__(self, response, seq_nr=0):
+        period = self._extract_year(response)
+        response['collection']['period'] = '20' + period + '12'
         super().__init__(response, seq_nr)
+        self.period = period
+
+    def _extract_year(self, response):
+        """Extract the reference period as YY from the metadata"""
+        start_date = datetime.strptime(response['metadata']['ref_period_start_date'], "%Y-%m-%d")
+        return start_date.strftime("%y")
 
     def _get_value(self, q_code):
         input_dict = self.response['data']
@@ -138,20 +145,14 @@ class ABSTransformer(SurveyTransformer):
             end_date = datetime.strptime(self.response['metadata']['ref_period_end_date'], "%Y-%m-%d")
             data['12'] = end_date.strftime("%d/%m/%Y")
 
-    def extract_year(self):
-        """Extract the reference period as YY from the metadata"""
-        start_date = datetime.strptime(self.response['metadata']['ref_period_start_date'], "%Y-%m-%d")
-        return start_date.strftime("%y")
-
     def _format_pck(self, transformed_data):
         """Return a pck file using provided data"""
-        period = self.extract_year()
         pck = CSFormatter.get_pck(
             transformed_data,
             self.ids.inst_id,
             self.ids.ru_ref,
             self.ids.ru_check,
-            period
+            self.period
         )
         return pck
 
@@ -166,16 +167,16 @@ class ABSTransformer(SurveyTransformer):
         pck = self._format_pck(transformed_data)
         return pck_name, pck
 
-    def create_receipt(self):
-        bound_logger = self.logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
-        bound_logger.info("Creating IDBR receipt")
-        idbr_name = Formatter.idbr_name(self.ids.user_ts, self.ids.tx_id)
-        period = self.extract_year()
-        idbr = Formatter.get_idbr(
-            self.ids.survey_id,
-            self.ids.ru_ref,
-            self.ids.ru_check,
-            period,
-        )
-        bound_logger.info("Successfully created IDBR receipt")
-        return idbr_name, idbr
+    # def create_receipt(self):
+    #     bound_logger = self.logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
+    #     bound_logger.info("Creating IDBR receipt")
+    #     idbr_name = Formatter.idbr_name(self.ids.user_ts, self.ids.tx_id)
+    #     period = self.extract_year()
+    #     idbr = Formatter.get_idbr(
+    #         self.ids.survey_id,
+    #         self.ids.ru_ref,
+    #         self.ids.ru_check,
+    #         self.period,
+    #     )
+    #     bound_logger.info("Successfully created IDBR receipt")
+    #     return idbr_name, idbr
