@@ -166,17 +166,3 @@ class ABSTransformer(SurveyTransformer):
         pck_name = CSFormatter.pck_name(sector_id, self.ids.tx_id)
         pck = self._format_pck(transformed_data)
         return pck_name, pck
-
-    # def create_receipt(self):
-    #     bound_logger = self.logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
-    #     bound_logger.info("Creating IDBR receipt")
-    #     idbr_name = Formatter.idbr_name(self.ids.user_ts, self.ids.tx_id)
-    #     period = self.extract_year()
-    #     idbr = Formatter.get_idbr(
-    #         self.ids.survey_id,
-    #         self.ids.ru_ref,
-    #         self.ids.ru_check,
-    #         self.period,
-    #     )
-    #     bound_logger.info("Successfully created IDBR receipt")
-    #     return idbr_name, idbr
