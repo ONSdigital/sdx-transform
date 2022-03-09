@@ -1,0 +1,314 @@
+{
+    "title": "Quarterly Fuels Survey ",
+    "survey_id": "024",
+    "form_type": "0001",
+    "question_groups": [
+        {
+            "title": "Fuels",
+            "questions": [
+                {
+                    "Options": [
+                        "Gas"
+                    ],
+                    "text": "For the period during this time, which of the following fuels has the business' purchased?",
+                    "type": "checkbox",
+                    "question_id": "10",
+                    "number": "10"
+                },
+                {
+                    "Options": [
+                        "Electricity"
+                    ],
+                    "text": "For the period during this time, which of the following fuels has the business' purchased?",
+                    "type": "checkbox",
+                    "question_id": "11",
+                    "number": "11"
+                },
+                {
+                    "Options": [
+                        "Coal"
+                    ],
+                    "text": "For the period during this time, which of the following fuels has the business' purchased?",
+                    "type": "checkbox",
+                    "question_id": "12",
+                    "number": "12"
+                },
+                {
+                    "Options": [
+                        "Oil"
+                    ],
+                    "text": "For the period during this time, which of the following fuels has the business' purchased?",
+                    "type": "checkbox",
+                    "question_id": "13",
+                    "number": "13"
+                },
+                {
+                    "text": "For the period during this time, which of the following fuels has the business' purchased?",
+                    "type": "checkbox",
+                    "question_id": "14",
+                    "number": "14"
+                }
+            ]
+        },
+        {
+            "title": "Oil",
+            "questions": [
+                {
+                    "text": "For the period during this time, what was the business' purchase cost of heavy fuel oil?",
+                    "type": "currency",
+                    "question_id": "110",
+                    "number": "110"
+                },
+                {
+                    "Options": [
+                        "Litres",
+                        "Tonnes "
+                    ],
+                    "text": "Was the heavy fuel oil purchased in litres or tonnes?",
+                    "type": "radio",
+                    "question_id": "120",
+                    "number": "120"
+                },
+                {
+                    "text": "During the reporting period, what was the total quantity of heavy fuel oil purchased?",
+                    "type": "unit",
+                    "question_id": "121",
+                    "number": "121"
+                },
+                {
+                    "text": "During the reporting period, what was the total quantity of heavy fuel oil purchased?",
+                    "type": "unit",
+                    "question_id": "122",
+                    "number": "122"
+                },
+                {
+                    "text": "During the reporting period, what was your business's purchase cost of light fuel oil?",
+                    "type": "currency",
+                    "question_id": "130",
+                    "number": "130"
+                },
+                {
+                    "Options": [
+                        "Litres",
+                        "Tonnes "
+                    ],
+                    "text": "Was the light fuel oil purchased in litres or tonnes?",
+                    "type": "radio",
+                    "question_id": "140",
+                    "number": "140"
+                },
+                {
+                    "text": "During the reporting period, what was the total quantity of light fuel oil purchased?",
+                    "type": "unit",
+                    "question_id": "141",
+                    "number": "141"
+                },
+                {
+                    "text": "During the reporting period, what was the total quantity of light fuel oil purchased?",
+                    "type": "unit",
+                    "question_id": "142",
+                    "number": "142"
+                }
+            ]
+        },
+        {
+            "title": "Coal",
+            "questions": [
+                {
+                    "text": "For the period during this time, what was the business' purchase cost of coal?",
+                    "type": "currency",
+                    "question_id": "150",
+                    "number": "150"
+                },
+                {
+                    "text": "For the reporting period, what was the total quantity of coal purchased?",
+                    "type": "unit",
+                    "question_id": "160",
+                    "number": "160"
+                },
+                {
+                    "text": "What was the total cost of Climate Change Levy for your business?",
+                    "type": "currency",
+                    "question_id": "180",
+                    "number": "180"
+                },
+                {
+                    "text": "What percentage rate of Climate Change Levy was paid by your business?",
+                    "type": "percentage",
+                    "question_id": "190",
+                    "number": "190"
+                },
+                {
+                    "text": "For the reporting period, what was the net calorific value of coal purchased by your business?",
+                    "type": "unit",
+                    "question_id": "200",
+                    "number": "200"
+                }
+            ]
+        },
+        {
+            "title": "Gas firm",
+            "questions": [
+                {
+                    "Options": [
+                        "Yes",
+                        "No "
+                    ],
+                    "text": "For the period during this time, has the business' purchased any gas under a firm contract?",
+                    "type": "radio",
+                    "question_id": "210",
+                    "number": "210"
+                },
+                {
+                    "text": "For the reporting period, what was your business's purchase cost of gas under a firm contract?",
+                    "type": "currency",
+                    "question_id": "211",
+                    "number": "211"
+                },
+                {
+                    "text": "For the reporting period, what was the total quantity of gas purchased under a firm contract?",
+                    "type": "unit",
+                    "question_id": "220",
+                    "number": "220"
+                },
+                {
+                    "text": "What was the total cost of Climate Change Levy for your business?",
+                    "type": "currency",
+                    "question_id": "230",
+                    "number": "230"
+                },
+                {
+                    "text": "What percentage rate of Climate Change Levy was paid by your business?",
+                    "type": "percentage",
+                    "question_id": "240",
+                    "number": "240"
+                },
+                {
+                    "text": "For the reporting period, what was the name of your business's gas suppliers?",
+                    "type": "text field",
+                    "question_id": "250",
+                    "number": "250"
+                },
+                {
+                    "Options": [
+                        "Heat",
+                        "Raw materials",
+                        "Electricity generation"
+                    ],
+                    "text": "For the reporting period, what was your business's main use for gas?",
+                    "type": "radio",
+                    "question_id": "260",
+                    "number": "260"
+                }
+            ]
+        },
+        {
+            "title": "Gas Interruptable",
+            "questions": [
+                {
+                    "Options": [
+                        "Yes",
+                        "No "
+                    ],
+                    "text": "For the period during this time, has the business' purchased any gas under an interruptible contract?",
+                    "type": "radio",
+                    "question_id": "270",
+                    "number": "270"
+                },
+                {
+                    "text": "For the reporting period, what was your business's purchase cost of gas under an interruptible contract?",
+                    "type": "currency",
+                    "question_id": "271",
+                    "number": "271"
+                },
+                {
+                    "text": "For the reporting period, what was the total quantity of gas purchased under an interruptible contract?",
+                    "type": "unit",
+                    "question_id": "280",
+                    "number": "280"
+                },
+                {
+                    "text": "What was the total cost of Climate Change Levy for your business?",
+                    "type": "currency",
+                    "question_id": "290",
+                    "number": "290"
+                },
+                {
+                    "text": "What percentage rate of Climate Change Levy was paid by your business?",
+                    "type": "percentage",
+                    "question_id": "300",
+                    "number": "300"
+                },
+                {
+                    "text": "For the reporting period, what was the name of your business's gas suppliers?",
+                    "type": "text field",
+                    "question_id": "310",
+                    "number": "310"
+                },
+                {
+                    "Options": [
+                        "Heat",
+                        "Raw materials",
+                        "Electricity generation"
+                    ],
+                    "text": "For the reporting period, what was your business's main use for gas?",
+                    "type": "radio",
+                    "question_id": "320",
+                    "number": "320"
+                }
+            ]
+        },
+        {
+            "title": " Electricity",
+            "questions": [
+                {
+                    "text": "For the period during this time, what was the business' purchase cost of electricity?",
+                    "type": "currency",
+                    "question_id": "330",
+                    "number": "330"
+                },
+                {
+                    "text": "For the reporting period, what was the quantity of electricity purchased by your business?",
+                    "type": "unit",
+                    "question_id": "340",
+                    "number": "340"
+                },
+                {
+                    "text": "What was the total cost of Climate Change Levy for your business?",
+                    "type": "currency",
+                    "question_id": "350",
+                    "number": "350"
+                },
+                {
+                    "text": "What percentage rate of Climate Change Levy was paid by your business?",
+                    "type": "percentage",
+                    "question_id": "360",
+                    "number": "360"
+                },
+                {
+                    "text": "For the reporting period, what was the name of your business's electricity supplier?",
+                    "type": "text field",
+                    "question_id": "370",
+                    "number": "370"
+                },
+                {
+                    "text": "For the reporting period, what was the name of your business's electricity supplier? ",
+                    "type": " text field ",
+                    "question_id": "370",
+                    "number": "370"
+                }
+            ]
+        },
+        {
+            "title": " Comments",
+            "questions": [
+                {
+                    "text": "Please provide any further details that will help us understand your figures and to tell an industry story",
+                    "type": "text area",
+                    "question_id": "146",
+                    "number": "146"
+                }
+            ]
+        }
+    ]
+}
