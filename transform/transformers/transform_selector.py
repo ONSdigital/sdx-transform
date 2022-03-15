@@ -4,6 +4,7 @@ from transform.transformers.cora import UKISTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cord import EcommerceTransformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
+from transform.transformers.no_pck.ari_transformer import ARITransformer
 from transform.transformers.survey import MissingIdsException
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
 from transform.transformers.survey_transformer import SurveyTransformer
@@ -35,14 +36,18 @@ def get_transformer(response, sequence_no=1000):
             transformer = EcommerceTransformer(response, sequence_no)
 
     # NO PCK INQUIRIES
-    elif survey_id == "024":
-        transformer = QFITransformer(response, sequence_no)
     elif survey_id == "007":
         # Low Carbon
         transformer = SurveyTransformer(response, sequence_no)
+    elif survey_id == "024":
+        # Fuels
+        transformer = QFITransformer(response, sequence_no)
     elif survey_id == "147":
         # EPE
         transformer = SurveyTransformer(response, sequence_no)
+    elif survey_id == "194":
+        # Railways
+        transformer = ARITransformer(response, sequence_no)
 
     # COMMON SOFTWARE
     elif survey_id == "009":
