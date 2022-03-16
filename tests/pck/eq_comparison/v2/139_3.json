@@ -1,0 +1,25 @@
+{
+  "case_id": "434c7ba5-2cdb-4bee-9c65-12d33ca6e8cb",
+  "collection": {
+    "exercise_sid": "5b1cb393-1212-40b3-9b4c-3b35b27e8bd3",
+    "instrument_id": "0001",
+    "period": "201605"
+  },
+  "data": {
+    "50": "0"
+  },
+  "flushed": false,
+  "metadata": {
+    "ref_period_end_date": "2016-05-31",
+    "ref_period_start_date": "2016-05-01",
+    "ru_ref": "12346789012A",
+    "user_id": "UNKNOWN"
+  },
+  "origin": "uk.gov.ons.edc.eq",
+  "started_at": "2022-03-02T12:28:40.218916",
+  "submitted_at": "2022-03-02T12:29:06.884128",
+  "survey_id": "139",
+  "tx_id": "ff48797d-999d-4196-9976-686a271eec73",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "0.0.1"
+}
