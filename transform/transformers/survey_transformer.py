@@ -1,6 +1,5 @@
 import json
 import os
-from abc import ABC, abstractmethod
 
 import structlog
 
@@ -12,11 +11,11 @@ from transform.utilities.formatter import Formatter
 logger = structlog.get_logger()
 
 
-class SurveyTransformer(ABC):
-    """Abstract baseclass for specific survey transformers.
+class SurveyTransformer:
+    """Baseclass for specific survey transformers.
 
     Common functionality for transformer classes.
-    Subclasses must provide their own implementations for create_pck() and create_receipt().
+    Subclasses should provide their own implementations for create_pck().
 
     """
 
@@ -29,7 +28,6 @@ class SurveyTransformer(ABC):
         self.image_transformer = ImageTransformer(self.logger, self.survey, self.response,
                                                   sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
 
-    @abstractmethod
     def create_pck(self):
         """
         Must return a tuple containing the pck name, and the pck itself as string.
@@ -57,6 +55,11 @@ class SurveyTransformer(ABC):
         """
         self.image_transformer.get_zipped_images(img_seq)
 
+    def get_json(self):
+        json_name = Formatter.response_json_name(self.ids.survey_id, self.ids.tx_id)
+        json_file = json.dumps(self.response)
+        return json_name, json_file
+
     def get_zip(self, img_seq=None):
 
         pck_name, pck = self.create_pck()
@@ -70,8 +73,8 @@ class SurveyTransformer(ABC):
         self._create_images(img_seq)
 
         # add original json to zip
-        response_json_name = Formatter.response_json_name(self.ids.survey_id, self.ids.tx_id)
-        self.image_transformer.zip.append(os.path.join(SDX_RESPONSE_JSON_PATH, response_json_name),
-                                          json.dumps(self.response))
+        json_name, json_file = self.get_json()
+        if json_file is not None:
+            self.image_transformer.zip.append(os.path.join(SDX_RESPONSE_JSON_PATH, json_name), json_file)
 
         return self.image_transformer.get_zip()
