@@ -80,7 +80,12 @@
                     "type": "currency",
                     "question_id": "13",
                     "number": "13"
-                },
+                }
+            ]
+        },
+        {
+            "title": " Comments",
+            "questions": [
                 {
                     "text": "Please provide any further details that will help us understand your figures and to tell an industry story",
                     "type": "text area",
