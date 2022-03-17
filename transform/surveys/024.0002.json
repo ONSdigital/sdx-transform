@@ -290,12 +290,6 @@
                     "type": "text field",
                     "question_id": "370",
                     "number": "370"
-                },
-                {
-                    "text": "For the reporting period, what was the name of your business's electricity supplier? ",
-                    "type": " text field ",
-                    "question_id": "370",
-                    "number": "370"
                 }
             ]
         },
