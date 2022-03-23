@@ -56,7 +56,7 @@ class QFITransformer(SurveyTransformer):
     QFI does not require a pck file but does need a bespoke name for the json file."""
 
     def __init__(self, response, seq_nr=0):
-        data = {qcode_mapping.get(k, default=k): v for k, v in response['data'].items()}
+        data = {qcode_mapping.get(k, k): v for k, v in response['data'].items()}
         if '12a' in data and '15' in data:
             data['17'] = calculate_total(data['12a'], data['15'])
         if '20a' in data and '23' in data:
