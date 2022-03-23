@@ -52,8 +52,14 @@ def calculate_total(x: str, y: str) -> str:
 
 
 class QFITransformer(SurveyTransformer):
-    """Transformer for the Quarterly Fuels Investment Survey.
-    QFI does not require a pck file but does need a bespoke name for the json file."""
+    """
+    Transformer for the Quarterly Fuels Investment Survey.
+    QFI does not require a pck file but does need a bespoke name for the json file.
+
+    The json received from EQ contains qcodes, however there is a requirement for
+    the images and json to use the actual question id (short code) instead.
+    These are therefore mapped in before any processing takes place.
+    """
 
     def __init__(self, response, seq_nr=0):
         data = {qcode_mapping.get(k, k): v for k, v in response['data'].items()}
