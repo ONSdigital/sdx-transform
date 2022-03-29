@@ -7,16 +7,16 @@
             "title": "Track and signalling",
             "questions": [
                 {
-                    "text": "For the period during this time, what was the business' total value of acquisitions and proceeds from disposals for track and signalling?",
+                    "text": "For the reporting period, what was the business' total value of construction and acquisitions of land?",
                     "type": "currency",
-                    "question_id": "2",
-                    "number": "2"
+                    "question_id": "1.1",
+                    "number": "1.1"
                 },
                 {
-                    "text": "For the period during this time, what was the business' total value of acquisitions and proceeds from disposals for track and signalling?",
+                    "text": "For the reporting period, what was the business' total value of proceeds from disposals of land and assets?",
                     "type": "currency",
-                    "question_id": "3",
-                    "number": "3"
+                    "question_id": "1.2",
+                    "number": "1.2"
                 }
             ]
         },
@@ -24,16 +24,16 @@
             "title": "Rolling Stock",
             "questions": [
                 {
-                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for rolling stock?",
+                    "text": "For the reporting period, what was your business's total value of acquisitions of rolling stock?",
                     "type": "currency",
-                    "question_id": "4",
-                    "number": "4"
+                    "question_id": "2.1",
+                    "number": "2.1"
                 },
                 {
-                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for rolling stock?",
+                    "text": "For the reporting period, what was your business's total value of proceeds from disposals of rolling stock?",
                     "type": "currency",
-                    "question_id": "5",
-                    "number": "5"
+                    "question_id": "2.2",
+                    "number": "2.2"
                 }
             ]
         },
@@ -41,28 +41,28 @@
             "title": "Stations",
             "questions": [
                 {
-                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for stations?",
+                    "text": "For the reporting period, what was your business's total value of retail acquisitions at stations?",
                     "type": "currency",
-                    "question_id": "6",
-                    "number": "6"
+                    "question_id": "3.1",
+                    "number": "3.1"
                 },
                 {
-                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for stations?",
+                    "text": "For the reporting period, what was your business's total value of proceeds from retail disposals at stations?",
                     "type": "currency",
-                    "question_id": "7",
-                    "number": "7"
+                    "question_id": "3.2",
+                    "number": "3.2"
                 },
                 {
-                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for stations?",
+                    "text": "For the reporting period, what was your business's total value of other acquisitions at stations?",
                     "type": "currency",
-                    "question_id": "8",
-                    "number": "8"
+                    "question_id": "3.3",
+                    "number": "3.3"
                 },
                 {
-                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for stations?",
+                    "text": "For the reporting period, what was your business's total value of proceeds from other disposals at stations?",
                     "type": "currency",
-                    "question_id": "9",
-                    "number": "9"
+                    "question_id": "3.4",
+                    "number": "3.4"
                 }
             ]
         },
@@ -70,16 +70,16 @@
             "title": "Other Rail",
             "questions": [
                 {
-                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for other rail?",
+                    "text": "For the reporting period, what was your business's total value of acquisitions from other rail?",
                     "type": "currency",
-                    "question_id": "10",
-                    "number": "10"
+                    "question_id": "4.1",
+                    "number": "4.1"
                 },
                 {
-                    "text": "For the reporting period, what was your business's total value of acquisitions and proceeds from disposals for other rail?",
+                    "text": "For the reporting period, what was your business's total value of proceeds from disposals of other rail?",
                     "type": "currency",
-                    "question_id": "13",
-                    "number": "13"
+                    "question_id": "4.2",
+                    "number": "4.2"
                 }
             ]
         },
