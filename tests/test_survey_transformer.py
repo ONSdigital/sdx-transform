@@ -87,18 +87,20 @@ class TestSurveyTransformer(unittest.TestCase):
     def transform_pck(self, test_scenarios, output_extension):
 
         for scenario_filename in test_scenarios:
-            print("Loading scenario %s " % scenario_filename)
             payload = get_file_as_dict(scenario_filename)
             expected_response = get_expected_output(scenario_filename, output_extension)
-            print("Expected response")
-            print(expected_response)
 
             transformer = get_transformer(payload)
             pck_name, pck = transformer.create_pck()
 
             actual_response = pck
-            print("Actual response")
-            print(actual_response)
+
+            if actual_response != expected_response:
+                print("Failed scenario %s " % scenario_filename)
+                print("Expected response")
+                print(expected_response)
+                print("Actual response")
+                print(actual_response)
 
             self.assertEqual(actual_response, expected_response)
 
