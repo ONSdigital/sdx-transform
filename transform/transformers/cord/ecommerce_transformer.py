@@ -23,16 +23,16 @@ class EcommerceTransformer(SurveyTransformer):
 
         super().__init__(response, seq_nr)
 
-        period = response['collection']['period']
+        period = response.period
         if len(period) == 4:
-            response['collection']['period'] = period[2:] + '12'
+            self.survey_response.period = period[2:] + '12'
 
         self.period = period
 
     def get_qcode(self, qcode):
         """ Return the value of a qcode, or if it isn't present, then return None
         """
-        return self.response['data'].get(qcode, None)
+        return self.survey_response.data.get(qcode, None)
 
     def yes_no_question(self, qcode):
         """ Handles optional Yes / No radio questions
@@ -299,7 +299,7 @@ class EcommerceTransformer(SurveyTransformer):
         ict_security = self.ict_security()
         e_commerce = self.e_commerce()
 
-        logger.info(f"Transforming data for {self.ids.ru_ref}", tx_id=self.ids.tx_id)
+        logger.info(f"Transforming data for {self.survey_response.ru_ref}", tx_id=self.survey_response.tx_id)
 
         return {**transformed, **ict_specialists_and_skills,
                 **access_and_use_of_internet,
@@ -311,20 +311,20 @@ class EcommerceTransformer(SurveyTransformer):
         """Return a pck file using provided data"""
         pck = CORDFormatter.get_pck(
             transformed_data,
-            self.ids.survey_id,
-            self.ids.ru_ref,
+            self.survey_response.survey_id,
+            self.survey_response.ru_ref,
             self.period,
         )
         return pck
 
     def create_pck(self):
-        bound_logger = logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
+        bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
         transformed_data = self.transform()
         bound_logger.info("Data successfully transformed")
 
         bound_logger.info("Creating PCK")
-        pck_name = CORDFormatter.pck_name(self.ids.survey_id, self.ids.tx_id)
+        pck_name = CORDFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
         pck = self._create_pck(transformed_data)
         bound_logger.info("Successfully created PCK")
         return pck_name, pck

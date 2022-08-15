@@ -167,8 +167,8 @@ class DESTransformer(SurveyTransformer):
     Therefore, we change the value on the response before passing to the superclass.
     """
     def __init__(self, response, seq_nr=0):
-        period = response['collection']['period']
-        response['collection']['period'] = period + '12'
+        period = response.period
+        response.period = period + '12'
         super().__init__(response, seq_nr)
         self.period = period
 
@@ -176,20 +176,20 @@ class DESTransformer(SurveyTransformer):
         """Return a pck file using provided data"""
         pck = CORDFormatter.get_pck(
             transformed_data,
-            self.ids.survey_id,
-            self.ids.ru_ref,
+            self.survey_response.survey_id,
+            self.survey_response.ru_ref,
             self.period,
         )
         return pck
 
     def create_pck(self):
-        bound_logger = logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
+        bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
-        transformed_data = perform_transform(self.response['data'], transformations)
+        transformed_data = perform_transform(self.survey_response.data, transformations)
         bound_logger.info("Data successfully transformed")
 
         bound_logger.info("Creating PCK")
-        pck_name = CORDFormatter.pck_name(self.ids.survey_id, self.ids.tx_id)
+        pck_name = CORDFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
         pck = self._create_pck(transformed_data)
         bound_logger.info("Successfully created PCK")
         return pck_name, pck

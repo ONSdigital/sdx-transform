@@ -62,7 +62,7 @@ class QFITransformer(SurveyTransformer):
     """
 
     def __init__(self, response, seq_nr=0):
-        data = {qcode_mapping.get(k, k): v for k, v in response['data'].items()}
+        data = {qcode_mapping.get(k, k): v for k, v in response.data.items()}
         if '12a' in data and '15' in data:
             data['17'] = calculate_total(data['12a'], data['15'])
         if '20a' in data and '23' in data:
@@ -74,6 +74,6 @@ class QFITransformer(SurveyTransformer):
         super().__init__(response, seq_nr)
 
     def get_json(self):
-        json_name = f"{self.ids.survey_id}_{self.ids.ru_ref}_{self.ids.period}.json"
-        json_file = json.dumps(self.response)
+        json_name = f"{self.survey_response.survey_id}_{self.survey_response.ru_ref}_{self.survey_response.period}.json"
+        json_file = json.dumps(self.survey_response)
         return json_name, json_file

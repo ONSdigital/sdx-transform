@@ -1,7 +1,5 @@
 import datetime
 import json
-import logging
-from collections import namedtuple
 from json import JSONDecodeError
 
 import structlog
@@ -21,12 +19,6 @@ class Survey:
     """Provide operations and accessors to survey data."""
 
     file_pattern = "./transform/surveys/{survey_id}.{instrument_id}.json"
-
-    #: A named tuple type to capture ids and discriminators from a survey response.
-    Identifiers = namedtuple("Identifiers", [
-        "batch_nr", "seq_nr", "ts", "tx_id", "survey_id", "inst_id",
-        "user_ts", "user_id", "ru_ref", "ru_check", "period"
-    ])
 
     @staticmethod
     def load_survey(survey_id: str, instrument_id: str, pattern=file_pattern):
@@ -132,38 +124,3 @@ class Survey:
             return cls.strptime(text + "01", "%Y%m%d").date()
         except ValueError:
             return None
-
-    @staticmethod
-    def identifiers(data, batch_nr=0, seq_nr=0, log=None):
-        """Parse common metadata from the survey.
-
-        Return a named tuple which code can use to access the various ids and discriminators.
-
-        :param dict data:   A survey reply.
-        :param int batch_nr: A batch number for the reply.
-        :param int seq_nr: An image sequence number for the reply.
-
-        """
-        log = log or logging.getLogger(__name__)
-        ru_ref = data.get("metadata", {}).get("ru_ref", "")
-        ts = datetime.datetime.now(datetime.timezone.utc)
-        rv = Survey.Identifiers(
-            batch_nr,
-            seq_nr,
-            ts,
-            data.get("tx_id"),
-            data.get("survey_id"),
-            data.get("collection", {}).get("instrument_id"),
-            Survey.parse_timestamp(data.get("submitted_at", ts.isoformat())),
-            data.get("metadata", {}).get("user_id"),
-            ''.join(i for i in ru_ref if i.isdigit()),
-            ru_ref[-1] if ru_ref and ru_ref[-1].isalpha() else "",
-            data.get("collection", {}).get("period")
-        )
-        if any(i is None for i in rv):
-            for k, v in rv._asdict().items():
-                if v is None:
-                    log.warning(f"Missing {k} from {rv}")
-                    raise MissingIdsException(f"Missing field {k} from response")
-
-        return rv

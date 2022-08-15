@@ -139,8 +139,8 @@ class MWSSTransformer(SurveyTransformer):
         ])
 
     def create_pck(self):
-        data = self.transform(self.response["data"], self.survey)
-        id_dict = self.ids._asdict()
-        pck_name = CSFormatter.pck_name(id_dict["survey_id"], id_dict["tx_id"])
-        pck = CSFormatter.get_pck(data, id_dict["inst_id"], id_dict["ru_ref"], id_dict["ru_check"], id_dict["period"])
+        data = self.transform(self.survey_response.data, self.survey)
+        pck_name = CSFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
+        pck = CSFormatter.get_pck(data, self.survey_response.instrument_id, self.survey_response.ru_ref,
+                                  self.survey_response.ru_check, self.survey_response.period)
         return pck_name, pck

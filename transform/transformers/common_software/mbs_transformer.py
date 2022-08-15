@@ -5,7 +5,7 @@ from decimal import ROUND_HALF_UP, Decimal
 import structlog
 
 from transform.transformers.common_software.cs_formatter import CSFormatter
-from transform.transformers.survey import Survey
+from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
@@ -88,7 +88,7 @@ class MBSTransformer(SurveyTransformer):
             except ValueError:
                 return None
 
-    def __init__(self, response, seq_nr=0):
+    def __init__(self, response: SurveyResponse, seq_nr=0):
 
         super().__init__(response, seq_nr)
 
@@ -119,46 +119,9 @@ class MBSTransformer(SurveyTransformer):
             "0873": "T873G",
         }
 
-    def get_identifiers(self, batch_nr=0, seq_nr=0):
-        """Parse common metadata from the survey.
-
-        Return a named tuple which code can use to access the various ids and discriminators.
-
-        :param int batch_nr: A batch number for the reply.
-        :param int seq_nr: An image sequence number for the reply.
-
-        """
-
-        logger.info("Parsing data from submission")
-
-        ru_ref = self.response.get("metadata", {}).get("ru_ref", "")
-        ts = datetime.datetime.now(datetime.timezone.utc)
-        ids = {
-            "batch_nr": batch_nr,
-            "seq_nr": seq_nr,
-            "ts": ts,
-            "tx_id": self.response.get("tx_id"),
-            "survey_id": self.response.get("survey_id"),
-            "instrument_id": self.response.get("collection", {}).get("instrument_id"),
-            "submitted_at": Survey.parse_timestamp(
-                self.response.get("submitted_at", ts.isoformat())
-            ),
-            "user_id": self.response.get("metadata", {}).get("user_id"),
-            "ru_ref": "".join(i for i in ru_ref if i.isdigit()),
-            "ru_check": ru_ref[-1] if ru_ref and ru_ref[-1].isalpha() else "",
-            "period": self.response.get("collection", {}).get("period"),
-        }
-
-        for key, value in ids.items():
-            if value is None:
-                logger.error(f"Missing value for: {key}")
-                return None
-
-        return ids
-
     def check_employee_totals(self):
         """Populate qcode 51:54 based on d50"""
-        if self.response["data"].get("d50") == "Yes":
+        if self.survey_response.data.get("d50") == "Yes":
             logger.info("Setting default values to 0 for question codes 51:54")
             return {q_id: 0 for q_id in self.employment_questions}
 
@@ -171,7 +134,7 @@ class MBSTransformer(SurveyTransformer):
                 # then it doesn't need to go in the PCK file.
                 try:
                     employee_totals[q_id] = self.convert_str_to_int(
-                        self.response["data"].get(q_id)
+                        self.survey_response.data.get(q_id)
                     )
                 except TypeError:
                     logger.info(f"No answer supplied for {q_id}. Skipping.")
@@ -180,7 +143,7 @@ class MBSTransformer(SurveyTransformer):
 
     def check_turnover_totals(self):
         """Populate qcode 49 based on d49"""
-        if self.response["data"].get("d49") == "Yes":
+        if self.survey_response.data.get("d49") == "Yes":
             logger.info("Setting default value to 0 for question code 49")
             return {q_id: 0 for q_id in self.turnover_questions}
 
@@ -191,7 +154,7 @@ class MBSTransformer(SurveyTransformer):
             for q_id in self.turnover_questions:
                 try:
                     turnover_totals[q_id] = self.round_mbs(
-                        self.response["data"].get(q_id)
+                        self.survey_response.data.get(q_id)
                     )
                 except TypeError:
                     logger.info(f"No answer supplied for {q_id}. Skipping.")
@@ -203,19 +166,19 @@ class MBSTransformer(SurveyTransformer):
         them with the period start and end date found in the metadata
         """
         try:
-            start_date = MBSTransformer.parse_timestamp(self.response["data"]["11"])
+            start_date = MBSTransformer.parse_timestamp(self.survey_response.data["11"])
         except KeyError:
             logger.info("Populating start date using metadata")
             start_date = MBSTransformer.parse_timestamp(
-                self.response.get("metadata", {})["ref_period_start_date"]
+                self.survey_response.ref_period_start_date
             )
 
         try:
-            end_date = MBSTransformer.parse_timestamp(self.response["data"]["12"])
+            end_date = MBSTransformer.parse_timestamp(self.survey_response.data["12"])
         except KeyError:
             logger.info("Populating end date using metadata")
             end_date = MBSTransformer.parse_timestamp(
-                self.response.get("metadata", {})["ref_period_end_date"]
+                self.survey_response.ref_period_end_date
             )
 
         return {"11": start_date, "12": end_date}
@@ -227,20 +190,20 @@ class MBSTransformer(SurveyTransformer):
         dates = self.survey_dates()
 
         logger.info(
-            "Transforming data for {}".format(self.ids.ru_ref),
-            tx_id=self.ids.tx_id
+            "Transforming data for {}".format(self.survey_response.ru_ref),
+            tx_id=self.survey_response.tx_id
         )
 
         transformed_data = {
-            "146": 1 if self.response["data"].get("146") is not None else 2,
-            "40": self.round_mbs(self.response["data"].get("40")),
-            "42": self.round_mbs(self.response["data"].get("42")),
-            "43": self.round_mbs(self.response["data"].get("43")),
-            "46": self.round_mbs(self.response["data"].get("46")),
-            "47": self.round_mbs(self.response["data"].get("47")),
-            "90": self.round_mbs(self.response["data"].get("90")),
-            "50": MBSTransformer.convert_str_to_int(self.response["data"].get("50")),
-            "110": MBSTransformer.convert_str_to_int(self.response["data"].get("110")),
+            "146": 1 if self.survey_response.data.get("146") is not None else 2,
+            "40": self.round_mbs(self.survey_response.data.get("40")),
+            "42": self.round_mbs(self.survey_response.data.get("42")),
+            "43": self.round_mbs(self.survey_response.data.get("43")),
+            "46": self.round_mbs(self.survey_response.data.get("46")),
+            "47": self.round_mbs(self.survey_response.data.get("47")),
+            "90": self.round_mbs(self.survey_response.data.get("90")),
+            "50": MBSTransformer.convert_str_to_int(self.survey_response.data.get("50")),
+            "110": MBSTransformer.convert_str_to_int(self.survey_response.data.get("110")),
         }
 
         return {
@@ -250,15 +213,15 @@ class MBSTransformer(SurveyTransformer):
         }
 
     def create_pck(self, img_seq=None):
-        logger.info("Creating PCK", ru_ref=self.ids.ru_ref)
-        pck_name = CSFormatter.pck_name(self.ids.survey_id, self.ids.tx_id)
+        logger.info("Creating PCK", ru_ref=self.survey_response.ru_ref)
+        pck_name = CSFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
         transformed_data = self._transform()
         pck = CSFormatter.get_pck(
             transformed_data,
-            self.idbr_ref[self.ids.inst_id],
-            self.ids.ru_ref,
-            self.ids.ru_check,
-            self.ids.period,
+            self.idbr_ref[self.survey_response.instrument_id],
+            self.survey_response.ru_ref,
+            self.survey_response.ru_check,
+            self.survey_response.period,
         )
 
         return pck_name, pck

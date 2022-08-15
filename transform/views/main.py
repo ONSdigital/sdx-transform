@@ -6,6 +6,7 @@ from jinja2 import Environment, PackageLoader
 from structlog.contextvars import bind_contextvars
 
 from transform import app
+from transform.transformers.response import SurveyResponse
 from transform.transformers.survey import MissingSurveyException, MissingIdsException
 from transform.transformers.transform_selector import get_transformer
 
@@ -48,11 +49,13 @@ def server_error(error=None):
 @app.post('/transform')
 @app.post('/transform/<sequence_no>')
 def transform(sequence_no=1000):
-    survey_response = request.get_json(force=True)
-    tx_id = survey_response.get("tx_id")
+    response = request.get_json(force=True)
+    tx_id = response.get("tx_id")
     bind_contextvars(app="sdx-transform")
     bind_contextvars(tx_id=tx_id)
     bind_contextvars(thread=threading.currentThread().getName())
+
+    survey_response = SurveyResponse(response)
 
     if sequence_no:
         sequence_no = int(sequence_no)

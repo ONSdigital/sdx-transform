@@ -11,6 +11,9 @@ from reportlab.lib.enums import TA_LEFT, TA_CENTER
 __doc__ = """
 SDX PDF Transformer.
 """
+
+from transform.transformers.response import SurveyResponse
+
 styles = getSampleStyleSheet()
 
 # Basic text style
@@ -45,12 +48,12 @@ MAX_ANSWER_CHARACTERS_PER_LINE = 35
 
 class PDFTransformer:
 
-    def __init__(self, survey, response_data):
+    def __init__(self, survey, response: SurveyResponse):
         '''
         Sets up variables needed to write out a pdf
         '''
         self.survey = survey
-        self.response = response_data
+        self.response = response
 
     def render(self):
         """Get the pdf data in memory"""
@@ -86,11 +89,11 @@ class PDFTransformer:
         heading_style.add('SPAN', (0, 0), (1, 0))
         heading_style.add('ALIGN', (0, 0), (1, 0), 'CENTER')
 
-        localised_date_str = PDFTransformer.get_localised_date(self.response['submitted_at'])
+        localised_date_str = PDFTransformer.get_localised_date(self.response.submitted_at)
 
         heading_data = [[Paragraph(self.survey['title'], style_h)]]
-        heading_data.append(['Form Type', self.response['collection']['instrument_id']])
-        heading_data.append(['Respondent', self.response['metadata']['ru_ref']])
+        heading_data.append(['Form Type', self.response.instrument_id])
+        heading_data.append(['Respondent', self.response.ru_ref])
         heading_data.append(['Submitted At', localised_date_str])
 
         heading = Table(heading_data, style=heading_style, colWidths='*')
@@ -102,9 +105,9 @@ class PDFTransformer:
             section_heading = True
 
             for question in filter(lambda x: 'text' in x, question_group['questions']):
-                if question['question_id'] in self.response['data']:
+                if question['question_id'] in self.response.data:
                     try:
-                        answer = str(self.response['data'][question['question_id']])
+                        answer = str(self.response.data[question['question_id']])
                     except KeyError:
                         answer = ''
 

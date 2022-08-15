@@ -4,13 +4,11 @@ import json
 import unittest
 import zipfile
 from collections import OrderedDict
-
-import pytest
-
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.common_software.mwss_transformer import MWSSTransformer
 from transform.transformers.processor import Processor
-from transform.transformers.survey import Survey, MissingIdsException, MissingSurveyException
+from transform.transformers.response import SurveyResponse
+from transform.transformers.survey import Survey, MissingIdsException
 from transform.transformers.transform_selector import get_transformer
 
 
@@ -120,7 +118,7 @@ class OpTests(unittest.TestCase):
             },
             "submitted_at": "2017-04-12T13:01:26Z",
         }
-        transformer = MWSSTransformer(response, 0)
+        transformer = MWSSTransformer(SurveyResponse(response), 0)
         self.assertTrue(transformer)
 
 
@@ -843,7 +841,6 @@ class TransformTests(unittest.TestCase):
 
 
 class BatchFileTests(unittest.TestCase):
-
     replies_dir = 'tests/replies/'
 
     def test_pck_form_header(self):
@@ -857,47 +854,6 @@ class BatchFileTests(unittest.TestCase):
         period = "200911"
         return_value = CSFormatter._pck_form_header(form_id, ru_ref, check, period)
         self.assertEqual("0005:49900001225C:200911", return_value)
-
-    def test_load_survey(self):
-        """
-        Tests if load data passes if survey id is 134
-
-        """
-        ids = Survey.identifiers({
-            "survey_id": "134",
-            "tx_id": "27923934-62de-475c-bc01-433c09fd38b8",
-            "collection": {
-                "instrument_id": "0005",
-                "period": "201704"
-            },
-            "metadata": {
-                "user_id": "123456789",
-                "ru_ref": "12345678901A"
-            }
-        }, batch_nr=0, seq_nr=0)
-        return_value = Survey.load_survey(ids.survey_id, ids.inst_id)
-        self.assertIsNotNone(return_value)
-
-    def test_load_survey_miss(self):
-        """
-        Tests if load data is missed if survey id is not 134
-
-        """
-        ids = Survey.identifiers({
-            "survey_id": "127",
-            "tx_id": "27923934-62de-475c-bc01-433c09fd38b8",
-            "collection": {
-                "instrument_id": "0001",
-                "period": "201704"
-            },
-            "metadata": {
-                "user_id": "123456789",
-                "ru_ref": "12345678901A"
-            }
-        }, batch_nr=0, seq_nr=0)
-
-        with pytest.raises(MissingSurveyException):
-            Survey.load_survey(ids.survey_id, ids.inst_id)
 
     def test_pck_lines(self):
         """
@@ -932,11 +888,10 @@ class BatchFileTests(unittest.TestCase):
         reply = json.loads(f.read())
         f.close()
         reply["tx_id"] = "27923934-62de-475c-bc01-433c09fd38b8"
-        ids = Survey.identifiers(reply, batch_nr=3866, seq_nr=0)
-        id_dict = ids._asdict()
+        response = SurveyResponse(reply)
 
-        return_value = CSFormatter._idbr_receipt(id_dict["survey_id"], id_dict["ru_ref"], id_dict["ru_check"],
-                                                 id_dict["period"])
+        return_value = CSFormatter._idbr_receipt(
+            response.survey_id, response.ru_ref, response.ru_check, response.period)
         self.assertEqual("12346789012:A:134:201605", return_value)
 
     def test_identifiers(self):
@@ -949,17 +904,13 @@ class BatchFileTests(unittest.TestCase):
         f.close()
         reply["tx_id"] = "27923934-62de-475c-bc01-433c09fd38b8"
         reply["collection"]["period"] = "200911"
-        ids = Survey.identifiers(reply, batch_nr=0, seq_nr=0)
-        self.assertIsInstance(ids, Survey.Identifiers)
-        self.assertEqual(0, ids.batch_nr)
-        self.assertEqual(0, ids.seq_nr)
-        self.assertEqual(reply["tx_id"], ids.tx_id)
-        self.assertEqual(datetime.date.today(), ids.ts.date())
-        self.assertEqual("134", ids.survey_id)
-        self.assertEqual("K5O86M2NU1", ids.user_id)
-        self.assertEqual("12346789012", ids.ru_ref)
-        self.assertEqual("A", ids.ru_check)
-        self.assertEqual("200911", ids.period)
+        response = SurveyResponse(reply)
+        self.assertEqual(reply["tx_id"], response.tx_id)
+        self.assertEqual(datetime.date.today(), response.submitted_at.date())
+        self.assertEqual("134", response.survey_id)
+        self.assertEqual("12346789012", response.ru_ref)
+        self.assertEqual("A", response.ru_check)
+        self.assertEqual("200911", response.period)
 
     def test_pck_from_untransformed_data(self):
         """
@@ -978,10 +929,9 @@ class BatchFileTests(unittest.TestCase):
             ("0140", 124),
             ("0151", 217222)
         ])
-        ids = Survey.identifiers(reply, batch_nr=3866, seq_nr=0)
-        id_dict = ids._asdict()
-        return_value = CSFormatter._pck_lines(reply["data"], id_dict["inst_id"], id_dict["ru_ref"], id_dict["ru_check"],
-                                              id_dict["period"])
+        response = SurveyResponse(reply)
+        return_value = CSFormatter._pck_lines(
+            response.survey_id, response.ru_ref, response.ru_check, response.period)
         self.assertEqual([
             "FV          ",
             "0005:49900001225C:200911",
@@ -1002,7 +952,7 @@ class BatchFileTests(unittest.TestCase):
         reply["survey_id"] = "134"
         reply["collection"]["period"] = "200911"
         reply["metadata"]["ru_ref"] = "49900001225C"
-        ids = Survey.identifiers(reply, batch_nr=3866, seq_nr=0)
+        response = SurveyResponse(reply)
         data = MWSSTransformer.transform(
             OrderedDict([
                 ("40", 2),
@@ -1010,9 +960,9 @@ class BatchFileTests(unittest.TestCase):
                 ("151", 217222)
             ])
         )
-        id_dict = ids._asdict()
-        return_value = CSFormatter._pck_lines(data, id_dict["inst_id"], id_dict["ru_ref"], id_dict["ru_check"],
-                                              id_dict["period"])
+        return_value = CSFormatter._pck_lines(
+            data, response.survey_id, response.ru_ref, response.ru_check, response.period)
+
         self.assertEqual([
             "FV          ",
             "0005:49900001225C:200911",
@@ -1057,7 +1007,7 @@ class PackingTests(unittest.TestCase):
         }
         seq_nr = 12345
 
-        transformer = get_transformer(expected_json_data, sequence_no=seq_nr)
+        transformer = get_transformer(SurveyResponse(expected_json_data), sequence_no=seq_nr)
         result = transformer.get_zip(img_seq=itertools.count())
 
         z = zipfile.ZipFile(result)

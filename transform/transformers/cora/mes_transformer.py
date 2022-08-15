@@ -219,7 +219,7 @@ class MESTransformer(SurveyTransformer):
             '0003': '0'
         }
         for q_code, transformation in transforms.items():
-            value = self.response['data'].get(q_code)
+            value = self.survey_response.data.get(q_code)
             if value is None:
                 transformed_value = ''
             else:
@@ -252,19 +252,19 @@ class MESTransformer(SurveyTransformer):
         """Return a pck file using provided data"""
         pck = CORAFormatter.get_pck(
             transformed_data,
-            self.ids.survey_id,
-            self.ids.ru_ref,
+            self.survey_response.survey_id,
+            self.survey_response.ru_ref,
             self.page,
-            self.ids.period,
+            self.survey_response.period,
             self.instance,
         )
         return pck
 
     def create_pck(self):
-        bound_logger = logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
+        bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
         transformed_data = self.transform()
         bound_logger.info("Data successfully transformed")
-        pck_name = CORAFormatter.pck_name(self.ids.survey_id, self.ids.tx_id)
+        pck_name = CORAFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
         pck = self._create_pck(transformed_data)
         return pck_name, pck
