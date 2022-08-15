@@ -20,7 +20,7 @@ class MissingSurveyException(Exception):
 class Survey:
     """Provide operations and accessors to survey data."""
 
-    file_pattern = "./transform/surveys/{survey_id}.{inst_id}.json"
+    file_pattern = "./transform/surveys/{survey_id}.{instrument_id}.json"
 
     #: A named tuple type to capture ids and discriminators from a survey response.
     Identifiers = namedtuple("Identifiers", [
@@ -29,14 +29,14 @@ class Survey:
     ])
 
     @staticmethod
-    def load_survey(ids, pattern=file_pattern):
+    def load_survey(survey_id: str, instrument_id: str, pattern=file_pattern):
         """Retrieve the survey definition by id.
 
         This function takes metadata from a survey reply, finds the JSON definition of
         that survey, and loads it as a Python object.
 
-        :param ids: Survey response ids.
-        :type ids: :py:class:`sdx.common.survey.Survey.Identifiers`
+        :param survey_id: Survey response ids.
+        :param instrument_id
         :param str pattern: A query for the survey definition. This will be
                             a file path relative to the package location which uniquely
                             identifies the survey definition file. It accepts keyword
@@ -50,8 +50,9 @@ class Survey:
         :rtype: dict
 
         """
+
+        file_name = pattern.format(survey_id=survey_id, instrument_id=instrument_id)
         try:
-            file_name = pattern.format(**ids._asdict())
             with open(file_name, encoding="utf-8") as fh:
                 content = fh.read()
                 return json.loads(content)

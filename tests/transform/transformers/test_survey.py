@@ -48,7 +48,7 @@ class SurveyTests(unittest.TestCase):
                 "ru_ref": "12345678901A"
             }
         })
-        rv = Survey.load_survey(ids, "./tests/data/{survey_id}.{inst_id}.json")
+        rv = Survey.load_survey(ids.survey_id, ids.inst_id, "./tests/data/{survey_id}.{instrument_id}.json")
         self.assertIsNotNone(rv)
 
     def test_load_survey_miss(self):
@@ -65,4 +65,4 @@ class SurveyTests(unittest.TestCase):
             }
         })
         with pytest.raises(MissingSurveyException):
-            Survey.load_survey(ids, "./tests/data/{survey_id}.{inst_id}.json")
+            Survey.load_survey(ids.survey_id, ids.inst_id, "./tests/data/{survey_id}.{instrument_id}.json")

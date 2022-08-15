@@ -24,7 +24,7 @@ class SurveyTransformer:
         self.sequence_no = sequence_no
         self.logger = logger
         self.ids = Survey.identifiers(response, seq_nr=sequence_no)
-        self.survey = Survey.load_survey(self.ids)
+        self.survey = Survey.load_survey(self.ids.survey_id, self.ids.inst_id)
         self.image_transformer = ImageTransformer(self.logger, self.survey, self.response,
                                                   sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
 
