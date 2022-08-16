@@ -24,17 +24,6 @@ class CSTransformer(SurveyTransformer):
         self._idbr = StringIO()
         self._pck = StringIO()
         self._response_json = StringIO()
-        self._setup_logger()
-
-    def _setup_logger(self):
-        if self.survey:
-            if 'metadata' in self.survey:
-                metadata = self.survey['metadata']
-                self._logger = self._logger.bind(user_id=metadata['user_id'], ru_ref=metadata['ru_ref'])
-
-            if 'tx_id' in self.survey:
-                self.tx_id = self.survey['tx_id']
-                self._logger = self._logger.bind(tx_id=self.tx_id)
 
     def _create_pck(self):
         template = env.get_template('pck.tmpl')
