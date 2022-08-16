@@ -73,8 +73,8 @@ def transform(sequence_no=1000):
         return client_error("Unsupported survey/instrument id")
 
     except Exception as e:
-        tx_id = survey_response.get("tx_id")
-        survey_id = survey_response.get("survey_id")
+        tx_id = survey_response.tx_id
+        survey_id = survey_response.survey_id
         logger.exception("TRANSFORM:could not create files for survey", survey_id=survey_id, tx_id=tx_id)
         return server_error(e)
 

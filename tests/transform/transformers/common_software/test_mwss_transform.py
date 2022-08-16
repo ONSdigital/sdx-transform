@@ -8,7 +8,7 @@ from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.common_software.mwss_transformer import MWSSTransformer
 from transform.transformers.processor import Processor
 from transform.transformers.response import SurveyResponse
-from transform.transformers.survey import Survey, MissingIdsException
+from transform.transformers.survey import Survey
 from transform.transformers.transform_selector import get_transformer
 
 
@@ -906,7 +906,7 @@ class BatchFileTests(unittest.TestCase):
         reply["collection"]["period"] = "200911"
         response = SurveyResponse(reply)
         self.assertEqual(reply["tx_id"], response.tx_id)
-        self.assertEqual(datetime.date.today(), response.submitted_at.date())
+        self.assertEqual(datetime.date(2017, 3, 1), response.submitted_at.date())
         self.assertEqual("134", response.survey_id)
         self.assertEqual("12346789012", response.ru_ref)
         self.assertEqual("A", response.ru_check)
@@ -931,7 +931,7 @@ class BatchFileTests(unittest.TestCase):
         ])
         response = SurveyResponse(reply)
         return_value = CSFormatter._pck_lines(
-            response.survey_id, response.ru_ref, response.ru_check, response.period)
+            response.data, response.instrument_id, response.ru_ref, response.ru_check, response.period)
         self.assertEqual([
             "FV          ",
             "0005:49900001225C:200911",
@@ -961,7 +961,7 @@ class BatchFileTests(unittest.TestCase):
             ])
         )
         return_value = CSFormatter._pck_lines(
-            data, response.survey_id, response.ru_ref, response.ru_check, response.period)
+            data, response.instrument_id, response.ru_ref, response.ru_check, response.period)
 
         self.assertEqual([
             "FV          ",
@@ -976,18 +976,6 @@ class BatchFileTests(unittest.TestCase):
 
 
 class PackingTests(unittest.TestCase):
-
-    def test_requires_ids(self):
-        """
-        Test requires id user warning
-
-        """
-        self.assertRaises(
-            MissingIdsException,
-            MWSSTransformer,
-            {},
-            seq_nr=0
-        )
 
     def test_original_response_is_stored(self):
         """Compare the dictionary loaded from the zip file json is the same as that submitted"""
