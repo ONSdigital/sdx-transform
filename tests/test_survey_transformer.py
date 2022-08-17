@@ -9,6 +9,7 @@ from datetime import datetime
 
 import dateutil
 
+from transform.transformers.response import SurveyResponse
 from transform.transformers.transform_selector import get_transformer
 from transform.utilities.formatter import Formatter
 from transform.views.image_filters import format_date
@@ -90,7 +91,7 @@ class TestSurveyTransformer(unittest.TestCase):
             payload = get_file_as_dict(scenario_filename)
             expected_response = get_expected_output(scenario_filename, output_extension)
 
-            transformer = get_transformer(payload)
+            transformer = get_transformer(SurveyResponse(payload))
             pck_name, pck = transformer.create_pck()
 
             actual_response = pck
@@ -135,7 +136,7 @@ class TestSurveyTransformer(unittest.TestCase):
             payload = get_file_as_dict(scenario_filename)
             expected_response = get_expected_output(scenario_filename, "idbr")
 
-            transformer = get_transformer(payload)
+            transformer = get_transformer(SurveyResponse(payload))
             receipt_name, receipt = transformer.create_receipt()
 
             actual_response = receipt
@@ -153,7 +154,7 @@ class TestSurveyTransformer(unittest.TestCase):
             payload = get_file_as_string(scenario_filename)
             payload_object = json.loads(payload)
 
-            transformer = get_transformer(payload_object, 1000)
+            transformer = get_transformer(SurveyResponse(payload_object), 1000)
 
             z = zipfile.ZipFile(transformer.image_transformer.get_zipped_images().in_memory_zip)
 
