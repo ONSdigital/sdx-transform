@@ -525,6 +525,8 @@ class PCKTransformer:
             self.populate_period_data()
         except KeyError:
             logger.info("Missing metadata")
+        except TypeError:
+            logger.info("Missing metadata")
 
         # Important: Round first, then calculate totals, otherwise the totals won't add up correctly
         self.round_numeric_values()
