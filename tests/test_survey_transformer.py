@@ -141,7 +141,7 @@ class TestSurveyTransformer(unittest.TestCase):
 
             actual_response = receipt
 
-            self.assertEqual(actual_response, expected_response)
+            self.assertEqual(expected_response, actual_response)
 
     def test_create_index(self):
         test_scenarios = get_test_scenarios("csv")
