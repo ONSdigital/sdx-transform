@@ -55,12 +55,11 @@ def transform(sequence_no=1000):
     bind_contextvars(tx_id=tx_id)
     bind_contextvars(thread=threading.currentThread().getName())
 
-    survey_response = SurveyResponse(response)
-
     if sequence_no:
         sequence_no = int(sequence_no)
 
     try:
+        survey_response = SurveyResponse(response)
         transformer = get_transformer(survey_response, sequence_no)
         zip_file = transformer.get_zip()
         logger.info("Transformation was a success, returning zip file")
@@ -73,9 +72,7 @@ def transform(sequence_no=1000):
         return client_error("Unsupported survey/instrument id")
 
     except Exception as e:
-        tx_id = survey_response.tx_id
-        survey_id = survey_response.survey_id
-        logger.exception("TRANSFORM:could not create files for survey", survey_id=survey_id, tx_id=tx_id)
+        logger.exception("TRANSFORM:could not create files for survey", tx_id=tx_id)
         return server_error(e)
 
 

@@ -66,7 +66,7 @@ class BatchFileTests(unittest.TestCase):
         response = SurveyResponse(self.reply)
 
         self.assertEqual(self.reply["tx_id"], response.tx_id)
-        self.assertEqual(datetime.date.today(), response.submitted_at.date())
+        self.assertEqual(datetime.date(2017, 3, 1), response.submitted_at.date())
         self.assertEqual("134", response.survey_id)
         self.assertEqual("12346789012", response.ru_ref)
         self.assertEqual("A", response.ru_check)
