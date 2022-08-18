@@ -21,7 +21,7 @@ class SurveyResponse:
         self.instrument_id: str = self._extract("collection", "instrument_id")
         self.period: str = self._extract("collection", "period")
         ru_ref = self._extract("metadata", "ru_ref")
-        self.ru_ref: str = ru_ref[0:-1]
+        self.ru_ref: str = ru_ref[0:-1] if ru_ref[-1].isalpha() else ru_ref
         self.ru_check: str = ru_ref[-1] if ru_ref and ru_ref[-1].isalpha() else ""
         submitted_at = self.response.get("submitted_at")
         self.submitted_at_raw: str = submitted_at if submitted_at else datetime.now(timezone.utc).isoformat()
