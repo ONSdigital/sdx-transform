@@ -169,17 +169,19 @@ class MBSTransformer(SurveyTransformer):
             start_date = MBSTransformer.parse_timestamp(self.survey_response.data["11"])
         except KeyError:
             logger.info("Populating start date using metadata")
-            start_date = MBSTransformer.parse_timestamp(
-                self.survey_response.ref_period_start_date
-            )
+            ref_period_start_date = self.survey_response.ref_period_start_date
+            if ref_period_start_date is None:
+                raise KeyError
+            start_date = MBSTransformer.parse_timestamp(ref_period_start_date)
 
         try:
             end_date = MBSTransformer.parse_timestamp(self.survey_response.data["12"])
         except KeyError:
             logger.info("Populating end date using metadata")
-            end_date = MBSTransformer.parse_timestamp(
-                self.survey_response.ref_period_end_date
-            )
+            ref_period_end_date = self.survey_response.ref_period_end_date
+            if ref_period_end_date is None:
+                raise KeyError
+            end_date = MBSTransformer.parse_timestamp(ref_period_end_date)
 
         return {"11": start_date, "12": end_date}
 
