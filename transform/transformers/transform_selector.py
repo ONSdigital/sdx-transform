@@ -28,7 +28,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
 
     # CORD
     elif survey_id == "187":
-        if response['collection']['instrument_id'] in ['0001', '0002']:
+        if response.instrument_id in ['0001', '0002']:
             transformer = DESTransformer(response, sequence_no)
         else:
             transformer = EcommerceTransformer(response, sequence_no)

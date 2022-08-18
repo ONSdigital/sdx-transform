@@ -46,7 +46,7 @@ class SurveyResponse:
 
     def _extract_optional(self, *field_names) -> Optional[str]:
         try:
-            return self._extract(field_names)
+            return self._extract(*field_names)
         except MissingIdsException:
             return None
 

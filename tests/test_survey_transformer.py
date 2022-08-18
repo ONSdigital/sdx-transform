@@ -103,7 +103,7 @@ class TestSurveyTransformer(unittest.TestCase):
                 print("Actual response")
                 print(actual_response)
 
-            self.assertEqual(actual_response, expected_response)
+            self.assertEqual(expected_response, actual_response)
 
     def test_create_cs_pck(self):
         test_scenarios = get_common_software_test_scenarios("pck")
