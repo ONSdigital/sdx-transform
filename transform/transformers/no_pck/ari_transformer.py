@@ -34,5 +34,5 @@ class ARITransformer(SurveyTransformer):
 
     def get_json(self):
         json_name = f"{self.survey_response.survey_id}_{self.survey_response.ru_ref}_{self.survey_response.period}.json"
-        json_file = json.dumps(self.survey_response)
+        json_file = json.dumps(self.survey_response.response)
         return json_name, json_file
