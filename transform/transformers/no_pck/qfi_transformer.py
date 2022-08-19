@@ -70,7 +70,7 @@ class QFITransformer(SurveyTransformer):
         if '28' in data and '31' in data:
             data['33'] = calculate_total(data['28'], data['31'])
 
-        response['data'] = data
+        response.data = data
         super().__init__(response, seq_nr)
 
     def get_json(self):

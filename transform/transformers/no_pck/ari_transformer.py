@@ -29,7 +29,7 @@ class ARITransformer(SurveyTransformer):
 
     def __init__(self, response, seq_nr=0):
         data = {qcode_mapping.get(k, k): v for k, v in response.data.items()}
-        response['data'] = data
+        response.data = data
         super().__init__(response, seq_nr)
 
     def get_json(self):
