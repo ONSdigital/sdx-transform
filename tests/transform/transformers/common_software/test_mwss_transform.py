@@ -855,6 +855,15 @@ class BatchFileTests(unittest.TestCase):
         return_value = CSFormatter._pck_form_header(form_id, ru_ref, check, period)
         self.assertEqual("0005:49900001225C:200911", return_value)
 
+    def test_load_survey(self):
+        """
+        Tests if load data passes if survey id is 134
+        """
+        survey_id = "134"
+        instrument_id = "0005"
+        return_value = Survey.load_survey(survey_id, instrument_id)
+        self.assertIsNotNone(return_value)
+
     def test_pck_lines(self):
         """
         Tests data in packet is valid
