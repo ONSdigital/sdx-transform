@@ -25,12 +25,13 @@ class SurveyResponse:
         submitted_at = self.response.get("submitted_at")
         self.submitted_at_raw: str = submitted_at if submitted_at else datetime.now(timezone.utc).isoformat()
 
-        self.ref_period_start_date: str = self._extract_optional("metadata", "ref_period_start_date")
-        self.ref_period_end_date: str = self._extract_optional("metadata", "ref_period_end_date")
-
         # extract object fields
         self.submitted_at: Union[datetime, date] = Survey.parse_timestamp(self.submitted_at_raw)
         self.data: Dict[str, str] = response.get("data")
+
+        # these fields are only required by some transformers
+        self.ref_period_start_date: str = self._extract_optional("metadata", "ref_period_start_date")
+        self.ref_period_end_date: str = self._extract_optional("metadata", "ref_period_end_date")
 
     def _extract(self, *field_names) -> str:
         parent = self.response
