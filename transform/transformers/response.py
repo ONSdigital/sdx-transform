@@ -3,14 +3,13 @@ from typing import Union, Dict, Optional
 
 import structlog
 
+from transform.transformers.survey import MissingIdsException, Survey
+
 logger = structlog.get_logger()
 
 
-class MissingIdsException(Exception):
-    pass
-
-
 class SurveyResponse:
+    """Provide a common interface for accessing survey response metadata/data."""
 
     def __init__(self, response: dict):
         self.response = response
@@ -30,7 +29,7 @@ class SurveyResponse:
         self.ref_period_end_date: str = self._extract_optional("metadata", "ref_period_end_date")
 
         # extract object fields
-        self.submitted_at: Union[datetime, date] = self._parse_date(self.submitted_at_raw)
+        self.submitted_at: Union[datetime, date] = Survey.parse_timestamp(self.submitted_at_raw)
         self.data: Dict[str, str] = response.get("data")
 
     def _extract(self, *field_names) -> str:
@@ -49,52 +48,3 @@ class SurveyResponse:
             return self._extract(*field_names)
         except MissingIdsException:
             return None
-
-    @staticmethod
-    def _parse_date(date_text) -> Union[datetime, date]:
-        """Parse a date_text field for a date or timestamp.
-
-        Date and time formats vary across surveys.
-        This method reads those formats.
-
-        :rtype: Python date or datetime.
-
-        """
-        cls = datetime
-
-        if date_text.endswith("Z"):
-            return cls.strptime(date_text, "%Y-%m-%dT%H:%M:%SZ").replace(
-                tzinfo=timezone.utc
-            )
-
-        try:
-            return cls.strptime(date_text, "%Y-%m-%dT%H:%M:%S.%f%z")
-        except ValueError:
-            pass
-
-        try:
-            return cls.strptime(date_text, "%Y-%m-%dT%H:%M:%S%z")
-        except ValueError:
-            pass
-
-        try:
-            return cls.strptime(date_text.partition(".")[0], "%Y-%m-%dT%H:%M:%S")
-        except ValueError:
-            pass
-
-        try:
-            return cls.strptime(date_text, "%Y-%m-%d").date()
-        except ValueError:
-            pass
-
-        try:
-            return cls.strptime(date_text, "%d/%m/%Y").date()
-        except ValueError:
-            pass
-
-        try:
-            return cls.strptime(date_text + "01", "%Y%m%d").date()
-        except ValueError:
-            pass
-
-        raise MissingIdsException("Missing field submitted_at from response")

@@ -1,6 +1,7 @@
-import datetime
 import json
+from datetime import datetime, date, timezone
 from json import JSONDecodeError
+from typing import Union
 
 import structlog
 
@@ -16,7 +17,7 @@ class MissingSurveyException(Exception):
 
 
 class Survey:
-    """Provide operations and accessors to survey data."""
+    """Provide operations and accessors to survey definition."""
 
     file_pattern = "./transform/surveys/{survey_id}.{instrument_id}.json"
 
@@ -74,7 +75,7 @@ class Survey:
         )
 
     @staticmethod
-    def parse_timestamp(text):
+    def parse_timestamp(text) -> Union[datetime, date]:
         """Parse a text field for a date or timestamp.
 
         Date and time formats vary across surveys.
@@ -85,11 +86,11 @@ class Survey:
 
         """
 
-        cls = datetime.datetime
+        cls = datetime
 
         if text.endswith("Z"):
             return cls.strptime(text, "%Y-%m-%dT%H:%M:%SZ").replace(
-                tzinfo=datetime.timezone.utc
+                tzinfo=timezone.utc
             )
 
         try:
@@ -117,10 +118,9 @@ class Survey:
         except ValueError:
             pass
 
-        if len(text) != 6:
-            return None
-
         try:
             return cls.strptime(text + "01", "%Y%m%d").date()
         except ValueError:
-            return None
+            pass
+
+        return None
