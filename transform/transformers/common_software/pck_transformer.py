@@ -6,6 +6,8 @@ from decimal import Decimal, ROUND_HALF_UP
 import dateutil.parser
 import structlog
 
+from transform.transformers.response import SurveyResponse
+
 logger = structlog.get_logger()
 
 
@@ -210,11 +212,11 @@ class PCKTransformer:
     qpses_survey_ids = ["160", "165", "169"]
     construction_survey_id = "228"
 
-    def __init__(self, survey, response_data):
+    def __init__(self, survey, response_data: SurveyResponse):
         self.survey = survey
         self.response = response_data
 
-        self.data = copy.deepcopy(response_data['data']) if 'data' in response_data else {}
+        self.data = copy.deepcopy(response_data.data) if response_data.data else {}
         self.form_questions = None
         self.form_question_types = None
 
@@ -246,7 +248,7 @@ class PCKTransformer:
         instru are valid too.
         :returns: Common software version of formtype, or None if either form_type or instrument_id are invalid.
         """
-        instrument_id = self.response['collection']['instrument_id']
+        instrument_id = self.response.instrument_id
 
         try:
             form_type = self.form_types[self.survey['survey_id']]
@@ -267,7 +269,7 @@ class PCKTransformer:
         Gets the submission date from the 'submitted_at' field in the response and returns it formatted
         :returns: Date formatted in the 'dd/mm/yy' format.
         """
-        submission_date = dateutil.parser.parse(self.response['submitted_at'])
+        submission_date = dateutil.parser.parse(self.response.submitted_at_raw)
 
         return submission_date.strftime("%d/%m/%y")
 
@@ -305,10 +307,10 @@ class PCKTransformer:
         """
         if self.survey['survey_id'] in [self.rsi_survey_id, self.qcas_survey_id, self.qss_survey_id]:
             if '11' not in self.data:
-                start_date = datetime.strptime(self.response['metadata']['ref_period_start_date'], "%Y-%m-%d")
+                start_date = datetime.strptime(self.response.ref_period_start_date, "%Y-%m-%d")
                 self.data['11'] = start_date.strftime("%d/%m/%Y")
             if '12' not in self.data:
-                end_date = datetime.strptime(self.response['metadata']['ref_period_end_date'], "%Y-%m-%d")
+                end_date = datetime.strptime(self.response.ref_period_end_date, "%Y-%m-%d")
                 self.data['12'] = end_date.strftime("%d/%m/%Y")
 
     def round_numeric_values(self):
@@ -448,7 +450,7 @@ class PCKTransformer:
             self.data['692'] = str(all_acquisitions_total)
             self.data['693'] = str(total_disposals)   # Construction and minerals do not have disposals answers.
         if self.survey.get('survey_id') == self.qss_survey_id:
-            instrument_id = self.response['collection']['instrument_id']
+            instrument_id = self.response.instrument_id
             if instrument_id in ['0033', '0034']:
                 self._compute_multiple_total_qss_totals()
             else:
@@ -459,7 +461,7 @@ class PCKTransformer:
         Calculates the start and end stock values for QSS (Stocks).  Saves these to qcode 65 and 66 respectively except for a few types
         that have the qcode for the totals defined in the mapping.
         """
-        instrument_id = self.response['collection']['instrument_id']
+        instrument_id = self.response.instrument_id
         try:
             start_questions = self.qss_questions[instrument_id]['start']
             end_questions = self.qss_questions[instrument_id]['end']
@@ -480,7 +482,7 @@ class PCKTransformer:
         totals to calculate. Saves the total values to 298 and 299 for the non-dwelling questions and 398 and 399 for the
         dwelling questions.
         """
-        instrument_id = self.response['collection']['instrument_id']
+        instrument_id = self.response.instrument_id
         try:
             non_dwelling_start_questions = self.qss_questions[instrument_id]['non_dwelling_questions_start']
             non_dwelling_end_questions = self.qss_questions[instrument_id]['non_dwelling_questions_end']
@@ -506,13 +508,13 @@ class PCKTransformer:
         text is much longer, but searching for 'Yes' is a good enough test.
         """
         if self.survey.get('survey_id') == self.qss_survey_id:
-            self.data['15'] = "1" if self.response["data"].get("15") == "Yes" else "2"
+            self.data['15'] = "1" if self.response.data.get("15") == "Yes" else "2"
 
         if self.survey.get('survey_id') == self.construction_survey_id:
-            self.data['901'] = "1" if self.data.get('901') and "Yes" in self.response["data"].get("901") else "2"
-            self.data['902'] = "1" if self.data.get('902') and "Yes" in self.response["data"].get("902") else "2"
-            self.data['903'] = "1" if self.data.get('903') and "Yes" in self.response["data"].get("903") else "2"
-            self.data['904'] = "1" if self.data.get('904') and "Yes" in self.response["data"].get("904") else "2"
+            self.data['901'] = "1" if self.data.get('901') and "Yes" in self.response.data.get("901") else "2"
+            self.data['902'] = "1" if self.data.get('902') and "Yes" in self.response.data.get("902") else "2"
+            self.data['903'] = "1" if self.data.get('903') and "Yes" in self.response.data.get("903") else "2"
+            self.data['904'] = "1" if self.data.get('904') and "Yes" in self.response.data.get("904") else "2"
 
     def derive_answers(self):
         """Takes a loaded dict structure of survey data and answers sent
@@ -522,6 +524,8 @@ class PCKTransformer:
         try:
             self.populate_period_data()
         except KeyError:
+            logger.info("Missing metadata")
+        except TypeError:
             logger.info("Missing metadata")
 
         # Important: Round first, then calculate totals, otherwise the totals won't add up correctly

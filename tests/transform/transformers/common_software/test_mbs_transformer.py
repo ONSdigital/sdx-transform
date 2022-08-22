@@ -6,6 +6,7 @@ from copy import deepcopy
 
 from transform.transformers.common_software import MBSTransformer
 from transform.transformers.common_software.cs_formatter import CSFormatter
+from transform.transformers.response import SurveyResponse
 from transform.transformers.transform_selector import get_transformer
 
 
@@ -13,7 +14,7 @@ class LogicTests(unittest.TestCase):
     with open("tests/replies/009.0255.json", "r") as fp:
         response = json.load(fp)
 
-    transformed_data = MBSTransformer(response)._transform()
+    transformed_data = MBSTransformer(SurveyResponse(response))._transform()
 
     # To test default values this creates a transformed dict with no keys for 51:54
     # and a key:val pair of 'd50': 'Yes'
@@ -22,7 +23,7 @@ class LogicTests(unittest.TestCase):
         del default_response["data"][k]
 
     default_response["data"]["d50"] = "Yes"
-    transformed_default_data = MBSTransformer(default_response)._transform()
+    transformed_default_data = MBSTransformer(SurveyResponse(default_response))._transform()
 
     # When no values are supplied for q_codes 51:54 no entries should be present
     # in the PCK file
@@ -33,7 +34,7 @@ class LogicTests(unittest.TestCase):
     del default_response["data"]["12"]
     default_response["d12"] = "Yes"
 
-    transformed_no_default_data = MBSTransformer(default_response)._transform()
+    transformed_no_default_data = MBSTransformer(SurveyResponse(default_response))._transform()
 
     def test_potable_water(self):
         """
@@ -67,7 +68,7 @@ class LogicTests(unittest.TestCase):
         print(no_turnover_response)
         del no_turnover_response["data"]["146"]
         print(no_turnover_response)
-        no_turnover_transformed = MBSTransformer(no_turnover_response)._transform()
+        no_turnover_transformed = MBSTransformer(SurveyResponse(no_turnover_response))._transform()
 
         self.assertEqual(no_turnover_transformed["146"], 2)
 
@@ -83,7 +84,7 @@ class LogicTests(unittest.TestCase):
         """
         rounded_up_response = dict.copy(self.response)
         rounded_up_response["data"]["40"] = "100501.00"
-        rounded_up_transformed = MBSTransformer(rounded_up_response)._transform()
+        rounded_up_transformed = MBSTransformer(SurveyResponse(rounded_up_response))._transform()
         self.assertEqual(rounded_up_transformed["40"], 101)
 
     def test_turnover_excluding_vat_rounds_half_up_when_equal(self):
@@ -92,7 +93,7 @@ class LogicTests(unittest.TestCase):
         """
         rounded_up_response = dict.copy(self.response)
         rounded_up_response["data"]["40"] = "1234500.00"
-        rounded_up_transformed = MBSTransformer(rounded_up_response)._transform()
+        rounded_up_transformed = MBSTransformer(SurveyResponse(rounded_up_response))._transform()
         self.assertEqual(rounded_up_transformed["40"], 1235)
 
     def test_turnover_excluding_vat_rounds_half_up(self):
@@ -101,7 +102,7 @@ class LogicTests(unittest.TestCase):
         """
         rounded_up_response = dict.copy(self.response)
         rounded_up_response["data"]["40"] = "10499.50"
-        rounded_up_transformed = MBSTransformer(rounded_up_response)._transform()
+        rounded_up_transformed = MBSTransformer(SurveyResponse(rounded_up_response))._transform()
         self.assertEqual(rounded_up_transformed["40"], 11)
 
     def test_value_of_exports(self):
@@ -223,40 +224,6 @@ class BatchFileTests(unittest.TestCase):
         return_value = CSFormatter._pck_form_header(form_id, ru_ref, check, period)
         self.assertEqual("MB65B:49900108249D:1704", return_value)
 
-    def test_load_survey(self):
-        """
-        Tests if load data passes if survey id is 009
-        """
-
-        response = {
-            "survey_id": "009",
-            "tx_id": "27923934-62de-475c-bc01-433c09fd38b8",
-            "collection": {"instrument_id": "0255", "period": "201704"},
-            "metadata": {"user_id": "123456789", "ru_ref": "12345678901A"},
-        }
-
-        transformer = MBSTransformer(response)
-        ids = transformer.get_identifiers()
-        self.assertIsInstance(ids, dict)
-        self.assertIsNotNone(ids)
-
-    def test_load_survey_fails(self):
-        """
-        Tests if load data fails if an id is unavailable
-        """
-
-        response = {
-            "survey_id": "009",
-            "tx_id": "27923934-62de-475c-bc01-433c09fd38b8",
-            "collection": {"instrument_id": "0255", "period": "201704"},
-            "metadata": {"user_id": "123456789", "ru_ref": "12345678901A"},
-        }
-
-        transformer = MBSTransformer(response)
-        del (transformer.response["survey_id"])
-        ids = transformer.get_identifiers()
-        self.assertIsNone(ids)
-
 
 class TestTransform(unittest.TestCase):
     response = {
@@ -316,50 +283,50 @@ class TestTransform(unittest.TestCase):
     }
 
     def test_convert_string_to_int(self):
-        value = MBSTransformer(self.response).convert_str_to_int(None)
+        value = MBSTransformer(SurveyResponse(self.response)).convert_str_to_int(None)
         self.assertIsNone(value)
 
     def test_convert_string_to_negative_int(self):
-        value = MBSTransformer(self.response).convert_str_to_int("-1")
+        value = MBSTransformer(SurveyResponse(self.response)).convert_str_to_int("-1")
         self.assertEqual(value, -1)
 
     def test_convert_string_float_to_intraises_value_error(self):
         with self.assertRaises(ValueError):
-            MBSTransformer(self.response).convert_str_to_int("1.5")
+            MBSTransformer(SurveyResponse(self.response)).convert_str_to_int("1.5")
 
     def test_check_employee_totals_no_d50(self):
-        result = MBSTransformer(self.response).check_employee_totals()
+        result = MBSTransformer(SurveyResponse(self.response)).check_employee_totals()
         self.assertEqual(result, {"51": 1, "52": 2, "53": 3, "54": 4})
 
     def test_check_employee_totals_d50_yes(self):
-        result = MBSTransformer(self.response_d50_d49_yes).check_employee_totals()
+        result = MBSTransformer(SurveyResponse(self.response_d50_d49_yes)).check_employee_totals()
         self.assertEqual(result, {"51": 0, "52": 0, "53": 0, "54": 0})
 
     def test_check_employee_totals_missing_q_codes(self):
         local_response = deepcopy(self.response)
         del (local_response["data"]["51"])
-        result = MBSTransformer(local_response).check_employee_totals()
+        result = MBSTransformer(SurveyResponse(local_response)).check_employee_totals()
         self.assertEqual(result, {"51": None, "52": 2, "53": 3, "54": 4})
 
     def test_check_turnover_totals_no_d49(self):
-        result = MBSTransformer(self.response).check_turnover_totals()
+        result = MBSTransformer(SurveyResponse(self.response)).check_turnover_totals()
         self.assertEqual(result, {"49": 151})
 
     def test_check_turnover_totals_d49_yes(self):
-        result = MBSTransformer(self.response_d50_d49_yes).check_turnover_totals()
+        result = MBSTransformer(SurveyResponse(self.response_d50_d49_yes)).check_turnover_totals()
         self.assertEqual(result, {"49": 0})
 
     def test_check_turnover_totals_missing_q_codes(self):
         local_response = deepcopy(self.response)
         del (local_response["data"]["49"])
-        result = MBSTransformer(local_response).check_turnover_totals()
+        result = MBSTransformer(SurveyResponse(local_response)).check_turnover_totals()
         self.assertEqual(result, {"49": None})
 
     def test_survey_date_no_dates_submitted(self):
         local_response = deepcopy(self.response)
         del (local_response["data"]["11"])
         del (local_response["data"]["12"])
-        result = MBSTransformer(local_response).survey_dates()
+        result = MBSTransformer(SurveyResponse(local_response)).survey_dates()
         self.assertEqual(
             result,
             {
@@ -370,7 +337,7 @@ class TestTransform(unittest.TestCase):
 
     def test_survey_date_dates_submitted(self):
         response = deepcopy(self.response)
-        result = MBSTransformer(response).survey_dates()
+        result = MBSTransformer(SurveyResponse(response)).survey_dates()
         self.assertEqual(
             result,
             {
@@ -386,7 +353,7 @@ class TestTransform(unittest.TestCase):
         del (local_response["metadata"]["ref_period_start_date"])
 
         with self.assertRaises(KeyError):
-            MBSTransformer(local_response).survey_dates()
+            MBSTransformer(SurveyResponse(local_response)).survey_dates()
 
         local_response = deepcopy(self.response)
         del (local_response["data"]["11"])
@@ -394,7 +361,7 @@ class TestTransform(unittest.TestCase):
         del (local_response["metadata"]["ref_period_end_date"])
 
         with self.assertRaises(KeyError):
-            MBSTransformer(local_response).survey_dates()
+            MBSTransformer(SurveyResponse(local_response)).survey_dates()
 
         local_response = deepcopy(self.response)
         del (local_response["data"]["11"])
@@ -403,12 +370,12 @@ class TestTransform(unittest.TestCase):
         del (local_response["metadata"]["ref_period_start_date"])
 
         with self.assertRaises(KeyError):
-            MBSTransformer(local_response).survey_dates()
+            MBSTransformer(SurveyResponse(local_response)).survey_dates()
 
     def test_period_date_29_06_2018(self):
         response = deepcopy(self.response)
-        result = MBSTransformer(response)
-        result.response['data'].update({
+        result = MBSTransformer(SurveyResponse(response))
+        result.survey_response.data.update({
             '11': '29/06/2018',
             '12': '31/07/2018'
         })
@@ -422,8 +389,8 @@ class TestTransform(unittest.TestCase):
 
     def test_period_date_less_than_6_characters(self):
         response = deepcopy(self.response)
-        result = MBSTransformer(response)
-        result.response['data'].update({
+        result = MBSTransformer(SurveyResponse(response))
+        result.survey_response.data.update({
             '11': '3',
             '12': '5'
         })
@@ -433,8 +400,8 @@ class TestTransform(unittest.TestCase):
 
     def test_period_date_empty_string(self):
         response = deepcopy(self.response)
-        result = MBSTransformer(response)
-        result.response['data'].update({
+        result = MBSTransformer(SurveyResponse(response))
+        result.survey_response.data.update({
             '11': '',
             '12': ''
         })
@@ -444,8 +411,8 @@ class TestTransform(unittest.TestCase):
 
     def test_period_date_with_6_blank_characters(self):
         response = deepcopy(self.response)
-        result = MBSTransformer(response)
-        result.response['data'].update({
+        result = MBSTransformer(SurveyResponse(response))
+        result.survey_response.data.update({
             '11': '      ',
             '12': '      '
         })
@@ -455,8 +422,8 @@ class TestTransform(unittest.TestCase):
 
     def test_period_date_with_blank_characters_before_and_after_date(self):
         response = deepcopy(self.response)
-        result = MBSTransformer(response)
-        result.response['data'].update({
+        result = MBSTransformer(SurveyResponse(response))
+        result.survey_response.data.update({
             '11': '    2018/02/23    ',
             '12': '    2018/04/01    '
         })
@@ -466,8 +433,8 @@ class TestTransform(unittest.TestCase):
 
     def test_period_date_ends_with_Z(self):
         response = deepcopy(self.response)
-        result = MBSTransformer(response)
-        result.response['data'].update({
+        result = MBSTransformer(SurveyResponse(response))
+        result.survey_response.data.update({
             '11': '2018-06-29T10:20:30Z',
             '12': '2018-07-30T10:20:30Z'
         })
@@ -482,7 +449,7 @@ class TestTransform(unittest.TestCase):
 
     def test_mbs_create_zip(self):
         response = deepcopy(self.response)
-        transformer = get_transformer(response, 0)
+        transformer = get_transformer(SurveyResponse(response), 0)
 
         transformer.get_zip(img_seq=itertools.count())
 
@@ -501,16 +468,16 @@ class TestTransform(unittest.TestCase):
     def test_comment_results_in_1(self):
         response = deepcopy(self.response)
         response['data']["146"] = "This is a comment"
-        result = MBSTransformer(response)._transform()
+        result = MBSTransformer(SurveyResponse(response))._transform()
         self.assertEqual(1, result["146"])
 
     def test_empty_comment_results_in_1(self):
         response = deepcopy(self.response)
         response['data']["146"] = " "
-        result = MBSTransformer(response)._transform()
+        result = MBSTransformer(SurveyResponse(response))._transform()
         self.assertEqual(1, result["146"])
 
     def test_no_comment_results_in_2(self):
         response = deepcopy(self.response)
-        result = MBSTransformer(response)._transform()
+        result = MBSTransformer(SurveyResponse(response))._transform()
         self.assertEqual(2, result["146"])

@@ -1,8 +1,7 @@
-import datetime
 import json
-import logging
-from collections import namedtuple
+from datetime import datetime, date, timezone
 from json import JSONDecodeError
+from typing import Union
 
 import structlog
 
@@ -18,25 +17,19 @@ class MissingSurveyException(Exception):
 
 
 class Survey:
-    """Provide operations and accessors to survey data."""
+    """Provide operations and accessors to survey definition."""
 
-    file_pattern = "./transform/surveys/{survey_id}.{inst_id}.json"
-
-    #: A named tuple type to capture ids and discriminators from a survey response.
-    Identifiers = namedtuple("Identifiers", [
-        "batch_nr", "seq_nr", "ts", "tx_id", "survey_id", "inst_id",
-        "user_ts", "user_id", "ru_ref", "ru_check", "period"
-    ])
+    file_pattern = "./transform/surveys/{survey_id}.{instrument_id}.json"
 
     @staticmethod
-    def load_survey(ids, pattern=file_pattern):
+    def load_survey(survey_id: str, instrument_id: str, pattern=file_pattern):
         """Retrieve the survey definition by id.
 
         This function takes metadata from a survey reply, finds the JSON definition of
         that survey, and loads it as a Python object.
 
-        :param ids: Survey response ids.
-        :type ids: :py:class:`sdx.common.survey.Survey.Identifiers`
+        :param survey_id: Survey response ids.
+        :param instrument_id
         :param str pattern: A query for the survey definition. This will be
                             a file path relative to the package location which uniquely
                             identifies the survey definition file. It accepts keyword
@@ -50,8 +43,9 @@ class Survey:
         :rtype: dict
 
         """
+
+        file_name = pattern.format(survey_id=survey_id, instrument_id=instrument_id)
         try:
-            file_name = pattern.format(**ids._asdict())
             with open(file_name, encoding="utf-8") as fh:
                 content = fh.read()
                 return json.loads(content)
@@ -81,7 +75,7 @@ class Survey:
         )
 
     @staticmethod
-    def parse_timestamp(text):
+    def parse_timestamp(text) -> Union[datetime, date]:
         """Parse a text field for a date or timestamp.
 
         Date and time formats vary across surveys.
@@ -92,11 +86,11 @@ class Survey:
 
         """
 
-        cls = datetime.datetime
+        cls = datetime
 
         if text.endswith("Z"):
             return cls.strptime(text, "%Y-%m-%dT%H:%M:%SZ").replace(
-                tzinfo=datetime.timezone.utc
+                tzinfo=timezone.utc
             )
 
         try:
@@ -124,45 +118,9 @@ class Survey:
         except ValueError:
             pass
 
-        if len(text) != 6:
-            return None
-
         try:
             return cls.strptime(text + "01", "%Y%m%d").date()
         except ValueError:
-            return None
+            pass
 
-    @staticmethod
-    def identifiers(data, batch_nr=0, seq_nr=0, log=None):
-        """Parse common metadata from the survey.
-
-        Return a named tuple which code can use to access the various ids and discriminators.
-
-        :param dict data:   A survey reply.
-        :param int batch_nr: A batch number for the reply.
-        :param int seq_nr: An image sequence number for the reply.
-
-        """
-        log = log or logging.getLogger(__name__)
-        ru_ref = data.get("metadata", {}).get("ru_ref", "")
-        ts = datetime.datetime.now(datetime.timezone.utc)
-        rv = Survey.Identifiers(
-            batch_nr,
-            seq_nr,
-            ts,
-            data.get("tx_id"),
-            data.get("survey_id"),
-            data.get("collection", {}).get("instrument_id"),
-            Survey.parse_timestamp(data.get("submitted_at", ts.isoformat())),
-            data.get("metadata", {}).get("user_id"),
-            ''.join(i for i in ru_ref if i.isdigit()),
-            ru_ref[-1] if ru_ref and ru_ref[-1].isalpha() else "",
-            data.get("collection", {}).get("period")
-        )
-        if any(i is None for i in rv):
-            for k, v in rv._asdict().items():
-                if v is None:
-                    log.warning(f"Missing {k} from {rv}")
-                    raise MissingIdsException(f"Missing field {k} from response")
-
-        return rv
+        return None

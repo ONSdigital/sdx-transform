@@ -1,9 +1,29 @@
+import json
 import unittest
 
 from transform.transformers.common_software import PCKTransformer
+from transform.transformers.response import SurveyResponse
 
 
 class TestPckTransformer(unittest.TestCase):
+
+    _response = '''{
+        "survey_id": "000",
+        "tx_id": "897fbe8c-fa67-4406-b05c-3e893bc1af78",
+        "collection": {
+            "instrument_id": "000",
+            "period": "0216"
+        },
+        "submitted_at": "2016-03-12T10:39:40Z",
+        "metadata": {
+            "user_id": "789473423",
+            "ru_ref": "12345678901A"
+        },
+        "data": {}
+    }'''
+
+    def setUp(self) -> None:
+        self.response = json.loads(self._response)
 
     @staticmethod
     def test_round_to_nearest_whole_number():
@@ -27,16 +47,16 @@ class TestPckTransformer(unittest.TestCase):
         ]
         for survey_id, instrument_id, expected_form_id in scenarios:
             survey = {'survey_id': survey_id}
-            response = {'collection': {'instrument_id': instrument_id}}
-            pck_transformer = PCKTransformer(survey, response)
+            self.response['collection']['instrument_id'] = instrument_id
+            pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
             form_id = pck_transformer.get_cs_form_id()
 
             assert form_id == expected_form_id
 
     def test_get_cs_form_id_invalid_survey(self):
         survey = {'survey_id': 23}
-        response = {'collection': {'instrument_id': '0102'}}
-        pck_transformer = PCKTransformer(survey, response)
+        self.response['collection']['instrument_id'] = '0102'
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
 
         with self.assertLogs(level='ERROR') as cm:
             form_id = pck_transformer.get_cs_form_id()
@@ -45,8 +65,8 @@ class TestPckTransformer(unittest.TestCase):
 
     def test_get_cs_form_id_invalid_instrument(self):
         survey = {'survey_id': '023'}
-        response = {'collection': {'instrument_id': '000'}}
-        pck_transformer = PCKTransformer(survey, response)
+        self.response['collection']['instrument_id'] = '000'
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
 
         with self.assertLogs(level='ERROR') as cm:
             form_id = pck_transformer.get_cs_form_id()
@@ -55,8 +75,8 @@ class TestPckTransformer(unittest.TestCase):
 
         # QCAS
         survey = {'survey_id': '019'}
-        response = {'collection': {'instrument_id': '0021'}}
-        pck_transformer = PCKTransformer(survey, response)
+        self.response['collection']['instrument_id'] = '0021'
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
 
         with self.assertLogs(level='ERROR') as cm:
             form_id = pck_transformer.get_cs_form_id()
@@ -69,10 +89,10 @@ class TestPckTransformer(unittest.TestCase):
         and hence get displayed in images"""
 
         survey = {'survey_id': '023'}
-        response = {'collection': {'instrument_id': '000'}, 'data': {'item1': 'value1'}}
-        pck_transformer = PCKTransformer(survey, response)
+        self.response['data'] = {'item1': 'value1'}
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
         pck_transformer.data['item1'] = 'new value'
-        assert response['data']['item1'] == 'value1'
+        assert self.response['data']['item1'] == 'value1'
 
     def test_pck_transformer_discards_qcas_confirmation_question(self):
         """
@@ -80,8 +100,8 @@ class TestPckTransformer(unittest.TestCase):
         hence can be deleted.
         """
         survey = {'survey_id': '019'}
-        response = {'collection': {'instrument_id': '000'}, 'data': {'681': '100', 'd681': 'Yes', 'd12': 'Yes'}}
-        pck_transformer = PCKTransformer(survey, response)
+        self.response['data'] = {'681': '100', 'd681': 'Yes', 'd12': 'Yes'}
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
 
         assert pck_transformer.data == {'681': '100', 'd681': 'Yes', 'd12': 'Yes'}
 
@@ -89,38 +109,40 @@ class TestPckTransformer(unittest.TestCase):
 
         assert pck_transformer.data == {'681': '100'}
 
-    @staticmethod
-    def test_pck_transformer_parse_yes_no_questions():
+    def test_pck_transformer_parse_yes_no_questions(self):
         """
         For QSS (Stocks), qcode 15 needs to converted from Yes/No to 1/2 for the pck.
         """
         survey = {'survey_id': '017'}
 
         # qcode 15 = Yes case
-        response = {'collection': {'instrument_id': '0001'}, 'data': {'15': 'Yes', '146': 'Comment question', '139': '13900'}}
-        pck_transformer = PCKTransformer(survey, response)
+        self.response['collection']['instrument_id'] = '0001'
+        self.response['data'] = {'15': 'Yes', '146': 'Comment question', '139': '13900'}
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
         assert pck_transformer.data == {'15': 'Yes', '146': 'Comment question', '139': '13900'}
         pck_transformer.parse_yes_no_questions()
         assert pck_transformer.data == {'15': '1', '146': 'Comment question', '139': '13900'}
 
         # qcode 15 = No case
-        response = {'collection': {'instrument_id': '0001'}, 'data': {'15': 'No', '146': 'Comment question', '139': '13900'}}
-        pck_transformer = PCKTransformer(survey, response)
+        self.response['data'] = {'15': 'No', '146': 'Comment question', '139': '13900'}
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
         assert pck_transformer.data == {'15': 'No', '146': 'Comment question', '139': '13900'}
         pck_transformer.parse_yes_no_questions()
         assert pck_transformer.data == {'15': '2', '146': 'Comment question', '139': '13900'}
 
-    @staticmethod
-    def test_pck_transformer_parse_yes_no_construction_questions():
+    def test_pck_transformer_parse_yes_no_construction_questions(self):
         survey = {'survey_id': '228'}
 
         # q code 902, 903, 904 yes
-        response = {'collection': {'instrument_id': '0001'}, 'data': {'901': 'Yes, I can report for this period',
-                                                                      '902': 'Yes, we carried out work on housing',
-                                                                      '903': 'Yes, we carried out work on infrastructure',
-                                                                      '904': 'Yes, we carried out other construction work'}}
+        self.response['collection']['instrument_id'] = '0001'
+        self.response['data'] = {
+            '901': 'Yes, I can report for this period',
+            '902': 'Yes, we carried out work on housing',
+            '903': 'Yes, we carried out work on infrastructure',
+            '904': 'Yes, we carried out other construction work'
+        }
 
-        pck_transformer = PCKTransformer(survey, response)
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
         assert pck_transformer.data == {'901': 'Yes, I can report for this period',
                                         '902': 'Yes, we carried out work on housing',
                                         '903': 'Yes, we carried out work on infrastructure',
@@ -133,11 +155,14 @@ class TestPckTransformer(unittest.TestCase):
                                         '904': '1'}
 
         # q code 902, 903, 904 no
-        response = {'collection': {'instrument_id': '0001'}, 'data': {'901': 'Yes, I can report for this period',
-                                                                      '902': 'No, we did not carry out work on housing',
-                                                                      '903': 'No, we did not carry out work on infrastructure',
-                                                                      '904': 'No, we did not carry out other construction work'}}
-        pck_transformer = PCKTransformer(survey, response)
+        self.response['data'] = {
+            '901': 'Yes, I can report for this period',
+            '902': 'No, we did not carry out work on housing',
+            '903': 'No, we did not carry out work on infrastructure',
+            '904': 'No, we did not carry out other construction work'
+        }
+
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
         assert pck_transformer.data == {'901': 'Yes, I can report for this period',
                                         '902': 'No, we did not carry out work on housing',
                                         '903': 'No, we did not carry out work on infrastructure',
@@ -149,8 +174,10 @@ class TestPckTransformer(unittest.TestCase):
                                         '903': '2',
                                         '904': '2'}
         # q code 902, 903, 904 missing
-        response = {'collection': {'instrument_id': '0001'}, 'data': {'901': 'Yes, I can report for this period'}}
-        pck_transformer = PCKTransformer(survey, response)
+        self.response['data'] = {
+            '901': 'Yes, I can report for this period'
+        }
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
         assert pck_transformer.data == {'901': 'Yes, I can report for this period'}
         pck_transformer.parse_yes_no_questions()
         assert pck_transformer.data == {'901': '1',
@@ -159,12 +186,14 @@ class TestPckTransformer(unittest.TestCase):
                                         '904': '2'}
 
         # q code 902, 903 no 904 yes
-        response = {'collection': {'instrument_id': '0001'}, 'data': {'901': 'Yes, I can report for this period',
-                                                                      '902': 'No, we did not carry out work on housing',
-                                                                      '903': 'No, we did not carry out work on infrastructure',
-                                                                      '904': 'Yes, we carried out other construction work'}}
+        self.response['data'] = {
+            '901': 'Yes, I can report for this period',
+            '902': 'No, we did not carry out work on housing',
+            '903': 'No, we did not carry out work on infrastructure',
+            '904': 'Yes, we carried out other construction work'
+        }
 
-        pck_transformer = PCKTransformer(survey, response)
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
         assert pck_transformer.data == {'901': 'Yes, I can report for this period',
                                         '902': 'No, we did not carry out work on housing',
                                         '903': 'No, we did not carry out work on infrastructure',
@@ -180,9 +209,18 @@ class TestPckTransformer(unittest.TestCase):
         """If any values in the survey are negative, they should be replaced with an all 9's string that is 11 characters long
         """
         survey = {'survey_id': '019'}
-        response = {'collection': {'instrument_id': '000'},
-                    'data': {'681': '-100', '703': '-1234', '704': '-12345', '707': '-123456', '708': '-0', '709': '1234', '710': '-123word'}}
-        pck_transformer = PCKTransformer(survey, response)
+
+        self.response['data'] = {
+            '681': '-100',
+            '703': '-1234',
+            '704': '-12345',
+            '707': '-123456',
+            '708': '-0',
+            '709': '1234',
+            '710': '-123word'
+        }
+
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
         self.assertEqual(pck_transformer.data, {
             '681': '-100',
             '703': '-1234',
@@ -207,26 +245,26 @@ class TestPckTransformer(unittest.TestCase):
         Second, all of the comment questions are removed from the submission as they're not put into the pck file.
         """
         survey = {'survey_id': '019'}
-        response = {'collection': {'instrument_id': '000'},
-                    'data': {
-                        "11": "03/07/2018",
-                        "12": "01/10/2018",
-                        "681": "123456.78",
-                        "146a": "Yes",
-                        "146b": "Start or end of a long term project",
-                        "146c": "Site changes, for example, openings, closures, refurbishments or upgrades",
-                        "146d": "End of accounting period or financial year",
-                        "146e": "Normal movement for time of year",
-                        "146f": "Change of business structure, merger, or takeover",
-                        "146g": "One off or unusual investment",
-                        "146h": "Introduction / removal of new legislation / incentive",
-                        "146i": "Availability of credit",
-                        "146j": "Overspend during the previous quarter",
-                        "146k": "Other",
-                        '147': "Yes",
-                        'd12': 'Yes'}}
+        self.response['data'] = {
+            "11": "03/07/2018",
+            "12": "01/10/2018",
+            "681": "123456.78",
+            "146a": "Yes",
+            "146b": "Start or end of a long term project",
+            "146c": "Site changes, for example, openings, closures, refurbishments or upgrades",
+            "146d": "End of accounting period or financial year",
+            "146e": "Normal movement for time of year",
+            "146f": "Change of business structure, merger, or takeover",
+            "146g": "One off or unusual investment",
+            "146h": "Introduction / removal of new legislation / incentive",
+            "146i": "Availability of credit",
+            "146j": "Overspend during the previous quarter",
+            "146k": "Other",
+            '147': "Yes",
+            'd12': 'Yes'
+        }
 
-        pck_transformer = PCKTransformer(survey, response)
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
         self.assertEqual(pck_transformer.data, {
             "11": "03/07/2018",
             "12": "01/10/2018",
@@ -259,54 +297,50 @@ class TestPckTransformer(unittest.TestCase):
         and proceeds from disposals to be sent in the PCK.
         """
         survey = {'survey_id': '019'}
-        response = {
-            "collection": {
-                "instrument_id": "0020"
-            },
-            "data": {
-                "11": "03/07/2018",
-                "12": "01/10/2018",
-                "146": "A lot of changes.",
+        self.response['collection']['instrument_id'] = '0020'
+        self.response['data'] = {
+            "11": "03/07/2018",
+            "12": "01/10/2018",
+            "146": "A lot of changes.",
 
-                # Disposals
-                "689": "499",
-                "696": "500",
-                "704": "12345.67",
-                "708": "12345500",
-                "710": "-499",
-                "712": "-12345.67",
+            # Disposals
+            "689": "499",
+            "696": "500",
+            "704": "12345.67",
+            "708": "12345500",
+            "710": "-499",
+            "712": "-12345.67",
 
-                # Construction
-                "681": "1000",
+            # Construction
+            "681": "1000",
 
-                # Acquisitions
-                "688": "1500",
-                "695": "1500",
-                "703": "1500",
-                "707": "1500",
-                "709": "1500",
-                "711": "1500",
+            # Acquisitions
+            "688": "1500",
+            "695": "1500",
+            "703": "1500",
+            "707": "1500",
+            "709": "1500",
+            "711": "1500",
 
-                # Mineral
-                "697": "-1500",
+            # Mineral
+            "697": "-1500",
 
-                "146a": "Yes",
-                "146b": "Start or end of a long term project",
-                "146c": "Site changes, for example, openings, closures, refurbishments or upgrades",
-                "146d": "End of accounting period or financial year",
-                "146e": "Normal movement for time of year",
-                "146f": "Change of business structure, merger, or takeover",
-                "146g": "One off or unusual investment",
-                "146h": "Introduction / removal of new legislation / incentive",
-                "146i": "Availability of credit",
-                "146j": "Overspend during the previous quarter",
-                "146k": "Other",
-                "d12": "Yes",
-                "d681": "Yes"
-            }
+            "146a": "Yes",
+            "146b": "Start or end of a long term project",
+            "146c": "Site changes, for example, openings, closures, refurbishments or upgrades",
+            "146d": "End of accounting period or financial year",
+            "146e": "Normal movement for time of year",
+            "146f": "Change of business structure, merger, or takeover",
+            "146g": "One off or unusual investment",
+            "146h": "Introduction / removal of new legislation / incentive",
+            "146i": "Availability of credit",
+            "146j": "Overspend during the previous quarter",
+            "146k": "Other",
+            "d12": "Yes",
+            "d681": "Yes"
         }
 
-        pck_transformer = PCKTransformer(survey, response)
+        pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
 
         pck_transformer.round_numeric_values()
 
@@ -328,11 +362,11 @@ class TestPckTransformer(unittest.TestCase):
         # Total value of all acquisitions questions
         assert pck_transformer.data['692'] == '11'
 
-        # Total value of all disposals questions (same as '715' since constructions section and minerals sections does not have disposals question)
+        # Total value of all disposals questions (same as '715' since constructions section and minerals sections
+        # does not have disposals question)
         assert pck_transformer.data['693'] == '12347'
 
-    @staticmethod
-    def test_pck_transformer_calculates_total_playback_qss():
+    def test_pck_transformer_calculates_total_playback_qss(self):
         """
         For QSS (Stocks), downstream needs to calculate the start and end of period totals.
         The fields that are added together are defined in a dictionary in the pck_transformer
@@ -340,23 +374,19 @@ class TestPckTransformer(unittest.TestCase):
         scenarios = ["0001", "0002"]
         for form_type in scenarios:
             survey = {'survey_id': "017"}
-            response = {
-                "collection": {
-                    "instrument_id": form_type
-                },
-                "data": {
-                    "15": "Yes",
-                    "139": "7300",
-                    "140": "7680",
-                    "144": "2000",
-                    "145": "2205",
-                    "146": "A lot of changes.",
-                    "149": "1800",
-                    "150": "12205",
-                }
+            self.response['collection']['instrument_id'] = form_type
+            self.response['data'] = {
+                "15": "Yes",
+                "139": "7300",
+                "140": "7680",
+                "144": "2000",
+                "145": "2205",
+                "146": "A lot of changes.",
+                "149": "1800",
+                "150": "12205",
             }
 
-            pck_transformer = PCKTransformer(survey, response)
+            pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
             pck_transformer.calculate_total_playback()
 
             assert pck_transformer.data == {
@@ -382,23 +412,19 @@ class TestPckTransformer(unittest.TestCase):
         scenarios = ["9999", "0033"]
         for form_type in scenarios:
             survey = {'survey_id': "017"}
-            response = {
-                "collection": {
-                    "instrument_id": form_type
-                },
-                "data": {
-                    "15": "Yes",
-                    "139": "7300",
-                    "140": "7680",
-                    "144": "2000",
-                    "145": "2205",
-                    "146": "A lot of changes.",
-                    "149": "1800",
-                    "150": "12205",
-                }
+            self.response['collection']['instrument_id'] = form_type
+            self.response['data'] = {
+                "15": "Yes",
+                "139": "7300",
+                "140": "7680",
+                "144": "2000",
+                "145": "2205",
+                "146": "A lot of changes.",
+                "149": "1800",
+                "150": "12205",
             }
 
-            pck_transformer = PCKTransformer(survey, response)
+            pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
             pck_transformer.qss_questions = {
                 "0033": {
                     "end": ['140', '145', '150']
@@ -407,29 +433,24 @@ class TestPckTransformer(unittest.TestCase):
             with self.assertRaises(KeyError):
                 pck_transformer.calculate_total_playback()
 
-    @staticmethod
-    def test_pck_transformer_round_numeric_values_qpses():
+    def test_pck_transformer_round_numeric_values_qpses(self):
         """
         For QPSES, a number of values require rounding before being sent downstream.  These should round up on a .5 answer.
         """
+        self.response['collection']['instrument_id'] = "0020"
         scenarios = ["160", "165", "169"]
         for survey_id in scenarios:
             survey = {'survey_id': survey_id}
-            response = {
-                "collection": {
-                    "instrument_id": "0020"
-                },
-                "data": {
-                    "60": 50.5,
-                    "561": 50.3,
-                    "562": 74.49,
-                    "661": 80.1,
-                    "662": 34.8,
-                    "146": "A lot of changes.",
-                }
+            self.response['data'] = {
+                "60": 50.5,
+                "561": 50.3,
+                "562": 74.49,
+                "661": 80.1,
+                "662": 34.8,
+                "146": "A lot of changes.",
             }
 
-            pck_transformer = PCKTransformer(survey, response)
+            pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
             pck_transformer.round_numeric_values()
 
             assert pck_transformer.data == {
@@ -453,25 +474,21 @@ class TestPckTransformer(unittest.TestCase):
         scenarios = ["0001", "0002"]
         for form_type in scenarios:
             survey = {'survey_id': "017"}
-            response = {
-                "collection": {
-                    "instrument_id": form_type
-                },
-                "data": {
-                    "15": "Yes",
-                    "65": "311500",
-                    "66": "313103",
-                    "139": "7300",
-                    "140": "7680",
-                    "144": "2000",
-                    "145": "2205",
-                    "146": "A lot of changes.",
-                    "149": "1800",
-                    "150": "12205",
-                }
+            self.response['collection']['instrument_id'] = form_type
+            self.response['data'] = {
+                "15": "Yes",
+                "65": "311500",
+                "66": "313103",
+                "139": "7300",
+                "140": "7680",
+                "144": "2000",
+                "145": "2205",
+                "146": "A lot of changes.",
+                "149": "1800",
+                "150": "12205",
             }
 
-            pck_transformer = PCKTransformer(survey, response)
+            pck_transformer = PCKTransformer(survey, SurveyResponse(self.response))
             pck_transformer.round_numeric_values()
 
             assert pck_transformer.data == {

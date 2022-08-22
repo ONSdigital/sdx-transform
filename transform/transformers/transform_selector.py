@@ -5,22 +5,20 @@ from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cord import EcommerceTransformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer
-from transform.transformers.survey import MissingIdsException
+from transform.transformers.response import SurveyResponse
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
 from transform.transformers.survey_transformer import SurveyTransformer
 
 
-def get_transformer(response, sequence_no=1000):
+def get_transformer(response: SurveyResponse, sequence_no=1000):
     """Returns the appropriate survey transformer based on survey_id
 
     :param dict response: A dictionary like object representing the survey response
     :param int sequence_no: A number used by the transformer for naming files
     :raises MissingIdsException if no survey_id
     """
-    if 'survey_id' not in response:
-        raise MissingIdsException("Missing field survey_id from response")
 
-    survey_id = response['survey_id']
+    survey_id = response.survey_id
 
     # CORA
     if survey_id == "144":
@@ -30,7 +28,7 @@ def get_transformer(response, sequence_no=1000):
 
     # CORD
     elif survey_id == "187":
-        if response['collection']['instrument_id'] in ['0001', '0002']:
+        if response.instrument_id in ['0001', '0002']:
             transformer = DESTransformer(response, sequence_no)
         else:
             transformer = EcommerceTransformer(response, sequence_no)

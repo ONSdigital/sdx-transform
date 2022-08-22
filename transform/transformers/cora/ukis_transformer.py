@@ -22,7 +22,7 @@ class UKISTransformer(SurveyTransformer):
         :param not_found_value: What should be returned if the qcode isn't found (defaults to None)
         :returns: The value of the qcode if present in the dictionary.  None otherwise.
         """
-        value = self.response['data'].get(qcode, not_found_value)
+        value = self.survey_response.data.get(qcode, not_found_value)
         if lowercase:
             if isinstance(value, str):
                 value = value.lower()
@@ -373,7 +373,7 @@ class UKISTransformer(SurveyTransformer):
         turnover_and_exports = self.turnover_and_exports()
         employees_and_skills = self.employees_and_skills()
 
-        logger.info(f"Transforming data for {self.ids.ru_ref}", tx_id=self.ids.tx_id)
+        logger.info(f"Transforming data for {self.survey_response.ru_ref}", tx_id=self.survey_response.tx_id)
 
         return {**transformed,  # Merge Dictionaries
                 **business_strategy_and_practices,
@@ -387,19 +387,19 @@ class UKISTransformer(SurveyTransformer):
         """Return a pck file using provided data"""
         pck = CORAFormatter.get_pck(
             transformed_data,
-            self.ids.survey_id,
-            self.ids.ru_ref,
+            self.survey_response.survey_id,
+            self.survey_response.ru_ref,
             "1",
-            self.ids.period,
+            self.survey_response.period,
             "0",
         )
         return pck
 
     def create_pck(self):
-        bound_logger = logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
+        bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
         transformed_data = self.transform()
         bound_logger.info("Data successfully transformed")
-        pck_name = CORAFormatter.pck_name(self.ids.survey_id, self.ids.tx_id)
+        pck_name = CORAFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
         pck = self._create_pck(transformed_data)
         return pck_name, pck

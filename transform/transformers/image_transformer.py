@@ -11,6 +11,7 @@ from transform.transformers.index_file import IndexFile
 from .pdf_transformer import PDFTransformer
 
 # Configure the number of retries attempted before failing call
+from .response import SurveyResponse
 from ..utilities.formatter import Formatter
 
 session = requests.Session()
@@ -25,7 +26,7 @@ class ImageTransformer:
     """Transforms a survey and _response into a zip file
     """
 
-    def __init__(self, logger, survey, response, current_time=None, sequence_no=1000,
+    def __init__(self, logger, survey, response: SurveyResponse, current_time=None, sequence_no=1000,
                  base_image_path=""):
 
         if current_time is None:
@@ -49,7 +50,7 @@ class ImageTransformer:
         It appends data to the zip , so any data in the zip
         prior to this executing is not deleted.
         """
-        self._create_pdf(self.survey, self.response)
+        self._create_pdf()
         self._build_image_names(num_sequence, self._page_count)
         self._create_index()
         self._build_zip()
@@ -61,12 +62,12 @@ class ImageTransformer:
         return self.zip.in_memory_zip
 
     def _get_image_name(self, i: int):
-        tx_id = self.response["tx_id"]
+        tx_id = self.response.tx_id
         return Formatter.get_image_name(tx_id, i)
 
-    def _create_pdf(self, survey, response):
+    def _create_pdf(self):
         """Create a pdf which will be used as the basis for images """
-        pdf_transformer = PDFTransformer(survey, response)
+        pdf_transformer = PDFTransformer(self.survey, self.response)
         self._pdf, self._page_count = pdf_transformer.render_pages()
         return self._pdf
 

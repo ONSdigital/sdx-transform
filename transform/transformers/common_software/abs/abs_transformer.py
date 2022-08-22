@@ -9,6 +9,7 @@ from transform.transformers.common_software.abs.abs_transforms import motor_trad
     duty, standard, construction
 
 from transform.transformers.common_software.cs_formatter import CSFormatter
+from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
@@ -74,19 +75,19 @@ class ABSTransformer(SurveyTransformer):
                           '1874': construction,
                           }
 
-    def __init__(self, response, seq_nr=0):
-        period = self._extract_year(response)
-        response['collection']['period'] = '20' + period + '12'
+    def __init__(self, response: SurveyResponse, seq_nr=0):
+        period = self._extract_year(response.ref_period_start_date)
+        response.period = '20' + period + '12'
         super().__init__(response, seq_nr)
         self.period = period
 
-    def _extract_year(self, response):
+    def _extract_year(self, ref_period_start_date: str):
         """Extract the reference period as YY from the metadata"""
-        start_date = datetime.strptime(response['metadata']['ref_period_start_date'], "%Y-%m-%d")
+        start_date = datetime.strptime(ref_period_start_date, "%Y-%m-%d")
         return start_date.strftime("%y")
 
     def _get_value(self, q_code):
-        input_dict = self.response['data']
+        input_dict = self.survey_response.data
         if q_code in input_dict:
             value = input_dict.get(q_code)
             return value if value != '' else None
@@ -96,7 +97,7 @@ class ABSTransformer(SurveyTransformer):
     def transform(self):
         result = {}
 
-        transformations = self.transformation_map.get(self.ids.inst_id)
+        transformations = self.transformation_map.get(self.survey_response.instrument_id)
 
         for q_code, transformation in transformations.items():
 
@@ -137,32 +138,32 @@ class ABSTransformer(SurveyTransformer):
         """If questions 11 or 12 don't appear in the survey data, then populate
         them with the period start and end date found in the metadata
         """
-        data = self.response['data']
+        data = self.survey_response.data
         if '11' not in data:
-            start_date = datetime.strptime(self.response['metadata']['ref_period_start_date'], "%Y-%m-%d")
+            start_date = datetime.strptime(self.survey_response.ref_period_start_date, "%Y-%m-%d")
             data['11'] = start_date.strftime("%d/%m/%Y")
         if '12' not in data:
-            end_date = datetime.strptime(self.response['metadata']['ref_period_end_date'], "%Y-%m-%d")
+            end_date = datetime.strptime(self.survey_response.ref_period_end_date, "%Y-%m-%d")
             data['12'] = end_date.strftime("%d/%m/%Y")
 
     def _format_pck(self, transformed_data):
         """Return a pck file using provided data"""
         pck = CSFormatter.get_pck(
             transformed_data,
-            self.ids.inst_id,
-            self.ids.ru_ref,
-            self.ids.ru_check,
+            self.survey_response.instrument_id,
+            self.survey_response.ru_ref,
+            self.survey_response.ru_check,
             self.period
         )
         return pck
 
     def create_pck(self):
-        bound_logger = logger.bind(ru_ref=self.ids.ru_ref, tx_id=self.ids.tx_id)
+        bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
         self.populate_period_data()
         transformed_data = self.transform()
         bound_logger.info("Data successfully transformed")
-        sector_id = self.inst_map[self.ids.inst_id]
-        pck_name = CSFormatter.pck_name(sector_id, self.ids.tx_id)
+        sector_id = self.inst_map[self.survey_response.instrument_id]
+        pck_name = CSFormatter.pck_name(sector_id, self.survey_response.tx_id)
         pck = self._format_pck(transformed_data)
         return pck_name, pck

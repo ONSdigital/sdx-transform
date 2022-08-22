@@ -4,6 +4,7 @@ import json
 import pytest
 
 from transform.transformers.cora import UKISTransformer
+from transform.transformers.response import SurveyResponse
 
 
 def get_transformer(data):
@@ -28,7 +29,7 @@ def get_transformer(data):
 
     base_submission.update(data)
 
-    transformer = UKISTransformer(base_submission)
+    transformer = UKISTransformer(SurveyResponse(base_submission))
 
     return transformer
 

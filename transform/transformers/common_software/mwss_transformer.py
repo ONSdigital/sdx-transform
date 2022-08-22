@@ -81,17 +81,10 @@ class MWSSTransformer(SurveyTransformer):
             convert=str, op=lambda x, y: x + "\n" + y)),
     ]
 
-    pattern = "./transform/surveys/{survey_id}.{inst_id}.json"
-
     def __init__(self, response, seq_nr=0, log=None):
         """Create a transformer object to process a survey response."""
 
         super().__init__(response, seq_nr)
-
-        # Enforce that child classes have defn and pattern attributes
-        for attr in ("defn", "pattern"):
-            if not hasattr(self.__class__, attr):
-                raise UserWarning(f"Missing class attribute: {attr}")
 
     @staticmethod
     def transform(data, survey=None):
@@ -146,8 +139,8 @@ class MWSSTransformer(SurveyTransformer):
         ])
 
     def create_pck(self):
-        data = self.transform(self.response["data"], self.survey)
-        id_dict = self.ids._asdict()
-        pck_name = CSFormatter.pck_name(id_dict["survey_id"], id_dict["tx_id"])
-        pck = CSFormatter.get_pck(data, id_dict["inst_id"], id_dict["ru_ref"], id_dict["ru_check"], id_dict["period"])
+        data = self.transform(self.survey_response.data, self.survey)
+        pck_name = CSFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
+        pck = CSFormatter.get_pck(data, self.survey_response.instrument_id, self.survey_response.ru_ref,
+                                  self.survey_response.ru_check, self.survey_response.period)
         return pck_name, pck

@@ -6,6 +6,7 @@ import time
 import unittest
 from structlog import wrap_logger
 from transform.transformers.image_transformer import ImageTransformer
+from transform.transformers.response import SurveyResponse
 
 
 class ImageTransformTests(unittest.TestCase):
@@ -13,7 +14,7 @@ class ImageTransformTests(unittest.TestCase):
     def setUp(self):
         with open("./tests/data/eq-mwss.json") as fb:
             data = fb.read()
-        self.reply = json.loads(data)
+        self.reply = SurveyResponse(json.loads(data))
 
         with open("./tests/data/134.0005.json") as fb:
             survey_data = fb.read()

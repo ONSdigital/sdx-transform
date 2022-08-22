@@ -36,33 +36,11 @@ class SurveyTests(unittest.TestCase):
         self.assertIsInstance(rv, datetime.date)
 
     def test_load_survey(self):
-        ids = Survey.identifiers({
-            "survey_id": "134",
-            "tx_id": "27923934-62de-475c-bc01-433c09fd38b8",
-            "collection": {
-                "instrument_id": "0005",
-                "period": "201704"
-            },
-            "metadata": {
-                "user_id": "123456789",
-                "ru_ref": "12345678901A"
-            }
-        })
-        rv = Survey.load_survey(ids, "./tests/data/{survey_id}.{inst_id}.json")
+        survey_id = "134"
+        instrument_id = "0005"
+        rv = Survey.load_survey(survey_id, instrument_id, "./tests/data/{survey_id}.{instrument_id}.json")
         self.assertIsNotNone(rv)
 
     def test_load_survey_miss(self):
-        ids = Survey.identifiers({
-            "survey_id": "127",
-            "tx_id": "27923934-62de-475c-bc01-433c09fd38b8",
-            "collection": {
-                "instrument_id": "0001",
-                "period": "201704"
-            },
-            "metadata": {
-                "user_id": "123456789",
-                "ru_ref": "12345678901A"
-            }
-        })
         with pytest.raises(MissingSurveyException):
-            Survey.load_survey(ids, "./tests/data/{survey_id}.{inst_id}.json")
+            Survey.load_survey("127", "0001", "./tests/data/{survey_id}.{instrument_id}.json")
