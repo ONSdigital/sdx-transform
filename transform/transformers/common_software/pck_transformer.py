@@ -31,7 +31,7 @@ class PCKTransformer:
     # of rounding.
     # The list of answers that DON'T need rounding is much shorter.
     qss_non_currency_questions = ["11", "12", "15", "146", '146a', '146b', '146c', '146d', '146e', '146f', '146g',
-                                  '146h']
+                                  '146h', "9999"]
 
     # Mapping used to calculate totals and which qcode should hold the total value.
     qss_questions = {

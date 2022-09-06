@@ -1,0 +1,38 @@
+{
+    "case_id": "682178cb-ac14-40e4-b7d9-8a8e4bbef805",
+    "tx_id": "2aa44e6d-d3e6-46f2-8813-96a7ec4b6015",
+    "type": "uk.gov.ons.edc.eq:surveyresponse",
+    "version": "0.0.1",
+    "origin": "uk.gov.ons.edc.eq",
+    "survey_id": "017",
+    "flushed": false,
+    "submitted_at": "2022-09-06T10:05:04+00:00",
+    "collection": {
+        "exercise_sid": "6a271f89-d544-4b32-9141-bd72c4e82a2a",
+        "schema_name": "stocks_0002",
+        "period": "1904",
+        "instrument_id": "0002"
+    },
+    "metadata": {
+        "user_id": "72408cc5-8ccf-4227-8bdc-060f9f473c86",
+        "ru_ref": "15162882666F",
+        "ref_period_start_date": "2022-06-01",
+        "ref_period_end_date": "2022-08-30"
+    },
+    "launch_language_code": "en",
+    "data": {
+        "9999": "No, I need to report for a different period",
+        "11": "1/2/2019",
+		"12": "28/3/2019",
+		"15": "Yes",
+		"139": "1000",
+		"140": "1200",
+		"144": "900",
+		"145": "950",
+		"149": "2780",
+		"150": "3600"
+    },
+    "form_type": "0002",
+    "started_at": "2022-09-06T10:01:56.359592+00:00",
+    "submission_language_code": "en"
+}
