@@ -70,6 +70,11 @@
           "question_id": "36",
           "number": "36",
           "type": "currency"
+        },
+        {
+          "text": "Please give more detail about the reasons for external operating expenditure, in relation to protecting the environment",
+          "question_id": "111",
+          "number": "111"
         }
       ]
     },
@@ -115,6 +120,11 @@
           "question_id": "47",
           "number": "47",
           "type": "currency"
+        },
+        {
+          "text": "Please give more detail about the reasons for in-house operating expenditure, in relation to protecting the environment",
+          "question_id": "112",
+          "number": "112"
         }
       ]
     },
@@ -212,6 +222,11 @@
           "question_id": "97",
           "number": "97",
           "type": "currency"
+        },
+        {
+          "text": "Please give more detail about the reasons for capital expenditures, in relation to protecting the environment",
+          "question_id": "113",
+          "number": "113"
         }
       ]
     },
@@ -257,12 +272,23 @@
           "question_id": "104",
           "number": "104",
           "type": "currency"
+        },
+        {
+          "text": "For the period given, was any of the business's expenditure influenced by adaptions to address the impacts of climate change?",
+          "question_id": "114",
+          "number": "114",
+          "type": "radio"
         }
       ]
     },
     {
       "title": "General comments",
       "questions": [
+        {
+          "text": "What adaptions were made to address the impacts of climate change?",
+          "question_id": "115",
+          "number": "115"
+        },
         {
           "text": "Please provide any further details that will help us understand your figures and to tell an industry story",
           "question_id": "110",
