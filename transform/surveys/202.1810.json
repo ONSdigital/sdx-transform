@@ -98,13 +98,13 @@
             "title": "Capital assets",
             "questions": [
                 {
-                    "text": "For the period, what was the business' total value of capital assets acquired and disposed of?",
+                    "text": "For the period, what was the business' total value of capital assets acquired?",
                     "type": "currency",
                     "question_id": "600",
                     "number": "600"
                 },
                 {
-                    "text": "For the period, what was the business' total value of capital assets acquired and disposed of?",
+                    "text": "For the period, what was the business' total value of capital assets disposed of?",
                     "type": "currency",
                     "question_id": "699",
                     "number": "699"
