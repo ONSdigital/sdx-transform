@@ -1,6 +1,3 @@
-import decimal
-from decimal import Decimal, ROUND_HALF_UP
-
 import structlog
 
 from transform.transformers.common_software.acas.acas_transforms import transformations
@@ -10,7 +7,7 @@ from transform.transformers.survey_transformer import SurveyTransformer
 logger = structlog.get_logger()
 
 
-def perform_transform(response_data: dict, transformation_dict: dict) -> dict:
+def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
     return {}
 
 
@@ -31,7 +28,7 @@ class ACASTransformer(SurveyTransformer):
     def create_pck(self):
         bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
-        transformed_data = perform_transform(self.survey_response.data, transformations)
+        transformed_data = perform_transforms(self.survey_response.data, transformations)
         bound_logger.info("Data successfully transformed")
 
         bound_logger.info("Creating PCK")
