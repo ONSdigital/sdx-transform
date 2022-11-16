@@ -1,8 +1,9 @@
 import unittest
 from datetime import datetime
 
-from transform.transformers.common_software.acas.acas_transformer import perform_transforms
-from transform.transformers.common_software.acas.acas_transforms import TransformType
+from transform.transformers.common_software.acas.acas_transformer import perform_transforms, perform_derived_transforms
+from transform.transformers.common_software.acas.acas_transforms import TransformType, DerivedTransformType, \
+    DerivedTransform
 
 
 class TestPerformTransforms(unittest.TestCase):
@@ -68,7 +69,6 @@ class TestPerformTransforms(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_multiple_qcodes(self):
-
         response_data = {
             "100": "982374",
             "101": "03/09/1998",
@@ -95,4 +95,39 @@ class TestPerformTransforms(unittest.TestCase):
 
 
 class TestDeriveTransforms(unittest.TestCase):
-    pass
+
+    def test_qcode_children_addition(self):
+        transformed_data = {
+            "100": 1,
+            "101": 1,
+        }
+
+        expected = {
+            "100": 1,
+            "101": 1,
+            "102": 2
+        }
+
+        actual = perform_derived_transforms(transformed_data,
+                                   {"102": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
+
+        self.assertEqual(expected, actual)
+
+    def test_addition_with_unused_codes(self):
+        data = {
+            "100": 1,
+            "101": 1,
+            "200": 5
+        }
+
+        expected = {
+            "100": 1,
+            "101": 1,
+            "103": 2,
+            "200": 5
+        }
+
+        actual = perform_derived_transforms(data,
+                                   {"103": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
+
+        self.assertEqual(expected, actual)

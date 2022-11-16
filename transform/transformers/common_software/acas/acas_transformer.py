@@ -2,10 +2,11 @@ import decimal
 import logging
 from datetime import datetime
 from decimal import Decimal, ROUND_HALF_UP
+from typing import Dict, List
 
 import structlog
 
-from transform.transformers.common_software.acas.acas_transforms import transformations, TransformType
+from transform.transformers.common_software.acas.acas_transforms import transformations, TransformType, DerivedTransform
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
@@ -43,6 +44,18 @@ def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
         except ValueError:
             logging.error(f"ValueError with qcode {qcode}, with value {value}")
 
+    return result
+
+
+def perform_derived_transforms(data: Dict[str, int], derived_transformation_dict: Dict[str, DerivedTransform]) -> dict:
+
+    result = data.copy()
+    for qcode, transform in derived_transformation_dict.items():
+        parent_qcodes: List[str] = transform.parent_qcodes
+        total = 0
+        for p in parent_qcodes:
+            total += result.get(p)
+        result[qcode] = total
     return result
 
 

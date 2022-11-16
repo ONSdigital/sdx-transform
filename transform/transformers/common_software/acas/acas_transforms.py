@@ -1,4 +1,6 @@
+from dataclasses import dataclass
 from enum import Enum
+from typing import List
 
 
 class TransformType(Enum):
@@ -8,9 +10,20 @@ class TransformType(Enum):
     NUMBER = 4
 
 
-# The following dictionary defines the transformations to perform.
-# The key is the qcode, the value is a list describing the transform
-# and any arguments to pass.
+class DerivedTransformType(Enum):
+    ADDITION = 1
+
+
+@dataclass(order=True)
+class DerivedTransform:
+    transform_type: DerivedTransformType
+    parent_qcodes: List[str]
+
 
 transformations = {
+}
+
+
+derived_transformations = {
+
 }
