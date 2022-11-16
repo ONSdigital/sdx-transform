@@ -1,6 +1,11 @@
+import decimal
+import logging
+from datetime import datetime
+from decimal import Decimal, ROUND_HALF_UP
+
 import structlog
 
-from transform.transformers.common_software.acas.acas_transforms import transformations
+from transform.transformers.common_software.acas.acas_transforms import transformations, TransformType
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
@@ -8,7 +13,69 @@ logger = structlog.get_logger()
 
 
 def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
-    return {}
+
+    result = {}
+
+    for qcode, value in response_data.items():
+
+        try:
+            if qcode in transformation_dict:
+
+                transform_type = transformation_dict[qcode]
+
+                if transform_type == TransformType.DATE:
+                    converted_value = date_transform(value)
+
+                elif transform_type == TransformType.CURRENCY:
+                    converted_value = currency_transform(value)
+
+                elif transform_type == TransformType.TEXT_FIELD:
+                    converted_value = text_transform(value)
+
+                elif transform_type == TransformType.NUMBER:
+                    converted_value = number_transform(value)
+
+                else:
+                    converted_value = number_transform(value)
+
+                result[qcode] = converted_value
+
+        except ValueError:
+            logging.error(f"ValueError with qcode {qcode}, with value {value}")
+
+    return result
+
+
+def currency_transform(value: str) -> int:
+    """
+    Transform the value for a currency question into thousands.
+    Rounding is done on a ROUND_HALF_UP basis.
+
+    :param value:  the value to round
+    """
+    try:
+        decimal.getcontext().rounding = ROUND_HALF_UP
+        return int(Decimal(round(Decimal(float(value))) / 1000).quantize(1))
+
+    except TypeError:
+        logger.info("Tried to quantize a NoneType object. Returning an empty string")
+        raise ValueError("Invalid value")
+
+
+def date_transform(value: str) -> datetime:
+    if type(value) == str:
+        return datetime.strptime(value, "%d/%m/%Y")
+    raise ValueError("Invalid value")
+
+
+def text_transform(value: str) -> int:
+    if value:
+        return 1
+    return 2
+
+
+def number_transform(value: str):
+    return int(value)
 
 
 class ACASTransformer(SurveyTransformer):
