@@ -12,6 +12,7 @@ class TransformType(Enum):
 
 class DerivedTransformType(Enum):
     ADDITION = 1
+    NON_ZEROS = 2
 
 
 @dataclass(order=True)

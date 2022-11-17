@@ -96,7 +96,7 @@ class TestPerformTransforms(unittest.TestCase):
 
 class TestDeriveTransforms(unittest.TestCase):
 
-    def test_qcode_children_addition(self):
+    def test_addition(self):
         transformed_data = {
             "100": 1,
             "101": 1,
@@ -109,7 +109,7 @@ class TestDeriveTransforms(unittest.TestCase):
         }
 
         actual = perform_derived_transforms(transformed_data,
-                                   {"102": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
+                                            {"102": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
 
         self.assertEqual(expected, actual)
 
@@ -128,6 +128,111 @@ class TestDeriveTransforms(unittest.TestCase):
         }
 
         actual = perform_derived_transforms(data,
-                                   {"103": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
+                                            {"103": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
 
         self.assertEqual(expected, actual)
+
+    def test_addition_when_parent_missing(self):
+        data = {
+            "100": 1,
+        }
+
+        expected = {
+            "100": 1,
+            "103": 1,
+        }
+
+        actual = perform_derived_transforms(data,
+                                            {"103": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
+
+        self.assertEqual(expected, actual)
+
+    def test_non_zeros_all_non_zeros(self):
+            data = {
+                "100": 10,
+                "101": 10,
+            }
+
+            expected = {
+                "100": 10,
+                "101": 10,
+                "103": 2,
+            }
+
+            actual = perform_derived_transforms(data,
+                                                {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
+                                                                         ["100", "101"])})
+
+            self.assertEqual(expected, actual)
+
+    def test_non_zeros_with_zeros(self):
+            data = {
+                "100": 0,
+                "101": 0,
+            }
+
+            expected = {
+                "100": 0,
+                "101": 0,
+                "103": 1,
+            }
+
+            actual = perform_derived_transforms(data,
+                                                {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
+                                                                         ["100", "101"])})
+
+            self.assertEqual(expected, actual)
+
+    def test_non_zeros_some_non_zeros(self):
+            data = {
+                "100": 10,
+                "101": 0,
+            }
+
+            expected = {
+                "100": 10,
+                "101": 0,
+                "103": 2,
+            }
+
+            actual = perform_derived_transforms(data,
+                                                {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
+                                                                         ["100", "101"])})
+
+            self.assertEqual(expected, actual)
+
+    def test_non_zeros_with_parent_missing(self):
+        data = {
+            "101": 10,
+        }
+
+        expected = {
+            "101": 10,
+            "103": 2,
+        }
+
+        actual = perform_derived_transforms(data,
+                                            {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
+                                                                     ["100", "101"])})
+
+        self.assertEqual(expected, actual)
+
+    def test_non_zeros_with_zeros_and_parent_missing(self):
+        data = {
+            "101": 0,
+        }
+
+        expected = {
+            "101": 0,
+            "103": 1,
+        }
+
+        actual = perform_derived_transforms(data,
+                                            {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
+                                                                     ["100", "101"])})
+
+        self.assertEqual(expected, actual)
+
+
+
+

@@ -6,7 +6,8 @@ from typing import Dict, List
 
 import structlog
 
-from transform.transformers.common_software.acas.acas_transforms import transformations, TransformType, DerivedTransform
+from transform.transformers.common_software.acas.acas_transforms import transformations, TransformType, \
+    DerivedTransform, DerivedTransformType
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
@@ -50,12 +51,25 @@ def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
 def perform_derived_transforms(data: Dict[str, int], derived_transformation_dict: Dict[str, DerivedTransform]) -> dict:
 
     result = data.copy()
+
     for qcode, transform in derived_transformation_dict.items():
         parent_qcodes: List[str] = transform.parent_qcodes
-        total = 0
-        for p in parent_qcodes:
-            total += result.get(p)
-        result[qcode] = total
+
+        if transform.transform_type == DerivedTransformType.ADDITION:
+            total = 0
+            for p in parent_qcodes:
+                total += result.get(p, 0)
+            result[qcode] = total
+
+        if transform.transform_type == DerivedTransformType.NON_ZEROS:
+            parent_value_found = False
+            for p in parent_qcodes:
+                if result.get(p, 0) != 0:
+                    parent_value_found = True
+                    break
+
+            result[qcode] = 2 if parent_value_found else 1
+
     return result
 
 
@@ -89,6 +103,13 @@ def text_transform(value: str) -> int:
 
 def number_transform(value: str):
     return int(value)
+
+def parent_value_check(parents: list):
+    for parent in parents:
+        if parent != 0:
+            return 2
+    return 1
+
 
 
 class ACASTransformer(SurveyTransformer):
