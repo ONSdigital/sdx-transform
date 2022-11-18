@@ -21,7 +21,7 @@ class DerivedTransform:
     parent_qcodes: List[str]
 
 
-transformations = {
+initial_transformations = {
 }
 
 

@@ -6,15 +6,19 @@ from typing import Dict, List
 
 import structlog
 
-from transform.transformers.common_software.acas.acas_transforms import transformations, TransformType, \
-    DerivedTransform, DerivedTransformType
+from transform.transformers.common_software.acas.acas_transforms import TransformType, \
+    DerivedTransform, DerivedTransformType, initial_transformations, derived_transformations
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
 
 
-# def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
+def perform_transforms(response_data: Dict[str, str]) -> Dict[str, int]:
+    transformed_data: Dict[str, int] = perform_initial_transforms(response_data, initial_transformations)
+    transformed_data: Dict[str, int] = perform_derived_transforms(transformed_data, derived_transformations)
+    return perform_replace_transforms(response_data, transformed_data)
+
 
 def perform_initial_transforms(
         response_data: Dict[str, str],
@@ -89,10 +93,7 @@ def perform_replace_transforms(response_data: Dict[str, str], transformed_data: 
 
 def currency_transform(value: str) -> int:
     """
-    Transform the value for a currency question into thousands.
-    Rounding is done on a ROUND_HALF_UP basis.
-
-    :param value:  the value to round
+    Round to the nearest thousand.
     """
     try:
         decimal.getcontext().rounding = ROUND_HALF_UP
@@ -122,7 +123,7 @@ def number_transform(value: str) -> int:
 class ACASTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the ACAS survey."""
 
-    def _format_pck(self, transformed_data):
+    def _format_pck(self, transformed_data) -> str:
         """Return a pck file using provided data"""
         pck = CSFormatter.get_pck(
             transformed_data,
@@ -136,7 +137,7 @@ class ACASTransformer(SurveyTransformer):
     def create_pck(self):
         bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
-        transformed_data = perform_initial_transforms(self.survey_response.data, transformations)
+        transformed_data = perform_transforms(self.survey_response.data)
         bound_logger.info("Data successfully transformed")
 
         bound_logger.info("Creating PCK")
