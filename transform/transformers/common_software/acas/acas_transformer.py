@@ -2,12 +2,13 @@ import decimal
 import logging
 from datetime import datetime
 from decimal import Decimal, ROUND_HALF_UP
-from typing import Dict, List
+from typing import Dict, List, Callable
 
 import structlog
 
 from transform.transformers.common_software.acas.acas_transforms import TransformType, \
-    DerivedTransform, DerivedTransformType, initial_transformations, derived_transformations
+    DerivedTransform, DerivedTransformType, initial_transformations, derived_transformations, \
+    replacement_transformations
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
@@ -17,7 +18,7 @@ logger = structlog.get_logger()
 def perform_transforms(response_data: Dict[str, str]) -> Dict[str, int]:
     transformed_data: Dict[str, int] = perform_initial_transforms(response_data, initial_transformations)
     transformed_data: Dict[str, int] = perform_derived_transforms(transformed_data, derived_transformations)
-    return perform_replace_transforms(response_data, transformed_data)
+    return perform_replacement_transforms(response_data, transformed_data, replacement_transformations)
 
 
 def perform_initial_transforms(
@@ -83,11 +84,17 @@ def perform_derived_transforms(
     return result
 
 
-def perform_replace_transforms(response_data: Dict[str, str], transformed_data: Dict[str, int]) -> Dict[str, int]:
-    value_for_9977 = response_data.get("9977")
-    if value_for_9977:
-        transformed_data['902'] = 1 if value_for_9977 == "Yes" else 2
-        transformed_data['903'] = 1 if value_for_9977 == "No" else 2
+def perform_replacement_transforms(
+        response_data: Dict[str, str],
+        transformed_data: Dict[str, int],
+        replacement_transforms: Dict[str, Dict[str, Callable[[str], int]]]) -> Dict[str, int]:
+
+    for qcode, replacement_dict in replacement_transforms.items():
+        v = response_data.get(qcode)
+        if v:
+            for new_qcode, func in replacement_dict.items():
+                transformed_data[new_qcode] = func(v)
+
     return transformed_data
 
 

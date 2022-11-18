@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import List
+from typing import List, Dict, Callable
 
 
 class TransformType(Enum):
@@ -21,10 +21,20 @@ class DerivedTransform:
     parent_qcodes: List[str]
 
 
-initial_transformations = {
+initial_transformations: Dict[str, TransformType] = {
+    "11": TransformType.DATE
 }
 
 
-derived_transformations = {
+derived_transformations: Dict[str, DerivedTransform] = {
+    "158": DerivedTransform(
+        DerivedTransformType.ADDITION,
+        ["150", "151", "152", "153", "154", "155", "156"])
+}
 
+replacement_transformations: Dict[str, Dict[str, Callable[[str], int]]] = {
+    "9977": {
+        "902": lambda v: 1 if v == "Yes" else 2,
+        "903": lambda v: 1 if v == "No" else 2,
+    }
 }

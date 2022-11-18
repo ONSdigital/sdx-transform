@@ -1,12 +1,12 @@
 import unittest
 
 from transform.transformers.common_software.acas.acas_transformer import perform_initial_transforms, \
-    perform_derived_transforms
+    perform_derived_transforms, perform_replacement_transforms
 from transform.transformers.common_software.acas.acas_transforms import TransformType, DerivedTransformType, \
     DerivedTransform
 
 
-class TestPerformTransforms(unittest.TestCase):
+class TestPerformInitialTransforms(unittest.TestCase):
 
     def test_currency_round_up(self):
         actual = perform_initial_transforms({"123": "34567"}, {"123": TransformType.CURRENCY})
@@ -241,4 +241,24 @@ class TestDeriveTransforms(unittest.TestCase):
             data, {"103": DerivedTransform(DerivedTransformType.NON_ZEROS, ["100", "101"])}
         )
 
+        self.assertEqual(expected, actual)
+
+
+class TestPerformReplacementTransforms(unittest.TestCase):
+
+    def test_replace(self):
+        response_data = {"100": "Yes"}
+        transformed_data = {}
+        replacement_transforms = {
+            "100": {
+                "101": lambda v: 1 if v == "Yes" else 2,
+                "102": lambda v: 1 if v == "No" else 2,
+            }
+        }
+
+        actual = perform_replacement_transforms(response_data, transformed_data, replacement_transforms)
+        expected = {
+            "101": 1,
+            "102": 2
+        }
         self.assertEqual(expected, actual)
