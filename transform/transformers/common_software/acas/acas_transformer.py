@@ -14,7 +14,12 @@ from transform.transformers.survey_transformer import SurveyTransformer
 logger = structlog.get_logger()
 
 
-def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
+# def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
+
+def perform_initial_transforms(
+        response_data: Dict[str, str],
+        transformation_dict: Dict[str, TransformType]) -> Dict[str, int]:
+
     result = {}
 
     for qcode, value in response_data.items():
@@ -47,8 +52,11 @@ def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
     return result
 
 
-def perform_derived_transforms(data: Dict[str, int], derived_transformation_dict: Dict[str, DerivedTransform]) -> dict:
-    result = data.copy()
+def perform_derived_transforms(
+        transformed_data: Dict[str, int],
+        derived_transformation_dict: Dict[str, DerivedTransform]) -> Dict[str, int]:
+
+    result = transformed_data.copy()
 
     for qcode, transform in derived_transformation_dict.items():
         parent_qcodes: List[str] = transform.parent_qcodes
@@ -71,6 +79,14 @@ def perform_derived_transforms(data: Dict[str, int], derived_transformation_dict
     return result
 
 
+def perform_replace_transforms(response_data: Dict[str, str], transformed_data: Dict[str, int]) -> Dict[str, int]:
+    value_for_9977 = response_data.get("9977")
+    if value_for_9977:
+        transformed_data['902'] = 1 if value_for_9977 == "Yes" else 2
+        transformed_data['903'] = 1 if value_for_9977 == "No" else 2
+    return transformed_data
+
+
 def currency_transform(value: str) -> int:
     """
     Transform the value for a currency question into thousands.
@@ -87,9 +103,9 @@ def currency_transform(value: str) -> int:
         raise ValueError("Invalid value")
 
 
-def date_transform(value: str) -> datetime:
+def date_transform(value: str) -> int:
     if type(value) == str:
-        return datetime.strptime(value, "%d/%m/%Y")
+        return int(datetime.strptime(value, "%d/%m/%Y").strftime('%d%m%y'))
     raise ValueError("Invalid value")
 
 
@@ -99,15 +115,8 @@ def text_transform(value: str) -> int:
     return 2
 
 
-def number_transform(value: str):
+def number_transform(value: str) -> int:
     return int(value)
-
-
-def parent_value_check(parents: list):
-    for parent in parents:
-        if parent != 0:
-            return 2
-    return 1
 
 
 class ACASTransformer(SurveyTransformer):
@@ -127,7 +136,7 @@ class ACASTransformer(SurveyTransformer):
     def create_pck(self):
         bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
-        transformed_data = perform_transforms(self.survey_response.data, transformations)
+        transformed_data = perform_initial_transforms(self.survey_response.data, transformations)
         bound_logger.info("Data successfully transformed")
 
         bound_logger.info("Creating PCK")
