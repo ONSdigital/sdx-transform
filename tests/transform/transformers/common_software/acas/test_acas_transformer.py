@@ -108,8 +108,10 @@ class TestDeriveTransforms(unittest.TestCase):
             "102": 2
         }
 
-        actual = perform_derived_transforms(transformed_data,
-                                            {"102": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
+        actual = perform_derived_transforms(
+            transformed_data,
+            {"102": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])}
+        )
 
         self.assertEqual(expected, actual)
 
@@ -127,8 +129,10 @@ class TestDeriveTransforms(unittest.TestCase):
             "200": 5
         }
 
-        actual = perform_derived_transforms(data,
-                                            {"103": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
+        actual = perform_derived_transforms(
+            data,
+            {"103": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])}
+        )
 
         self.assertEqual(expected, actual)
 
@@ -142,64 +146,69 @@ class TestDeriveTransforms(unittest.TestCase):
             "103": 1,
         }
 
-        actual = perform_derived_transforms(data,
-                                            {"103": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])})
+        actual = perform_derived_transforms(
+            data,
+            {"103": DerivedTransform(DerivedTransformType.ADDITION, ["100", "101"])}
+        )
 
         self.assertEqual(expected, actual)
 
     def test_non_zeros_all_non_zeros(self):
-            data = {
-                "100": 10,
-                "101": 10,
-            }
+        data = {
+            "100": 10,
+            "101": 10,
+        }
 
-            expected = {
-                "100": 10,
-                "101": 10,
-                "103": 2,
-            }
+        expected = {
+            "100": 10,
+            "101": 10,
+            "103": 2,
+        }
 
-            actual = perform_derived_transforms(data,
-                                                {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
-                                                                         ["100", "101"])})
+        actual = perform_derived_transforms(
+            data,
+            {"103": DerivedTransform(DerivedTransformType.NON_ZEROS, ["100", "101"])}
+        )
 
-            self.assertEqual(expected, actual)
+        self.assertEqual(expected, actual)
 
     def test_non_zeros_with_zeros(self):
-            data = {
-                "100": 0,
-                "101": 0,
-            }
+        data = {
+            "100": 0,
+            "101": 0,
+        }
 
-            expected = {
-                "100": 0,
-                "101": 0,
-                "103": 1,
-            }
+        expected = {
+            "100": 0,
+            "101": 0,
+            "103": 1,
+        }
 
-            actual = perform_derived_transforms(data,
-                                                {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
-                                                                         ["100", "101"])})
+        actual = perform_derived_transforms(
+            data,
+            {"103": DerivedTransform(DerivedTransformType.NON_ZEROS, ["100", "101"])}
+        )
 
-            self.assertEqual(expected, actual)
+        self.assertEqual(expected, actual)
 
     def test_non_zeros_some_non_zeros(self):
-            data = {
-                "100": 10,
-                "101": 0,
-            }
+        data = {
+            "100": 10,
+            "101": 0,
+        }
 
-            expected = {
-                "100": 10,
-                "101": 0,
-                "103": 2,
-            }
+        expected = {
+            "100": 10,
+            "101": 0,
+            "103": 2,
+        }
 
-            actual = perform_derived_transforms(data,
-                                                {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
-                                                                         ["100", "101"])})
+        actual = perform_derived_transforms(
+            data,
+            {"103": DerivedTransform(DerivedTransformType.NON_ZEROS, ["100", "101"])}
+        )
 
-            self.assertEqual(expected, actual)
+        self.assertEqual(expected, actual)
 
     def test_non_zeros_with_parent_missing(self):
         data = {
@@ -211,9 +220,10 @@ class TestDeriveTransforms(unittest.TestCase):
             "103": 2,
         }
 
-        actual = perform_derived_transforms(data,
-                                            {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
-                                                                     ["100", "101"])})
+        actual = perform_derived_transforms(
+            data,
+            {"103": DerivedTransform(DerivedTransformType.NON_ZEROS, ["100", "101"])}
+        )
 
         self.assertEqual(expected, actual)
 
@@ -227,12 +237,8 @@ class TestDeriveTransforms(unittest.TestCase):
             "103": 1,
         }
 
-        actual = perform_derived_transforms(data,
-                                            {"103": DerivedTransform(DerivedTransformType.NON_ZEROS,
-                                                                     ["100", "101"])})
+        actual = perform_derived_transforms(
+            data, {"103": DerivedTransform(DerivedTransformType.NON_ZEROS, ["100", "101"])}
+        )
 
         self.assertEqual(expected, actual)
-
-
-
-

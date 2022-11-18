@@ -15,7 +15,6 @@ logger = structlog.get_logger()
 
 
 def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
-
     result = {}
 
     for qcode, value in response_data.items():
@@ -49,7 +48,6 @@ def perform_transforms(response_data: dict, transformation_dict: dict) -> dict:
 
 
 def perform_derived_transforms(data: Dict[str, int], derived_transformation_dict: Dict[str, DerivedTransform]) -> dict:
-
     result = data.copy()
 
     for qcode, transform in derived_transformation_dict.items():
@@ -104,12 +102,12 @@ def text_transform(value: str) -> int:
 def number_transform(value: str):
     return int(value)
 
+
 def parent_value_check(parents: list):
     for parent in parents:
         if parent != 0:
             return 2
     return 1
-
 
 
 class ACASTransformer(SurveyTransformer):
