@@ -208,10 +208,52 @@ initial_transformations: Dict[str, TransformType] = {
 
 
 derived_transformations: Dict[str, DerivedTransform] = {
-    "158": DerivedTransform(
-        DerivedTransformType.ADDITION,
-        ["150", "151", "152", "153", "154", "155", "156"])
+    '158': DerivedTransform(DerivedTransformType.ADDITION, ['150', '151', '152', '153', '154', '155', '156']),
+    '157': DerivedTransform(DerivedTransformType.NON_ZEROS, ['158']),
+    '175': DerivedTransform(DerivedTransformType.ADDITION, ['159', '161', '163', '165', '167', '169', '171']),
+    '176': DerivedTransform(DerivedTransformType.ADDITION, ['160', '162', '164', '166', '168', '170', '172', '173']),
+    '174': DerivedTransform(DerivedTransformType.NON_ZEROS, ['175', '176']),
+    '223': DerivedTransform(DerivedTransformType.ADDITION,
+                            ['200', '201', '203', '204', '206', '208', '210', '212', '214', '218', '220']),
+    '224': DerivedTransform(DerivedTransformType.ADDITION,
+                            ['202', '205', '207', '209', '211', '213', '215', '219', '221']),
+    '222': DerivedTransform(DerivedTransformType.NON_ZEROS, ['223', '224']),
+    '238': DerivedTransform(DerivedTransformType.ADDITION, ['226', '229', '232', '235']),
+    '239': DerivedTransform(DerivedTransformType.ADDITION, ['227', '230', '233', '236']),
+    '237': DerivedTransform(DerivedTransformType.NON_ZEROS, ['238', '239']),
+    '313': DerivedTransform(DerivedTransformType.ADDITION, ['300', '302', '304', '306', '308', '310']),
+    '314': DerivedTransform(DerivedTransformType.ADDITION, ['301', '303', '305', '307', '309', '311']),
+    '312': DerivedTransform(DerivedTransformType.NON_ZEROS, ['313', '314']),
+    '324': DerivedTransform(DerivedTransformType.ADDITION, ['315', '317', '319', '321']),
+    '325': DerivedTransform(DerivedTransformType.ADDITION, ['316', '318', '320', '322']),
+    '323': DerivedTransform(DerivedTransformType.NON_ZEROS, ['324', '325']),
+    '423': DerivedTransform(DerivedTransformType.ADDITION,
+                            ['400', '402', '404', '406', '408', '410', '412', '414', '416', '418', '420']),
+    '424': DerivedTransform(DerivedTransformType.ADDITION,
+                            ['401', '403', '405', '407', '409', '411', '413', '415', '417', '419', '421']),
+    '422': DerivedTransform(DerivedTransformType.NON_ZEROS, ['423', '424']),
+    '521': DerivedTransform(DerivedTransformType.ADDITION,
+                            ['500', '502', '504', '506', '508', '510', '512', '514', '516', '518']),
+    '522': DerivedTransform(DerivedTransformType.ADDITION,
+                            ['501', '503', '505', '507', '509', '511', '513', '515', '517', '519']),
+    '520': DerivedTransform(DerivedTransformType.NON_ZEROS, ['521', '522']),
+    '620': DerivedTransform(DerivedTransformType.ADDITION,
+                            ['601', '603', '605', '607', '609', '611', '613', '615', '617']),
+    '621': DerivedTransform(DerivedTransformType.ADDITION,
+                            ['602', '604', '606', '608', '610', '612', '614', '616', '618']),
+    '619': DerivedTransform(DerivedTransformType.NON_ZEROS, ['620', '621']),
+    '717': DerivedTransform(DerivedTransformType.ADDITION, ['700', '702', '704', '706', '708', '710', '712', '714']),
+    '718': DerivedTransform(DerivedTransformType.ADDITION, ['701', '703', '705', '707', '709', '711', '713', '715']),
+    '716': DerivedTransform(DerivedTransformType.NON_ZEROS, ['717', '718']),
+    '809': DerivedTransform(DerivedTransformType.ADDITION, ['800', '802', '804', '806']),
+    '810': DerivedTransform(DerivedTransformType.ADDITION, ['801', '803', '805', '807']),
+    '808': DerivedTransform(DerivedTransformType.NON_ZEROS, ['809', '810']),
+    '830': DerivedTransform(DerivedTransformType.ADDITION, ['812', '815', '818', '821', '824', '827']),
+    '831': DerivedTransform(DerivedTransformType.ADDITION, ['813', '816', '819', '822', '825', '828']),
+    '829': DerivedTransform(DerivedTransformType.NON_ZEROS, ['830', '831']),
+    '900': DerivedTransform(DerivedTransformType.NON_ZEROS, ['901']),
 }
+
 
 replacement_transformations: Dict[str, Dict[str, Callable[[str], int]]] = {
     "9977": {
