@@ -1,5 +1,6 @@
 from transform.transformers.common_software import MBSTransformer, MWSSTransformer, CSTransformer
 from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
+from transform.transformers.common_software.acas.acas_transformer import ACASTransformer
 from transform.transformers.cora import UKISTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cord import EcommerceTransformer
@@ -52,6 +53,8 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
         transformer = MBSTransformer(response, sequence_no)
     elif survey_id == "134":
         transformer = MWSSTransformer(response, sequence_no)
+    elif survey_id == "171":
+        transformer = ACASTransformer(response, sequence_no)
     elif survey_id == "202":
         transformer = ABSTransformer(response, sequence_no)
     else:
