@@ -124,7 +124,10 @@ def text_transform(value: str) -> int:
 
 
 def number_transform(value: str) -> int:
-    return int(value)
+    try:
+        return int(value)
+    except TypeError:
+        raise ValueError("Non numeric value")
 
 
 class ACASTransformer(SurveyTransformer):
