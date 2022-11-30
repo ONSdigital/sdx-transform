@@ -17,13 +17,13 @@
                     "number": "9999"
                 },
                 {
-                    "text": "What dates will you be reporting for?",
+                    "text": "What dates will you be reporting for? From",
                     "type": "date range",
                     "question_id": "11",
                     "number": "11"
                 },
                 {
-                    "text": "What dates will you be reporting for?",
+                    "text": "What dates will you be reporting for? To",
                     "type": "date range",
                     "question_id": "12",
                     "number": "12"
@@ -44,63 +44,42 @@
                     "number": "9998"
                 },
                 {
-                    "Options": [
-                        "Capital expenditure on building and construction"
-                    ],
                     "text": "For the period, what was the business' value of capital expenditure on building and construction?",
                     "type": "currency",
                     "question_id": "150",
                     "number": "150"
                 },
                 {
-                    "Options": [
-                        "Capital expenditure on fixtures, fittings and installations"
-                    ],
                     "text": "Of the capital expenditure on building and construction, what was the value of capital expenditure on fixtures, fittings and installations that are part of the structure?",
                     "type": "currency",
                     "question_id": "151",
                     "number": "151"
                 },
                 {
-                    "Options": [
-                        "Capital expenditure on civil engineering work"
-                    ],
                     "text": "For the reporting period, what was your business's value of capital expenditure on civil engineering work?",
                     "type": "currency",
                     "question_id": "152",
                     "number": "152"
                 },
                 {
-                    "Options": [
-                        "Capital expenditure on fixtures, fittings and installations"
-                    ],
                     "text": "Of the capital expenditure on civil engineering work, what was the value of capital expenditure on fixtures, fittings and installations that are part of the structure?",
                     "type": "currency",
                     "question_id": "153",
                     "number": "153"
                 },
                 {
-                    "Options": [
-                        "Capital expenditure on specialised construction"
-                    ],
                     "text": "For the reporting period, what was your business's value of capital expenditure on specialised construction?",
                     "type": "currency",
                     "question_id": "154",
                     "number": "154"
                 },
                 {
-                    "Options": [
-                        "Capital expenditure on fixtures, fittings and installations"
-                    ],
                     "text": "Of the capital expenditure on specialised construction, what was the value of capital expenditure on fixtures, fittings and installations that are part of the structure?",
                     "type": "currency",
                     "question_id": "155",
                     "number": "155"
                 },
                 {
-                    "Options": [
-                        "Capital expenditure on land improvements"
-                    ],
                     "text": "For the reporting period, what was your business's value of capital expenditure on land improvements?",
                     "type": "currency",
                     "question_id": "156",
@@ -122,136 +101,91 @@
                     "number": "9997"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for the acquisitions of legal and accounting services"
-                    ],
-                    "text": "For the period, what costs did the business' incur from acquisitions and disposals from legal and accounting services?",
+                    "text": "For the period, what costs did the business' incur for acquisitions of legal and accounting services?",
                     "type": "currency",
                     "question_id": "159",
                     "number": "159"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for disposals of legal and accounting services"
-                    ],
-                    "text": "For the period, what costs did the business' incur from acquisitions and disposals from legal and accounting services?",
+                    "text": "For the period, what costs did the business' incur for disposals of legal and accounting services?",
                     "type": "currency",
                     "question_id": "160",
                     "number": "160"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for the acquisitions of management consultancy services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from management consultancy services?",
+                    "text": "For the reporting period, what costs did your business incur for acquisitions of management consultancy services?",
                     "type": "currency",
                     "question_id": "161",
                     "number": "161"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for disposals of management consultancy services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from management consultancy services?",
+                    "text": "For the reporting period, what costs did your business incur for disposals of management consultancy services?",
                     "type": "currency",
                     "question_id": "162",
                     "number": "162"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for the acquisitions of architectural, engineering, technical testing and analysis services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from architectural, engineering, technical testing and analysis services?",
+                    "text": "For the reporting period, what costs did your business incur for acquisitions of architectural, engineering, technical testing and analysis services?",
                     "type": "currency",
                     "question_id": "163",
                     "number": "163"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for disposals of architectural, engineering, technical testing and analysis services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from architectural, engineering, technical testing and analysis services?",
+                    "text": "For the reporting period, what costs did your business incur for disposals of architectural, engineering, technical testing and analysis services?",
                     "type": "currency",
                     "question_id": "164",
                     "number": "164"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for the acquisitions of scientific research and development services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from scientific research and development services?",
+                    "text": "For the reporting period, what costs did your business incur for acquisitions of scientific research and development services?",
                     "type": "currency",
                     "question_id": "165",
                     "number": "165"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for disposals of scientific research and development services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from scientific research and development services?",
+                    "text": "For the reporting period, what costs did your business incur for disposals of scientific research and development services?",
                     "type": "currency",
                     "question_id": "166",
                     "number": "166"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for the acquisitions of other professional, scientific and technical services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from other professional, scientific and technical services?",
+                    "text": "For the reporting period, what costs did your business incur for acquisitions of other professional, scientific and technical services?",
                     "type": "currency",
                     "question_id": "167",
                     "number": "167"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for disposals of other professional, scientific and technical services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from other professional, scientific and technical services?",
+                    "text": "For the reporting period, what costs did your business incur for disposals of other professional, scientific and technical services?",
                     "type": "currency",
                     "question_id": "168",
                     "number": "168"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for the acquisitions of transfer costs, stamp duties and taxes"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from transfer costs, stamp duties and taxes?",
+                    "text": "For the reporting period, what costs did your business incur for acquisitions of transfer costs, stamp duties and taxes?",
                     "type": "currency",
                     "question_id": "169",
                     "number": "169"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for disposals of transfer costs, stamp duties and taxes"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from transfer costs, stamp duties and taxes?",
+                    "text": "For the reporting period, what costs did your business incur for disposals of transfer costs, stamp duties and taxes?",
                     "type": "currency",
                     "question_id": "170",
                     "number": "170"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for the acquisitions of delivery and deinstallation services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from delivery and deinstallation services?",
+                    "text": "For the reporting period, what costs did your business incur for acquisitions of delivery and deinstallation services?",
                     "type": "currency",
                     "question_id": "171",
                     "number": "171"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for disposals of delivery and deinstallation services"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from acquisitions and disposals from delivery and deinstallation services?",
+                    "text": "For the reporting period, what costs did your business incur for disposals of delivery and deinstallation services?",
                     "type": "currency",
                     "question_id": "172",
                     "number": "172"
                 },
                 {
-                    "Options": [
-                        "Value of costs incurred for disposals of decommissioning services for the nuclear or fuel industry"
-                    ],
-                    "text": "For the reporting period, what costs did your business incur from disposals from decommissioning services for the nuclear or fuel industry?",
+                    "text": "For the reporting period, what costs did your business incur for disposals of decommissioning services for the nuclear or fuel industry?",
                     "type": "currency",
                     "question_id": "173",
                     "number": "173"
@@ -272,180 +206,120 @@
                     "number": "9996"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of new cars"
-                    ],
                     "text": "For the period, what was the business' value from acquisitions of new cars?",
                     "type": "currency",
                     "question_id": "200",
                     "number": "200"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of second hand cars"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of second hand cars?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of second hand cars?",
                     "type": "currency",
                     "question_id": "201",
                     "number": "201"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of second hand cars"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of second hand cars?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposal of second hand cars?",
                     "type": "currency",
                     "question_id": "202",
                     "number": "202"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of new goods vehicles and special purpose vehicles"
-                    ],
                     "text": "For the reporting period, what was your business's value from acquisitions of new goods vehicles and special purpose vehicles?",
                     "type": "currency",
                     "question_id": "203",
                     "number": "203"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of second hand goods vehicles and special purpose vehicles"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of second hand goods vehicles and special purpose vehicles?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of second hand goods vehicles and special purpose vehicles?",
                     "type": "currency",
                     "question_id": "204",
                     "number": "204"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of second hand goods vehicles and special purpose vehicles"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of second hand goods vehicles and special purpose vehicles?",
+                    "text": "For the reporting period, what was your business's value from disposal of second hand goods vehicles and special purpose vehicles?",
                     "type": "currency",
                     "question_id": "205",
                     "number": "205"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of parts and accessories for motor vehicles"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of parts and accessories for motor vehicles?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of parts and accessories for motor vehicles?",
                     "type": "currency",
                     "question_id": "206",
                     "number": "206"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of parts and accessories for motor vehicles"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of parts and accessories for motor vehicles?",
+                    "text": "For the reporting period, what was your business's value from disposal of parts and accessories for motor vehicles?",
                     "type": "currency",
                     "question_id": "207",
                     "number": "207"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of trailers and semi trailers"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of trailers and semi trailers?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of trailers and semi trailers?",
                     "type": "currency",
                     "question_id": "208",
                     "number": "208"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of trailers and semi trailers"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of trailers and semi trailers?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposal of trailers and semi trailers?",
                     "type": "currency",
                     "question_id": "209",
                     "number": "209"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of ships and boats"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of ships and boats?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of ships and boats?",
                     "type": "currency",
                     "question_id": "210",
                     "number": "210"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of ships and boats"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of ships and boats?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposal of ships and boats?",
                     "type": "currency",
                     "question_id": "211",
                     "number": "211"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of aircrafts"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of aircrafts?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of aircrafts?",
                     "type": "currency",
                     "question_id": "212",
                     "number": "212"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of aircrafts"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of aircrafts?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposal of aircrafts?",
                     "type": "currency",
                     "question_id": "213",
                     "number": "213"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of railway locomotives and rolling stock"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of railway locomotives and rolling stock?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of railway locomotives and rolling stock?",
                     "type": "currency",
                     "question_id": "214",
                     "number": "214"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of railway locomotives and rolling stock"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of railway locomotives and rolling stock?",
+                    "text": "For the reporting period, what was your business's value from proceeds from disposal of railway locomotives and rolling stock?",
                     "type": "currency",
                     "question_id": "215",
                     "number": "215"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of motor cycles"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of motor cycles?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of disposal of motor cycles?",
                     "type": "currency",
                     "question_id": "218",
                     "number": "218"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of motor cycles"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of motor cycles?",
+                    "text": "For the reporting period, what was your business's value from disposal of motor cycles?",
                     "type": "currency",
                     "question_id": "219",
                     "number": "219"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of bicycles and mobility vehicles"
-                    ],
                     "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of bicycles and mobility vehicles?",
                     "type": "currency",
                     "question_id": "220",
                     "number": "220"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of bicycles and mobility vehicles"
-                    ],
                     "text": "For the reporting period, what was your business's value from acquisitions and proceeds from disposal of bicycles and mobility vehicles?",
                     "type": "currency",
                     "question_id": "221",
@@ -462,25 +336,19 @@
                     "number": "9995"
                 },
                 {
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Name of other transport assets and equipment",
                     "type": "text field",
                     "question_id": "225",
                     "number": "225"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "226",
                     "number": "226"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "227",
                     "number": "227"
@@ -496,25 +364,19 @@
                     "number": "9994"
                 },
                 {
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Name of other transport assets and equipment",
                     "type": "text field",
                     "question_id": "228",
                     "number": "228"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "229",
                     "number": "229"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "230",
                     "number": "230"
@@ -530,25 +392,19 @@
                     "number": "9993"
                 },
                 {
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Name of other transport assets and equipment",
                     "type": "text field",
                     "question_id": "231",
                     "number": "231"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "232",
                     "number": "232"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "233",
                     "number": "233"
@@ -564,25 +420,19 @@
                     "number": "9992"
                 },
                 {
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Name of other transport assets and equipment",
                     "type": "text field",
                     "question_id": "234",
                     "number": "234"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "235",
                     "number": "235"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions?",
+                    "text": "What was the value of other transport assets and equipment that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "236",
                     "number": "236"
@@ -603,109 +453,73 @@
                     "number": "9991"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of computers and hardware devices"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of computers and hardware devices?",
+                    "text": "For the period, what was the business' value from acquisitions of computers and hardware devices?",
                     "type": "currency",
                     "question_id": "300",
                     "number": "300"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of computers and hardware devices"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of computers and hardware devices?",
+                    "text": "For the period, what was the business' value of proceeds from the disposal of computers and hardware devices",
                     "type": "currency",
                     "question_id": "301",
                     "number": "301"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of computer software programs developed by your own staff, for business use"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of computer software programs, developed by your own staff, for business use?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of computer software programs, developed by your own staff, for business use?",
                     "type": "currency",
                     "question_id": "302",
                     "number": "302"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of computer software programs developed by your own staff, for business use"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of computer software programs, developed by your own staff, for business use?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of computer software programs, developed by your own staff, for business use?",
                     "type": "currency",
                     "question_id": "303",
                     "number": "303"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of computer software programs purchased or developed externally or bespoke"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of computer software programs, purchased or developed externally or bespoke?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of computer software programs, purchased or developed externally or bespoke?",
                     "type": "currency",
                     "question_id": "304",
                     "number": "304"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of computer software programs purchased or developed externally or bespoke"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of computer software programs, purchased or developed externally or bespoke?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of computer software programs, purchased or developed externally or bespoke?",
                     "type": "currency",
                     "question_id": "305",
                     "number": "305"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of databases developed by your own staff, for business use"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of databases, developed by your own staff, for business use?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of databases, developed by your own staff, for business use?",
                     "type": "currency",
                     "question_id": "306",
                     "number": "306"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of databases developed by your own staff, for business use"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of databases, developed by your own staff, for business use?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of databases, developed by your own staff, for business use?",
                     "type": "currency",
                     "question_id": "307",
                     "number": "307"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of databases purchased or developed externally or bespoke"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of databases, purchased or developed externally or bespoke?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of databases, purchased or developed externally or bespoke?",
                     "type": "currency",
                     "question_id": "308",
                     "number": "308"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of databases purchased or developed externally or bespoke"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of databases, purchased or developed externally or bespoke?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of databases, purchased or developed externally or bespoke?",
                     "type": "currency",
                     "question_id": "309",
                     "number": "309"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of telecommunication equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of telecommunication equipment?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of telecommunication equipment?",
                     "type": "currency",
                     "question_id": "310",
                     "number": "310"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of telecommunication equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of telecommunication equipment?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of telecommunication equipment?",
                     "type": "currency",
                     "question_id": "311",
                     "number": "311"
@@ -726,73 +540,49 @@
                     "number": "9990"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of office equipment"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of office equipment?",
+                    "text": "For the period, what was the business' value from acquisitions of office equipment?",
                     "type": "currency",
                     "question_id": "315",
                     "number": "315"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of office equipment"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of office equipment?",
+                    "text": "For the period, what was the business' value of proceeds from the disposal of office equipment?",
                     "type": "currency",
                     "question_id": "316",
                     "number": "316"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of office and shop furniture"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of office and shop furniture?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of office and shop furniture?",
                     "type": "currency",
                     "question_id": "317",
                     "number": "317"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of office and shop furniture"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of office and shop furniture?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of office and shop furniture?",
                     "type": "currency",
                     "question_id": "318",
                     "number": "318"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of kitchen furniture"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of kitchen furniture?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of kitchen furniture?",
                     "type": "currency",
                     "question_id": "319",
                     "number": "319"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of kitchen furniture"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of kitchen furniture?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of kitchen furniture?",
                     "type": "currency",
                     "question_id": "320",
                     "number": "320"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of other furniture"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of other furniture?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of other furniture?",
                     "type": "currency",
                     "question_id": "321",
                     "number": "321"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of other furniture"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of other furniture?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of other furniture?",
                     "type": "currency",
                     "question_id": "322",
                     "number": "322"
@@ -813,199 +603,133 @@
                     "number": "9989"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of consumer electronic appliances"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of consumer electronic appliances?",
+                    "text": "For the period, what was the business' value from acquisitions of consumer electronic appliances?",
                     "type": "currency",
                     "question_id": "400",
                     "number": "400"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of consumer electronic appliances"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of consumer electronic appliances?",
+                    "text": "For the period, what was the business' value of proceeds from the disposal of consumer electronic appliances?",
                     "type": "currency",
                     "question_id": "401",
                     "number": "401"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of domestic use appliances"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of domestic use appliances?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of domestic use appliances?",
                     "type": "currency",
                     "question_id": "402",
                     "number": "402"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of domestic use appliances"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of domestic use appliances?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of domestic use appliances?",
                     "type": "currency",
                     "question_id": "403",
                     "number": "403"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of magnetic and optical readers"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of magnetic and optical readers?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of magnetic and optical readers?",
                     "type": "currency",
                     "question_id": "404",
                     "number": "404"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of magnetic and optical readers"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of magnetic and optical readers?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of magnetic and optical readers?",
                     "type": "currency",
                     "question_id": "405",
                     "number": "405"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of optical instruments and photographic equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of optical instruments and photographic equipment?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of optical instruments and photographic equipment?",
                     "type": "currency",
                     "question_id": "406",
                     "number": "406"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of optical instruments and photographic equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of optical instruments and photographic equipment?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of optical instruments and photographic equipment?",
                     "type": "currency",
                     "question_id": "407",
                     "number": "407"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of irradiation, electro-medical and electro-therapeutic equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of irradiation, electro-medical and electro-therapeutic equipment?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of irradiation, electro-medical and electro-therapeutic equipment?",
                     "type": "currency",
                     "question_id": "408",
                     "number": "408"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of irradiation, electro-medical and electro-therapeutic equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of irradiation, electro-medical and electro-therapeutic equipment?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of irradiation, electro-medical and electro-therapeutic equipment?",
                     "type": "currency",
                     "question_id": "409",
                     "number": "409"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of measuring, checking, testing and navigating devices"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of measuring, checking, testing and navigating devices?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of measuring, checking, testing and navigating devices?",
                     "type": "currency",
                     "question_id": "410",
                     "number": "410"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of measuring, checking, testing and navigating devices"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of measuring, checking, testing and navigating devices?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of measuring, checking, testing and navigating devices?",
                     "type": "currency",
                     "question_id": "411",
                     "number": "411"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of electric motors, generators, transformers, electricity distribution and control apparatus"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of electric motors, generators, transformers, electricity distribution and control apparatus?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of electric motors, generators, transformers, electricity distribution and control apparatus?",
                     "type": "currency",
                     "question_id": "412",
                     "number": "412"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of electric motors, generators, transformers, electricity distribution and control apparatus"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of electric motors, generators, transformers, electricity distribution and control apparatus?",
+                    "text": "For the reporting period, what was your business's value of  proceeds from the disposal of electric motors, generators, transformers, electricity distribution and control apparatus?",
                     "type": "currency",
                     "question_id": "413",
                     "number": "413"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of batteries and accumulators"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of batteries and accumulators?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of batteries and accumulators?",
                     "type": "currency",
                     "question_id": "414",
                     "number": "414"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of batteries and accumulators"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of batteries and accumulators?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of batteries and accumulators?",
                     "type": "currency",
                     "question_id": "415",
                     "number": "415"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of wiring and wiring devices"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of wiring and wiring devices?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of wiring and wiring devices?",
                     "type": "currency",
                     "question_id": "416",
                     "number": "416"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of wiring and wiring devices"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of wiring and wiring devices?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of wiring and wiring devices?",
                     "type": "currency",
                     "question_id": "417",
                     "number": "417"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of electric lighting equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of electric lighting equipment?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of electric lighting equipment?",
                     "type": "currency",
                     "question_id": "418",
                     "number": "418"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of electric lighting equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of electric lighting equipment?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of electric lighting equipment?",
                     "type": "currency",
                     "question_id": "419",
                     "number": "419"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of other electrical equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of other electrical equipment?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of other electrical equipment?",
                     "type": "currency",
                     "question_id": "420",
                     "number": "420"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of other electrical equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of other electrical equipment?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of other electrical equipment?",
                     "type": "currency",
                     "question_id": "421",
                     "number": "421"
@@ -1026,181 +750,121 @@
                     "number": "9988"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of lifting and handling equipment"
-                    ],
-                    "text": "For the period, what was the business' value of acquisitions and proceeds from disposals of lifting and handling equipment?",
+                    "text": "For the period, what was the business' value of acquisitions of lifting and handling equipment?",
                     "type": "currency",
                     "question_id": "500",
                     "number": "500"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of lifting and handling equipment"
-                    ],
-                    "text": "For the period, what was the business' value of acquisitions and proceeds from disposals of lifting and handling equipment?",
+                    "text": "For the period, what was the business' value of proceeds from disposals of lifting and handling equipment?",
                     "type": "currency",
                     "question_id": "501",
                     "number": "501"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of non-domestic cooling and ventilation equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of non-domestic cooling and ventilation equipment?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of non-domestic cooling and ventilation equipment?",
                     "type": "currency",
                     "question_id": "502",
                     "number": "502"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of non-domestic cooling and ventilation equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of non-domestic cooling and ventilation equipment?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposals of non-domestic cooling and ventilation equipment?",
                     "type": "currency",
                     "question_id": "503",
                     "number": "503"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of non-domestic ovens, furnaces and furnace burners"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of non-domestic ovens, furnaces and furnace burners?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of non-domestic ovens, furnaces and furnace burners?",
                     "type": "currency",
                     "question_id": "504",
                     "number": "504"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of non-domestic ovens, furnaces and furnace burners"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of non-domestic ovens, furnaces and furnace burners?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposals of non-domestic ovens, furnaces and furnace burners?",
                     "type": "currency",
                     "question_id": "505",
                     "number": "505"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of engines and turbines"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of engines and turbines?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of engines and turbines?",
                     "type": "currency",
                     "question_id": "506",
                     "number": "506"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of engines and turbines"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of engines and turbines?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposals of engines and turbines?",
                     "type": "currency",
                     "question_id": "507",
                     "number": "507"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of fluid power equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of fluid power equipment?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of fluid power equipment?",
                     "type": "currency",
                     "question_id": "508",
                     "number": "508"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of fluid power equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of fluid power equipment?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposals of fluid power equipment?",
                     "type": "currency",
                     "question_id": "509",
                     "number": "509"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of other pumps and compressors"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of other pumps and compressors?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of other pumps and compressors?",
                     "type": "currency",
                     "question_id": "510",
                     "number": "510"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of other pumps and compressors"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of other pumps and compressors?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposals of other pumps and compressors?",
                     "type": "currency",
                     "question_id": "511",
                     "number": "511"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of taps and valves"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of taps and valves?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of taps and valves?",
                     "type": "currency",
                     "question_id": "512",
                     "number": "512"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of taps and valves"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of taps and valves?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposals of taps and valves?",
                     "type": "currency",
                     "question_id": "513",
                     "number": "513"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of bearings, gears, gearing and driving elements"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of bearings, gears, gearing and driving elements?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of bearings, gears, gearing and driving elements?",
                     "type": "currency",
                     "question_id": "514",
                     "number": "514"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of bearings, gears, gearing and driving elements"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of bearings, gears, gearing and driving elements?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposals of bearings, gears, gearing and driving elements?",
                     "type": "currency",
                     "question_id": "515",
                     "number": "515"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of power-driven hand tools"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of power-driven hand tools?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of power-driven hand tools?",
                     "type": "currency",
                     "question_id": "516",
                     "number": "516"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of power-driven hand tools"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of power-driven hand tools?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposals of power-driven hand tools?",
                     "type": "currency",
                     "question_id": "517",
                     "number": "517"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of other general purpose machinery and equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of other general purpose machinery and equipment?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of other general purpose machinery and equipment?",
                     "type": "currency",
                     "question_id": "518",
                     "number": "518"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of other general purpose machinery and equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of other general purpose machinery and equipment?",
+                    "text": "For the reporting period, what was your business's value of proceeds from disposals of other general purpose machinery and equipment?",
                     "type": "currency",
                     "question_id": "519",
                     "number": "519"
@@ -1216,163 +880,109 @@
                     "number": "9987"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of agricultural and forestry machinery"
-                    ],
-                    "text": "For the period, what was the business' value of acquisitions and proceeds from the disposals of agricultural and forestry machinery?",
+                    "text": "For the period, what was the business' value from acquisitions of agricultural and forestry machinery?",
                     "type": "currency",
                     "question_id": "601",
                     "number": "601"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of agricultural and forestry machinery"
-                    ],
-                    "text": "For the period, what was the business' value of acquisitions and proceeds from the disposals of agricultural and forestry machinery?",
+                    "text": "For the period, what was the business' value of proceeds from the disposals of agricultural and forestry machinery?",
                     "type": "currency",
                     "question_id": "602",
                     "number": "602"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of metal forming machinery and machine tools"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of metal forming machinery and machine tools?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of metal forming machinery and machine tools?",
                     "type": "currency",
                     "question_id": "603",
                     "number": "603"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of metal forming machinery and machine tools"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of metal forming machinery and machine tools?",
+                    "text": "For the reporting period, what was your business's value of  proceeds from the disposals of metal forming machinery and machine tools?",
                     "type": "currency",
                     "question_id": "604",
                     "number": "604"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of machinery for metallurgy"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for metallurgy?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of machinery for metallurgy?",
                     "type": "currency",
                     "question_id": "605",
                     "number": "605"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of machinery for metallurgy"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for metallurgy?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposals of machinery for metallurgy?",
                     "type": "currency",
                     "question_id": "606",
                     "number": "606"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of machinery for mining, quarrying and construction"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for mining, quarrying and construction?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of machinery for mining, quarrying and construction?",
                     "type": "currency",
                     "question_id": "607",
                     "number": "607"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of machinery for mining, quarrying and construction"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for mining, quarrying and construction?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposals of machinery for mining, quarrying and construction?",
                     "type": "currency",
                     "question_id": "608",
                     "number": "608"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of machinery for food, beverage and tobacco processing"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for food, beverage and tobacco processing?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of machinery for food, beverage and tobacco processing?",
                     "type": "currency",
                     "question_id": "609",
                     "number": "609"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of machinery for food, beverage and tobacco processing"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for food, beverage and tobacco processing?",
+                    "text": "For the reporting period, what was your business's value of disposals of machinery for food, beverage and tobacco processing?",
                     "type": "currency",
                     "question_id": "610",
                     "number": "610"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of machinery for textile, apparel and leather production"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for textile, apparel and leather production?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of machinery for textile, apparel and leather production?",
                     "type": "currency",
                     "question_id": "611",
                     "number": "611"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of machinery for textile, apparel and leather production"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for textile, apparel and leather production?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposals of machinery for textile, apparel and leather production?",
                     "type": "currency",
                     "question_id": "612",
                     "number": "612"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of machinery for paper and paperboard production"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for paper and paperboard production?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of machinery for paper and paperboard production?",
                     "type": "currency",
                     "question_id": "613",
                     "number": "613"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of machinery for paper and paperboard production"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of machinery for paper and paperboard production?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposals of machinery for paper and paperboard production?",
                     "type": "currency",
                     "question_id": "614",
                     "number": "614"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of plastics and rubber machinery"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of plastics and rubber machinery?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of plastics and rubber machinery?",
                     "type": "currency",
                     "question_id": "615",
                     "number": "615"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of plastics and rubber machinery"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of plastics and rubber machinery?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposals of plastics and rubber machinery?",
                     "type": "currency",
                     "question_id": "616",
                     "number": "616"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of other special purpose machinery and equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of other special purpose machinery and equipment?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of other special purpose machinery and equipment?",
                     "type": "currency",
                     "question_id": "617",
                     "number": "617"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal of other special purpose machinery and equipment"
-                    ],
-                    "text": "For the reporting period, what was your business's value of acquisitions and proceeds from the disposals of other special purpose machinery and equipment?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposals of other special purpose machinery and equipment?",
                     "type": "currency",
                     "question_id": "618",
                     "number": "618"
@@ -1393,145 +1003,97 @@
                     "number": "9986"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of textile products"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of textile products?",
+                    "text": "For the period, what was the business' value from acquisitions of textile products?",
                     "type": "currency",
                     "question_id": "700",
                     "number": "700"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of textile products"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of textile products?",
+                    "text": "For the period, what was the business' value of proceeds from the disposal of textile products?",
                     "type": "currency",
                     "question_id": "701",
                     "number": "701"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of leather and related products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of leather and related products?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of leather and related products?",
                     "type": "currency",
                     "question_id": "702",
                     "number": "702"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of leather and related products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of leather and related products?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of leather and related products?",
                     "type": "currency",
                     "question_id": "703",
                     "number": "703"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of wood and products of wood and cork"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of wood and products of wood and cork?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of wood and products of wood and cork?",
                     "type": "currency",
                     "question_id": "704",
                     "number": "704"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of wood and products of wood and cork"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of wood and products of wood and cork?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of wood and products of wood and cork?",
                     "type": "currency",
                     "question_id": "705",
                     "number": "705"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of rubber and plastic products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of rubber and plastic products?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of rubber and plastic products?",
                     "type": "currency",
                     "question_id": "706",
                     "number": "706"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of rubber and plastic products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of rubber and plastic products?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of rubber and plastic products?",
                     "type": "currency",
                     "question_id": "707",
                     "number": "707"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of ceramic products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of ceramic products?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of ceramic products?",
                     "type": "currency",
                     "question_id": "708",
                     "number": "708"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of ceramic products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of ceramic products?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of ceramic products?",
                     "type": "currency",
                     "question_id": "709",
                     "number": "709"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of glass products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of glass products?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of glass products?",
                     "type": "currency",
                     "question_id": "710",
                     "number": "710"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of glass products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of glass products?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of glass products?",
                     "type": "currency",
                     "question_id": "711",
                     "number": "711"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of cutlery, tools and general hardware"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of cutlery, tools and general hardware?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of cutlery, tools and general hardware?",
                     "type": "currency",
                     "question_id": "712",
                     "number": "712"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of cutlery, tools and general hardware"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of cutlery, tools and general hardware?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of cutlery, tools and general hardware?",
                     "type": "currency",
                     "question_id": "713",
                     "number": "713"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of fabricated metal products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of fabricated metal products?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of fabricated metal products?",
                     "type": "currency",
                     "question_id": "714",
                     "number": "714"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of fabricated metal products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of fabricated metal products?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of fabricated metal products?",
                     "type": "currency",
                     "question_id": "715",
                     "number": "715"
@@ -1551,73 +1113,49 @@
                     "number": "9985"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of book publishing services"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of book publishing services?",
+                    "text": "For the period, what was the business' value from acquisitions of book publishing services?",
                     "type": "currency",
                     "question_id": "800",
                     "number": "800"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of book publishing services"
-                    ],
-                    "text": "For the period, what was the business' value from acquisitions and proceeds from the disposal of book publishing services?",
+                    "text": "For the period, what was the business' value of proceeds from the disposal of book publishing services?",
                     "type": "currency",
                     "question_id": "801",
                     "number": "801"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of sound recording and music publishing"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of sound recording and music publishing?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of sound recording and music publishing?",
                     "type": "currency",
                     "question_id": "802",
                     "number": "802"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of sound recording and music publishing"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of sound recording and music publishing?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of sound recording and music publishing?",
                     "type": "currency",
                     "question_id": "803",
                     "number": "803"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of creative arts and entertainment activities"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of creative arts and entertainment activities?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of creative arts and entertainment activities?",
                     "type": "currency",
                     "question_id": "804",
                     "number": "804"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of creative arts and entertainment activities"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of creative arts and entertainment activities?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of creative arts and entertainment activities?",
                     "type": "currency",
                     "question_id": "805",
                     "number": "805"
                 },
                 {
-                    "Options": [
-                        "Value from acquisitions of other intellectual property products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of other intellectual property products?",
+                    "text": "For the reporting period, what was your business's value from acquisitions of other intellectual property products?",
                     "type": "currency",
                     "question_id": "806",
                     "number": "806"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from the disposal of other intellectual property products"
-                    ],
-                    "text": "For the reporting period, what was your business's value from acquisitions and proceeds from the disposal of other intellectual property products?",
+                    "text": "For the reporting period, what was your business's value of proceeds from the disposal of other intellectual property products?",
                     "type": "currency",
                     "question_id": "807",
                     "number": "807"
@@ -1638,25 +1176,19 @@
                     "number": "9984"
                 },
                 {
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Name of other capital asset",
                     "type": "text field",
                     "question_id": "811",
                     "number": "811"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "812",
                     "number": "812"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "813",
                     "number": "813"
@@ -1672,25 +1204,19 @@
                     "number": "9983"
                 },
                 {
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Name of other capital asset",
                     "type": "text field",
                     "question_id": "814",
                     "number": "814"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "815",
                     "number": "815"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "816",
                     "number": "816"
@@ -1706,25 +1232,19 @@
                     "number": "9982"
                 },
                 {
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Name of other capital asset",
                     "type": "text field",
                     "question_id": "817",
                     "number": "817"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "818",
                     "number": "818"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "819",
                     "number": "819"
@@ -1740,25 +1260,19 @@
                     "number": "9981"
                 },
                 {
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Name of other capital asset",
                     "type": "text field",
                     "question_id": "820",
                     "number": "820"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "821",
                     "number": "821"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "822",
                     "number": "822"
@@ -1774,25 +1288,19 @@
                     "number": "9980"
                 },
                 {
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Name of other capital asset",
                     "type": "text field",
                     "question_id": "823",
                     "number": "823"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "824",
                     "number": "824"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "825",
                     "number": "825"
@@ -1808,25 +1316,19 @@
                     "number": "9979"
                 },
                 {
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Name of other capital asset",
                     "type": "text field",
                     "question_id": "826",
                     "number": "826"
                 },
                 {
-                    "Options": [
-                        "Value of acquisition"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of acquisition",
                     "type": "currency",
                     "question_id": "827",
                     "number": "827"
                 },
                 {
-                    "Options": [
-                        "Value of proceeds from disposal"
-                    ],
-                    "text": "What was the value of other capital assets that you have not included in previous questions?",
+                    "text": "What was the value of other capital assets that you have not included in previous questions? Value of proceeds from disposal",
                     "type": "currency",
                     "question_id": "828",
                     "number": "828"
@@ -1847,9 +1349,6 @@
                     "number": "9978"
                 },
                 {
-                    "Options": [
-                        "Total value of assets acquired under finance lease"
-                    ],
                     "text": "For the reporting period, what was the business' total value of assets acquired under finance lease?",
                     "type": "currency",
                     "question_id": "901",
@@ -1871,13 +1370,13 @@
                     "number": "9977"
                 },
                 {
-                    "text": "What is the average number of months that the business' has had to wait between paying for vehicles or other capital items and receiving them?",
+                    "text": "What is the average number of months that the business' has had to wait between paying for vehicles and receiving them?",
                     "type": "number",
                     "question_id": "904",
                     "number": "904"
                 },
                 {
-                    "text": "What is the average number of months that the business' has had to wait between paying for vehicles or other capital items and receiving them?",
+                    "text": "What is the average number of months that the business' has had to wait between paying for  other capital items and receiving them?",
                     "type": "number",
                     "question_id": "905",
                     "number": "905"
@@ -1894,13 +1393,13 @@
                     "number": "146"
                 },
                 {
-                    "text": "How long did it take you to complete this questionnaire?",
+                    "text": "How long did it take you to complete this questionnaire? Hours",
                     "type": "number",
                     "question_id": "906",
                     "number": "906"
                 },
                 {
-                    "text": "How long did it take you to complete this questionnaire?",
+                    "text": "How long did it take you to complete this questionnaire? Minutes",
                     "type": "number",
                     "question_id": "907",
                     "number": "907"
