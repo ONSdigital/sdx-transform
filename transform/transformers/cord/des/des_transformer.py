@@ -3,7 +3,7 @@ from decimal import Decimal, InvalidOperation
 import structlog
 
 from transform.transformers.cord.cord_formatter import CORDFormatter
-from transform.transformers.cord.des.des_transforms import transformations, Transform, not_required
+from transform.transformers.cord.des.des_transforms import transformations, Transform
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
@@ -126,8 +126,6 @@ def perform_transform(response_data: dict, transformations_dict: dict) -> dict:
 
         if q_code in response_data:
             value = response_data.get(q_code)
-        elif q_code in not_required:
-            continue
         else:
             value = ''
 
