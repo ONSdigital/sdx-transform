@@ -301,13 +301,6 @@ transformations = {
         "1",
         "0"
     ],
-
-
-    "700": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
     "704": [
         Transform.CHECKBOX,
         "1",
