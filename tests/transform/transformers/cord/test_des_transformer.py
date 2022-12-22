@@ -8,8 +8,11 @@ from transform.transformers.cord.des.des_transforms import Transform
 class DESTransformerTest(unittest.TestCase):
 
     def test_thousands(self):
-        self.assertEqual('56', des_transformer.thousands('55907'))
+        self.assertEqual('55.907', des_transformer.thousands('55907'))
+        self.assertEqual('0.3', des_transformer.thousands('300'))
+        self.assertEqual('0.0001', des_transformer.thousands('0.1'))
         self.assertEqual('', des_transformer.thousands(''))
+        self.assertEqual('', des_transformer.thousands('abc'))
 
     def test_checkbox(self):
         self.assertEqual('1', des_transformer.checkbox("hello", "1", "0"))
