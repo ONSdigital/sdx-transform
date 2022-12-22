@@ -145,7 +145,7 @@ class DESTransformerTest(unittest.TestCase):
             "600": "1",
             "601": "0",
             "610": "",
-            "612": "43",
+            "612": "42.7",
             "500": "1",
         }
 
