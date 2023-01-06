@@ -1,4 +1,5 @@
 import decimal
+import logging
 from decimal import Decimal, ROUND_HALF_UP
 from typing import Dict, List
 
@@ -14,31 +15,34 @@ def perform_transforms(
         transformation_dict: Dict[str, TransformType],
         expected_checkbox_qcodes: List[str]) -> Dict[str, str]:
 
-
-    # Add a dictionary of objects.
-    # Each object contains all the qcodes and their values within the checkbox question
-
     result = {}
     remaining_checkbox_qcodes = set(expected_checkbox_qcodes)
 
     for qcode, value in response_data.items():
-        if qcode in transformation_dict:
-            transform_type = transformation_dict[qcode]
+        try:
+            if qcode in transformation_dict:
+                transform_type = transformation_dict[qcode]
 
-            if transform_type == TransformType.CURRENCY:
-                converted_value = thousands_transform(value)
+                if transform_type == TransformType.CURRENCY:
+                    converted_value = thousands_transform(value)
 
-            if transform_type == TransformType.YESNO:
-                converted_value = yes_no_transform(value)
+                if transform_type == TransformType.YESNO:
+                    converted_value = yes_no_transform(value)
 
-            if transform_type == TransformType.IMPORTANCE:
-                converted_value = importance_transform(value)
+                if transform_type == TransformType.IMPORTANCE:
+                    converted_value = importance_transform(value)
 
-            if transform_type == TransformType.CHECKBOX:
-                converted_value = checkbox_transform(value)
-                remaining_checkbox_qcodes.remove(qcode)
+                if transform_type == TransformType.CHECKBOX:
+                    converted_value = checkbox_transform(value)
+                    remaining_checkbox_qcodes.remove(qcode)
 
-            result[qcode] = converted_value
+                if transform_type == TransformType.PERCENTAGE:
+                    converted_value = percentage_transform(value)
+
+                result[qcode] = converted_value
+
+        except ValueError:
+            logging.error(f"ValueError with qcode {qcode}, with value {value}")
 
     for qcode in remaining_checkbox_qcodes:
         result[qcode] = ""
@@ -46,8 +50,21 @@ def perform_transforms(
     return result
 
 
+def percentage_transform(value: str) -> str:
+    if value.lower() == "over 90%":
+        return "0001"
+    elif value.lower() == "40-90%":
+        return "0010"
+    elif value.lower() == "less than 40%":
+        return "0011"
+    elif value.lower() == "none":
+        return "0100"
+    else:
+        return ""
+
+
 def checkbox_transform(value: str) -> str:
-    if value.lower() == "yes":
+    if value.lower() != "":
         return "1"
 
 
