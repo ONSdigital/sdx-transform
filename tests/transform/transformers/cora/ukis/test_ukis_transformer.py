@@ -70,7 +70,60 @@ class TestUKISTransforms(unittest.TestCase):
         expected = {}
         self.assertEqual(expected, actual)
 
+    # def test_checkbox_transform_choose_multiple(self):
+    #
+    #     response_data = {
+    #             "126": "Yes",
+    #             "127": "Yes",
+    #         }
+    #
+    #     actual = perform_transforms(response_data, {})
+    #
+    #     expected = {
+    #         "126": "1",
+    #         "127": "1",
+    #         "128": ""
+    #     }
+    #
+    #     self.assertEqual(expected, actual)
 
+    def test_checkbox_transform_returns_one(self):
+        response_data = {
+            "126": "Yes",
+            "127": "Yes",
+        }
 
+        actual = perform_transforms(response_data, {"126": TransformType.CHECKBOX,
+                                                    "127": TransformType.CHECKBOX})
 
+        expected = {
+            "126": "1",
+            "127": "1",
+        }
 
+        self.assertEqual(expected, actual)
+
+    def test_checkbox_transform_with_empty_values(self):
+        response_data = {
+            "126": "Yes",
+            "127": "Yes",
+        }
+
+        expected_checkbox_qcodes = [
+            "126", "127", "128", "129"
+        ]
+
+        actual = perform_transforms(response_data,
+                                    {"126": TransformType.CHECKBOX,
+                                     "127": TransformType.CHECKBOX},
+                                    expected_checkbox_qcodes
+                                    )
+
+        expected = {
+            "126": "1",
+            "127": "1",
+            "128": "",
+            "129": ""
+        }
+
+        self.assertEqual(expected, actual)

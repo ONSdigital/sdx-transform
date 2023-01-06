@@ -1,6 +1,6 @@
 import decimal
 from decimal import Decimal, ROUND_HALF_UP
-from typing import Dict
+from typing import Dict, List
 
 import structlog
 
@@ -11,9 +11,15 @@ logger = structlog.get_logger()
 
 def perform_transforms(
         response_data: Dict[str, str],
-        transformation_dict: Dict[str, TransformType]) -> Dict[str, str]:
+        transformation_dict: Dict[str, TransformType],
+        expected_checkbox_qcodes: List[str]) -> Dict[str, str]:
+
+
+    # Add a dictionary of objects.
+    # Each object contains all the qcodes and their values within the checkbox question
 
     result = {}
+    remaining_checkbox_qcodes = set(expected_checkbox_qcodes)
 
     for qcode, value in response_data.items():
         if qcode in transformation_dict:
@@ -28,9 +34,21 @@ def perform_transforms(
             if transform_type == TransformType.IMPORTANCE:
                 converted_value = importance_transform(value)
 
+            if transform_type == TransformType.CHECKBOX:
+                converted_value = checkbox_transform(value)
+                remaining_checkbox_qcodes.remove(qcode)
+
             result[qcode] = converted_value
 
+    for qcode in remaining_checkbox_qcodes:
+        result[qcode] = ""
+
     return result
+
+
+def checkbox_transform(value: str) -> str:
+    if value.lower() == "yes":
+        return "1"
 
 
 def yes_no_transform(value: str) -> str:
