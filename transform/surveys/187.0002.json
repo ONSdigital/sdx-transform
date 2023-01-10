@@ -9,7 +9,7 @@
                 {
                     "question_id": "22",
                     "number": "22",
-                    "text": "What percentage of people in the business' use internet-enabled devices for work purposes? Percentage of people using internet-enabled devices for work",
+                    "text": "What percentage of people in the business use internet-enabled devices for work purposes?",
                     "type": "percentage"
                 },
                 {
@@ -19,7 +19,7 @@
                     ],
                     "question_id": "356",
                     "number": "356",
-                    "text": "Does your business use a fixed broadband connection to the internet for work purposes? Yes, we use a fixed broadband connection\nNo, we do not use a fixed broadband connection",
+                    "text": "Does your business use a fixed broadband connection to the internet for work purposes?",
                     "type": "radio"
                 },
                 {
@@ -34,7 +34,7 @@
                     ],
                     "question_id": "277",
                     "number": "277",
-                    "text": "What is the maximum contracted download speed of the fastest fixed internet connection used by your business? Less than 2Mbps\n2Mbps or more, but less than 10Mbps\n10Mbps or more, but less than 30Mbps\n30Mbps or more, but less than 100Mbps\n100Mbps or more, but less than 500Mbps\n500Mbps or more, but less than 1000Mbps (1Gbps)\n1000Mbps (1Gbps) or more",
+                    "text": "What is the maximum contracted download speed of the fastest fixed internet connection used by your business?",
                     "type": "radio"
                 },
                 {
@@ -44,37 +44,37 @@
                     ],
                     "question_id": "452",
                     "number": "452",
-                    "text": "Is the speed of the fixed line connection to the internet sufficient for the needs of the business? Yes\nNo",
+                    "text": "Is the speed of the fixed line connection to the internet sufficient for the needs of the business?",
                     "type": "radio"
                 },
                 {
                     "question_id": "600",
                     "number": "600",
-                    "text": "Does your business have any of the following platforms? App",
+                    "text": "Does your business have any of the following platforms?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "601",
                     "number": "601",
-                    "text": "Is the speed of the fixed line connection to the internet sufficient for the needs of the business? Own website",
+                    "text": "Does your business have any of the following platforms?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "602",
                     "number": "602",
-                    "text": "Does your business have any of the following platforms? Social media pages",
+                    "text": "Does your business have any of the following platforms?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "603",
                     "number": "603",
-                    "text": "Is the speed of the fixed line connection to the internet sufficient for the needs of the business? Own website Website placed via third party",
+                    "text": "Does your business have any of the following platforms?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "604",
                     "number": "604",
-                    "text": "Does your business have any of the following platforms? Social media pages None of the above",
+                    "text": "Does your business have any of the following platforms?",
                     "type": "mutuallyexclusive"
                 },
                 {
@@ -84,7 +84,7 @@
                     ],
                     "question_id": "605",
                     "number": "605",
-                    "text": "During 2022, did your business use any digital marketing strategies to improve traffic to its website or app? Yes\nNo",
+                    "text": "During 2022, did your business use any digital marketing strategies to improve traffic to its website or app?",
                     "type": "radio"
                 }
             ]
@@ -99,10 +99,13 @@
                     ],
                     "question_id": "607",
                     "number": "607",
-                    "text": "During 2022, did the business' make any e-commerce sales? Yes\nNo",
+                    "text": "During 2022, did the business make any e-commerce sales?",
                     "type": "radio"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales"
+                    ],
                     "question_id": "608",
                     "number": "608",
                     "text": "During 2022, what was your business's turnover from e-commerce sales? Turnover from e-commerce sales",
@@ -111,301 +114,355 @@
                 {
                     "question_id": "800",
                     "number": "800",
-                    "text": "During 2022, which areas did your business make e-commerce sales to? UK",
+                    "text": "During 2022, which areas did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "635",
                     "number": "635",
-                    "text": "During 2022, what was your business's turnover from e-commerce sales? European Union countries",
+                    "text": "During 2022, which areas did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "636",
                     "number": "636",
-                    "text": "During 2022, which areas did your business make e-commerce sales to? Other European countries",
+                    "text": "During 2022, which areas did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "637",
                     "number": "637",
-                    "text": "During 2022, what was your business's turnover from e-commerce sales? European Union countries Africa",
+                    "text": "During 2022, which areas did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "638",
                     "number": "638",
-                    "text": "During 2022, which areas did your business make e-commerce sales to? Other European countries Australasia and Oceania",
+                    "text": "During 2022, which areas did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "639",
                     "number": "639",
-                    "text": "During 2022, what was your business's turnover from e-commerce sales? European Union countries Africa Asia",
+                    "text": "During 2022, which areas did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "640",
                     "number": "640",
-                    "text": "During 2022, which areas did your business make e-commerce sales to? Other European countries Australasia and Oceania The Americas and The Caribbean",
+                    "text": "During 2022, which areas did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
+                    "Options": [
+                        "UK"
+                    ],
                     "question_id": "801",
                     "number": "801",
                     "text": "How much of the turnover from e-commerce sales to customers, came from  UK",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "European Union countries"
+                    ],
                     "question_id": "643",
                     "number": "643",
-                    "text": "During 2022, which areas did your business make e-commerce sales to? Other European countries Australasia and Oceania The Americas and The Caribbean European Union countries",
+                    "text": "How much of the turnover from e-commerce sales to customers, came from  European Union countries",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Other European countries"
+                    ],
                     "question_id": "644",
                     "number": "644",
                     "text": "How much of the turnover from e-commerce sales to customers, came from  Other European countries",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Africa"
+                    ],
                     "question_id": "645",
                     "number": "645",
-                    "text": "During 2022, which areas did your business make e-commerce sales to? Other European countries Australasia and Oceania The Americas and The Caribbean European Union countries Africa",
+                    "text": "How much of the turnover from e-commerce sales to customers, came from  Africa",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Australasia and Oceania"
+                    ],
                     "question_id": "646",
                     "number": "646",
-                    "text": "How much of the turnover from e-commerce sales to customers, came from  Other European countries Australasia and Oceania",
+                    "text": "How much of the turnover from e-commerce sales to customers, came from  Australasia and Oceania",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Asia"
+                    ],
                     "question_id": "647",
                     "number": "647",
-                    "text": "During 2022, which areas did your business make e-commerce sales to? Other European countries Australasia and Oceania The Americas and The Caribbean European Union countries Africa Asia",
+                    "text": "How much of the turnover from e-commerce sales to customers, came from  Asia",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "The Americas and The Caribbean"
+                    ],
                     "question_id": "648",
                     "number": "648",
-                    "text": "How much of the turnover from e-commerce sales to customers, came from  Other European countries Australasia and Oceania The Americas and The Caribbean",
+                    "text": "How much of the turnover from e-commerce sales to customers, came from  The Americas and The Caribbean",
                     "type": "currency"
                 },
                 {
                     "question_id": "649",
                     "number": "649",
-                    "text": "During 2022, which customers located outside the UK did your business make e-commerce sales to? Private consumers",
+                    "text": "During 2022, which customers located outside the UK did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "650",
                     "number": "650",
-                    "text": "How much of the turnover from e-commerce sales to customers, came from  Other European countries Australasia and Oceania The Americas and The Caribbean Public authorities",
+                    "text": "During 2022, which customers located outside the UK did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "651",
                     "number": "651",
-                    "text": "During 2022, which customers located outside the UK did your business make e-commerce sales to? Other businesses",
+                    "text": "During 2022, which customers located outside the UK did your business make e-commerce sales to?",
                     "type": "checkbox"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales to private consumers"
+                    ],
                     "question_id": "652",
                     "number": "652",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from the following types of customer? Turnover from e-commerce sales to private consumers",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from the following types of customer? Turnover from e-commerce sales to private consumers",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales to public authorities"
+                    ],
                     "question_id": "653",
                     "number": "653",
-                    "text": "During 2022, which customers located outside the UK did your business make e-commerce sales to? Other businesses Turnover from e-commerce sales to public authorities",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from the following types of customer? Turnover from e-commerce sales to public authorities",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales to other businesses"
+                    ],
                     "question_id": "654",
                     "number": "654",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from the following types of customer? Turnover from e-commerce sales to other businesses",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from the following types of customer? Turnover from e-commerce sales to other businesses",
                     "type": "currency"
                 },
                 {
                     "question_id": "655",
                     "number": "655",
-                    "text": "During 2022, what type of e-commerce sales did your business make to customers located outside the UK? Sales of goods",
+                    "text": "During 2022, what type of e-commerce sales did your business make to customers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "802",
                     "number": "802",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from the following types of customer? Turnover from e-commerce sales to other businesses Sales of services",
+                    "text": "During 2022, what type of e-commerce sales did your business make to customers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales of goods"
+                    ],
                     "question_id": "658",
                     "number": "658",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from the following type of sale?  Turnover from e-commerce sales of goods",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from the following type of sale?  Turnover from e-commerce sales of goods",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales of services"
+                    ],
                     "question_id": "803",
                     "number": "803",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from the following types of customer? Turnover from e-commerce sales to other businesses Sales of services Turnover from e-commerce sales of services",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from the following type of sale?  Turnover from e-commerce sales of services",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales of services which were digitally delivered to customers outside the UK"
+                    ],
                     "question_id": "804",
                     "number": "804",
-                    "text": "How much of the [undefined] turnover from e-commerce sales of services to customers located outside the UK, came from services which were digitally delivered? Turnover from e-commerce sales of services which were digitally delivered to customers outside the UK",
+                    "text": "How much of the undefined turnover from e-commerce sales of services to customers located outside the UK, came from services which were digitally delivered? Turnover from e-commerce sales of services which were digitally delivered to customers outside the UK",
                     "type": "currency"
                 },
                 {
                     "question_id": "661",
                     "number": "661",
-                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK? Sales via your own website or app",
+                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "662",
                     "number": "662",
-                    "text": "How much of the [undefined] turnover from e-commerce sales of services to customers located outside the UK, came from services which were digitally delivered? Sales via your own social media",
+                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "663",
                     "number": "663",
-                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK? Sales via an online marketplace",
+                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "664",
                     "number": "664",
-                    "text": "How much of the [undefined] turnover from e-commerce sales of services to customers located outside the UK, came from services which were digitally delivered? Sales via your own social media Sales via EDI",
+                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "665",
                     "number": "665",
-                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK? Sales via an online marketplace Other",
+                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales via your website or app"
+                    ],
                     "question_id": "666",
                     "number": "666",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via your website or app",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via your website or app",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales via your business social media"
+                    ],
                     "question_id": "667",
                     "number": "667",
-                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK? Sales via an online marketplace Other Turnover from e-commerce sales via your business social media",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via your business social media",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales via an online marketplace"
+                    ],
                     "question_id": "668",
                     "number": "668",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales via EDI"
+                    ],
                     "question_id": "669",
                     "number": "669",
-                    "text": "During 2022, what platforms did your business use to make e-commerce sales to customers located outside the UK? Sales via an online marketplace Other Turnover from e-commerce sales via your business social media Turnover from e-commerce sales via EDI",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via EDI",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Turnover from e-commerce sales via other platforms"
+                    ],
                     "question_id": "670",
                     "number": "670",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace Turnover from e-commerce sales via other platforms",
+                    "text": "How much of the Total e-commerce sales from outside of the UK turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via other platforms",
                     "type": "currency"
                 },
                 {
                     "question_id": "671",
                     "number": "671",
-                    "text": "During 2022, did your business experience any of the following difficulties when selling to customers located in European Union countries via a website or app? Adapting product labelling for sales",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling to customers located in European Union countries via a website or app?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "672",
                     "number": "672",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace Turnover from e-commerce sales via other platforms Difficulties resolving complaints and disputes",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling to customers located in European Union countries via a website or app?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "673",
                     "number": "673",
-                    "text": "During 2022, did your business experience any of the following difficulties when selling to customers located in European Union countries via a website or app? Language barriers when communicating with customers",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling to customers located in European Union countries via a website or app?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "674",
                     "number": "674",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace Turnover from e-commerce sales via other platforms Difficulties resolving complaints and disputes High costs of delivering or returning products",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling to customers located in European Union countries via a website or app?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "675",
                     "number": "675",
-                    "text": "During 2022, did your business experience any of the following difficulties when selling to customers located in European Union countries via a website or app? Language barriers when communicating with customers Restrictions from business partners to sell to certain EU countries",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling to customers located in European Union countries via a website or app?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "676",
                     "number": "676",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace Turnover from e-commerce sales via other platforms Difficulties resolving complaints and disputes High costs of delivering or returning products No, the business did not have any of these difficulties ",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling to customers located in European Union countries via a website or app?",
                     "type": "mutuallyexclusive"
                 },
                 {
                     "question_id": "677",
                     "number": "677",
-                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace? Changes to your account or product listings by the platform",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "680",
                     "number": "680",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace Turnover from e-commerce sales via other platforms Difficulties resolving complaints and disputes High costs of delivering or returning products No, the business did not have any of these difficulties  Communication difficulties",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "681",
                     "number": "681",
-                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace? Difficulties with information exchange",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "678",
                     "number": "678",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace Turnover from e-commerce sales via other platforms Difficulties resolving complaints and disputes High costs of delivering or returning products No, the business did not have any of these difficulties  Communication difficulties Fees and commission charged by the platform",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "683",
                     "number": "683",
-                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace? Difficulties with information exchange Issues relating to the terms and conditions between the platform and your business",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "679",
                     "number": "679",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace Turnover from e-commerce sales via other platforms Difficulties resolving complaints and disputes High costs of delivering or returning products No, the business did not have any of these difficulties  Communication difficulties Fees and commission charged by the platform Pricing of products on the platform",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "684",
                     "number": "684",
-                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace? Difficulties with information exchange Issues relating to the terms and conditions between the platform and your business The processing of payments and refunds",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "682",
                     "number": "682",
-                    "text": "How much of the [Total e-commerce sales from outside of the UK] turnover from e-commerce sales to customers located outside the UK, came from each platform? Turnover from e-commerce sales via an online marketplace Turnover from e-commerce sales via other platforms Difficulties resolving complaints and disputes High costs of delivering or returning products No, the business did not have any of these difficulties  Communication difficulties Fees and commission charged by the platform Pricing of products on the platform The sale of similar products by the platform itself",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "685",
                     "number": "685",
-                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace? Difficulties with information exchange Issues relating to the terms and conditions between the platform and your business The processing of payments and refunds No, the business did not have any of these difficulties ",
+                    "text": "During 2022, did your business experience any of the following difficulties when selling via an online marketplace?",
                     "type": "mutuallyexclusive"
                 }
             ]
@@ -420,10 +477,13 @@
                     ],
                     "question_id": "686",
                     "number": "686",
-                    "text": "During 2022, did the business' make any e-commerce purchases? Yes\u2028No",
+                    "text": "During 2022, did the business make any e-commerce purchases?",
                     "type": "radio"
                 },
                 {
+                    "Options": [
+                        "Expenditure on e-commerce purchases"
+                    ],
                     "question_id": "687",
                     "number": "687",
                     "text": "During 2022, what was your business's expenditure on e-commerce purchases? Expenditure on e-commerce purchases",
@@ -432,175 +492,220 @@
                 {
                     "question_id": "805",
                     "number": "805",
-                    "text": "During 2022, which areas did your business make e-commerce purchases from? UK",
+                    "text": "During 2022, which areas did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "704",
                     "number": "704",
-                    "text": "During 2022, what was your business's expenditure on e-commerce purchases? European Union countries",
+                    "text": "During 2022, which areas did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "705",
                     "number": "705",
-                    "text": "During 2022, which areas did your business make e-commerce purchases from? Other European countries",
+                    "text": "During 2022, which areas did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "706",
                     "number": "706",
-                    "text": "During 2022, what was your business's expenditure on e-commerce purchases? European Union countries Africa",
+                    "text": "During 2022, which areas did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "707",
                     "number": "707",
-                    "text": "During 2022, which areas did your business make e-commerce purchases from? Other European countries Australasia and Oceania",
+                    "text": "During 2022, which areas did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "708",
                     "number": "708",
-                    "text": "During 2022, what was your business's expenditure on e-commerce purchases? European Union countries Africa Asia",
+                    "text": "During 2022, which areas did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "709",
                     "number": "709",
-                    "text": "During 2022, which areas did your business make e-commerce purchases from? Other European countries Australasia and Oceania The Americas and The Caribbean",
+                    "text": "During 2022, which areas did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
+                    "Options": [
+                        "UK"
+                    ],
                     "question_id": "806",
                     "number": "806",
-                    "text": "How much of the [Expenditure on e-commerce purchases] expenditure on e-commerce purchases was spent in the following areas? UK",
+                    "text": "How much of the Expenditure on e-commerce purchases expenditure on e-commerce purchases was spent in the following areas? UK",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "European Union countries"
+                    ],
                     "question_id": "712",
                     "number": "712",
-                    "text": "During 2022, which areas did your business make e-commerce purchases from? Other European countries Australasia and Oceania The Americas and The Caribbean European Union countries",
+                    "text": "How much of the Expenditure on e-commerce purchases expenditure on e-commerce purchases was spent in the following areas? European Union countries",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Other European countries"
+                    ],
                     "question_id": "713",
                     "number": "713",
-                    "text": "How much of the [Expenditure on e-commerce purchases] expenditure on e-commerce purchases was spent in the following areas? Other European countries",
+                    "text": "How much of the Expenditure on e-commerce purchases expenditure on e-commerce purchases was spent in the following areas? Other European countries",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Africa"
+                    ],
                     "question_id": "714",
                     "number": "714",
-                    "text": "During 2022, which areas did your business make e-commerce purchases from? Other European countries Australasia and Oceania The Americas and The Caribbean European Union countries Africa",
+                    "text": "How much of the Expenditure on e-commerce purchases expenditure on e-commerce purchases was spent in the following areas? Africa",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Australasia and Oceania"
+                    ],
                     "question_id": "715",
                     "number": "715",
-                    "text": "How much of the [Expenditure on e-commerce purchases] expenditure on e-commerce purchases was spent in the following areas? Other European countries Australasia and Oceania",
+                    "text": "How much of the Expenditure on e-commerce purchases expenditure on e-commerce purchases was spent in the following areas? Australasia and Oceania",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Asia"
+                    ],
                     "question_id": "716",
                     "number": "716",
-                    "text": "During 2022, which areas did your business make e-commerce purchases from? Other European countries Australasia and Oceania The Americas and The Caribbean European Union countries Africa Asia",
+                    "text": "How much of the Expenditure on e-commerce purchases expenditure on e-commerce purchases was spent in the following areas? Asia",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "The Americas and The Caribbean"
+                    ],
                     "question_id": "717",
                     "number": "717",
-                    "text": "How much of the [Expenditure on e-commerce purchases] expenditure on e-commerce purchases was spent in the following areas? Other European countries Australasia and Oceania The Americas and The Caribbean",
+                    "text": "How much of the Expenditure on e-commerce purchases expenditure on e-commerce purchases was spent in the following areas? The Americas and The Caribbean",
                     "type": "currency"
                 },
                 {
                     "question_id": "718",
                     "number": "718",
-                    "text": "During 2022, which suppliers located outside the UK did your business make e-commerce purchases from? Private individuals",
+                    "text": "During 2022, which suppliers located outside the UK did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "719",
                     "number": "719",
-                    "text": "How much of the [Expenditure on e-commerce purchases] expenditure on e-commerce purchases was spent in the following areas? Other European countries Australasia and Oceania The Americas and The Caribbean Public authorities",
+                    "text": "During 2022, which suppliers located outside the UK did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "720",
                     "number": "720",
-                    "text": "During 2022, which suppliers located outside the UK did your business make e-commerce purchases from? Other businesses",
+                    "text": "During 2022, which suppliers located outside the UK did your business make e-commerce purchases from?",
                     "type": "checkbox"
                 },
                 {
+                    "Options": [
+                        "Expenditure on e-commerce purchases from private individuals"
+                    ],
                     "question_id": "721",
                     "number": "721",
-                    "text": "How much of the [Total e-commerce purchases from outside of the UK] expenditure on e-commerce purchases from suppliers located outside the UK, was on the following type of sale? Expenditure on e-commerce purchases from private individuals",
+                    "text": "How much of the Total e-commerce purchases from outside of the UK expenditure on e-commerce purchases from suppliers located outside the UK, was on the following type of sale? Expenditure on e-commerce purchases from private individuals",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on e-commerce purchases from public authorities"
+                    ],
                     "question_id": "722",
                     "number": "722",
-                    "text": "During 2022, which suppliers located outside the UK did your business make e-commerce purchases from? Other businesses Expenditure on e-commerce purchases from public authorities",
+                    "text": "How much of the Total e-commerce purchases from outside of the UK expenditure on e-commerce purchases from suppliers located outside the UK, was on the following type of sale? Expenditure on e-commerce purchases from public authorities",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on e-commerce purchases from other businesses"
+                    ],
                     "question_id": "723",
                     "number": "723",
-                    "text": "How much of the [Total e-commerce purchases from outside of the UK] expenditure on e-commerce purchases from suppliers located outside the UK, was on the following type of sale? Expenditure on e-commerce purchases from other businesses",
+                    "text": "How much of the Total e-commerce purchases from outside of the UK expenditure on e-commerce purchases from suppliers located outside the UK, was on the following type of sale? Expenditure on e-commerce purchases from other businesses",
                     "type": "currency"
                 },
                 {
                     "question_id": "724",
                     "number": "724",
-                    "text": "During 2022, what type of e-commerce purchases did your business make from suppliers located outside the UK? Purchases of goods",
+                    "text": "During 2022, what type of e-commerce purchases did your business make from suppliers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "807",
                     "number": "807",
-                    "text": "How much of the [Total e-commerce purchases from outside of the UK] expenditure on e-commerce purchases from suppliers located outside the UK, was on the following type of sale? Expenditure on e-commerce purchases from other businesses Purchases of services",
+                    "text": "During 2022, what type of e-commerce purchases did your business make from suppliers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
+                    "Options": [
+                        "Expenditure on e-commerce purchases of goods"
+                    ],
                     "question_id": "727",
                     "number": "727",
-                    "text": "How much of the [Total e-commerce purchases from outside of the UK] expenditure on e-commerce purchases from suppliers located outside the UK, was on the following? Expenditure on e-commerce purchases of goods",
+                    "text": "How much of the Total e-commerce purchases from outside of the UK expenditure on e-commerce purchases from suppliers located outside the UK, was on the following? Expenditure on e-commerce purchases of goods",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on e-commerce purchases of services"
+                    ],
                     "question_id": "808",
                     "number": "808",
-                    "text": "How much of the [Total e-commerce purchases from outside of the UK] expenditure on e-commerce purchases from suppliers located outside the UK, was on the following type of sale? Expenditure on e-commerce purchases from other businesses Purchases of services Expenditure on e-commerce purchases of services",
+                    "text": "How much of the Total e-commerce purchases from outside of the UK expenditure on e-commerce purchases from suppliers located outside the UK, was on the following? Expenditure on e-commerce purchases of services",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on e-commerce purchases of services from suppliers outside the UK which were digitally delivered"
+                    ],
                     "question_id": "809",
                     "number": "809",
-                    "text": "How much of the [Expenditure on e-commerce purchases of services] expenditure on e-commerce purchases of services from suppliers outside the UK, came from services which were digitally delivered? Expenditure on e-commerce purchases of services from suppliers outside the UK which were digitally delivered",
+                    "text": "How much of the Expenditure on e-commerce purchases of services expenditure on e-commerce purchases of services from suppliers outside the UK, came from services which were digitally delivered? Expenditure on e-commerce purchases of services from suppliers outside the UK which were digitally delivered",
                     "type": "currency"
                 },
                 {
                     "question_id": "730",
                     "number": "730",
-                    "text": "During 2022, what platforms did your business use to make e-commerce purchases from suppliers located outside the UK? Purchases through an app or website owned by another business",
+                    "text": "During 2022, what platforms did your business use to make e-commerce purchases from suppliers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "731",
                     "number": "731",
-                    "text": "How much of the [Expenditure on e-commerce purchases of services] expenditure on e-commerce purchases of services from suppliers outside the UK, came from services which were digitally delivered? Other",
+                    "text": "During 2022, what platforms did your business use to make e-commerce purchases from suppliers located outside the UK?",
                     "type": "checkbox"
                 },
                 {
+                    "Options": [
+                        "Expenditure on e-commerce purchases via a website or app owned by another business"
+                    ],
                     "question_id": "732",
                     "number": "732",
-                    "text": "How much of the [Total e-commerce purchases from outside of the UK] expenditure on e-commerce purchases from suppliers located outside the UK, was spent on each platform? Expenditure on e-commerce purchases via a website or app owned by another business",
+                    "text": "How much of the Total e-commerce purchases from outside of the UK expenditure on e-commerce purchases from suppliers located outside the UK, was spent on each platform? Expenditure on e-commerce purchases via a website or app owned by another business",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on e-commerce purchases via other platforms"
+                    ],
                     "question_id": "733",
                     "number": "733",
-                    "text": "How much of the [Expenditure on e-commerce purchases of services] expenditure on e-commerce purchases of services from suppliers outside the UK, came from services which were digitally delivered? Other Expenditure on e-commerce purchases via other platforms",
+                    "text": "How much of the Total e-commerce purchases from outside of the UK expenditure on e-commerce purchases from suppliers located outside the UK, was spent on each platform? Expenditure on e-commerce purchases via other platforms",
                     "type": "currency"
                 }
             ]
@@ -609,27 +714,39 @@
             "title": "Sales and purchases of digitally delivered services",
             "questions": [
                 {
+                    "Options": [
+                        "Turnover from the sale of services ordered non-digitally but digitally delivered to customers located in the UK"
+                    ],
                     "question_id": "810",
                     "number": "810",
                     "text": "During 2022, what was your business's turnover from the sale of services that were ordered non-digitally but were digitally delivered? Turnover from the sale of services ordered non-digitally but digitally delivered to customers located in the UK",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Turnover from the sale of services ordered non-digitally but digitally delivered to customers located outside the UK"
+                    ],
                     "question_id": "811",
                     "number": "811",
-                    "text": "How much of the [Expenditure on e-commerce purchases of services] expenditure on e-commerce purchases of services from suppliers outside the UK, came from services which were digitally delivered? Other Expenditure on e-commerce purchases via other platforms Turnover from the sale of services ordered non-digitally but digitally delivered to customers located outside the UK",
+                    "text": "During 2022, what was your business's turnover from the sale of services that were ordered non-digitally but were digitally delivered? Turnover from the sale of services ordered non-digitally but digitally delivered to customers located outside the UK",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on purchases ordered non-digitally but digitally delivered from suppliers located in the UK"
+                    ],
                     "question_id": "812",
                     "number": "812",
                     "text": "During 2022, what was your business's expenditure on the purchase of services that were ordered non-digitally but were digitally delivered? Expenditure on purchases ordered non-digitally but digitally delivered from suppliers located in the UK",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on purchases ordered non-digitally but digitally delivered from suppliers located outside the UK"
+                    ],
                     "question_id": "813",
                     "number": "813",
-                    "text": "How much of the [Expenditure on e-commerce purchases of services] expenditure on e-commerce purchases of services from suppliers outside the UK, came from services which were digitally delivered? Other Expenditure on e-commerce purchases via other platforms Turnover from the sale of services ordered non-digitally but digitally delivered to customers located outside the UK Expenditure on purchases ordered non-digitally but digitally delivered from suppliers located outside the UK",
+                    "text": "During 2022, what was your business's expenditure on the purchase of services that were ordered non-digitally but were digitally delivered? Expenditure on purchases ordered non-digitally but digitally delivered from suppliers located outside the UK",
                     "type": "currency"
                 }
             ]
@@ -644,7 +761,7 @@
                     ],
                     "question_id": "753",
                     "number": "753",
-                    "text": "During 2022, did the business' provide a digital intermediary platform service? Yes\u2028No",
+                    "text": "During 2022, did the business provide a digital intermediary platform service?",
                     "type": "radio"
                 },
                 {
@@ -654,19 +771,25 @@
                     ],
                     "question_id": "814",
                     "number": "814",
-                    "text": "During 2022, did your business charge fees to users of your digital intermediary platform? Yes\u2028No",
+                    "text": "During 2022, did your business charge fees to users of your digital intermediary platform?",
                     "type": "radio"
                 },
                 {
+                    "Options": [
+                        "Income from fees charged to users located in the UK"
+                    ],
                     "question_id": "754",
                     "number": "754",
                     "text": "During 2022, what was your business's income from fees charged to the following users of your digital intermediary platform? Income from fees charged to users located in the UK",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Income from fees charged to users located outside the UK"
+                    ],
                     "question_id": "755",
                     "number": "755",
-                    "text": "During 2022, did your business charge fees to users of your digital intermediary platform? Income from fees charged to users located outside the UK",
+                    "text": "During 2022, what was your business's income from fees charged to the following users of your digital intermediary platform? Income from fees charged to users located outside the UK",
                     "type": "currency"
                 },
                 {
@@ -676,19 +799,25 @@
                     ],
                     "question_id": "815",
                     "number": "815",
-                    "text": "During 2022, did users of your digital intermediary platform use your platform to sell their goods? Yes\u2028No",
+                    "text": "During 2022, did users of your digital intermediary platform use your platform to sell their goods?",
                     "type": "radio"
                 },
                 {
+                    "Options": [
+                        "Value of goods sold to customers located in the UK"
+                    ],
                     "question_id": "756",
                     "number": "756",
                     "text": "During 2022, what was the value of goods sold through your digital intermediary platform to each of the following customers? Value of goods sold to customers located in the UK",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Value of goods sold to customers located outside the UK"
+                    ],
                     "question_id": "757",
                     "number": "757",
-                    "text": "During 2022, did users of your digital intermediary platform use your platform to sell their goods? Value of goods sold to customers located outside the UK",
+                    "text": "During 2022, what was the value of goods sold through your digital intermediary platform to each of the following customers? Value of goods sold to customers located outside the UK",
                     "type": "currency"
                 },
                 {
@@ -698,25 +827,34 @@
                     ],
                     "question_id": "816",
                     "number": "816",
-                    "text": "During 2022, did users of your digital intermediary platform use your platform to sell their services? Yes\nNo",
+                    "text": "During 2022, did users of your digital intermediary platform use your platform to sell their services?",
                     "type": "radio"
                 },
                 {
+                    "Options": [
+                        "Value of services sold to customers located in the UK"
+                    ],
                     "question_id": "758",
                     "number": "758",
                     "text": "During 2022, what was the value of services sold through your digital intermediary platform to each of the following customers? Value of services sold to customers located in the UK",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Value of services sold to customers located outside the UK"
+                    ],
                     "question_id": "759",
                     "number": "759",
-                    "text": "During 2022, did users of your digital intermediary platform use your platform to sell their services? Value of services sold to customers located outside the UK",
+                    "text": "During 2022, what was the value of services sold through your digital intermediary platform to each of the following customers? Value of services sold to customers located outside the UK",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Value of digitally delivered services to customers located outside the UK"
+                    ],
                     "question_id": "817",
                     "number": "817",
-                    "text": "How much of the [Value of services sold to customers located outside the UK] of services sold to customers located outside the UK, came from services which were digitally delivered? Value of digitally delivered services to customers located outside the UK",
+                    "text": "How much of the Value of services sold to customers located outside the UK of services sold to customers located outside the UK, came from services which were digitally delivered? Value of digitally delivered services to customers located outside the UK",
                     "type": "currency"
                 },
                 {
@@ -726,10 +864,13 @@
                     ],
                     "question_id": "760",
                     "number": "760",
-                    "text": "During 2022, did your business pay a digital intermediary platform to sell your goods and services? Yes\nNo",
+                    "text": "During 2022, did your business pay a digital intermediary platform to sell your goods and services?",
                     "type": "radio"
                 },
                 {
+                    "Options": [
+                        "Amount paid to digital intermediary platforms to sell your goods and services"
+                    ],
                     "question_id": "761",
                     "number": "761",
                     "text": "During 2022, how much did your business pay to a digital intermediary platform to sell your goods and services? Amount paid to digital intermediary platforms to sell your goods and services",
@@ -743,109 +884,124 @@
                 {
                     "question_id": "762",
                     "number": "762",
-                    "text": "Does the business' use any of the following software? Accountancy software",
+                    "text": "Does the business use any of the following software?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "763",
                     "number": "763",
-                    "text": "During 2022, how much did your business pay to a digital intermediary platform to sell your goods and services? Customer Relationship Management (CRM) software",
+                    "text": "Does the business use any of the following software?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "190",
                     "number": "190",
-                    "text": "Does the business' use any of the following software? Enterprise Resource Planning (ERP) software",
+                    "text": "Does the business use any of the following software?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "764",
                     "number": "764",
-                    "text": "During 2022, how much did your business pay to a digital intermediary platform to sell your goods and services? Customer Relationship Management (CRM) software Business does not use any of this software",
+                    "text": "Does the business use any of the following software?",
                     "type": "mutuallyexclusive"
                 },
                 {
+                    "Options": [
+                        "Expenditure on software"
+                    ],
                     "question_id": "765",
                     "number": "765",
                     "text": "During 2022, what was your business's expenditure on any software? Expenditure on software",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on online accountancy software"
+                    ],
                     "question_id": "766",
                     "number": "766",
-                    "text": "How much of the [Expenditure on software] expenditure on software, was on each of the following? Expenditure on online accountancy software",
+                    "text": "How much of the Expenditure on software expenditure on software, was on each of the following? Expenditure on online accountancy software",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on Customer Relationship Management (CRM) software"
+                    ],
                     "question_id": "767",
                     "number": "767",
-                    "text": "During 2022, what was your business's expenditure on any software? Expenditure on Customer Relationship Management (CRM) software",
+                    "text": "How much of the Expenditure on software expenditure on software, was on each of the following? Expenditure on Customer Relationship Management (CRM) software",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on E-commerce software"
+                    ],
                     "question_id": "768",
                     "number": "768",
-                    "text": "How much of the [Expenditure on software] expenditure on software, was on each of the following? Expenditure on E-commerce software",
+                    "text": "How much of the Expenditure on software expenditure on software, was on each of the following? Expenditure on E-commerce software",
                     "type": "currency"
                 },
                 {
+                    "Options": [
+                        "Expenditure on Enterprise Resource Planning (ERP) software"
+                    ],
                     "question_id": "769",
                     "number": "769",
-                    "text": "During 2022, what was your business's expenditure on any software? Expenditure on Customer Relationship Management (CRM) software Expenditure on Enterprise Resource Planning (ERP) software",
+                    "text": "How much of the Expenditure on software expenditure on software, was on each of the following? Expenditure on Enterprise Resource Planning (ERP) software",
                     "type": "currency"
                 },
                 {
                     "question_id": "365",
                     "number": "365",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Computing capacity to run your own software",
+                    "text": "During 2022, which of the following cloud computing services did your business purchase?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "364",
                     "number": "364",
-                    "text": "During 2022, what was your business's expenditure on any software? Expenditure on Customer Relationship Management (CRM) software Expenditure on Enterprise Resource Planning (ERP) software Customer Relationship Management (CRM) software",
+                    "text": "During 2022, which of the following cloud computing services did your business purchase?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "359",
                     "number": "359",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email",
+                    "text": "During 2022, which of the following cloud computing services did your business purchase?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "363",
                     "number": "363",
-                    "text": "During 2022, what was your business's expenditure on any software? Expenditure on Customer Relationship Management (CRM) software Expenditure on Enterprise Resource Planning (ERP) software Customer Relationship Management (CRM) software Finance or accounting software applications",
+                    "text": "During 2022, which of the following cloud computing services did your business purchase?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "361",
                     "number": "361",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases",
+                    "text": "During 2022, which of the following cloud computing services did your business purchase?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "360",
                     "number": "360",
-                    "text": "During 2022, what was your business's expenditure on any software? Expenditure on Customer Relationship Management (CRM) software Expenditure on Enterprise Resource Planning (ERP) software Customer Relationship Management (CRM) software Finance or accounting software applications Office software",
+                    "text": "During 2022, which of the following cloud computing services did your business purchase?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "362",
                     "number": "362",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files",
+                    "text": "During 2022, which of the following cloud computing services did your business purchase?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "770",
                     "number": "770",
-                    "text": "During 2022, what was your business's expenditure on any software? Expenditure on Customer Relationship Management (CRM) software Expenditure on Enterprise Resource Planning (ERP) software Customer Relationship Management (CRM) software Finance or accounting software applications Office software Other",
+                    "text": "During 2022, which of the following cloud computing services did your business purchase?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "771",
                     "number": "771",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services",
+                    "text": "During 2022, which of the following cloud computing services did your business purchase?",
                     "type": "mutuallyexclusive"
                 }
             ]
@@ -856,73 +1012,73 @@
                 {
                     "question_id": "786",
                     "number": "786",
-                    "text": "When engaging in digital activities, did your business need to take any of the following actions to ensure compliance to regulations? Adapted business plans or activities",
+                    "text": "When engaging in digital activities, did your business need to take any of the following actions to ensure compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "787",
                     "number": "787",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government",
+                    "text": "When engaging in digital activities, did your business need to take any of the following actions to ensure compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "788",
                     "number": "788",
-                    "text": "When engaging in digital activities, did your business need to take any of the following actions to ensure compliance to regulations? Engaged with regulators",
+                    "text": "When engaging in digital activities, did your business need to take any of the following actions to ensure compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "789",
                     "number": "789",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources",
+                    "text": "When engaging in digital activities, did your business need to take any of the following actions to ensure compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "790",
                     "number": "790",
-                    "text": "When engaging in digital activities, did your business need to take any of the following actions to ensure compliance to regulations? Engaged with regulators Other",
+                    "text": "When engaging in digital activities, did your business need to take any of the following actions to ensure compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "791",
                     "number": "791",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources No additional actions required",
+                    "text": "When engaging in digital activities, did your business need to take any of the following actions to ensure compliance to regulations?",
                     "type": "mutuallyexclusive"
                 },
                 {
                     "question_id": "792",
                     "number": "792",
-                    "text": "What, if any, difficulties did your business face when ensuring compliance to regulations? Compliance with regulations increased the cost of your activities",
+                    "text": "What, if any, difficulties did your business face when ensuring compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "793",
                     "number": "793",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources No additional actions required Compliance with regulations slowed down your ability to deliver your product or service",
+                    "text": "What, if any, difficulties did your business face when ensuring compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "794",
                     "number": "794",
-                    "text": "What, if any, difficulties did your business face when ensuring compliance to regulations? Difficulties complying with regulations required you to cease some activities",
+                    "text": "What, if any, difficulties did your business face when ensuring compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "795",
                     "number": "795",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources No additional actions required Compliance with regulations slowed down your ability to deliver your product or service Difficulty understanding how or what regulations apply to your business",
+                    "text": "What, if any, difficulties did your business face when ensuring compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "796",
                     "number": "796",
-                    "text": "What, if any, difficulties did your business face when ensuring compliance to regulations? Difficulties complying with regulations required you to cease some activities Other",
+                    "text": "What, if any, difficulties did your business face when ensuring compliance to regulations?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "797",
                     "number": "797",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources No additional actions required Compliance with regulations slowed down your ability to deliver your product or service Difficulty understanding how or what regulations apply to your business Business did not experience any difficulties",
+                    "text": "What, if any, difficulties did your business face when ensuring compliance to regulations?",
                     "type": "mutuallyexclusive"
                 }
             ]
@@ -933,67 +1089,67 @@
                 {
                     "question_id": "484",
                     "number": "484",
-                    "text": "Does the business' use any of the following ICT security measures? Access control to business network",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "483",
                     "number": "483",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources No additional actions required Compliance with regulations slowed down your ability to deliver your product or service Difficulty understanding how or what regulations apply to your business Business did not experience any difficulties Encryption techniques for data, documents or email",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "486",
                     "number": "486",
-                    "text": "Does the business' use any of the following ICT security measures? ICT risk assessment",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "487",
                     "number": "487",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources No additional actions required Compliance with regulations slowed down your ability to deliver your product or service Difficulty understanding how or what regulations apply to your business Business did not experience any difficulties Encryption techniques for data, documents or email ICT security tests",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "481",
                     "number": "481",
-                    "text": "Does the business' use any of the following ICT security measures? ICT risk assessment Keeping software and operating systems updated",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "275",
                     "number": "275",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources No additional actions required Compliance with regulations slowed down your ability to deliver your product or service Difficulty understanding how or what regulations apply to your business Business did not experience any difficulties Encryption techniques for data, documents or email ICT security tests Logging activities for security incidents",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "274",
                     "number": "274",
-                    "text": "Does the business' use any of the following ICT security measures? ICT risk assessment Keeping software and operating systems updated Offsite data back-up",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "272",
                     "number": "272",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources No additional actions required Compliance with regulations slowed down your ability to deliver your product or service Difficulty understanding how or what regulations apply to your business Business did not experience any difficulties Encryption techniques for data, documents or email ICT security tests Logging activities for security incidents Strong password authentication",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "482",
                     "number": "482",
-                    "text": "Does the business' use any of the following ICT security measures? ICT risk assessment Keeping software and operating systems updated Offsite data back-up User identification and authentication via biometric methods",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "485",
                     "number": "485",
-                    "text": "During 2022, which of the following cloud computing services did your business purchase? Email Software for hosting your databases Storage of files Did not purchase any cloud services Engaged with government Used legal resources No additional actions required Compliance with regulations slowed down your ability to deliver your product or service Difficulty understanding how or what regulations apply to your business Business did not experience any difficulties Encryption techniques for data, documents or email ICT security tests Logging activities for security incidents Strong password authentication Virtual Private Network (VPN)",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "checkbox"
                 },
                 {
                     "question_id": "798",
                     "number": "798",
-                    "text": "Does the business' use any of the following ICT security measures? ICT risk assessment Keeping software and operating systems updated Offsite data back-up User identification and authentication via biometric methods Business does not use any of these security measures",
+                    "text": "Does the business use any of the following ICT security measures?",
                     "type": "mutuallyexclusive"
                 }
             ]
@@ -1004,7 +1160,7 @@
                 {
                     "question_id": "500",
                     "number": "500",
-                    "text": "Please provide any further details that will help us understand your answers and tell an industry story Comments",
+                    "text": "Please provide any further details that will help us understand your answers and tell an industry story",
                     "type": "textarea"
                 }
             ]
