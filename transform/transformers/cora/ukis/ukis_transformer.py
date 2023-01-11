@@ -48,6 +48,9 @@ def perform_transforms(
                 if transform_type == TransformType.TEXT:
                     converted_value = text_transform(value)
 
+                if transform_type == TransformType.TEMPRADIO:
+                    converted_value = temp_radio_transform(value)
+
                 result[qcode] = converted_value
 
         except ValueError:
@@ -57,6 +60,11 @@ def perform_transforms(
         result[qcode] = ""
 
     return result
+
+
+def temp_radio_transform(value: str) -> str:
+    if value.lower() == "further than 15 miles from the physical sites of your business and within the uk":
+        return "temp answer"
 
 
 def percentage_transform(value: str) -> str:
@@ -119,13 +127,13 @@ def importance_transform(value: str) -> str:
         return ""
 
 
-def thousands_transform(value: str) -> int:
+def thousands_transform(value: str) -> str:
     """
     Round to the nearest thousand.
     """
     try:
         decimal.getcontext().rounding = ROUND_HALF_UP
-        return int(Decimal(round(Decimal(float(value))) / 1000).quantize(1))
+        return str(int(Decimal(round(Decimal(float(value))) / 1000).quantize(1)))
 
     except TypeError:
         logger.info("Tried to quantize a NoneType object. Returning an empty string")
