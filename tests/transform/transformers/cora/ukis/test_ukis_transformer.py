@@ -25,6 +25,11 @@ class TestUKISTransforms(unittest.TestCase):
         expected = {"123": "10"}
         self.assertEqual(expected, actual)
 
+    def test_yes_no_with_significant(self):
+        actual = perform_transforms({"123": "Yes, they were significant"}, {"123": TransformType.YESNO}, [])
+        expected = {"123": "10"}
+        self.assertEqual(expected, actual)
+
     def test_high_importance_returns_correctly(self):
         actual = perform_transforms({"124": "high importance"}, {"124": TransformType.IMPORTANCE}, [])
         expected = {"124": "1000"}
@@ -111,7 +116,7 @@ class TestUKISTransforms(unittest.TestCase):
 
         self.assertEqual(expected, actual)
 
-    def test_percentage_transform(self):
+    def test_percent_radio_transform(self):
         response_data = {
             "101": "Over 90%",
             "102": "40-90%",
@@ -121,11 +126,11 @@ class TestUKISTransforms(unittest.TestCase):
         }
 
         transforms = {
-            "101": TransformType.PERCENTAGE,
-            "102": TransformType.PERCENTAGE,
-            "103": TransformType.PERCENTAGE,
-            "104": TransformType.PERCENTAGE,
-            "105": TransformType.PERCENTAGE,
+            "101": TransformType.PERCENTRADIO,
+            "102": TransformType.PERCENTRADIO,
+            "103": TransformType.PERCENTRADIO,
+            "104": TransformType.PERCENTRADIO,
+            "105": TransformType.PERCENTRADIO,
         }
 
         actual = perform_transforms(response_data, transforms, [])
@@ -139,3 +144,21 @@ class TestUKISTransforms(unittest.TestCase):
         }
 
         self.assertEqual(expected, actual)
+
+    def test_percentage_transform(self):
+        actual = perform_transforms({"101": "84"}, {"101": TransformType.PERCENTAGE}, [])
+        expected = {"101": "84"}
+        self.assertEqual(expected, actual)
+
+    def test_text_transform(self):
+        actual = perform_transforms({"101": "hello"}, {"101": TransformType.TEXT}, [])
+        expected = {"101": "1"}
+        self.assertEqual(expected, actual)
+
+        actual = perform_transforms({"101": ""}, {"101": TransformType.TEXT}, [])
+        expected = {"101": "2"}
+        self.assertEqual(expected, actual)
+
+
+
+

@@ -36,8 +36,17 @@ def perform_transforms(
                     converted_value = checkbox_transform(value)
                     remaining_checkbox_qcodes.remove(qcode)
 
+                if transform_type == TransformType.PERCENTRADIO:
+                    converted_value = percent_radio_transform(value)
+
                 if transform_type == TransformType.PERCENTAGE:
                     converted_value = percentage_transform(value)
+
+                if transform_type == TransformType.NUMBER:
+                    converted_value = number_transform(value)
+
+                if transform_type == TransformType.TEXT:
+                    converted_value = text_transform(value)
 
                 result[qcode] = converted_value
 
@@ -51,6 +60,26 @@ def perform_transforms(
 
 
 def percentage_transform(value: str) -> str:
+    if value.isdigit():
+        return value
+    else:
+        return ""
+
+
+def number_transform(value: str) -> str:
+    if value.isdigit():
+        return value
+    else:
+        raise ValueError("Non numeric value")
+
+
+def text_transform(value: str):
+    if value:
+        return "1"
+    return "2"
+
+
+def percent_radio_transform(value: str) -> str:
     if value.lower() == "over 90%":
         return "0001"
     elif value.lower() == "40-90%":
@@ -69,9 +98,9 @@ def checkbox_transform(value: str) -> str:
 
 
 def yes_no_transform(value: str) -> str:
-    if value.lower() == "yes":
+    if value.lower() == "yes" or value.lower() == "yes, they were significant":
         return "10"
-    elif value.lower() == "no":
+    elif value.lower() == "no" or value.lower() == "no, they were not significant":
         return "01"
     elif value == "":
         return ""

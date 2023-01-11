@@ -8,6 +8,9 @@ class TransformType(Enum):
     CURRENCY = 3
     CHECKBOX = 4
     PERCENTAGE = 5
+    PERCENTRADIO = 6
+    TEXT = 7
+    NUMBER = 8
 
 
 checkbox_qcodes = [
@@ -180,13 +183,13 @@ ukis_transformations: Dict[str, TransformType] = {
     "1902": TransformType.CHECKBOX,
     "1903": TransformType.CHECKBOX,
     "1904": TransformType.CHECKBOX,
-    "2650": TransformType.PERCENTAGE,
-    "2651": TransformType.PERCENTAGE,
-    "2652": TransformType.PERCENTAGE,
-    "2653": TransformType.PERCENTAGE,
-    "2654": TransformType.PERCENTAGE,
-    "2655": TransformType.PERCENTAGE,
-    "2656": TransformType.PERCENTAGE,
+    "2650": TransformType.PERCENTRADIO,
+    "2651": TransformType.PERCENTRADIO,
+    "2652": TransformType.PERCENTRADIO,
+    "2653": TransformType.PERCENTRADIO,
+    "2654": TransformType.PERCENTRADIO,
+    "2655": TransformType.PERCENTRADIO,
+    "2656": TransformType.PERCENTRADIO,
     "2668": TransformType.CHECKBOX,
     "2669": TransformType.CHECKBOX,
     "2670": TransformType.CHECKBOX,
