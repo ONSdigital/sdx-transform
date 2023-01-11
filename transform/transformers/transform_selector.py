@@ -38,6 +38,9 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
     elif survey_id == "007":
         # Low Carbon
         transformer = SurveyTransformer(response, sequence_no)
+    elif survey_id == "023":
+        # Retail Sales Inquiry (RSI)
+        transformer = SurveyTransformer(response, sequence_no)
     elif survey_id == "024":
         # Fuels
         transformer = QFITransformer(response, sequence_no)
