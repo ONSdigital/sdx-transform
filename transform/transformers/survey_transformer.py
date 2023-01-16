@@ -5,7 +5,7 @@ import structlog
 
 from transform.settings import SDX_FTP_IMAGE_PATH, SDX_FTP_DATA_PATH, SDX_FTP_RECEIPT_PATH, SDX_RESPONSE_JSON_PATH
 from transform.transformers import ImageTransformer
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 from transform.transformers.survey import Survey
 from transform.utilities.formatter import Formatter
 
@@ -20,7 +20,7 @@ class SurveyTransformer:
 
     """
 
-    def __init__(self, response: SurveyResponse, sequence_no):
+    def __init__(self, response: SurveyResponseV1, sequence_no):
         self.survey_response = response
         self.sequence_no = sequence_no
         self.logger = logger

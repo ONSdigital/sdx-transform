@@ -3,7 +3,7 @@ import dateutil.parser
 
 from io import BytesIO
 from transform import settings
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 from transform.utilities.formatter import Formatter
 from transform.views.image_filters import get_env, format_date
 
@@ -54,7 +54,7 @@ class IndexFile:
         self.rewind()
 
     @staticmethod
-    def _get_index_name(response: SurveyResponse):
+    def _get_index_name(response: SurveyResponseV1):
         survey_id = response.survey_id
         submission_date = dateutil.parser.parse(response.submitted_at_raw)
         submission_date_str = format_date(submission_date, 'short')

@@ -4,7 +4,7 @@ import unittest
 from collections import OrderedDict
 
 from transform.transformers.common_software.cs_formatter import CSFormatter
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 
 
 class BatchFileTests(unittest.TestCase):
@@ -49,13 +49,13 @@ class BatchFileTests(unittest.TestCase):
 
     def test_idbr_receipt(self):
         self.reply["tx_id"] = "27923934-62de-475c-bc01-433c09fd38b8"
-        response = SurveyResponse(self.reply)
+        response = SurveyResponseV1(self.reply)
         rv = CSFormatter.get_idbr(response.survey_id, response.ru_ref, response.ru_check, response.period)
         self.assertEqual("12346789012:A:134:201605", rv)
 
     def test_idbr_receipt_four_digit_period(self):
         self.reply["tx_id"] = "27923934-62de-475c-bc01-433c09fd38b8"
-        response = SurveyResponse(self.reply)
+        response = SurveyResponseV1(self.reply)
         period = "1605"
         rv = CSFormatter.get_idbr(response.survey_id, response.ru_ref, response.ru_check, period)
         self.assertEqual("12346789012:A:134:201605", rv)
@@ -63,7 +63,7 @@ class BatchFileTests(unittest.TestCase):
     def test_identifiers(self):
         self.reply["tx_id"] = "27923934-62de-475c-bc01-433c09fd38b8"
         self.reply["collection"]["period"] = "200911"
-        response = SurveyResponse(self.reply)
+        response = SurveyResponseV1(self.reply)
 
         self.assertEqual(self.reply["tx_id"], response.tx_id)
         self.assertEqual(datetime.date(2017, 3, 1), response.submitted_at.date())
@@ -82,7 +82,7 @@ class BatchFileTests(unittest.TestCase):
             ("0140", 124),
             ("0151", 217222)
         ])
-        response = SurveyResponse(self.reply)
+        response = SurveyResponseV1(self.reply)
         rv = CSFormatter._pck_lines(response.data, response.instrument_id, response.ru_ref,
                                     response.ru_check, response.period)
         self.assertEqual([
