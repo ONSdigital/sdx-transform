@@ -1,5 +1,5 @@
 {
-    "title": "Low carbon and renewable energy sectors",
+    "title": "Low Carbon and Renewable Energy Economy Survey",
     "survey_id": "007",
     "form_type": "0009",
     "question_groups": [
@@ -7,7 +7,7 @@
             "title": "Reporting period",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Yes, I can report for these dates",
                         "No, I need to report for a different period"
                     ],
@@ -34,7 +34,7 @@
             "title": "Sectors",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Offshore wind"
                     ],
                     "question_id": "0201",
@@ -43,7 +43,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Onshore wind"
                     ],
                     "question_id": "0202",
@@ -52,7 +52,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Solar"
                     ],
                     "question_id": "0203",
@@ -61,7 +61,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Hydropower"
                     ],
                     "question_id": "0204",
@@ -70,7 +70,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Other renewable electricity"
                     ],
                     "question_id": "0205",
@@ -79,7 +79,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Bioenergy"
                     ],
                     "question_id": "0206",
@@ -88,7 +88,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Alternative fuels"
                     ],
                     "question_id": "0207",
@@ -97,7 +97,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Renewable heat"
                     ],
                     "question_id": "0208",
@@ -106,7 +106,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Renewable combined heat and power"
                     ],
                     "question_id": "0209",
@@ -115,7 +115,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Energy efficient lighting"
                     ],
                     "question_id": "0210",
@@ -124,7 +124,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Energy efficient products"
                     ],
                     "question_id": "0211",
@@ -133,7 +133,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Energy monitoring, saving or control systems"
                     ],
                     "question_id": "0212",
@@ -142,7 +142,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Low carbon consultancy, advisory and offsetting services"
                     ],
                     "question_id": "0213",
@@ -151,7 +151,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Low emission vehicles and infrastructure"
                     ],
                     "question_id": "0214",
@@ -160,7 +160,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Carbon capture and storage"
                     ],
                     "question_id": "0215",
@@ -169,7 +169,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Nuclear power"
                     ],
                     "question_id": "0216",
@@ -178,7 +178,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Fuel cells and energy storage systems"
                     ],
                     "question_id": "0217",
@@ -193,7 +193,7 @@
                     "type": "checkbox"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Yes",
                         "No",
                         "Not Sure"
@@ -209,7 +209,7 @@
             "title": "Offshore wind",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from offshore wind"
                     ],
                     "question_id": "0132",
@@ -218,7 +218,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from feed-in tariffs within offshore wind"
                     ],
                     "question_id": "0134",
@@ -227,7 +227,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the offshore wind sector"
                     ],
                     "question_id": "0136",
@@ -236,7 +236,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the offshore wind sector"
                     ],
                     "question_id": "0138",
@@ -245,7 +245,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for offshore wind capital assets"
                     ],
                     "question_id": "0142",
@@ -254,7 +254,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of offshore wind capital assets"
                     ],
                     "question_id": "0144",
@@ -263,7 +263,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "0147",
@@ -272,7 +272,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "0148",
@@ -287,7 +287,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "0150",
@@ -296,7 +296,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "0153",
@@ -305,7 +305,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "0151",
@@ -314,7 +314,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "0152",
@@ -328,7 +328,7 @@
             "title": "Onshore wind",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from onshore wind"
                     ],
                     "question_id": "0232",
@@ -337,7 +337,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from feed-in tariffs within onshore wind"
                     ],
                     "question_id": "0234",
@@ -346,7 +346,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the onshore wind sector"
                     ],
                     "question_id": "0236",
@@ -355,7 +355,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the onshore wind sector"
                     ],
                     "question_id": "0238",
@@ -364,7 +364,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for onshore wind capital assets"
                     ],
                     "question_id": "0242",
@@ -373,7 +373,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of onshore wind capital assets"
                     ],
                     "question_id": "0244",
@@ -382,7 +382,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "0247",
@@ -391,7 +391,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "0248",
@@ -406,7 +406,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "0250",
@@ -415,7 +415,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "0253",
@@ -424,7 +424,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "0251",
@@ -433,7 +433,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "0252",
@@ -447,7 +447,7 @@
             "title": "solar",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from solar"
                     ],
                     "question_id": "0332",
@@ -456,7 +456,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from feed-in tariffs within the solar sector"
                     ],
                     "question_id": "0334",
@@ -465,7 +465,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the solar sector"
                     ],
                     "question_id": "0336",
@@ -474,7 +474,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the solar sector"
                     ],
                     "question_id": "0338",
@@ -483,7 +483,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for solar capital assets"
                     ],
                     "question_id": "0342",
@@ -492,7 +492,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of solar capital assets"
                     ],
                     "question_id": "0344",
@@ -501,7 +501,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "0347",
@@ -510,7 +510,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "0348",
@@ -525,7 +525,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "0350",
@@ -534,7 +534,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "0353",
@@ -543,7 +543,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "0351",
@@ -552,7 +552,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "0352",
@@ -566,7 +566,7 @@
             "title": "Hydropower",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from hydropower"
                     ],
                     "question_id": "0432",
@@ -575,7 +575,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from feed-in tariffs within hydropower"
                     ],
                     "question_id": "0434",
@@ -584,7 +584,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the hydropower sector"
                     ],
                     "question_id": "0436",
@@ -593,7 +593,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the hydropower sector"
                     ],
                     "question_id": "0438",
@@ -602,7 +602,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for hydropower capital assets"
                     ],
                     "question_id": "0442",
@@ -611,7 +611,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of hydropower capital assets"
                     ],
                     "question_id": "0444",
@@ -620,7 +620,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "0447",
@@ -629,7 +629,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "0448",
@@ -644,7 +644,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "0450",
@@ -653,7 +653,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "0453",
@@ -662,7 +662,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "0451",
@@ -671,7 +671,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "0452",
@@ -685,7 +685,7 @@
             "title": "Other renewable electricity ",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from other renewable electricity"
                     ],
                     "question_id": "0532",
@@ -694,7 +694,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from feed-in tariffs within other renewable electricity"
                     ],
                     "question_id": "0534",
@@ -703,7 +703,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the other renewable electricity sector"
                     ],
                     "question_id": "0536",
@@ -712,7 +712,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the other renewable electricity sector"
                     ],
                     "question_id": "0538",
@@ -721,7 +721,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for other renewable electricity capital assets"
                     ],
                     "question_id": "0542",
@@ -730,7 +730,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of other renewable electricity capital assets"
                     ],
                     "question_id": "0544",
@@ -739,7 +739,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "0547",
@@ -748,7 +748,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "0548",
@@ -769,7 +769,7 @@
                     "type": "confirmation question"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "0550",
@@ -778,7 +778,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "0553",
@@ -787,7 +787,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "0551",
@@ -796,7 +796,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "0552",
@@ -810,7 +810,7 @@
             "title": "Bioenergy ",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from bioenergy"
                     ],
                     "question_id": "0632",
@@ -819,7 +819,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from feed-in tariffs within bioenergy"
                     ],
                     "question_id": "0634",
@@ -828,7 +828,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the bioenergy sector"
                     ],
                     "question_id": "0636",
@@ -837,7 +837,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the bioenergy sector"
                     ],
                     "question_id": "0638",
@@ -846,7 +846,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for bioenergy capital assets"
                     ],
                     "question_id": "0642",
@@ -855,7 +855,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of bioenergy capital assets"
                     ],
                     "question_id": "0644",
@@ -864,7 +864,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "0647",
@@ -873,7 +873,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "0648",
@@ -888,7 +888,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "0650",
@@ -897,7 +897,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "0653",
@@ -906,7 +906,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "0651",
@@ -915,7 +915,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "0652",
@@ -929,7 +929,7 @@
             "title": "Alternative fuels",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Yes",
                         "No"
                     ],
@@ -939,7 +939,7 @@
                     "type": "radio"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from alternative fuels"
                     ],
                     "question_id": "0732",
@@ -948,7 +948,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from feed-in tariffs within alternative fuels"
                     ],
                     "question_id": "0734",
@@ -957,7 +957,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the alternative fuels sector"
                     ],
                     "question_id": "0736",
@@ -966,7 +966,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the alternative fuels sector"
                     ],
                     "question_id": "0738",
@@ -975,7 +975,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for alternative fuels capital assets"
                     ],
                     "question_id": "0742",
@@ -984,7 +984,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of alternative fuels capital assets"
                     ],
                     "question_id": "0744",
@@ -993,7 +993,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "0747",
@@ -1002,7 +1002,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "0748",
@@ -1017,7 +1017,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "0750",
@@ -1026,7 +1026,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "0753",
@@ -1035,7 +1035,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "0751",
@@ -1044,7 +1044,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "0752",
@@ -1058,7 +1058,7 @@
             "title": "Renewable heat",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from renewable heat"
                     ],
                     "question_id": "0832",
@@ -1067,7 +1067,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from feed-in tariffs within renewable heat"
                     ],
                     "question_id": "0834",
@@ -1076,7 +1076,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the renewable heat sector"
                     ],
                     "question_id": "0836",
@@ -1085,7 +1085,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the renewable heat sector"
                     ],
                     "question_id": "0838",
@@ -1094,7 +1094,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for renewable heat capital assets"
                     ],
                     "question_id": "0842",
@@ -1103,7 +1103,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of renewable heat capital assets"
                     ],
                     "question_id": "0844",
@@ -1112,7 +1112,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "0847",
@@ -1121,7 +1121,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "0848",
@@ -1136,7 +1136,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "0850",
@@ -1145,7 +1145,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "0853",
@@ -1154,7 +1154,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "0851",
@@ -1163,7 +1163,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "0852",
@@ -1177,7 +1177,7 @@
             "title": "Combined heat & power",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from renewable combined heat and power"
                     ],
                     "question_id": "0932",
@@ -1186,7 +1186,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from feed-in tariffs within renewable combined heat and power"
                     ],
                     "question_id": "0934",
@@ -1195,7 +1195,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the renewable combined heat and power sector"
                     ],
                     "question_id": "0936",
@@ -1204,7 +1204,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the renewable combined heat and power sector"
                     ],
                     "question_id": "0938",
@@ -1213,7 +1213,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for renewable combined heat and power capital assets"
                     ],
                     "question_id": "0942",
@@ -1222,7 +1222,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of renewable combined heat and power capital assets"
                     ],
                     "question_id": "0944",
@@ -1231,7 +1231,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "0947",
@@ -1240,7 +1240,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "0948",
@@ -1255,7 +1255,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "0950",
@@ -1264,7 +1264,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "0953",
@@ -1273,7 +1273,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "0951",
@@ -1282,7 +1282,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "0952",
@@ -1296,7 +1296,7 @@
             "title": "Energy efficient lighting ",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from energy efficient lighting"
                     ],
                     "question_id": "1032",
@@ -1305,7 +1305,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the energy efficient lighting sector"
                     ],
                     "question_id": "1036",
@@ -1314,7 +1314,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the energy efficient lighting sector"
                     ],
                     "question_id": "1038",
@@ -1323,7 +1323,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for energy efficient lighting capital assets"
                     ],
                     "question_id": "1042",
@@ -1332,7 +1332,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of energy efficient lighting capital assets"
                     ],
                     "question_id": "1044",
@@ -1341,7 +1341,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "1047",
@@ -1350,7 +1350,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "1048",
@@ -1365,7 +1365,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "1050",
@@ -1374,7 +1374,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "1053",
@@ -1383,7 +1383,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "1051",
@@ -1392,7 +1392,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "1052",
@@ -1406,7 +1406,7 @@
             "title": "Energy efficient products",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from energy efficient products"
                     ],
                     "question_id": "1132",
@@ -1415,7 +1415,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the energy efficient products sector"
                     ],
                     "question_id": "1136",
@@ -1424,7 +1424,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the energy efficient products sector"
                     ],
                     "question_id": "1138",
@@ -1433,7 +1433,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for energy efficient products capital assets"
                     ],
                     "question_id": "1142",
@@ -1442,7 +1442,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of energy efficient products capital assets"
                     ],
                     "question_id": "1144",
@@ -1451,7 +1451,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "1147",
@@ -1460,7 +1460,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "1148",
@@ -1475,7 +1475,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "1150",
@@ -1484,7 +1484,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "1153",
@@ -1493,7 +1493,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "1151",
@@ -1502,7 +1502,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "1152",
@@ -1516,7 +1516,7 @@
             "title": "M, S or control systems ",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from energy monitoring, saving and control systems"
                     ],
                     "question_id": "1232",
@@ -1525,7 +1525,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the energy monitoring, saving and control systems sector"
                     ],
                     "question_id": "1236",
@@ -1534,7 +1534,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the energy monitoring, saving and control systems sector"
                     ],
                     "question_id": "1238",
@@ -1543,7 +1543,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for energy monitoring, saving and control systems capital assets"
                     ],
                     "question_id": "1242",
@@ -1552,7 +1552,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of energy monitoring, saving and control systems capital assets"
                     ],
                     "question_id": "1244",
@@ -1561,7 +1561,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "1247",
@@ -1570,7 +1570,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "1248",
@@ -1585,7 +1585,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "1250",
@@ -1594,7 +1594,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "1253",
@@ -1603,7 +1603,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "1251",
@@ -1612,7 +1612,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "1252",
@@ -1626,7 +1626,7 @@
             "title": "Low carbon C, A and OS",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from low carbon consultancy, advisory and offsetting services"
                     ],
                     "question_id": "1332",
@@ -1635,7 +1635,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the low carbon consultancy, advisory and offsetting services sector"
                     ],
                     "question_id": "1336",
@@ -1644,7 +1644,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the low carbon consultancy, advisory and offsetting services sector"
                     ],
                     "question_id": "1338",
@@ -1653,7 +1653,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for low carbon consultancy, advisory and offsetting services capital assets"
                     ],
                     "question_id": "1342",
@@ -1662,7 +1662,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of low carbon consultancy, advisory and offsetting services capital assets"
                     ],
                     "question_id": "1344",
@@ -1671,7 +1671,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "1347",
@@ -1680,7 +1680,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "1348",
@@ -1695,7 +1695,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "1350",
@@ -1704,7 +1704,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "1353",
@@ -1713,7 +1713,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "1351",
@@ -1722,7 +1722,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "1352",
@@ -1736,7 +1736,7 @@
             "title": "Vehicles and infrastructure",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from low emission vehicles and infrastructure"
                     ],
                     "question_id": "1432",
@@ -1745,7 +1745,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the low emission vehicles and infrastructure sector"
                     ],
                     "question_id": "1436",
@@ -1754,7 +1754,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the low emission vehicles and infrastructure sector"
                     ],
                     "question_id": "1438",
@@ -1763,7 +1763,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for low emission vehicles and infrastructure capital assets"
                     ],
                     "question_id": "1442",
@@ -1772,7 +1772,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of low emission vehicles and infrastructure capital assets"
                     ],
                     "question_id": "1444",
@@ -1781,7 +1781,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "1447",
@@ -1790,7 +1790,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "1448",
@@ -1805,7 +1805,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "1450",
@@ -1814,7 +1814,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "1453",
@@ -1823,7 +1823,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "1451",
@@ -1832,7 +1832,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "1452",
@@ -1846,7 +1846,7 @@
             "title": "Carbon capture and storage",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from carbon capture and storage"
                     ],
                     "question_id": "1532",
@@ -1855,7 +1855,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the carbon capture and storage sector"
                     ],
                     "question_id": "1536",
@@ -1864,7 +1864,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the carbon capture and storage sector"
                     ],
                     "question_id": "1538",
@@ -1873,7 +1873,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for carbon capture and storage capital assets"
                     ],
                     "question_id": "1542",
@@ -1882,7 +1882,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of carbon capture and storage capital assets"
                     ],
                     "question_id": "1544",
@@ -1891,7 +1891,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "1547",
@@ -1900,7 +1900,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "1548",
@@ -1915,7 +1915,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "1550",
@@ -1924,7 +1924,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "1553",
@@ -1933,7 +1933,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "1551",
@@ -1942,7 +1942,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "1552",
@@ -1956,7 +1956,7 @@
             "title": "Nuclear power",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from nuclear power"
                     ],
                     "question_id": "1632",
@@ -1965,7 +1965,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the nuclear power sector"
                     ],
                     "question_id": "1636",
@@ -1974,7 +1974,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the nuclear power sector"
                     ],
                     "question_id": "1638",
@@ -1983,7 +1983,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for nuclear power capital assets"
                     ],
                     "question_id": "1642",
@@ -1992,7 +1992,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of nuclear power capital assets"
                     ],
                     "question_id": "1644",
@@ -2001,7 +2001,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "1647",
@@ -2010,7 +2010,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "1648",
@@ -2025,7 +2025,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "1650",
@@ -2034,7 +2034,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "1653",
@@ -2043,7 +2043,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "1651",
@@ -2052,7 +2052,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "1652",
@@ -2066,7 +2066,7 @@
             "title": "Fuel cells and energy storage ",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Turnover from fuel cells and energy storage systems"
                     ],
                     "question_id": "1732",
@@ -2075,7 +2075,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Expenditure on imports in the fuel cells and energy storage systems sector"
                     ],
                     "question_id": "1736",
@@ -2084,7 +2084,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Income from exports in the fuel cells and energy storage systems sector"
                     ],
                     "question_id": "1738",
@@ -2093,7 +2093,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Value of acquisitions for fuel cells and energy storage systems capital assets"
                     ],
                     "question_id": "1742",
@@ -2102,7 +2102,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Proceeds from disposals of fuel cells and energy storage systems capital assets"
                     ],
                     "question_id": "1744",
@@ -2111,7 +2111,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "In-house R&D expenditure"
                     ],
                     "question_id": "1747",
@@ -2120,7 +2120,7 @@
                     "type": "currency"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Purchased R&D expenditure"
                     ],
                     "question_id": "1748",
@@ -2135,7 +2135,7 @@
                     "type": "number"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "England"
                     ],
                     "question_id": "1750",
@@ -2144,7 +2144,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Northern Ireland"
                     ],
                     "question_id": "1753",
@@ -2153,7 +2153,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Scotland"
                     ],
                     "question_id": "1751",
@@ -2162,7 +2162,7 @@
                     "type": "percentage"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Wales"
                     ],
                     "question_id": "1752",
@@ -2176,7 +2176,7 @@
             "title": "Comments",
             "questions": [
                 {
-                    "Options": [
+                    "options": [
                         "Yes"
                     ],
                     "question_id": "0063",
@@ -2185,7 +2185,7 @@
                     "type": "radio"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Please Provide details"
                     ],
                     "question_id": "0064",
@@ -2194,7 +2194,7 @@
                     "type": "text area"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "No"
                     ],
                     "question_id": "0064",
@@ -2203,7 +2203,7 @@
                     "type": "radio"
                 },
                 {
-                    "Options": [
+                    "options": [
                         "Not sure"
                     ],
                     "question_id": "0064",
