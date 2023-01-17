@@ -6,6 +6,7 @@ from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cord import EcommerceTransformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer
+from transform.transformers.no_pck.rsi_transformer import RSITransformer
 from transform.transformers.response import SurveyResponse
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
 from transform.transformers.survey_transformer import SurveyTransformer
@@ -40,7 +41,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
         transformer = SurveyTransformer(response, sequence_no)
     elif survey_id == "023":
         # Retail Sales Inquiry (RSI)
-        transformer = SurveyTransformer(response, sequence_no)
+        transformer = RSITransformer(response, sequence_no)
     elif survey_id == "024":
         # Fuels
         transformer = QFITransformer(response, sequence_no)

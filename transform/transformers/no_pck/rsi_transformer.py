@@ -14,7 +14,7 @@ logger = structlog.get_logger()
 env = Environment(loader=PackageLoader('transform', 'templates'))
 
 
-class CSTransformer(SurveyTransformer):
+class RSITransformer(SurveyTransformer):
 
     def __init__(self, response: SurveyResponse, sequence_no=1000):
         super().__init__(response, sequence_no)
