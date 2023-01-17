@@ -11,20 +11,20 @@
                         "Yes, I can report for these dates",
                         "No, I need to report for a different period"
                     ],
-                    "question_id": "10",
-                    "number": "10",
+                    "question_id": "0010",
+                    "number": "0010",
                     "text": "Are you able to report figures for the period during this time?",
                     "type": "radio"
                 },
                 {
-                    "question_id": "11",
-                    "number": "11",
+                    "question_id": "0011",
+                    "number": "0011",
                     "text": "What dates are you reporting for?",
                     "type": "date range"
                 },
                 {
-                    "question_id": "12",
-                    "number": "12",
+                    "question_id": "0012",
+                    "number": "0012",
                     "text": "What dates are you reporting for?",
                     "type": "date range"
                 }
@@ -37,8 +37,8 @@
                     "Options": [
                         "Offshore wind"
                     ],
-                    "question_id": "201",
-                    "number": "201",
+                    "question_id": "0201",
+                    "number": "0201",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -46,8 +46,8 @@
                     "Options": [
                         "Onshore wind"
                     ],
-                    "question_id": "202",
-                    "number": "202",
+                    "question_id": "0202",
+                    "number": "0202",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -55,8 +55,8 @@
                     "Options": [
                         "Solar"
                     ],
-                    "question_id": "203",
-                    "number": "203",
+                    "question_id": "0203",
+                    "number": "0203",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -64,8 +64,8 @@
                     "Options": [
                         "Hydropower"
                     ],
-                    "question_id": "204",
-                    "number": "204",
+                    "question_id": "0204",
+                    "number": "0204",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -73,8 +73,8 @@
                     "Options": [
                         "Other renewable electricity"
                     ],
-                    "question_id": "205",
-                    "number": "205",
+                    "question_id": "0205",
+                    "number": "0205",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -82,8 +82,8 @@
                     "Options": [
                         "Bioenergy"
                     ],
-                    "question_id": "206",
-                    "number": "206",
+                    "question_id": "0206",
+                    "number": "0206",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -91,8 +91,8 @@
                     "Options": [
                         "Alternative fuels"
                     ],
-                    "question_id": "207",
-                    "number": "207",
+                    "question_id": "0207",
+                    "number": "0207",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -100,8 +100,8 @@
                     "Options": [
                         "Renewable heat"
                     ],
-                    "question_id": "208",
-                    "number": "208",
+                    "question_id": "0208",
+                    "number": "0208",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -109,8 +109,8 @@
                     "Options": [
                         "Renewable combined heat and power"
                     ],
-                    "question_id": "209",
-                    "number": "209",
+                    "question_id": "0209",
+                    "number": "0209",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -118,8 +118,8 @@
                     "Options": [
                         "Energy efficient lighting"
                     ],
-                    "question_id": "210",
-                    "number": "210",
+                    "question_id": "0210",
+                    "number": "0210",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -127,8 +127,8 @@
                     "Options": [
                         "Energy efficient products"
                     ],
-                    "question_id": "211",
-                    "number": "211",
+                    "question_id": "0211",
+                    "number": "0211",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -136,8 +136,8 @@
                     "Options": [
                         "Energy monitoring, saving or control systems"
                     ],
-                    "question_id": "212",
-                    "number": "212",
+                    "question_id": "0212",
+                    "number": "0212",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -145,8 +145,8 @@
                     "Options": [
                         "Low carbon consultancy, advisory and offsetting services"
                     ],
-                    "question_id": "213",
-                    "number": "213",
+                    "question_id": "0213",
+                    "number": "0213",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -154,8 +154,8 @@
                     "Options": [
                         "Low emission vehicles and infrastructure"
                     ],
-                    "question_id": "214",
-                    "number": "214",
+                    "question_id": "0214",
+                    "number": "0214",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -163,8 +163,8 @@
                     "Options": [
                         "Carbon capture and storage"
                     ],
-                    "question_id": "215",
-                    "number": "215",
+                    "question_id": "0215",
+                    "number": "0215",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -172,8 +172,8 @@
                     "Options": [
                         "Nuclear power"
                     ],
-                    "question_id": "216",
-                    "number": "216",
+                    "question_id": "0216",
+                    "number": "0216",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -181,14 +181,14 @@
                     "Options": [
                         "Fuel cells and energy storage systems"
                     ],
-                    "question_id": "217",
-                    "number": "217",
+                    "question_id": "0217",
+                    "number": "0217",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
                 {
-                    "question_id": "13",
-                    "number": "13",
+                    "question_id": "0013",
+                    "number": "0013",
                     "text": "For the period during this time, which of the following sectors has the business operated in?",
                     "type": "checkbox"
                 },
@@ -198,8 +198,8 @@
                         "No",
                         "Not Sure"
                     ],
-                    "question_id": "14",
-                    "number": "14",
+                    "question_id": "0014",
+                    "number": "0014",
                     "text": "Will the business have activity in any low carbon and renewable energy sectors in the future?",
                     "type": "radio"
                 }
@@ -212,8 +212,8 @@
                     "Options": [
                         "Turnover from offshore wind"
                     ],
-                    "question_id": "132",
-                    "number": "132",
+                    "question_id": "0132",
+                    "number": "0132",
                     "text": "For the period, what was the business's turnover from activities carried out within the offshore wind sector? Turnover from offshore wind",
                     "type": "currency"
                 },
@@ -221,8 +221,8 @@
                     "Options": [
                         "Turnover from feed-in tariffs within offshore wind"
                     ],
-                    "question_id": "134",
-                    "number": "134",
+                    "question_id": "0134",
+                    "number": "0134",
                     "text": "Of the Turnover from offshore wind sector turnover from offshore wind, how much related to income from feed-in tariffs? Turnover from feed-in tariffs within offshore wind",
                     "type": "currency"
                 },
@@ -230,8 +230,8 @@
                     "Options": [
                         "Expenditure on imports in the offshore wind sector"
                     ],
-                    "question_id": "136",
-                    "number": "136",
+                    "question_id": "0136",
+                    "number": "0136",
                     "text": "For the reporting period, what was your business's expenditure on imports in relation to the offshore wind sector? Expenditure on imports in the offshore wind sector",
                     "type": "currency"
                 },
@@ -239,8 +239,8 @@
                     "Options": [
                         "Income from exports in the offshore wind sector"
                     ],
-                    "question_id": "138",
-                    "number": "138",
+                    "question_id": "0138",
+                    "number": "0138",
                     "text": "For the reporting period, what was your business's income from exports in relation to the offshore wind sector? Income from exports in the offshore wind sector",
                     "type": "currency"
                 },
@@ -248,8 +248,8 @@
                     "Options": [
                         "Value of acquisitions for offshore wind capital assets"
                     ],
-                    "question_id": "142",
-                    "number": "142",
+                    "question_id": "0142",
+                    "number": "0142",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the offshore wind sector? Value of acquisitions for offshore wind capital assets",
                     "type": "currency"
                 },
@@ -257,8 +257,8 @@
                     "Options": [
                         "Proceeds from disposals of offshore wind capital assets"
                     ],
-                    "question_id": "144",
-                    "number": "144",
+                    "question_id": "0144",
+                    "number": "0144",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the offshore wind sector? Proceeds from disposals of offshore wind capital assets",
                     "type": "currency"
                 },
@@ -266,8 +266,8 @@
                     "Options": [
                         "In-house R&D expenditure"
                     ],
-                    "question_id": "147",
-                    "number": "147",
+                    "question_id": "0147",
+                    "number": "0147",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the offshore wind sector? In-house R&D expenditure",
                     "type": "currency"
                 },
@@ -275,14 +275,14 @@
                     "Options": [
                         "Purchased R&D expenditure"
                     ],
-                    "question_id": "148",
-                    "number": "148",
+                    "question_id": "0148",
+                    "number": "0148",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the offshore wind sector? Purchased R&D expenditure",
                     "type": "currency"
                 },
                 {
-                    "question_id": "140",
-                    "number": "140",
+                    "question_id": "0140",
+                    "number": "0140",
                     "text": "For the reporting period, how many full-time equivalent employees (FTEs) were working in the offshore wind sector?",
                     "type": "number"
                 },
@@ -290,8 +290,8 @@
                     "Options": [
                         "England"
                     ],
-                    "question_id": "150",
-                    "number": "150",
+                    "question_id": "0150",
+                    "number": "0150",
                     "text": "For the reporting period, approximately what percentage of your business's offshore wind activities were in the following UK countries? England",
                     "type": "percentage"
                 },
@@ -299,8 +299,8 @@
                     "Options": [
                         "Northern Ireland"
                     ],
-                    "question_id": "153",
-                    "number": "153",
+                    "question_id": "0153",
+                    "number": "0153",
                     "text": "For the reporting period, approximately what percentage of your business's offshore wind activities were in the following UK countries? Northern Ireland",
                     "type": "percentage"
                 },
@@ -308,8 +308,8 @@
                     "Options": [
                         "Scotland"
                     ],
-                    "question_id": "151",
-                    "number": "151",
+                    "question_id": "0151",
+                    "number": "0151",
                     "text": "For the reporting period, approximately what percentage of your business's offshore wind activities were in the following UK countries? Scotland",
                     "type": "percentage"
                 },
@@ -317,8 +317,8 @@
                     "Options": [
                         "Wales"
                     ],
-                    "question_id": "152",
-                    "number": "152",
+                    "question_id": "0152",
+                    "number": "0152",
                     "text": "For the reporting period, approximately what percentage of your business's offshore wind activities were in the following UK countries? Wales",
                     "type": "percentage"
                 }
@@ -331,8 +331,8 @@
                     "Options": [
                         "Turnover from onshore wind"
                     ],
-                    "question_id": "232",
-                    "number": "232",
+                    "question_id": "0232",
+                    "number": "0232",
                     "text": "For the period, what was the business's turnover from activities carried out within the onshore wind sector? Turnover from onshore wind",
                     "type": "currency"
                 },
@@ -340,8 +340,8 @@
                     "Options": [
                         "Turnover from feed-in tariffs within onshore wind"
                     ],
-                    "question_id": "234",
-                    "number": "234",
+                    "question_id": "0234",
+                    "number": "0234",
                     "text": "Of the Turnover from onshore wind sector turnover from onshore wind, how much related to income from feed-in tariffs? Turnover from feed-in tariffs within onshore wind",
                     "type": "currency"
                 },
@@ -349,8 +349,8 @@
                     "Options": [
                         "Expenditure on imports in the onshore wind sector"
                     ],
-                    "question_id": "236",
-                    "number": "236",
+                    "question_id": "0236",
+                    "number": "0236",
                     "text": "For the reporting period, what was your business's expenditure on imports in relation to the onshore wind sector? Expenditure on imports in the onshore wind sector",
                     "type": "currency"
                 },
@@ -358,8 +358,8 @@
                     "Options": [
                         "Income from exports in the onshore wind sector"
                     ],
-                    "question_id": "238",
-                    "number": "238",
+                    "question_id": "0238",
+                    "number": "0238",
                     "text": "For the reporting period, what was your business's income from exports in relation to the onshore wind sector? Income from exports in the onshore wind sector",
                     "type": "currency"
                 },
@@ -367,8 +367,8 @@
                     "Options": [
                         "Value of acquisitions for onshore wind capital assets"
                     ],
-                    "question_id": "242",
-                    "number": "242",
+                    "question_id": "0242",
+                    "number": "0242",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the onshore wind sector? Value of acquisitions for onshore wind capital assets",
                     "type": "currency"
                 },
@@ -376,8 +376,8 @@
                     "Options": [
                         "Proceeds from disposals of onshore wind capital assets"
                     ],
-                    "question_id": "244",
-                    "number": "244",
+                    "question_id": "0244",
+                    "number": "0244",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the onshore wind sector? Proceeds from disposals of onshore wind capital assets",
                     "type": "currency"
                 },
@@ -385,8 +385,8 @@
                     "Options": [
                         "In-house R&D expenditure"
                     ],
-                    "question_id": "247",
-                    "number": "247",
+                    "question_id": "0247",
+                    "number": "0247",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the onshore wind sector? In-house R&D expenditure",
                     "type": "currency"
                 },
@@ -394,14 +394,14 @@
                     "Options": [
                         "Purchased R&D expenditure"
                     ],
-                    "question_id": "248",
-                    "number": "248",
+                    "question_id": "0248",
+                    "number": "0248",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the onshore wind sector? Purchased R&D expenditure",
                     "type": "currency"
                 },
                 {
-                    "question_id": "240",
-                    "number": "240",
+                    "question_id": "0240",
+                    "number": "0240",
                     "text": "For the reporting period, how many full-time equivalent employees (FTEs) were working in the onshore wind sector?",
                     "type": "number"
                 },
@@ -409,8 +409,8 @@
                     "Options": [
                         "England"
                     ],
-                    "question_id": "250",
-                    "number": "250",
+                    "question_id": "0250",
+                    "number": "0250",
                     "text": "For the reporting period, approximately what percentage of your business's onshore wind activities were in the following UK countries? England",
                     "type": "percentage"
                 },
@@ -418,8 +418,8 @@
                     "Options": [
                         "Northern Ireland"
                     ],
-                    "question_id": "253",
-                    "number": "253",
+                    "question_id": "0253",
+                    "number": "0253",
                     "text": "For the reporting period, approximately what percentage of your business's onshore wind activities were in the following UK countries? Northern Ireland",
                     "type": "percentage"
                 },
@@ -427,8 +427,8 @@
                     "Options": [
                         "Scotland"
                     ],
-                    "question_id": "251",
-                    "number": "251",
+                    "question_id": "0251",
+                    "number": "0251",
                     "text": "For the reporting period, approximately what percentage of your business's onshore wind activities were in the following UK countries? Scotland",
                     "type": "percentage"
                 },
@@ -436,8 +436,8 @@
                     "Options": [
                         "Wales"
                     ],
-                    "question_id": "252",
-                    "number": "252",
+                    "question_id": "0252",
+                    "number": "0252",
                     "text": "For the reporting period, approximately what percentage of your business's onshore wind activities were in the following UK countries? Wales",
                     "type": "percentage"
                 }
@@ -450,8 +450,8 @@
                     "Options": [
                         "Turnover from solar"
                     ],
-                    "question_id": "332",
-                    "number": "332",
+                    "question_id": "0332",
+                    "number": "0332",
                     "text": "For the period, what was your the business's turnover from activities carried out within the solar sector? Turnover from solar",
                     "type": "currency"
                 },
@@ -459,8 +459,8 @@
                     "Options": [
                         "Turnover from feed-in tariffs within the solar sector"
                     ],
-                    "question_id": "334",
-                    "number": "334",
+                    "question_id": "0334",
+                    "number": "0334",
                     "text": "Of the Turnover from solar sector turnover, how much related to income from feed-in tariffs? Turnover from feed-in tariffs within the solar sector",
                     "type": "currency"
                 },
@@ -468,8 +468,8 @@
                     "Options": [
                         "Expenditure on imports in the solar sector"
                     ],
-                    "question_id": "336",
-                    "number": "336",
+                    "question_id": "0336",
+                    "number": "0336",
                     "text": "For the reporting period, what was your business's expenditure on imports in relation to the solar sector? Expenditure on imports in the solar sector",
                     "type": "currency"
                 },
@@ -477,8 +477,8 @@
                     "Options": [
                         "Income from exports in the solar sector"
                     ],
-                    "question_id": "338",
-                    "number": "338",
+                    "question_id": "0338",
+                    "number": "0338",
                     "text": "For the reporting period, what was your business's income from exports in relation to the solar sector? Income from exports in the solar sector",
                     "type": "currency"
                 },
@@ -486,8 +486,8 @@
                     "Options": [
                         "Value of acquisitions for solar capital assets"
                     ],
-                    "question_id": "342",
-                    "number": "342",
+                    "question_id": "0342",
+                    "number": "0342",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the solar sector? Value of acquisitions for solar capital assets",
                     "type": "currency"
                 },
@@ -495,8 +495,8 @@
                     "Options": [
                         "Proceeds from disposals of solar capital assets"
                     ],
-                    "question_id": "344",
-                    "number": "344",
+                    "question_id": "0344",
+                    "number": "0344",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the solar sector? Proceeds from disposals of solar capital assets",
                     "type": "currency"
                 },
@@ -504,8 +504,8 @@
                     "Options": [
                         "In-house R&D expenditure"
                     ],
-                    "question_id": "347",
-                    "number": "347",
+                    "question_id": "0347",
+                    "number": "0347",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the solar sector? In-house R&D expenditure",
                     "type": "currency"
                 },
@@ -513,14 +513,14 @@
                     "Options": [
                         "Purchased R&D expenditure"
                     ],
-                    "question_id": "348",
-                    "number": "348",
+                    "question_id": "0348",
+                    "number": "0348",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the solar sector? Purchased R&D expenditure",
                     "type": "currency"
                 },
                 {
-                    "question_id": "340",
-                    "number": "340",
+                    "question_id": "0340",
+                    "number": "0340",
                     "text": "For the reporting period, how many full-time equivalent employees (FTEs) were working in the solar sector?",
                     "type": "number"
                 },
@@ -528,8 +528,8 @@
                     "Options": [
                         "England"
                     ],
-                    "question_id": "350",
-                    "number": "350",
+                    "question_id": "0350",
+                    "number": "0350",
                     "text": "For the reporting period, approximately what percentage of your business's solar activities were in the following UK countries? England",
                     "type": "percentage"
                 },
@@ -537,8 +537,8 @@
                     "Options": [
                         "Northern Ireland"
                     ],
-                    "question_id": "353",
-                    "number": "353",
+                    "question_id": "0353",
+                    "number": "0353",
                     "text": "For the reporting period, approximately what percentage of your business's solar activities were in the following UK countries? Northern Ireland",
                     "type": "percentage"
                 },
@@ -546,8 +546,8 @@
                     "Options": [
                         "Scotland"
                     ],
-                    "question_id": "351",
-                    "number": "351",
+                    "question_id": "0351",
+                    "number": "0351",
                     "text": "For the reporting period, approximately what percentage of your business's solar activities were in the following UK countries? Scotland",
                     "type": "percentage"
                 },
@@ -555,8 +555,8 @@
                     "Options": [
                         "Wales"
                     ],
-                    "question_id": "352",
-                    "number": "352",
+                    "question_id": "0352",
+                    "number": "0352",
                     "text": "For the reporting period, approximately what percentage of your business's solar activities were in the following UK countries? Wales",
                     "type": "percentage"
                 }
@@ -569,8 +569,8 @@
                     "Options": [
                         "Turnover from hydropower"
                     ],
-                    "question_id": "432",
-                    "number": "432",
+                    "question_id": "0432",
+                    "number": "0432",
                     "text": "For the period, what was the business's turnover from activities carried out within the hydropower sector? Turnover from hydropower",
                     "type": "currency"
                 },
@@ -578,8 +578,8 @@
                     "Options": [
                         "Turnover from feed-in tariffs within hydropower"
                     ],
-                    "question_id": "434",
-                    "number": "434",
+                    "question_id": "0434",
+                    "number": "0434",
                     "text": "Of the Turnover from hydropower sector turnover, how much related to income from feed-in tariffs? Turnover from feed-in tariffs within hydropower",
                     "type": "currency"
                 },
@@ -587,8 +587,8 @@
                     "Options": [
                         "Expenditure on imports in the hydropower sector"
                     ],
-                    "question_id": "436",
-                    "number": "436",
+                    "question_id": "0436",
+                    "number": "0436",
                     "text": "For the reporting period, what was your business's expenditure on imports in relation to the hydropower sector? Expenditure on imports in the hydropower sector",
                     "type": "currency"
                 },
@@ -596,8 +596,8 @@
                     "Options": [
                         "Income from exports in the hydropower sector"
                     ],
-                    "question_id": "438",
-                    "number": "438",
+                    "question_id": "0438",
+                    "number": "0438",
                     "text": "For the reporting period, what was your business's income from exports in relation to the hydropower sector? Income from exports in the hydropower sector",
                     "type": "currency"
                 },
@@ -605,8 +605,8 @@
                     "Options": [
                         "Value of acquisitions for hydropower capital assets"
                     ],
-                    "question_id": "442",
-                    "number": "442",
+                    "question_id": "0442",
+                    "number": "0442",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the hydropower sector? Value of acquisitions for hydropower capital assets",
                     "type": "currency"
                 },
@@ -614,8 +614,8 @@
                     "Options": [
                         "Proceeds from disposals of hydropower capital assets"
                     ],
-                    "question_id": "444",
-                    "number": "444",
+                    "question_id": "0444",
+                    "number": "0444",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the hydropower sector? Proceeds from disposals of hydropower capital assets",
                     "type": "currency"
                 },
@@ -623,8 +623,8 @@
                     "Options": [
                         "In-house R&D expenditure"
                     ],
-                    "question_id": "447",
-                    "number": "447",
+                    "question_id": "0447",
+                    "number": "0447",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the hydropower sector? In-house R&D expenditure",
                     "type": "currency"
                 },
@@ -632,14 +632,14 @@
                     "Options": [
                         "Purchased R&D expenditure"
                     ],
-                    "question_id": "448",
-                    "number": "448",
+                    "question_id": "0448",
+                    "number": "0448",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the hydropower sector? Purchased R&D expenditure",
                     "type": "currency"
                 },
                 {
-                    "question_id": "440",
-                    "number": "440",
+                    "question_id": "0440",
+                    "number": "0440",
                     "text": "For the reporting period, how many full-time equivalent employees (FTEs) were working in the hydropower sector?",
                     "type": "number"
                 },
@@ -647,8 +647,8 @@
                     "Options": [
                         "England"
                     ],
-                    "question_id": "450",
-                    "number": "450",
+                    "question_id": "0450",
+                    "number": "0450",
                     "text": "For the reporting period, approximately what percentage of your business's hydropower activities were in the following UK countries? England",
                     "type": "percentage"
                 },
@@ -656,8 +656,8 @@
                     "Options": [
                         "Northern Ireland"
                     ],
-                    "question_id": "453",
-                    "number": "453",
+                    "question_id": "0453",
+                    "number": "0453",
                     "text": "For the reporting period, approximately what percentage of your business's hydropower activities were in the following UK countries? Northern Ireland",
                     "type": "percentage"
                 },
@@ -665,8 +665,8 @@
                     "Options": [
                         "Scotland"
                     ],
-                    "question_id": "451",
-                    "number": "451",
+                    "question_id": "0451",
+                    "number": "0451",
                     "text": "For the reporting period, approximately what percentage of your business's hydropower activities were in the following UK countries? Scotland",
                     "type": "percentage"
                 },
@@ -674,8 +674,8 @@
                     "Options": [
                         "Wales"
                     ],
-                    "question_id": "452",
-                    "number": "452",
+                    "question_id": "0452",
+                    "number": "0452",
                     "text": "For the reporting period, approximately what percentage of your business's hydropower activities were in the following UK countries? Wales",
                     "type": "percentage"
                 }
@@ -688,8 +688,8 @@
                     "Options": [
                         "Turnover from other renewable electricity"
                     ],
-                    "question_id": "532",
-                    "number": "532",
+                    "question_id": "0532",
+                    "number": "0532",
                     "text": "For the period, what was the business's turnover from activities carried out within the other renewable electricity sector? Turnover from other renewable electricity",
                     "type": "currency"
                 },
@@ -697,8 +697,8 @@
                     "Options": [
                         "Turnover from feed-in tariffs within other renewable electricity"
                     ],
-                    "question_id": "534",
-                    "number": "534",
+                    "question_id": "0534",
+                    "number": "0534",
                     "text": "Of the Turnover from other renewable electricity sector turnover, how much related to income from feed-in tariffs? Turnover from feed-in tariffs within other renewable electricity",
                     "type": "currency"
                 },
@@ -706,8 +706,8 @@
                     "Options": [
                         "Expenditure on imports in the other renewable electricity sector"
                     ],
-                    "question_id": "536",
-                    "number": "536",
+                    "question_id": "0536",
+                    "number": "0536",
                     "text": "For the reporting period, what was your business's expenditure on imports in relation to the other renewable electricity sector? Expenditure on imports in the other renewable electricity sector",
                     "type": "currency"
                 },
@@ -715,8 +715,8 @@
                     "Options": [
                         "Income from exports in the other renewable electricity sector"
                     ],
-                    "question_id": "538",
-                    "number": "538",
+                    "question_id": "0538",
+                    "number": "0538",
                     "text": "For the reporting period, what was your business's income from exports in relation to the other renewable electricity sector? Income from exports in the other renewable electricity sector",
                     "type": "currency"
                 },
@@ -724,8 +724,8 @@
                     "Options": [
                         "Value of acquisitions for other renewable electricity capital assets"
                     ],
-                    "question_id": "542",
-                    "number": "542",
+                    "question_id": "0542",
+                    "number": "0542",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the other renewable electricity sector? Value of acquisitions for other renewable electricity capital assets",
                     "type": "currency"
                 },
@@ -733,8 +733,8 @@
                     "Options": [
                         "Proceeds from disposals of other renewable electricity capital assets"
                     ],
-                    "question_id": "544",
-                    "number": "544",
+                    "question_id": "0544",
+                    "number": "0544",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the other renewable electricity sector? Proceeds from disposals of other renewable electricity capital assets",
                     "type": "currency"
                 },
@@ -742,8 +742,8 @@
                     "Options": [
                         "In-house R&D expenditure"
                     ],
-                    "question_id": "547",
-                    "number": "547",
+                    "question_id": "0547",
+                    "number": "0547",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the other renewable electricity sector? In-house R&D expenditure",
                     "type": "currency"
                 },
@@ -751,20 +751,20 @@
                     "Options": [
                         "Purchased R&D expenditure"
                     ],
-                    "question_id": "548",
-                    "number": "548",
+                    "question_id": "0548",
+                    "number": "0548",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the other renewable electricity sector? Purchased R&D expenditure",
                     "type": "currency"
                 },
                 {
-                    "question_id": "540",
-                    "number": "540",
+                    "question_id": "0540",
+                    "number": "0540",
                     "text": "For the reporting period, how many full-time equivalent employees (FTEs) were working in the other renewable electricity sector?",
                     "type": "number"
                 },
                 {
-                    "question_id": "561",
-                    "number": "561",
+                    "question_id": "0561",
+                    "number": "0561",
                     "text": "You stated that the number of full-time equivalents (FTEs) who worked within the other renewable electricity sector was Number of full-time equivalents (FTEs) FTEs. Is this correct?",
                     "type": "confirmation question"
                 },
@@ -772,8 +772,8 @@
                     "Options": [
                         "England"
                     ],
-                    "question_id": "550",
-                    "number": "550",
+                    "question_id": "0550",
+                    "number": "0550",
                     "text": "For the reporting period, approximately what percentage of your business's other renewable electricity activities were in the following UK countries? England",
                     "type": "percentage"
                 },
@@ -781,8 +781,8 @@
                     "Options": [
                         "Northern Ireland"
                     ],
-                    "question_id": "553",
-                    "number": "553",
+                    "question_id": "0553",
+                    "number": "0553",
                     "text": "For the reporting period, approximately what percentage of your business's other renewable electricity activities were in the following UK countries? Northern Ireland",
                     "type": "percentage"
                 },
@@ -790,8 +790,8 @@
                     "Options": [
                         "Scotland"
                     ],
-                    "question_id": "551",
-                    "number": "551",
+                    "question_id": "0551",
+                    "number": "0551",
                     "text": "For the reporting period, approximately what percentage of your business's other renewable electricity activities were in the following UK countries? Scotland",
                     "type": "percentage"
                 },
@@ -799,8 +799,8 @@
                     "Options": [
                         "Wales"
                     ],
-                    "question_id": "552",
-                    "number": "552",
+                    "question_id": "0552",
+                    "number": "0552",
                     "text": "For the reporting period, approximately what percentage of your business's other renewable electricity activities were in the following UK countries? Wales",
                     "type": "percentage"
                 }
@@ -813,8 +813,8 @@
                     "Options": [
                         "Turnover from bioenergy"
                     ],
-                    "question_id": "632",
-                    "number": "632",
+                    "question_id": "0632",
+                    "number": "0632",
                     "text": "For the period, what was the business's turnover from activities carried out within the bioenergy sector? Turnover from bioenergy",
                     "type": "currency"
                 },
@@ -822,8 +822,8 @@
                     "Options": [
                         "Turnover from feed-in tariffs within bioenergy"
                     ],
-                    "question_id": "634",
-                    "number": "634",
+                    "question_id": "0634",
+                    "number": "0634",
                     "text": "Of the Turnover from bioenergy sector turnover, how much related to income from feed-in tariffs? Turnover from feed-in tariffs within bioenergy",
                     "type": "currency"
                 },
@@ -831,8 +831,8 @@
                     "Options": [
                         "Expenditure on imports in the bioenergy sector"
                     ],
-                    "question_id": "636",
-                    "number": "636",
+                    "question_id": "0636",
+                    "number": "0636",
                     "text": "For the reporting period, what was your business's expenditure on imports in relation to the bioenergy sector? Expenditure on imports in the bioenergy sector",
                     "type": "currency"
                 },
@@ -840,8 +840,8 @@
                     "Options": [
                         "Income from exports in the bioenergy sector"
                     ],
-                    "question_id": "638",
-                    "number": "638",
+                    "question_id": "0638",
+                    "number": "0638",
                     "text": "For the reporting period, what was your business's income from exports in relation to the bioenergy sector? Income from exports in the bioenergy sector",
                     "type": "currency"
                 },
@@ -849,8 +849,8 @@
                     "Options": [
                         "Value of acquisitions for bioenergy capital assets"
                     ],
-                    "question_id": "642",
-                    "number": "642",
+                    "question_id": "0642",
+                    "number": "0642",
                     "text": "For the reporting period, what was the value of acquisitions and proceeds from disposals of capital assets, relating to the bioenergy sector? Value of acquisitions for bioenergy capital assets",
                     "type": "currency"
                 },
@@ -858,8 +858,8 @@
                     "Options": [
                         "Proceeds from disposals of bioenergy capital assets"
                     ],
-                    "question_id": "644",
-                    "number": "644",
+                    "question_id": "0644",
+                    "number": "0644",
                     "text": "For the reporting period, what was the value of acquisitions and proceeds from disposals of capital assets, relating to the bioenergy sector? Proceeds from disposals of bioenergy capital assets",
                     "type": "currency"
                 },
@@ -867,8 +867,8 @@
                     "Options": [
                         "In-house R&D expenditure"
                     ],
-                    "question_id": "647",
-                    "number": "647",
+                    "question_id": "0647",
+                    "number": "0647",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the bioenergy sector? In-house R&D expenditure",
                     "type": "currency"
                 },
@@ -876,14 +876,14 @@
                     "Options": [
                         "Purchased R&D expenditure"
                     ],
-                    "question_id": "648",
-                    "number": "648",
+                    "question_id": "0648",
+                    "number": "0648",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the bioenergy sector? Purchased R&D expenditure",
                     "type": "currency"
                 },
                 {
-                    "question_id": "640",
-                    "number": "640",
+                    "question_id": "0640",
+                    "number": "0640",
                     "text": "For the reporting period, how many full-time equivalent employees (FTEs) were working in the bioenergy sector?",
                     "type": "number"
                 },
@@ -891,8 +891,8 @@
                     "Options": [
                         "England"
                     ],
-                    "question_id": "650",
-                    "number": "650",
+                    "question_id": "0650",
+                    "number": "0650",
                     "text": "For the reporting period, approximately what percentage of your business's bioenergy activities were in the following UK countries? England",
                     "type": "percentage"
                 },
@@ -900,8 +900,8 @@
                     "Options": [
                         "Northern Ireland"
                     ],
-                    "question_id": "653",
-                    "number": "653",
+                    "question_id": "0653",
+                    "number": "0653",
                     "text": "For the reporting period, approximately what percentage of your business's bioenergy activities were in the following UK countries? Northern Ireland",
                     "type": "percentage"
                 },
@@ -909,8 +909,8 @@
                     "Options": [
                         "Scotland"
                     ],
-                    "question_id": "651",
-                    "number": "651",
+                    "question_id": "0651",
+                    "number": "0651",
                     "text": "For the reporting period, approximately what percentage of your business's bioenergy activities were in the following UK countries? Scotland",
                     "type": "percentage"
                 },
@@ -918,8 +918,8 @@
                     "Options": [
                         "Wales"
                     ],
-                    "question_id": "652",
-                    "number": "652",
+                    "question_id": "0652",
+                    "number": "0652",
                     "text": "For the reporting period, approximately what percentage of your business's bioenergy activities were in the following UK countries? Wales",
                     "type": "percentage"
                 }
@@ -933,8 +933,8 @@
                         "Yes",
                         "No"
                     ],
-                    "question_id": "762",
-                    "number": "762",
+                    "question_id": "0762",
+                    "number": "0762",
                     "text": "Did any of the activity within the alternative fuels sector relate to hydrogen?",
                     "type": "radio"
                 },
@@ -942,8 +942,8 @@
                     "Options": [
                         "Turnover from alternative fuels"
                     ],
-                    "question_id": "732",
-                    "number": "732",
+                    "question_id": "0732",
+                    "number": "0732",
                     "text": "For the period, what was the business's turnover from activities carried out within the alternative fuels sector? Turnover from alternative fuels",
                     "type": "currency"
                 },
@@ -951,8 +951,8 @@
                     "Options": [
                         "Turnover from feed-in tariffs within alternative fuels"
                     ],
-                    "question_id": "734",
-                    "number": "734",
+                    "question_id": "0734",
+                    "number": "0734",
                     "text": "Of the Turnover from alternative fuels sector turnover, how much related to income from feed-in tariffs? Turnover from feed-in tariffs within alternative fuels",
                     "type": "currency"
                 },
@@ -960,8 +960,8 @@
                     "Options": [
                         "Expenditure on imports in the alternative fuels sector"
                     ],
-                    "question_id": "736",
-                    "number": "736",
+                    "question_id": "0736",
+                    "number": "0736",
                     "text": "For the reporting period, what was your business's expenditure on imports in relation to the alternative fuels sector? Expenditure on imports in the alternative fuels sector",
                     "type": "currency"
                 },
@@ -969,8 +969,8 @@
                     "Options": [
                         "Income from exports in the alternative fuels sector"
                     ],
-                    "question_id": "738",
-                    "number": "738",
+                    "question_id": "0738",
+                    "number": "0738",
                     "text": "For the reporting period, what was your business's income from exports in relation to the alternative fuels sector? Income from exports in the alternative fuels sector",
                     "type": "currency"
                 },
@@ -978,8 +978,8 @@
                     "Options": [
                         "Value of acquisitions for alternative fuels capital assets"
                     ],
-                    "question_id": "742",
-                    "number": "742",
+                    "question_id": "0742",
+                    "number": "0742",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the alternative fuels sector? Value of acquisitions for alternative fuels capital assets",
                     "type": "currency"
                 },
@@ -987,8 +987,8 @@
                     "Options": [
                         "Proceeds from disposals of alternative fuels capital assets"
                     ],
-                    "question_id": "744",
-                    "number": "744",
+                    "question_id": "0744",
+                    "number": "0744",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the alternative fuels sector? Proceeds from disposals of alternative fuels capital assets",
                     "type": "currency"
                 },
@@ -996,8 +996,8 @@
                     "Options": [
                         "In-house R&D expenditure"
                     ],
-                    "question_id": "747",
-                    "number": "747",
+                    "question_id": "0747",
+                    "number": "0747",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the alternative fuels sector? In-house R&D expenditure",
                     "type": "currency"
                 },
@@ -1005,14 +1005,14 @@
                     "Options": [
                         "Purchased R&D expenditure"
                     ],
-                    "question_id": "748",
-                    "number": "748",
+                    "question_id": "0748",
+                    "number": "0748",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the alternative fuels sector? Purchased R&D expenditure",
                     "type": "currency"
                 },
                 {
-                    "question_id": "740",
-                    "number": "740",
+                    "question_id": "0740",
+                    "number": "0740",
                     "text": "For the reporting period, how many full-time equivalent employees (FTEs) were working in the alternative fuels sector?",
                     "type": "number"
                 },
@@ -1020,8 +1020,8 @@
                     "Options": [
                         "England"
                     ],
-                    "question_id": "750",
-                    "number": "750",
+                    "question_id": "0750",
+                    "number": "0750",
                     "text": "For the reporting period, approximately what percentage of your business's other alternative fuels activities were in the following UK countries? England",
                     "type": "percentage"
                 },
@@ -1029,8 +1029,8 @@
                     "Options": [
                         "Northern Ireland"
                     ],
-                    "question_id": "753",
-                    "number": "753",
+                    "question_id": "0753",
+                    "number": "0753",
                     "text": "For the reporting period, approximately what percentage of your business's other alternative fuels activities were in the following UK countries? Northern Ireland",
                     "type": "percentage"
                 },
@@ -1038,8 +1038,8 @@
                     "Options": [
                         "Scotland"
                     ],
-                    "question_id": "751",
-                    "number": "751",
+                    "question_id": "0751",
+                    "number": "0751",
                     "text": "For the reporting period, approximately what percentage of your business's other alternative fuels activities were in the following UK countries? Scotland",
                     "type": "percentage"
                 },
@@ -1047,8 +1047,8 @@
                     "Options": [
                         "Wales"
                     ],
-                    "question_id": "752",
-                    "number": "752",
+                    "question_id": "0752",
+                    "number": "0752",
                     "text": "For the reporting period, approximately what percentage of your business's other alternative fuels activities were in the following UK countries? Wales",
                     "type": "percentage"
                 }
@@ -1061,8 +1061,8 @@
                     "Options": [
                         "Turnover from renewable heat"
                     ],
-                    "question_id": "832",
-                    "number": "832",
+                    "question_id": "0832",
+                    "number": "0832",
                     "text": "For the period, what was the business's turnover from activities carried out within the renewable heat sector? Turnover from renewable heat",
                     "type": "currency"
                 },
@@ -1070,8 +1070,8 @@
                     "Options": [
                         "Turnover from feed-in tariffs within renewable heat"
                     ],
-                    "question_id": "834",
-                    "number": "834",
+                    "question_id": "0834",
+                    "number": "0834",
                     "text": "Of the Turnover from renewable heat sector turnover, how much related to income from feed-in tariffs? Turnover from feed-in tariffs within renewable heat",
                     "type": "currency"
                 },
@@ -1079,8 +1079,8 @@
                     "Options": [
                         "Expenditure on imports in the renewable heat sector"
                     ],
-                    "question_id": "836",
-                    "number": "836",
+                    "question_id": "0836",
+                    "number": "0836",
                     "text": "For the reporting period, what was your business's expenditure on imports in relation to the renewable heat sector? Expenditure on imports in the renewable heat sector",
                     "type": "currency"
                 },
@@ -1088,8 +1088,8 @@
                     "Options": [
                         "Income from exports in the renewable heat sector"
                     ],
-                    "question_id": "838",
-                    "number": "838",
+                    "question_id": "0838",
+                    "number": "0838",
                     "text": "For the reporting period, what was your business's income from exports in relation to the renewable heat sector? Income from exports in the renewable heat sector",
                     "type": "currency"
                 },
@@ -1097,8 +1097,8 @@
                     "Options": [
                         "Value of acquisitions for renewable heat capital assets"
                     ],
-                    "question_id": "842",
-                    "number": "842",
+                    "question_id": "0842",
+                    "number": "0842",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets relating to the renewable heat sector Value of acquisitions for renewable heat capital assets",
                     "type": "currency"
                 },
@@ -1106,8 +1106,8 @@
                     "Options": [
                         "Proceeds from disposals of renewable heat capital assets"
                     ],
-                    "question_id": "844",
-                    "number": "844",
+                    "question_id": "0844",
+                    "number": "0844",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets relating to the renewable heat sector Proceeds from disposals of renewable heat capital assets",
                     "type": "currency"
                 },
@@ -1115,8 +1115,8 @@
                     "Options": [
                         "In-house R&D expenditure"
                     ],
-                    "question_id": "847",
-                    "number": "847",
+                    "question_id": "0847",
+                    "number": "0847",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the renewable heat sector? In-house R&D expenditure",
                     "type": "currency"
                 },
@@ -1124,14 +1124,14 @@
                     "Options": [
                         "Purchased R&D expenditure"
                     ],
-                    "question_id": "848",
-                    "number": "848",
+                    "question_id": "0848",
+                    "number": "0848",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the renewable heat sector? Purchased R&D expenditure",
                     "type": "currency"
                 },
                 {
-                    "question_id": "840",
-                    "number": "840",
+                    "question_id": "0840",
+                    "number": "0840",
                     "text": "For the reporting period, how many full-time equivalent employees (FTEs) were working in the renewable heat sector?",
                     "type": "number"
                 },
@@ -1139,8 +1139,8 @@
                     "Options": [
                         "England"
                     ],
-                    "question_id": "850",
-                    "number": "850",
+                    "question_id": "0850",
+                    "number": "0850",
                     "text": "For the reporting period, approximately what percentage of your business's renewable heat activities were in the following UK countries? England",
                     "type": "percentage"
                 },
@@ -1148,8 +1148,8 @@
                     "Options": [
                         "Northern Ireland"
                     ],
-                    "question_id": "853",
-                    "number": "853",
+                    "question_id": "0853",
+                    "number": "0853",
                     "text": "For the reporting period, approximately what percentage of your business's renewable heat activities were in the following UK countries? Northern Ireland",
                     "type": "percentage"
                 },
@@ -1157,8 +1157,8 @@
                     "Options": [
                         "Scotland"
                     ],
-                    "question_id": "851",
-                    "number": "851",
+                    "question_id": "0851",
+                    "number": "0851",
                     "text": "For the reporting period, approximately what percentage of your business's renewable heat activities were in the following UK countries? Scotland",
                     "type": "percentage"
                 },
@@ -1166,8 +1166,8 @@
                     "Options": [
                         "Wales"
                     ],
-                    "question_id": "852",
-                    "number": "852",
+                    "question_id": "0852",
+                    "number": "0852",
                     "text": "For the reporting period, approximately what percentage of your business's renewable heat activities were in the following UK countries? Wales",
                     "type": "percentage"
                 }
@@ -1180,8 +1180,8 @@
                     "Options": [
                         "Turnover from renewable combined heat and power"
                     ],
-                    "question_id": "932",
-                    "number": "932",
+                    "question_id": "0932",
+                    "number": "0932",
                     "text": "For the period, what was the business's turnover from activities carried out within the renewable combined heat and power sector? Turnover from renewable combined heat and power",
                     "type": "currency"
                 },
@@ -1189,8 +1189,8 @@
                     "Options": [
                         "Turnover from feed-in tariffs within renewable combined heat and power"
                     ],
-                    "question_id": "934",
-                    "number": "934",
+                    "question_id": "0934",
+                    "number": "0934",
                     "text": "Of the Turnover from renewable combined heat and power sector turnover, how much related to income from feed-in tariffs? Turnover from feed-in tariffs within renewable combined heat and power",
                     "type": "currency"
                 },
@@ -1198,8 +1198,8 @@
                     "Options": [
                         "Expenditure on imports in the renewable combined heat and power sector"
                     ],
-                    "question_id": "936",
-                    "number": "936",
+                    "question_id": "0936",
+                    "number": "0936",
                     "text": "For the reporting period, what was your business's expenditure on imports in relation to the renewable combined heat and power sector? Expenditure on imports in the renewable combined heat and power sector",
                     "type": "currency"
                 },
@@ -1207,8 +1207,8 @@
                     "Options": [
                         "Income from exports in the renewable combined heat and power sector"
                     ],
-                    "question_id": "938",
-                    "number": "938",
+                    "question_id": "0938",
+                    "number": "0938",
                     "text": "For the reporting period, what was your business's income from exports in relation to the renewable combined heat and power sector? Income from exports in the renewable combined heat and power sector",
                     "type": "currency"
                 },
@@ -1216,8 +1216,8 @@
                     "Options": [
                         "Value of acquisitions for renewable combined heat and power capital assets"
                     ],
-                    "question_id": "942",
-                    "number": "942",
+                    "question_id": "0942",
+                    "number": "0942",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the renewable combined heat and power sector? Value of acquisitions for renewable combined heat and power capital assets",
                     "type": "currency"
                 },
@@ -1225,8 +1225,8 @@
                     "Options": [
                         "Proceeds from disposals of renewable combined heat and power capital assets"
                     ],
-                    "question_id": "944",
-                    "number": "944",
+                    "question_id": "0944",
+                    "number": "0944",
                     "text": "For the reporting period, what was your business's value of acquisitions and proceeds from disposals of capital assets, relating to the renewable combined heat and power sector? Proceeds from disposals of renewable combined heat and power capital assets",
                     "type": "currency"
                 },
@@ -1234,8 +1234,8 @@
                     "Options": [
                         "In-house R&D expenditure"
                     ],
-                    "question_id": "947",
-                    "number": "947",
+                    "question_id": "0947",
+                    "number": "0947",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the renewable combined heat and power sector? In-house R&D expenditure",
                     "type": "currency"
                 },
@@ -1243,14 +1243,14 @@
                     "Options": [
                         "Purchased R&D expenditure"
                     ],
-                    "question_id": "948",
-                    "number": "948",
+                    "question_id": "0948",
+                    "number": "0948",
                     "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the renewable combined heat and power sector? Purchased R&D expenditure",
                     "type": "currency"
                 },
                 {
-                    "question_id": "940",
-                    "number": "940",
+                    "question_id": "0940",
+                    "number": "0940",
                     "text": "For the reporting period, how many full-time equivalent employees (FTEs) were working in the renewable combined heat and power sector?",
                     "type": "number"
                 },
@@ -1258,8 +1258,8 @@
                     "Options": [
                         "England"
                     ],
-                    "question_id": "950",
-                    "number": "950",
+                    "question_id": "0950",
+                    "number": "0950",
                     "text": "For the reporting period, approximately what percentage of your business's renewable combined heat and power activities were in the following UK countries? England",
                     "type": "percentage"
                 },
@@ -1267,8 +1267,8 @@
                     "Options": [
                         "Northern Ireland"
                     ],
-                    "question_id": "953",
-                    "number": "953",
+                    "question_id": "0953",
+                    "number": "0953",
                     "text": "For the reporting period, approximately what percentage of your business's renewable combined heat and power activities were in the following UK countries? Northern Ireland",
                     "type": "percentage"
                 },
@@ -1276,8 +1276,8 @@
                     "Options": [
                         "Scotland"
                     ],
-                    "question_id": "951",
-                    "number": "951",
+                    "question_id": "0951",
+                    "number": "0951",
                     "text": "For the reporting period, approximately what percentage of your business's renewable combined heat and power activities were in the following UK countries? Scotland",
                     "type": "percentage"
                 },
@@ -1285,8 +1285,8 @@
                     "Options": [
                         "Wales"
                     ],
-                    "question_id": "952",
-                    "number": "952",
+                    "question_id": "0952",
+                    "number": "0952",
                     "text": "For the reporting period, approximately what percentage of your business's renewable combined heat and power activities were in the following UK countries? Wales",
                     "type": "percentage"
                 }
@@ -1581,7 +1581,7 @@
                 {
                     "question_id": "1240",
                     "number": "1240",
-                    "text": "For the reporting period, what was your business's expenditure on Research and Development (R&D) in relation to the energy monitoring, saving and control systems sector?",
+                    "text": "Number of full-time equivalents (FTEs)",
                     "type": "number"
                 },
                 {
@@ -2179,23 +2179,26 @@
                     "Options": [
                         "Yes"
                     ],
-                    "question_id": "63",
-                    "number": "63",
+                    "question_id": "0063",
+                    "number": "0063",
                     "text": "For the period, did the business operate in any other low carbon or renewable energy sectors that have not been listed?",
                     "type": "radio"
                 },
                 {
-                    "question_id": "64",
-                    "number": "64",
+                    "Options": [
+                        "Please Provide details"
+                    ],
+                    "question_id": "0064",
+                    "number": "0064",
                     "text": "For the period, did the business operate in any other low carbon or renewable energy sectors that have not been listed?",
-                    "type": "text field"
+                    "type": "text area"
                 },
                 {
                     "Options": [
                         "No"
                     ],
-                    "question_id": "64",
-                    "number": "64",
+                    "question_id": "0064",
+                    "number": "0064",
                     "text": "For the period, did the business operate in any other low carbon or renewable energy sectors that have not been listed?",
                     "type": "radio"
                 },
@@ -2203,14 +2206,14 @@
                     "Options": [
                         "Not sure"
                     ],
-                    "question_id": "64",
-                    "number": "64",
+                    "question_id": "0064",
+                    "number": "0064",
                     "text": "For the period, did the business operate in any other low carbon or renewable energy sectors that have not been listed?",
                     "type": "radio"
                 },
                 {
-                    "question_id": "60",
-                    "number": "60",
+                    "question_id": "0060",
+                    "number": "0060",
                     "text": "Please provide any further details that will help us understand your figures and to tell an industry story",
                     "type": "text area"
                 }
