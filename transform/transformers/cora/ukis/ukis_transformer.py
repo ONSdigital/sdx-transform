@@ -5,7 +5,9 @@ from typing import Dict, List
 
 import structlog
 
-from transform.transformers.cora.ukis.ukis_transforms import TransformType
+from transform.transformers.cora.cora_formatter import CORAFormatter
+from transform.transformers.cora.ukis.ukis_transforms import TransformType, ukis_transformations, checkbox_qcodes
+from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
 
@@ -48,8 +50,14 @@ def perform_transforms(
                 if transform_type == TransformType.TEXT:
                     converted_value = text_transform(value)
 
-                if transform_type == TransformType.TEMPRADIO:
-                    converted_value = temp_radio_transform(value)
+                if transform_type == TransformType.DISTANCERADIO:
+                    if qcode == "2121":
+                        distance_qcodes = ["2121", "2122", "2123", "2124"]
+                    elif qcode == "2131":
+                        distance_qcodes = ["2131", "2132", "2133", "2134"]
+                    converted_value_dict = distance_radio_transform(value, distance_qcodes)
+                    result.update(converted_value_dict)
+                    continue
 
                 result[qcode] = converted_value
 
@@ -62,9 +70,25 @@ def perform_transforms(
     return result
 
 
-def temp_radio_transform(value: str) -> str:
-    if value.lower() == "further than 15 miles from the physical sites of your business and within the uk":
-        return "temp answer"
+def distance_radio_transform(value: str, qcode_list: List[str]) -> Dict[str, str]:
+
+    distance_radio_output = {
+        qcode_list[0]: "0",
+        qcode_list[1]: "0",
+        qcode_list[2]: "0",
+        qcode_list[3]: "0"
+    }
+
+    if value.lower() == "within 15 miles of one of the physical sites of your business and within the uk":
+        distance_radio_output[qcode_list[0]] = "1"
+    elif value.lower() == "further than 15 miles from the physical sites of your business and within the uk":
+        distance_radio_output[qcode_list[1]] = "1"
+    elif value.lower() == "outside of the uk":
+        distance_radio_output[qcode_list[2]] = "1"
+    elif value.lower() == "your business worked with them remotely, with no face-to-face contact":
+        distance_radio_output[qcode_list[3]] = "1"
+
+    return distance_radio_output
 
 
 def percentage_transform(value: str) -> str:
@@ -140,3 +164,26 @@ def thousands_transform(value: str) -> str:
         raise ValueError("Invalid value")
 
 
+class UKISTransformer(SurveyTransformer):
+    """Perform the transforms and formatting for the UKIS survey."""
+
+    def _create_pck(self, transformed_data):
+        """Return a pck file using provided data"""
+        pck = CORAFormatter.get_pck(
+            transformed_data,
+            self.survey_response.survey_id,
+            self.survey_response.ru_ref,
+            "1",
+            self.survey_response.period,
+            "0",
+        )
+        return pck
+
+    def create_pck(self):
+        bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
+        bound_logger.info("Transforming data for processing")
+        transformed_data = perform_transforms(self.survey_response.data, ukis_transformations, checkbox_qcodes)
+        bound_logger.info("Data successfully transformed")
+        pck_name = CORAFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
+        pck = self._create_pck(transformed_data)
+        return pck_name, pck

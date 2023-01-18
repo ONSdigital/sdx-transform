@@ -1,8 +1,8 @@
 from transform.transformers.common_software import MBSTransformer, MWSSTransformer, CSTransformer
 from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
 from transform.transformers.common_software.acas.acas_transformer import ACASTransformer
-from transform.transformers.cora import UKISTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
+from transform.transformers.cora.ukis.ukis_transformer import UKISTransformer
 from transform.transformers.cord import EcommerceTransformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer

@@ -57,12 +57,12 @@ class TestUKISTransforms(unittest.TestCase):
 
     def test_thousands_rounding_rounds_up(self):
         actual = perform_transforms({"125": "34567"}, {"125": TransformType.CURRENCY}, [])
-        expected = {"125": 35}
+        expected = {"125": "35"}
         self.assertEqual(expected, actual)
 
     def test_thousands_rounding_rounds_down(self):
         actual = perform_transforms({"125": "34467"}, {"125": TransformType.CURRENCY}, [])
-        expected = {"125": 34}
+        expected = {"125": "34"}
         self.assertEqual(expected, actual)
 
     def test_thousands_string(self):
@@ -159,6 +159,37 @@ class TestUKISTransforms(unittest.TestCase):
         expected = {"101": "2"}
         self.assertEqual(expected, actual)
 
+    def test_distance_radio_transform(self):
+        actual = perform_transforms(
+            {"2121": "Within 15 miles of one of the physical sites of your business and within the uk"},
+            {"2121": TransformType.DISTANCERADIO}, [])
 
+        expected = {
+            "2121": "1",
+            "2122": "0",
+            "2123": "0",
+            "2124": "0"
+        }
+        self.assertEqual(expected, actual)
 
+    def test_distance_radio_transform_with_existing_dict(self):
+        actual = {
+            "101": "10",
+            "102": "1"
+        }
 
+        distance_dict = perform_transforms(
+            {"2121": "Within 15 miles of one of the physical sites of your business and within the uk"},
+            {"2121": TransformType.DISTANCERADIO}, [])
+
+        actual.update(distance_dict)
+
+        expected = {
+            "101": "10",
+            "102": "1",
+            "2121": "1",
+            "2122": "0",
+            "2123": "0",
+            "2124": "0"
+        }
+        self.assertEqual(expected, actual)

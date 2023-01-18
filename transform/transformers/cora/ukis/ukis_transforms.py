@@ -11,7 +11,7 @@ class TransformType(Enum):
     PERCENTRADIO = 6
     TEXT = 7
     NUMBER = 8
-    TEMPRADIO = 9
+    DISTANCERADIO = 9
 
 
 checkbox_qcodes = [
@@ -161,12 +161,12 @@ ukis_transformations: Dict[str, TransformType] = {
     "1863": TransformType.CHECKBOX,
     "1864": TransformType.CHECKBOX,
     "1861": TransformType.CHECKBOX,
-    "2121": TransformType.TEMPRADIO,
+    "2121": TransformType.DISTANCERADIO,
     "1872": TransformType.CHECKBOX,
     "1873": TransformType.CHECKBOX,
     "1874": TransformType.CHECKBOX,
     "1871": TransformType.CHECKBOX,
-    "2131": TransformType.TEMPRADIO,
+    "2131": TransformType.DISTANCERADIO,
     "2140": TransformType.YESNO,
     "1876": TransformType.CHECKBOX,
     "1877": TransformType.CHECKBOX,
