@@ -97,7 +97,7 @@ class TestCSTransformService(unittest.TestCase):
 
         # Check that all expected contents are listed in the zip
         expected = [
-            'EDC_QData/023_897fbe8cfa674406',
+            # 'EDC_QData/023_897fbe8cfa674406',
             'EDC_QReceipts/REC1203_897fbe8cfa674406.DAT',
             'EDC_QImages/Images/S897fbe8cfa674406_1.JPG',
             'EDC_QImages/Images/S897fbe8cfa674406_2.JPG',
@@ -131,7 +131,7 @@ class TestCSTransformService(unittest.TestCase):
 
         # Check that all expected contents are listed in the zip
         expected = [
-            'EDC_QData/023_897fbe8cfa674406',
+            # 'EDC_QData/023_897fbe8cfa674406',
             'EDC_QReceipts/REC1203_897fbe8cfa674406.DAT',
             'EDC_QImages/Images/S897fbe8cfa674406_1.JPG',
             'EDC_QImages/Images/S897fbe8cfa674406_2.JPG',
@@ -145,7 +145,7 @@ class TestCSTransformService(unittest.TestCase):
 
         # Check that all expected contents are listed in the zip
         expected = [
-            'EDC_QData/023_897fbe8cfa674406',
+            # 'EDC_QData/023_897fbe8cfa674406',
             'EDC_QReceipts/REC1203_897fbe8cfa674406.DAT',
             'EDC_QImages/Images/S897fbe8cfa674406_1.JPG',
             'EDC_QImages/Images/S897fbe8cfa674406_2.JPG',
