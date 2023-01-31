@@ -6,12 +6,12 @@ from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cord import EcommerceTransformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
 from transform.transformers.survey_transformer import SurveyTransformer
 
 
-def get_transformer(response: SurveyResponse, sequence_no=1000):
+def get_transformer(response: SurveyResponseV1, sequence_no=1000):
     """Returns the appropriate survey transformer based on survey_id
 
     :param dict response: A dictionary like object representing the survey response

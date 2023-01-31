@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 from transform.transformers.transform_selector import get_transformer
 
 
@@ -33,7 +33,7 @@ class TestIndividualSurveyTransformer(unittest.TestCase):
         print("\n======EXPECTED=======\n")
         print(expected)
 
-        transformer = get_transformer(SurveyResponse(submission_dict))
+        transformer = get_transformer(SurveyResponseV1(submission_dict))
         pck_name, pck = transformer.create_pck()
 
         actual = pck

@@ -5,7 +5,7 @@ from decimal import ROUND_HALF_UP, Decimal
 import structlog
 
 from transform.transformers.common_software.cs_formatter import CSFormatter
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
@@ -88,7 +88,7 @@ class MBSTransformer(SurveyTransformer):
             except ValueError:
                 return None
 
-    def __init__(self, response: SurveyResponse, seq_nr=0):
+    def __init__(self, response: SurveyResponseV1, seq_nr=0):
 
         super().__init__(response, seq_nr)
 
