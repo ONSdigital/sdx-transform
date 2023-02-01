@@ -11,7 +11,7 @@ from transform.transformers.index_file import IndexFile
 from .pdf_transformer import PDFTransformer
 
 # Configure the number of retries attempted before failing call
-from .response import SurveyResponse
+from .response import SurveyResponseV1
 from ..utilities.formatter import Formatter
 
 session = requests.Session()
@@ -26,7 +26,7 @@ class ImageTransformer:
     """Transforms a survey and _response into a zip file
     """
 
-    def __init__(self, logger, survey, response: SurveyResponse, current_time=None, sequence_no=1000,
+    def __init__(self, logger, survey, response: SurveyResponseV1, current_time=None, sequence_no=1000,
                  base_image_path=""):
 
         if current_time is None:

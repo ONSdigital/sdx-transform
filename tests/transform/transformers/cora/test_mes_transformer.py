@@ -1,6 +1,6 @@
 import unittest
 from transform.transformers.cora.mes_transformer import MESTransformer
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 
 
 def get_transformer():
@@ -25,7 +25,7 @@ def get_transformer():
         'data': {}
     }
 
-    transformer = MESTransformer(SurveyResponse(submission))
+    transformer = MESTransformer(SurveyResponseV1(submission))
     return transformer
 
 

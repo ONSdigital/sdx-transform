@@ -6,7 +6,7 @@ from decimal import Decimal, ROUND_HALF_UP
 import dateutil.parser
 import structlog
 
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 
 logger = structlog.get_logger()
 
@@ -212,7 +212,7 @@ class PCKTransformer:
     qpses_survey_ids = ["160", "165", "169"]
     construction_survey_id = "228"
 
-    def __init__(self, survey, response_data: SurveyResponse):
+    def __init__(self, survey, response_data: SurveyResponseV1):
         self.survey = survey
         self.response = response_data
 

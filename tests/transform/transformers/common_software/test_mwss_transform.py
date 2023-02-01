@@ -7,7 +7,7 @@ from collections import OrderedDict
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.common_software.mwss_transformer import MWSSTransformer
 from transform.transformers.processor import Processor
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 from transform.transformers.survey import Survey
 from transform.transformers.transform_selector import get_transformer
 
@@ -118,7 +118,7 @@ class OpTests(unittest.TestCase):
             },
             "submitted_at": "2017-04-12T13:01:26Z",
         }
-        transformer = MWSSTransformer(SurveyResponse(response), 0)
+        transformer = MWSSTransformer(SurveyResponseV1(response), 0)
         self.assertTrue(transformer)
 
 
@@ -897,7 +897,7 @@ class BatchFileTests(unittest.TestCase):
         reply = json.loads(f.read())
         f.close()
         reply["tx_id"] = "27923934-62de-475c-bc01-433c09fd38b8"
-        response = SurveyResponse(reply)
+        response = SurveyResponseV1(reply)
 
         return_value = CSFormatter._idbr_receipt(
             response.survey_id, response.ru_ref, response.ru_check, response.period)
@@ -913,7 +913,7 @@ class BatchFileTests(unittest.TestCase):
         f.close()
         reply["tx_id"] = "27923934-62de-475c-bc01-433c09fd38b8"
         reply["collection"]["period"] = "200911"
-        response = SurveyResponse(reply)
+        response = SurveyResponseV1(reply)
         self.assertEqual(reply["tx_id"], response.tx_id)
         self.assertEqual(datetime.date(2017, 3, 1), response.submitted_at.date())
         self.assertEqual("134", response.survey_id)
@@ -938,7 +938,7 @@ class BatchFileTests(unittest.TestCase):
             ("0140", 124),
             ("0151", 217222)
         ])
-        response = SurveyResponse(reply)
+        response = SurveyResponseV1(reply)
         return_value = CSFormatter._pck_lines(
             response.data, response.instrument_id, response.ru_ref, response.ru_check, response.period)
         self.assertEqual([
@@ -961,7 +961,7 @@ class BatchFileTests(unittest.TestCase):
         reply["survey_id"] = "134"
         reply["collection"]["period"] = "200911"
         reply["metadata"]["ru_ref"] = "49900001225C"
-        response = SurveyResponse(reply)
+        response = SurveyResponseV1(reply)
         data = MWSSTransformer.transform(
             OrderedDict([
                 ("40", 2),
@@ -1004,7 +1004,7 @@ class PackingTests(unittest.TestCase):
         }
         seq_nr = 12345
 
-        transformer = get_transformer(SurveyResponse(expected_json_data), sequence_no=seq_nr)
+        transformer = get_transformer(SurveyResponseV1(expected_json_data), sequence_no=seq_nr)
         result = transformer.get_zip(img_seq=itertools.count())
 
         z = zipfile.ZipFile(result)
