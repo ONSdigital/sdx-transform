@@ -2,7 +2,7 @@ import datetime
 import json
 import unittest
 
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 from transform.transformers.survey import MissingIdsException
 
 
@@ -33,7 +33,7 @@ class SurveyResponseTests(unittest.TestCase):
         self.response = json.loads(self.response_json)
 
     def test_all_metadata_present(self):
-        result = SurveyResponse(self.response)
+        result = SurveyResponseV1(self.response)
 
         self.assertEqual("897fbe8c-fa67-4406-b05c-3e893bc1af78", result.tx_id)
         self.assertEqual("009", result.survey_id)
@@ -50,4 +50,4 @@ class SurveyResponseTests(unittest.TestCase):
         del self.response["collection"]["instrument_id"]
 
         with self.assertRaises(MissingIdsException):
-            SurveyResponse(self.response)
+            SurveyResponseV1(self.response)

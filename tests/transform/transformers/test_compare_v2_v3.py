@@ -3,7 +3,7 @@ import json
 import os
 import unittest
 
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 from transform.transformers.transform_selector import get_transformer
 
 
@@ -33,10 +33,10 @@ class TestCompareV2V3(unittest.TestCase):
             v3_dict = get_file_as_dict(v3_response_path)
             v2_dict = get_file_as_dict(get_v2_path(v3_response_path))
 
-            transformer = get_transformer(SurveyResponse(v3_dict))
+            transformer = get_transformer(SurveyResponseV1(v3_dict))
             pck_name_3, pck_v3 = transformer.create_pck()
 
-            transformer = get_transformer(SurveyResponse(v2_dict))
+            transformer = get_transformer(SurveyResponseV1(v2_dict))
             pck_name_2, pck_v2 = transformer.create_pck()
 
             print(" ")

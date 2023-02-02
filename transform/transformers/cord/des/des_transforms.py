@@ -110,82 +110,11 @@ transformations = {
         }
     ],
     "608": [Transform.THOUSANDS],
-    "609": [Transform.THOUSANDS],
-    "610": [Transform.THOUSANDS],
-    "611": [
-        Transform.RADIO,
-        {
-            "Yes": "10",
-            "No": "01"
-        }
-    ],
-    "612": [Transform.THOUSANDS],
-    "613": [
+    "800": [
         Transform.CHECKBOX,
         "1",
         "0"
     ],
-    "614": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "615": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "616": [Transform.THOUSANDS],
-    "617": [Transform.THOUSANDS],
-    "618": [Transform.THOUSANDS],
-    "619": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "620": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "621": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "622": [Transform.THOUSANDS],
-    "623": [Transform.THOUSANDS],
-    "624": [Transform.THOUSANDS],
-    "625": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "626": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "627": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "628": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "629": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "630": [Transform.THOUSANDS],
-    "631": [Transform.THOUSANDS],
-    "632": [Transform.THOUSANDS],
-    "633": [Transform.THOUSANDS],
-    "634": [Transform.THOUSANDS],
     "635": [
         Transform.CHECKBOX,
         "1",
@@ -216,12 +145,7 @@ transformations = {
         "1",
         "0"
     ],
-    "641": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "642": [Transform.THOUSANDS],
+    "801": [Transform.THOUSANDS],
     "643": [Transform.THOUSANDS],
     "644": [Transform.THOUSANDS],
     "645": [Transform.THOUSANDS],
@@ -251,19 +175,14 @@ transformations = {
         "1",
         "0"
     ],
-    "656": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "657": [
+    "802": [
         Transform.CHECKBOX,
         "1",
         "0"
     ],
     "658": [Transform.THOUSANDS],
-    "659": [Transform.THOUSANDS],
-    "660": [Transform.THOUSANDS],
+    "803": [Transform.THOUSANDS],
+    "804": [Transform.THOUSANDS],
     "661": [
         Transform.CHECKBOX,
         "1",
@@ -377,52 +296,11 @@ transformations = {
         }
     ],
     "687": [Transform.THOUSANDS],
-    "688": [Transform.THOUSANDS],
-    "689": [Transform.THOUSANDS],
-    "690": [
-        Transform.RADIO,
-        {
-            "Yes": "10",
-            "No": "01"
-        }
-    ],
-    "691": [Transform.THOUSANDS],
-    "692": [
+    "805": [
         Transform.CHECKBOX,
         "1",
         "0"
     ],
-    "693": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "694": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "695": [Transform.THOUSANDS],
-    "696": [Transform.THOUSANDS],
-    "697": [Transform.THOUSANDS],
-    "698": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "699": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "700": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "701": [Transform.THOUSANDS],
-    "702": [Transform.THOUSANDS],
-    "703": [Transform.THOUSANDS],
     "704": [
         Transform.CHECKBOX,
         "1",
@@ -453,12 +331,7 @@ transformations = {
         "1",
         "0"
     ],
-    "710": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "711": [Transform.THOUSANDS],
+    "806": [Transform.THOUSANDS],
     "712": [Transform.THOUSANDS],
     "713": [Transform.THOUSANDS],
     "714": [Transform.THOUSANDS],
@@ -488,19 +361,14 @@ transformations = {
         "1",
         "0"
     ],
-    "725": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "726": [
+    "807": [
         Transform.CHECKBOX,
         "1",
         "0"
     ],
     "727": [Transform.THOUSANDS],
-    "728": [Transform.THOUSANDS],
-    "729": [Transform.THOUSANDS],
+    "808": [Transform.THOUSANDS],
+    "809": [Transform.THOUSANDS],
     "730": [
         Transform.CHECKBOX,
         "1",
@@ -513,24 +381,18 @@ transformations = {
     ],
     "732": [Transform.THOUSANDS],
     "733": [Transform.THOUSANDS],
-    "734": [Transform.THOUSANDS],
-    "736": [Transform.THOUSANDS],
-    "738": [Transform.THOUSANDS],
-    "739": [Transform.THOUSANDS],
-    "740": [Transform.THOUSANDS],
-    "741": [Transform.THOUSANDS],
-    "742": [Transform.THOUSANDS],
-    "743": [Transform.THOUSANDS],
-    "744": [Transform.THOUSANDS],
-    "745": [Transform.THOUSANDS],
-    "746": [Transform.THOUSANDS],
-    "747": [Transform.THOUSANDS],
-    "748": [Transform.THOUSANDS],
-    "749": [Transform.THOUSANDS],
-    "750": [Transform.THOUSANDS],
-    "751": [Transform.THOUSANDS],
-    "752": [Transform.THOUSANDS],
+    "810": [Transform.THOUSANDS],
+    "811": [Transform.THOUSANDS],
+    "812": [Transform.THOUSANDS],
+    "813": [Transform.THOUSANDS],
     "753": [
+        Transform.RADIO,
+        {
+            "Yes": "10",
+            "No": "01"
+        }
+    ],
+    "814": [
         Transform.RADIO,
         {
             "Yes": "10",
@@ -539,10 +401,25 @@ transformations = {
     ],
     "754": [Transform.THOUSANDS],
     "755": [Transform.THOUSANDS],
+    "815": [
+        Transform.RADIO,
+        {
+            "Yes": "10",
+            "No": "01"
+        }
+    ],
     "756": [Transform.THOUSANDS],
     "757": [Transform.THOUSANDS],
+    "816": [
+        Transform.RADIO,
+        {
+            "Yes": "10",
+            "No": "01"
+        }
+    ],
     "758": [Transform.THOUSANDS],
     "759": [Transform.THOUSANDS],
+    "817": [Transform.THOUSANDS],
     "760": [
         Transform.RADIO,
         {
@@ -620,144 +497,6 @@ transformations = {
         Transform.CHECKBOX,
         "1",
         "0"
-    ],
-    "431": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "432": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "433": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "434": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "772": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "515": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "516": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "517": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "773": [
-        Transform.RADIO,
-        {
-            "Yes": "10",
-            "No": "01"
-        }
-    ],
-    "774": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "775": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "776": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "777": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "778": [
-        Transform.MULTI_RADIO,
-        {
-            "Yes, we gave third parties access to our big data": {
-                "qcode": "778",
-                "ticked": "10",
-                "unticked": "01"
-            },
-            "No, we did not give third parties access to our big data": {
-                "qcode": "778",
-                "ticked": "01",
-                "unticked": "10"
-            },
-            "We did not hold any big data": {
-                "qcode": "779",
-                "ticked": "1",
-                "unticked": "0",
-                "excluder": "True"
-            }
-        }
-    ],
-    "780": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "781": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "782": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "783": [
-        Transform.CHECKBOX,
-        "1",
-        "0"
-    ],
-    "518": [
-        Transform.RADIO,
-        {
-            "Yes": "10",
-            "No": "01"
-        }
-    ],
-    "495": [
-        Transform.MULTI_RADIO,
-        {
-            "Own employees": {
-                "qcode": "495",
-                "ticked": "1",
-                "unticked": "0"
-            },
-            "External suppliers": {
-                "qcode": "496",
-                "ticked": "1",
-                "unticked": "0"
-            }
-        }
-    ],
-    "784": [Transform.THOUSANDS],
-    "785": [
-        Transform.RADIO,
-        {
-            "Yes": "10",
-            "No": "01"
-        }
     ],
     "786": [
         Transform.CHECKBOX,

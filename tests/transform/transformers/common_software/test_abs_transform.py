@@ -3,7 +3,7 @@ import unittest
 
 from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
 from transform.transformers.common_software.cs_formatter import CSFormatter
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 
 
 class ABSTests(unittest.TestCase):
@@ -21,5 +21,5 @@ class ABSTests(unittest.TestCase):
 
         response['tx_id'] = "11111111-2222-3333-4444-555555555555"
         print(response)
-        pck_name, pck = ABSTransformer(SurveyResponse(response)).create_pck()
+        pck_name, pck = ABSTransformer(SurveyResponseV1(response)).create_pck()
         self.assertEqual("053_1111111122223333", pck_name)

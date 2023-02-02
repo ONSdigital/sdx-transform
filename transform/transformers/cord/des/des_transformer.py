@@ -1,5 +1,4 @@
-import decimal
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import Decimal, InvalidOperation
 
 import structlog
 
@@ -13,18 +12,15 @@ logger = structlog.get_logger()
 def thousands(value: str) -> str:
     """
     Transform the value for a currency question into thousands.
-    Rounding is done on a ROUND_HALF_UP basis.
-
-    :param value:  the value to round
+    :param value: the value to round
     """
     if not value:
         return ''
     try:
-        decimal.getcontext().rounding = ROUND_HALF_UP
-        return str(Decimal(round(Decimal(float(value))) / 1000).quantize(1))
+        return str((Decimal(value)) / 1000)
 
-    except TypeError:
-        logger.info("Tried to quantize a NoneType object. Returning an empty string")
+    except InvalidOperation:
+        logger.info("Not a numerical value. Returning an empty string")
         return ''
 
 

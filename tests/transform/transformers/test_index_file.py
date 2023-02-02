@@ -5,7 +5,7 @@ import unittest
 
 from structlog import wrap_logger
 from transform.transformers.index_file import IndexFile
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1
 
 
 class IndexFileTests(unittest.TestCase):
@@ -13,7 +13,7 @@ class IndexFileTests(unittest.TestCase):
     def setUp(self):
         with open("./tests/data/eq-mwss.json") as fb:
             data = fb.read()
-        self.response = SurveyResponse(json.loads(data))
+        self.response = SurveyResponseV1(json.loads(data))
 
         self.log = wrap_logger(logging.getLogger(__name__))
         self.image_names = ["Image1", "Image2"]

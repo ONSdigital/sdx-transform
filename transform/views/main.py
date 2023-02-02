@@ -6,13 +6,17 @@ from jinja2 import Environment, PackageLoader
 from structlog.contextvars import bind_contextvars
 
 from transform import app
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponseV1, SurveyResponseV2
 from transform.transformers.survey import MissingSurveyException, MissingIdsException
 from transform.transformers.transform_selector import get_transformer
 
 env = Environment(loader=PackageLoader('transform', 'templates'))
 
 logger = structlog.get_logger()
+
+VERSION = "version"
+V1 = "v1"
+V2 = "v2"
 
 
 @app.errorhandler(400)
@@ -59,7 +63,12 @@ def transform(sequence_no=1000):
         sequence_no = int(sequence_no)
 
     try:
-        survey_response = SurveyResponse(response)
+        version = request.args.get(VERSION, V1)
+        if version == V2:
+            survey_response = SurveyResponseV2(response)
+        else:
+            survey_response = SurveyResponseV1(response)
+
         transformer = get_transformer(survey_response, sequence_no)
         zip_file = transformer.get_zip()
         logger.info("Transformation was a success, returning zip file")
