@@ -12,7 +12,7 @@ __doc__ = """
 SDX PDF Transformer.
 """
 
-from transform.transformers.response import SurveyResponseV1
+from transform.transformers.response import SurveyResponse
 
 styles = getSampleStyleSheet()
 
@@ -48,7 +48,7 @@ MAX_ANSWER_CHARACTERS_PER_LINE = 35
 
 class PDFTransformer:
 
-    def __init__(self, survey, response: SurveyResponseV1):
+    def __init__(self, survey, response: SurveyResponse):
         '''
         Sets up variables needed to write out a pdf
         '''
