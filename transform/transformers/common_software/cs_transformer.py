@@ -6,7 +6,7 @@ import structlog
 from jinja2 import Environment, PackageLoader
 
 from transform.transformers.common_software.pck_transformer import PCKTransformer
-from transform.transformers.response import SurveyResponseV1
+from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 from transform.utilities.formatter import Formatter
 
@@ -17,7 +17,7 @@ env = Environment(loader=PackageLoader('transform', 'templates'))
 
 class CSTransformer(SurveyTransformer):
 
-    def __init__(self, response: SurveyResponseV1, sequence_no=1000):
+    def __init__(self, response: SurveyResponse, sequence_no=1000):
         super().__init__(response, sequence_no)
         self._logger = logger
         self._batch_number = False

@@ -12,6 +12,17 @@ class SurveyResponse:
 
     def __init__(self, response: dict):
         self.response = response
+        self.tx_id: str = ""
+        self.survey_id: str = ""
+        self.instrument_id: str = ""
+        self.period: str = ""
+        self.ru_ref: str = ""
+        self.ru_check: str = ""
+        self.submitted_at_raw: str = ""
+        self.submitted_at: Union[datetime, date] = datetime.now()
+        self.data: Dict[str, str] = {}
+        self.ref_period_start_date: str = ""
+        self.ref_period_end_date: str = ""
 
     def _extract(self, *field_names) -> str:
         parent = self.response

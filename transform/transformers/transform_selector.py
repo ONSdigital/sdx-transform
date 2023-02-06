@@ -4,14 +4,15 @@ from transform.transformers.common_software.acas.acas_transformer import ACASTra
 from transform.transformers.cora import UKISTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cord import EcommerceTransformer
+from transform.transformers.cord.des.des2021_transformer import DES2021Transformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer
-from transform.transformers.response import SurveyResponseV1
+from transform.transformers.response import SurveyResponse
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
 from transform.transformers.survey_transformer import SurveyTransformer
 
 
-def get_transformer(response: SurveyResponseV1, sequence_no=1000):
+def get_transformer(response: SurveyResponse, sequence_no=1000):
     """Returns the appropriate survey transformer based on survey_id
 
     :param dict response: A dictionary like object representing the survey response
@@ -30,7 +31,10 @@ def get_transformer(response: SurveyResponseV1, sequence_no=1000):
     # CORD
     elif survey_id == "187":
         if response.instrument_id in ['0001', '0002']:
-            transformer = DESTransformer(response, sequence_no)
+            if response.period == "2021":
+                transformer = DES2021Transformer(response, sequence_no)
+            else:
+                transformer = DESTransformer(response, sequence_no)
         else:
             transformer = EcommerceTransformer(response, sequence_no)
 
