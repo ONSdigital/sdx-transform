@@ -90,4 +90,4 @@ def transform(sequence_no=1000):
 def healthcheck():
     """A simple endpoint that reports the health of the application"""
 
-    return jsonify({'status': 'OK', 'version': '1.23.0'})
+    return jsonify({'status': 'OK', 'version': '1.24.0'})
