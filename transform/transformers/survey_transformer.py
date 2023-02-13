@@ -64,11 +64,11 @@ class SurveyTransformer:
 
         pck_name, pck = self.create_pck()
         if pck is not None:
-            self.image_transformer.zip.append(os.path.join(SDX_FTP_DATA_PATH, pck_name), pck)
+            self.image_transformer.append_to_zip(os.path.join(SDX_FTP_DATA_PATH, pck_name), pck)
 
         receipt_name, receipt = self.create_receipt()
         if receipt is not None:
-            self.image_transformer.zip.append(os.path.join(SDX_FTP_RECEIPT_PATH, receipt_name), receipt)
+            self.image_transformer.append_to_zip(os.path.join(SDX_FTP_RECEIPT_PATH, receipt_name), receipt)
 
         self._create_images(img_seq)
 

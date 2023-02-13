@@ -1,4 +1,3 @@
-import datetime
 import os.path
 import requests
 import subprocess
@@ -6,8 +5,8 @@ import subprocess
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-from transform.transformers.in_memory_zip import InMemoryZip
 from transform.transformers.index_file import IndexFile
+from .image_base import ImageBase
 from .pdf_transformer import PDFTransformer
 
 # Configure the number of retries attempted before failing call
@@ -22,28 +21,20 @@ session.mount('http://', HTTPAdapter(max_retries=retries))
 session.mount('https://', HTTPAdapter(max_retries=retries))
 
 
-class ImageTransformer:
+class ImageTransformer(ImageBase):
     """Transforms a survey and _response into a zip file
     """
 
     def __init__(self, logger, survey, response: SurveyResponse, current_time=None, sequence_no=1000,
                  base_image_path=""):
 
-        if current_time is None:
-            current_time = datetime.datetime.utcnow()
+        super().__init__(logger, survey, response, current_time, sequence_no, base_image_path)
 
         self._page_count = -1
-        self.current_time = current_time
         self.index_file = None
         self._pdf = None
         self._image_names = []
-        self.zip = InMemoryZip()
-        self.logger = logger
-        self.survey = survey
-        self.response = response
         self.sequence_no = sequence_no
-        self.image_path = "" if base_image_path == "" else os.path.join(base_image_path, "Images")
-        self.index_path = "" if base_image_path == "" else os.path.join(base_image_path, "Index")
 
     def get_zipped_images(self, num_sequence=None):
         """Builds the images and the index_file file into the zip file.
@@ -55,11 +46,6 @@ class ImageTransformer:
         self._create_index()
         self._build_zip()
         return self.zip
-
-    def get_zip(self):
-        """Get access to the in memory zip """
-        self.zip.rewind()
-        return self.zip.in_memory_zip
 
     def _get_image_name(self, i: int):
         tx_id = self.response.tx_id
