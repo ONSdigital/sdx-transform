@@ -14,7 +14,7 @@ def get_secret(project_id: str, secret_id: str) -> bytes:
 
     Makes API call to Google Secret Manager, retrieving secret.
     """
-    logger.info("Getting secrets from Secret Manager")
+    logger.info(f"Getting secrets from Secret Manager: {secret_id}")
     version_id = 'latest'
 
     # Create the Secret Manager client.
