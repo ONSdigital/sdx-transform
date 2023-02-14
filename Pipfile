@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 python-dateutil = "==2.8.1"
 reportlab = ">=3.5.55"
+google-cloud-secret-manager = "==2.4.0"
 structlog = "==20.1.0"
 arrow = "==0.15.6"
 six = "==1.14.0"
