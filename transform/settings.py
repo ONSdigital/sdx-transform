@@ -19,7 +19,7 @@ def _get_value(key, default_value=None):
 
 PROJECT_ID = os.getenv('PROJECT_ID')
 
-FTP_PATH = get_secret(PROJECT_ID, "ftp-path")
+FTP_PATH = get_secret(PROJECT_ID, "ftp-path").decode("UTF-8")
 SDX_FTP_IMAGE_PATH = _get_value("SDX_FTP_IMAGES_PATH", "EDC_QImages")
 
 SDX_FTP_DATA_PATH = "EDC_QData"

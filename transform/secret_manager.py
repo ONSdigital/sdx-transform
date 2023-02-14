@@ -26,5 +26,4 @@ def get_secret(project_id: str, secret_id: str) -> bytes:
     response = client.access_secret_version(request={"name": name})
 
     payload = response.payload.data
-
     return payload
