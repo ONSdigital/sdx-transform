@@ -10,7 +10,7 @@ logging_config()
 app = Flask(__name__)
 
 from .views import main  # noqa
-__version__ = "4.3.2"
+__version__ = "1.16.7"
 
 # Configure the number of retries attempted before failing call
 session = requests.Session()
