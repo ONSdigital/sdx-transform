@@ -5,6 +5,7 @@ import structlog
 
 from transform.settings import SDX_FTP_IMAGE_PATH, SDX_FTP_DATA_PATH, SDX_FTP_RECEIPT_PATH, SDX_RESPONSE_JSON_PATH
 from transform.transformers import ImageTransformer
+from transform.transformers.image_requester import ImageRequester
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey import Survey
 from transform.utilities.formatter import Formatter
@@ -20,13 +21,17 @@ class SurveyTransformer:
 
     """
 
-    def __init__(self, response: SurveyResponse, sequence_no):
+    def __init__(self, response: SurveyResponse, sequence_no, use_sdx_image: bool = False):
         self.survey_response = response
         self.sequence_no = sequence_no
         self.logger = logger
         self.survey = Survey.load_survey(self.survey_response.survey_id, self.survey_response.instrument_id)
-        self.image_transformer = ImageTransformer(self.logger, self.survey, self.survey_response,
-                                                  sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
+        if use_sdx_image:
+            self.image_transformer = ImageRequester(self.logger, self.survey, self.survey_response,
+                                                    sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
+        else:
+            self.image_transformer = ImageTransformer(self.logger, self.survey, self.survey_response,
+                                                      sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
 
     def create_pck(self):
         """

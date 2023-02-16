@@ -78,7 +78,7 @@ class ABSTransformer(SurveyTransformer):
     def __init__(self, response: SurveyResponse, seq_nr=0):
         period = self._extract_year(response.ref_period_start_date)
         response.period = '20' + period + '12'
-        super().__init__(response, seq_nr)
+        super().__init__(response, seq_nr, use_sdx_image=True)
         self.period = period
 
     def _extract_year(self, ref_period_start_date: str):
