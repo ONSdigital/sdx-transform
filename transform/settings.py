@@ -26,6 +26,8 @@ SDX_FTP_DATA_PATH = "EDC_QData"
 SDX_FTP_RECEIPT_PATH = "EDC_QReceipts"
 SDX_RESPONSE_JSON_PATH = "EDC_QJson"
 
+USE_IMAGE_SERVICE: bool = os.getenv('USE_IMAGE_SERVICE', "false") == "true"
+
 
 def cloud_config():
     global FTP_PATH
