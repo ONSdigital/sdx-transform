@@ -20,20 +20,6 @@ retries = Retry(total=5, backoff_factor=0.1)
 session.mount('http://', HTTPAdapter(max_retries=retries))
 
 
-def synchronized_method(method):
-    outer_lock = threading.Lock()
-    lock_name = "__" + method.__name__ + "_lock" + "__"
-
-    def sync_method(self, *args, **kws):
-        with outer_lock:
-            if not hasattr(self, lock_name): setattr(self, lock_name, threading.Lock())
-            lock = getattr(self, lock_name)
-            with lock:
-                return method(self, *args, **kws)
-
-    return sync_method
-
-
 class RetryableError(Exception):
     """
     Exception to be raised to indicate that the survey submission should be retried.
@@ -75,7 +61,6 @@ class ImageRequester(ImageBase):
         self.zip.append(os.path.join(self.index_path, self.index_file.index_name), self.index_file.in_memory_index.getvalue())
         self.zip.rewind()
 
-    @synchronized_method
     def _request_image(self):
         survey_json = json.dumps(self.response.response)
         http_response = self._post(survey_json)
