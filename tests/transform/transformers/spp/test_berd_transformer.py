@@ -5,10 +5,6 @@ from transform.transformers.spp.berd.berd_transformer import Answer, extract_ans
 
 
 class BerdTransformerTests(unittest.TestCase):
-    """
-    Final output reqs:
-
-    """
 
     def test_get_correct_qcode_from_json(self):
         data = {
@@ -61,7 +57,6 @@ class BerdTransformerTests(unittest.TestCase):
         expected = [Answer("102", "Yes", None, None), Answer("101", "No", None, None)]
 
         self.assertEqual(actual, expected)
-
 
     def test_add_list_item_id_to_answer(self):
         data = {
@@ -150,18 +145,16 @@ class BerdTransformerTests(unittest.TestCase):
             SPP("303", "Yes", 2),
             SPP("309", "Yes", 2),
             SPP("303", "Yes", 3),
-
-
         ]
 
         self.assertEqual(actual, expected)
 
-    # def test_example_berd(self):
-    #     f = open("transform/transformers/spp/berd/berd_example.json")
-    #     result: list = json.load(f)
-    #
-    #     data = result["data"]
-    #     extracted = extract_answers(data)
-    #
-    #     for line in extracted:
-    #         print(line)
+    def test_example_berd(self):
+        f = open("transform/transformers/spp/berd/berd_example.json")
+        result: list = json.load(f)
+
+        data = result["data"]
+        extracted = convert_to_spp(extract_answers(data))
+
+        for line in extracted:
+            print(line)
