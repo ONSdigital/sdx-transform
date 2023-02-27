@@ -4,6 +4,7 @@ from decimal import Decimal, ROUND_HALF_UP
 
 import structlog
 
+from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.common_software.abs.abs_transforms import motor_trades, whole_sale, catering, \
     property_survey, transport_services, service_commission, computer_industry, other_services, postal, non_marketing, \
     duty, standard, construction
@@ -78,7 +79,7 @@ class ABSTransformer(SurveyTransformer):
     def __init__(self, response: SurveyResponse, seq_nr=0):
         period = self._extract_year(response.ref_period_start_date)
         response.period = '20' + period + '12'
-        super().__init__(response, seq_nr)
+        super().__init__(response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
         self.period = period
 
     def _extract_year(self, ref_period_start_date: str):
