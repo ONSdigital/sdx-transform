@@ -1,7 +1,7 @@
 import unittest
 
 from transform.transformers.common_software.acas.acas_transformer import perform_initial_transforms, \
-    perform_derived_transforms, perform_replacement_transforms
+    perform_derived_transforms, perform_replacement_transforms, extract_pck_period
 from transform.transformers.common_software.acas.acas_transforms import TransformType, DerivedTransformType, \
     DerivedTransform
 
@@ -262,3 +262,29 @@ class TestPerformReplacementTransforms(unittest.TestCase):
             "102": 2
         }
         self.assertEqual(expected, actual)
+
+
+class TestPeriodForPck(unittest.TestCase):
+    def test_extract_pck_period(self):
+        # arrange
+        expected_period = '22'
+        pck_period = extract_pck_period('202212')
+        self.assertEqual(expected_period, pck_period)
+
+    def test_extract_pck_period_23(self):
+        # arrange
+        expected_period = '23'
+        pck_period = extract_pck_period('202312')
+        self.assertEqual(expected_period, pck_period)
+
+    def test_extract_pck_short_period(self):
+        # arrange
+        expected_period = '22'
+        pck_period = extract_pck_period('2022')
+        self.assertEqual(expected_period, pck_period)
+
+    def test_extract_pck_two_digit_period(self):
+        # arrange
+        expected_period = '22'
+        pck_period = extract_pck_period('22')
+        self.assertEqual(expected_period, pck_period)
