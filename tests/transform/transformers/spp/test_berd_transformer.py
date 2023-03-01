@@ -155,29 +155,28 @@ class ExtractAnswerTests(unittest.TestCase):
 
         actual = extract_answers(data)
         expected = [
-            Answer("101", "Yes", "caaa", "product_codes"),
-            Answer("102", "No", "caaa", "product_codes"),
-            Answer("101", "Yes", "daaa", "product_codes"),
-            Answer("102", "No", "daaa", "product_codes"),
-            Answer("101", "Yes", "caaa", "product_codes"),
-            Answer("102", "No", "caaa", "product_codes"),
-            Answer("101", "Yes", "daaa", "product_codes"),
-            Answer("102", "No", "daaa", "product_codes"),
-            Answer("103", "x", None, None),
-            Answer("104", "y", None, None),
+            Answer("101", "Yes", "caaa", "product1"),
+            Answer("102", "No", "caaa", "product1"),
+            Answer("101", "Yes", "daaa", "product1"),
+            Answer("102", "No", "daaa", "product1"),
+            Answer("101", "Yes", "cbbb", "product1"),
+            Answer("102", "No", "cbbb", "product1"),
+            Answer("103", "Yes", "cccc", "product2"),
+            Answer("104", "No", "cccc", "product2"),
+            Answer("105", "x", None, None),
+            Answer("106", "y", None, None),
         ]
 
         self.assertEqual(actual, expected)
 
 
-
 class CovertToSppTests(unittest.TestCase):
 
     def test_convert_to_spp(self):
-        answer_list = [Answer("102", "Yes", "YxAbgY", "product_codes"),
-                       Answer("101", "No", "IBzcQr", "product_codes")]
+        answer_list = [Answer("101", "Yes", "YxAbgY", "product_codes"),
+                       Answer("102", "No", "IBzcQr", "product_codes")]
         actual = convert_to_spp(answer_list)
-        expected = [SPP("102", "Yes", 1), SPP("101", "No", 1)]
+        expected = [SPP("101", "Yes", 1), SPP("102", "No", 2)]
 
         self.assertEqual(actual, expected)
 
@@ -246,6 +245,31 @@ class CovertToSppTests(unittest.TestCase):
             SPP("101", "No", 1), SPP("102", "Yes", 1),
             SPP("101", "No", 2), SPP("102", "Yes", 2),
             SPP("101", "No", 3), SPP("102", "Yes", 3),
+        ]
+
+        self.assertEqual(actual, expected)
+
+    def test_internal_and_external(self):
+        answer_list = [
+            Answer("101", "Yes", "caaa", "internal"),
+            Answer("102", "No", "caaa", "internal"),
+            Answer("101", "Yes", "daaa", "internal"),
+            Answer("102", "No", "daaa", "internal"),
+            Answer("101", "Yes", "cbbb", "internal"),
+            Answer("102", "No", "cbbb", "internal"),
+            Answer("103", "Yes", "cccc", "external"),
+            Answer("104", "No", "cccc", "external"),
+            Answer("105", "x", None, None),
+            Answer("106", "y", None, None),
+        ]
+
+        actual = convert_to_spp(answer_list)
+        expected = [
+            SPP("101", "Yes", 1), SPP("102", "No", 1),
+            SPP("101", "Yes", 2), SPP("102", "No", 2),
+            SPP("101", "Yes", 3), SPP("102", "No", 3),
+            SPP("103", "Yes", 1), SPP("104", "No", 1),
+            SPP("105", "x", 0), SPP("106", "y", 0),
         ]
 
         self.assertEqual(actual, expected)
