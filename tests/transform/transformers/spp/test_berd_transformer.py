@@ -2,7 +2,7 @@ import json
 import unittest
 
 import transform.transformers.spp.berd.berd_transformer
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponse, InvalidDataException
 from transform.transformers.spp.berd.berd_transformer import Answer, extract_answers, convert_to_spp, SPP, \
     BERDTransformer
 
@@ -266,7 +266,7 @@ class ExtractAnswerTests(unittest.TestCase):
                 {"answer_id": "a5", "value": "b"},
             ],
             "lists": [],
-            "answer_codes": [
+            "answer_codez": [
                 {"answer_id": "a1", "code": "101"},
                 {"answer_id": "a2", "code": "12e102"},
                 {"answer_id": "a3", "code": "12f102"},
@@ -285,6 +285,8 @@ class ExtractAnswerTests(unittest.TestCase):
         ]
 
         self.assertEqual(expected, actual)
+
+
 
 
 class CovertToSppTests(unittest.TestCase):
@@ -448,10 +450,10 @@ class BERDTransformerTests(unittest.TestCase):
                 {"answer_id": "a8", "code": "c104"},
                 {"answer_id": "a9", "code": "105"},
                 {"answer_id": "a10", "code": "106"},
-                {"answer_id": "a11", "code": "e107"},
-                {"answer_id": "a12", "code": "e108"},
-                {"answer_id": "a13", "code": "f107"},
-                {"answer_id": "a14", "code": "f108"},
+                {"answer_id": "a11", "code": "56e107"},
+                {"answer_id": "a12", "code": "56e108"},
+                {"answer_id": "a13", "code": "56f107"},
+                {"answer_id": "a14", "code": "56f108"},
             ]
         }
 
@@ -492,4 +494,27 @@ class BERDTransformerTests(unittest.TestCase):
 
         self.assertEqual("002_40809d1f5efa41e3.json", filename)
         self.assertEqual(expected, json_dict)
+
+    def test_invalid_transform(self):
+        transform.transformers.spp.berd.berd_transformer.USE_IMAGE_SERVICE = True
+        data = {
+            "answers": [
+                {"answer_id": "a1", "value": "Yes", "list_item_id": "aaa"},
+
+            ],
+            "answer_codes": [
+                {"answer_id": "a1", "code": "c101"},
+            ]
+        }
+
+        response = SurveyResponse({})
+        response.tx_id = "40809d1f-5efa-41e3-91b8-5b63f1da9bd0"
+        response.survey_id = "002"
+        response.instrument_id = "0001"
+        response.ru_ref = "12346789012A"
+        response.period = "202212"
+        response.data = data
+
+        with self.assertRaises(InvalidDataException):
+            BERDTransformer(response)
 

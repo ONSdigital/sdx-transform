@@ -8,6 +8,10 @@ from transform.transformers.survey import MissingIdsException, Survey
 logger = structlog.get_logger()
 
 
+class InvalidDataException(Exception):
+    pass
+
+
 class SurveyResponse:
 
     def __init__(self, response: dict):

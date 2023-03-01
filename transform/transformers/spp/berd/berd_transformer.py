@@ -1,10 +1,13 @@
 from dataclasses import dataclass, asdict
 from typing import Union, Dict, List
 
+import structlog
+
 from transform.settings import USE_IMAGE_SERVICE
-from transform.transformers.response import SurveyResponse
+from transform.transformers.response import SurveyResponse, InvalidDataException
 from transform.transformers.survey_transformer import SurveyTransformer
 
+logger = structlog.get_logger()
 
 @dataclass(order=True)
 class Answer:
@@ -48,7 +51,7 @@ def extract_answers(data: Dict) -> List[Answer]:
                 break
 
         if not qcode:
-            # log error?
+            logger.error(f"Missing QCode for BERD, answer_id: {answer_id}")
             continue
 
         list_item_id = x.get("list_item_id")
@@ -101,7 +104,10 @@ class BERDTransformer(SurveyTransformer):
     """
 
     def __init__(self, survey_response: SurveyResponse, seq_nr=0):
-        data = convert_to_spp(extract_answers(survey_response.data))
+        try:
+            data = convert_to_spp(extract_answers(survey_response.data))
+        except KeyError as e:
+            raise InvalidDataException(e)
 
         result: SPPResult = SPPResult(
             formtype=survey_response.instrument_id,
