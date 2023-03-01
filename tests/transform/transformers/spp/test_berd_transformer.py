@@ -26,7 +26,7 @@ class ExtractAnswerTests(unittest.TestCase):
         actual = extract_answers(data)
         expected = [Answer("101", "Yes", None, None)]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_match_multiple_values_to_codes(self):
         data = {
@@ -56,7 +56,7 @@ class ExtractAnswerTests(unittest.TestCase):
         actual = extract_answers(data)
         expected = [Answer("102", "Yes", None, None), Answer("101", "No", None, None)]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_add_list_item_id_to_answer(self):
         data = {
@@ -90,7 +90,7 @@ class ExtractAnswerTests(unittest.TestCase):
         actual = extract_answers(data)
         expected = [Answer("102", "Yes", "YxAbgY", "product_codes"), Answer("101", "No", "IBzcQr", "product_codes")]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_add_list_item_ids_with_letters(self):
         data = {
@@ -119,7 +119,7 @@ class ExtractAnswerTests(unittest.TestCase):
             Answer("102", "No", "daaa", "product_codes"),
         ]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_add_list_item_ids_with_letters_and_groups(self):
         data = {
@@ -167,7 +167,61 @@ class ExtractAnswerTests(unittest.TestCase):
             Answer("106", "y", None, None),
         ]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
+
+    def test_create_list_item_for_prefixed_qcodes(self):
+        data = {
+            "answers": [
+                {"answer_id": "a1", "value": "x"},
+                {"answer_id": "a2", "value": "y"},
+                {"answer_id": "a3", "value": "z"},
+            ],
+            "lists": [],
+            "answer_codes": [
+                {"answer_id": "a1", "code": "101"},
+                {"answer_id": "a2", "code": "e102"},
+                {"answer_id": "a3", "code": "f102"},
+            ]
+        }
+
+        actual = extract_answers(data)
+        expected = [
+            Answer("101", "x", None, None),
+            Answer("102", "y", "e_list_item", "default"),
+            Answer("102", "z", "f_list_item", "default"),
+        ]
+
+        self.assertEqual(expected, actual)
+
+    def test_create_list_items_for_prefixed_qcodes(self):
+        data = {
+            "answers": [
+                {"answer_id": "a1", "value": "x"},
+                {"answer_id": "a2", "value": "y"},
+                {"answer_id": "a3", "value": "z"},
+                {"answer_id": "a4", "value": "a"},
+                {"answer_id": "a5", "value": "b"},
+            ],
+            "lists": [],
+            "answer_codes": [
+                {"answer_id": "a1", "code": "101"},
+                {"answer_id": "a2", "code": "e102"},
+                {"answer_id": "a3", "code": "f102"},
+                {"answer_id": "a4", "code": "e103"},
+                {"answer_id": "a5", "code": "f103"},
+            ]
+        }
+
+        actual = extract_answers(data)
+        expected = [
+            Answer("101", "x", None, None),
+            Answer("102", "y", "e_list_item", "default"),
+            Answer("102", "z", "f_list_item", "default"),
+            Answer("103", "a", "e_list_item", "default"),
+            Answer("103", "b", "f_list_item", "default"),
+        ]
+
+        self.assertEqual(expected, actual)
 
 
 class CovertToSppTests(unittest.TestCase):
@@ -178,7 +232,7 @@ class CovertToSppTests(unittest.TestCase):
         actual = convert_to_spp(answer_list)
         expected = [SPP("101", "Yes", 1), SPP("102", "No", 2)]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_convert_to_spp_with_multiple_instances(self):
         answer_list = [Answer("101", "No", "123", "product_codes"),
@@ -186,7 +240,7 @@ class CovertToSppTests(unittest.TestCase):
         actual = convert_to_spp(answer_list)
         expected = [SPP("101", "No", 1), SPP("102", "Yes", 2)]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_convert_to_spp_with_multiple_groups(self):
         answer_list = [
@@ -197,7 +251,7 @@ class CovertToSppTests(unittest.TestCase):
         actual = convert_to_spp(answer_list)
         expected = [SPP("101", "No", 1), SPP("102", "Yes", 2), SPP("103", "Yes", 1)]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_convert_to_spp_with_multiple_groups_2(self):
         answer_list = [
@@ -229,7 +283,7 @@ class CovertToSppTests(unittest.TestCase):
             SPP("303", "Yes", 3),
         ]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_convert_civil_and_defence_internal_only(self):
         answer_list = [
@@ -247,7 +301,7 @@ class CovertToSppTests(unittest.TestCase):
             SPP("101", "No", 3), SPP("102", "Yes", 3),
         ]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_internal_and_external(self):
         answer_list = [
@@ -272,7 +326,27 @@ class CovertToSppTests(unittest.TestCase):
             SPP("105", "x", 0), SPP("106", "y", 0),
         ]
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
+
+    def test_generated_list_items(self):
+        answer_list = [
+            Answer("101", "x", None, None),
+            Answer("102", "y", "e_list_item", "default"),
+            Answer("102", "z", "f_list_item", "default"),
+            Answer("103", "a", "e_list_item", "default"),
+            Answer("103", "b", "f_list_item", "default"),
+        ]
+
+        actual = convert_to_spp(answer_list)
+        expected = [
+            SPP("101", "x", 0),
+            SPP("102", "y", 1),
+            SPP("102", "z", 2),
+            SPP("103", "a", 1),
+            SPP("103", "b", 2),
+        ]
+
+        self.assertEqual(expected, actual)
 
 
 class ExampleTests(unittest.TestCase):

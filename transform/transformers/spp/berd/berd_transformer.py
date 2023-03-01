@@ -31,7 +31,7 @@ class SPPResult:
 
 def extract_answers(data: Dict) -> List[Answer]:
 
-    answer_list = []
+    answer_list: List[Answer] = []
 
     for x in data["answers"]:
         answer_id = x["answer_id"]
@@ -54,6 +54,9 @@ def extract_answers(data: Dict) -> List[Answer]:
                 group = z["name"]
 
         if qcode[0].isalpha():
+            if not list_item_id:
+                list_item_id = '_list_item'
+                group = "default"
             list_item_id = qcode[0] + list_item_id
             qcode = qcode[1:]
 
