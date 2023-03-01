@@ -35,14 +35,17 @@ def extract_answers(data: Dict) -> List[Answer]:
     answer_list: List[Answer] = []
 
     for x in data["answers"]:
-        answer_id = x["answer_id"]
-        value = x["value"]
+
+        answer_id = x.get("answer_id")
+        value = x.get("value", "")
+
         qcode: Union[str, None] = None
         group: Union[str, None] = None
 
         for y in data["answer_codes"]:
             if y["answer_id"] == answer_id:
                 qcode = y["code"]
+                break
 
         if not qcode:
             # log error?
@@ -54,12 +57,15 @@ def extract_answers(data: Dict) -> List[Answer]:
             if list_item_id in z["items"]:
                 group = z["name"]
 
-        if qcode[0].isalpha():
-            if not list_item_id:
-                list_item_id = '_list_item'
-                group = "default"
-            list_item_id = qcode[0] + list_item_id
-            qcode = qcode[1:]
+        if not qcode.isnumeric():
+            for i in range(0, len(qcode)):
+                if qcode[i].isalpha():
+                    if not list_item_id:
+                        list_item_id = '_list_item'
+                        group = "default"
+                    list_item_id = qcode[i] + list_item_id
+                    qcode = qcode[i+1:]
+                    break
 
         answer_list.append(Answer(qcode, value, list_item_id, group))
 

@@ -226,6 +226,66 @@ class ExtractAnswerTests(unittest.TestCase):
 
         self.assertEqual(expected, actual)
 
+    def test_create_list_items_for_prefixed_qcodes_two(self):
+        data = {
+            "answers": [
+                {"answer_id": "a1", "value": "x"},
+                {"answer_id": "a2", "value": "y"},
+                {"answer_id": "a3", "value": "z"},
+                {"answer_id": "a4", "value": "a"},
+                {"answer_id": "a5", "value": "b"},
+            ],
+            "lists": [],
+            "answer_codes": [
+                {"answer_id": "a1", "code": "101"},
+                {"answer_id": "a2", "code": "2e102"},
+                {"answer_id": "a3", "code": "2f102"},
+                {"answer_id": "a4", "code": "2e103"},
+                {"answer_id": "a5", "code": "2f103"},
+            ]
+        }
+
+        actual = extract_answers(data)
+        expected = [
+            Answer("101", "x", None, None),
+            Answer("102", "y", "e_list_item", "default"),
+            Answer("102", "z", "f_list_item", "default"),
+            Answer("103", "a", "e_list_item", "default"),
+            Answer("103", "b", "f_list_item", "default"),
+        ]
+
+        self.assertEqual(expected, actual)
+
+    def test_create_list_items_for_prefixed_qcodes_two_digit(self):
+        data = {
+            "answers": [
+                {"answer_id": "a1", "value": "x"},
+                {"answer_id": "a2", "value": "y"},
+                {"answer_id": "a3", "value": "z"},
+                {"answer_id": "a4", "value": "a"},
+                {"answer_id": "a5", "value": "b"},
+            ],
+            "lists": [],
+            "answer_codes": [
+                {"answer_id": "a1", "code": "101"},
+                {"answer_id": "a2", "code": "12e102"},
+                {"answer_id": "a3", "code": "12f102"},
+                {"answer_id": "a4", "code": "12e103"},
+                {"answer_id": "a5", "code": "12f103"},
+            ]
+        }
+
+        actual = extract_answers(data)
+        expected = [
+            Answer("101", "x", None, None),
+            Answer("102", "y", "e_list_item", "default"),
+            Answer("102", "z", "f_list_item", "default"),
+            Answer("103", "a", "e_list_item", "default"),
+            Answer("103", "b", "f_list_item", "default"),
+        ]
+
+        self.assertEqual(expected, actual)
+
 
 class CovertToSppTests(unittest.TestCase):
 
@@ -432,3 +492,4 @@ class BERDTransformerTests(unittest.TestCase):
 
         self.assertEqual("002_40809d1f5efa41e3.json", filename)
         self.assertEqual(expected, json_dict)
+
