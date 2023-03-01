@@ -1,6 +1,5 @@
 import json
 import os.path
-import threading
 
 import requests
 
@@ -33,10 +32,10 @@ class ImageRequester(ImageBase):
     """Transforms a survey and _response into a zip file
     """
 
-    def __init__(self, logger, survey, response: SurveyResponse, current_time=None, sequence_no=1000,
+    def __init__(self, logger, response: SurveyResponse, current_time=None, sequence_no=1000,
                  base_image_path=""):
 
-        super().__init__(logger, survey, response, current_time, sequence_no, base_image_path)
+        super().__init__(logger, response, current_time, sequence_no, base_image_path)
 
     def get_zipped_images(self, num_sequence=None):
         """Builds the images and the index_file file into the zip file.

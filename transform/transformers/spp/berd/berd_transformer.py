@@ -1,6 +1,7 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from typing import Union, Dict, List
 
+from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
@@ -103,5 +104,5 @@ class BERDTransformer(SurveyTransformer):
             survey=survey_response.survey_id,
             responses=data,
         )
-        survey_response.response = result
-        super().__init__(survey_response, seq_nr)
+        survey_response.response = asdict(result)
+        super().__init__(survey_response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)

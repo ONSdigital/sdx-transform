@@ -1,7 +1,10 @@
 import json
 import unittest
 
-from transform.transformers.spp.berd.berd_transformer import Answer, extract_answers, convert_to_spp, SPP
+import transform.transformers.spp.berd.berd_transformer
+from transform.transformers.response import SurveyResponse
+from transform.transformers.spp.berd.berd_transformer import Answer, extract_answers, convert_to_spp, SPP, \
+    BERDTransformer
 
 
 class ExtractAnswerTests(unittest.TestCase):
@@ -349,14 +352,83 @@ class CovertToSppTests(unittest.TestCase):
         self.assertEqual(expected, actual)
 
 
-class ExampleTests(unittest.TestCase):
+class BERDTransformerTests(unittest.TestCase):
 
-    def test_example_berd(self):
-        f = open("transform/transformers/spp/berd/berd_example.json")
-        result: list = json.load(f)
+    def test_full_transform(self):
+        transform.transformers.spp.berd.berd_transformer.USE_IMAGE_SERVICE = True
+        data = {
+            "answers": [
+                {"answer_id": "a1", "value": "Yes", "list_item_id": "aaa"},
+                {"answer_id": "a2", "value": "No", "list_item_id": "aaa"},
+                {"answer_id": "a3", "value": "Yes", "list_item_id": "aaa"},
+                {"answer_id": "a4", "value": "No", "list_item_id": "aaa"},
+                {"answer_id": "a5", "value": "Yes", "list_item_id": "bbb"},
+                {"answer_id": "a6", "value": "No", "list_item_id": "bbb"},
+                {"answer_id": "a7", "value": "Yes", "list_item_id": "ccc"},
+                {"answer_id": "a8", "value": "No", "list_item_id": "ccc"},
+                {"answer_id": "a9", "value": "x"},
+                {"answer_id": "a10", "value": "y"},
+                {"answer_id": "a11", "value": "x"},
+                {"answer_id": "a12", "value": "y"},
+                {"answer_id": "a13", "value": "x"},
+                {"answer_id": "a14", "value": "y"},
+            ],
+            "lists": [
+                {"items": ["aaa", "bbb"], "name": "product1"},
+                {"items": ["ccc"], "name": "product2"},
+            ],
+            "answer_codes": [
+                {"answer_id": "a1", "code": "c101"},
+                {"answer_id": "a2", "code": "c102"},
+                {"answer_id": "a3", "code": "d101"},
+                {"answer_id": "a4", "code": "d102"},
+                {"answer_id": "a5", "code": "c101"},
+                {"answer_id": "a6", "code": "c102"},
+                {"answer_id": "a7", "code": "c103"},
+                {"answer_id": "a8", "code": "c104"},
+                {"answer_id": "a9", "code": "105"},
+                {"answer_id": "a10", "code": "106"},
+                {"answer_id": "a11", "code": "e107"},
+                {"answer_id": "a12", "code": "e108"},
+                {"answer_id": "a13", "code": "f107"},
+                {"answer_id": "a14", "code": "f108"},
+            ]
+        }
 
-        data = result["data"]
-        extracted = convert_to_spp(extract_answers(data))
+        response = SurveyResponse({})
+        response.tx_id = "40809d1f-5efa-41e3-91b8-5b63f1da9bd0"
+        response.survey_id = "002"
+        response.instrument_id = "0001"
+        response.ru_ref = "12346789012A"
+        response.period = "202212"
+        response.data = data
 
-        for line in extracted:
-            print(line)
+        transformer = BERDTransformer(response)
+        filename, result = transformer.get_json()
+        json_dict = json.loads(result)
+
+        expected = {
+            'formtype': '0001',
+            'reference': '12346789012A',
+            'period': '202212',
+            'survey': '002',
+            'responses': [
+                {'question_code': '101', 'response': 'Yes', 'instance': 1},
+                {'question_code': '102', 'response': 'No', 'instance': 1},
+                {'question_code': '101', 'response': 'Yes', 'instance': 2},
+                {'question_code': '102', 'response': 'No', 'instance': 2},
+                {'question_code': '101', 'response': 'Yes', 'instance': 3},
+                {'question_code': '102', 'response': 'No', 'instance': 3},
+                {'question_code': '103', 'response': 'Yes', 'instance': 1},
+                {'question_code': '104', 'response': 'No', 'instance': 1},
+                {'question_code': '105', 'response': 'x', 'instance': 0},
+                {'question_code': '106', 'response': 'y', 'instance': 0},
+                {'question_code': '107', 'response': 'x', 'instance': 1},
+                {'question_code': '108', 'response': 'y', 'instance': 1},
+                {'question_code': '107', 'response': 'x', 'instance': 2},
+                {'question_code': '108', 'response': 'y', 'instance': 2}
+            ]
+        }
+
+        self.assertEqual("002_40809d1f5efa41e3.json", filename)
+        self.assertEqual(expected, json_dict)

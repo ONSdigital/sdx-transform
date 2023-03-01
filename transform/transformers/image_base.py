@@ -9,7 +9,7 @@ class ImageBase:
     """Transforms a survey and _response into a zip file
     """
 
-    def __init__(self, logger, survey, response: SurveyResponse, current_time=None, sequence_no=1000,
+    def __init__(self, logger, response: SurveyResponse, current_time=None, sequence_no=1000,
                  base_image_path=""):
 
         if current_time is None:
@@ -18,7 +18,6 @@ class ImageBase:
         self.zip = InMemoryZip()
         self.current_time = current_time
         self.logger = logger
-        self.survey = survey
         self.response = response
         self.image_path = "" if base_image_path == "" else os.path.join(base_image_path, "Images")
         self.index_path = "" if base_image_path == "" else os.path.join(base_image_path, "Index")
