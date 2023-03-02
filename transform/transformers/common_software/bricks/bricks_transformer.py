@@ -1,6 +1,7 @@
 from typing import Dict
 
-from transform.transformers.common_software.bricks.bricks_transform_spec import BRICKS_DICT, PREPEND_QCODE, Transform
+from transform.transformers.common_software.bricks.bricks_transform_spec import BRICKS_DICT, PREPEND_QCODE, Transform, \
+    ADDITION_DICT
 
 
 def get_prepend_value(data: Dict[str, str]) -> str:
@@ -17,18 +18,24 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
     output_dict = {}
 
     for k, v in transforms_spec.items():
-
-        if k not in data:
+        if k not in data and k not in ADDITION_DICT:
             continue
 
         if v == Transform.PREPEND:
             output_dict[f"{prepend_value}{k}"] = data[k]
 
-        if v == Transform.TEXT:
+        elif v == Transform.TEXT:
             output_dict[k] = data[k]
 
-        # if v == Transform.ADDITION:
-        #     output_dict[k] =
+        elif v == Transform.ADDITION:
+            qcode_list = ADDITION_DICT.get(k)
+            total = 0
+
+            for qcode in qcode_list:
+                output = data.get(qcode, "0")
+
+                total += int(output)
+
+            output_dict[k] = str(total)
 
     return output_dict
-
