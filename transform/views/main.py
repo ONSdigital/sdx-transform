@@ -6,7 +6,7 @@ from jinja2 import Environment, PackageLoader
 from structlog.contextvars import bind_contextvars
 
 from transform import app
-from transform.transformers.response import SurveyResponseV1, SurveyResponseV2
+from transform.transformers.response import SurveyResponseV1, SurveyResponseV2, InvalidDataException
 from transform.transformers.survey import MissingSurveyException, MissingIdsException
 from transform.transformers.transform_selector import get_transformer
 
@@ -79,6 +79,9 @@ def transform(sequence_no=1000):
 
     except MissingSurveyException:
         return client_error("Unsupported survey/instrument id")
+
+    except InvalidDataException as ide:
+        return client_error(str(ide))
 
     except Exception as e:
         logger.exception("TRANSFORM:could not create files for survey", tx_id=tx_id)
