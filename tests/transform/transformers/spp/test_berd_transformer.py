@@ -266,7 +266,7 @@ class ExtractAnswerTests(unittest.TestCase):
                 {"answer_id": "a5", "value": "b"},
             ],
             "lists": [],
-            "answer_codez": [
+            "answer_codes": [
                 {"answer_id": "a1", "code": "101"},
                 {"answer_id": "a2", "code": "12e102"},
                 {"answer_id": "a3", "code": "12f102"},
@@ -285,8 +285,6 @@ class ExtractAnswerTests(unittest.TestCase):
         ]
 
         self.assertEqual(expected, actual)
-
-
 
 
 class CovertToSppTests(unittest.TestCase):
@@ -517,4 +515,3 @@ class BERDTransformerTests(unittest.TestCase):
 
         with self.assertRaises(InvalidDataException):
             BERDTransformer(response)
-

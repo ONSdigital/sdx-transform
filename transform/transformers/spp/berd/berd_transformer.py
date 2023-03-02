@@ -9,6 +9,7 @@ from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
 
+
 @dataclass(order=True)
 class Answer:
     qcode: str
@@ -67,7 +68,7 @@ def extract_answers(data: Dict) -> List[Answer]:
                         list_item_id = '_list_item'
                         group = "default"
                     list_item_id = qcode[i] + list_item_id
-                    qcode = qcode[i+1:]
+                    qcode = qcode[i + 1:]
                     break
 
         answer_list.append(Answer(qcode, value, list_item_id, group))
