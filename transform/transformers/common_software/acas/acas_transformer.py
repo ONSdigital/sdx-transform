@@ -24,7 +24,6 @@ def perform_transforms(response_data: Dict[str, str]) -> Dict[str, int]:
 def perform_initial_transforms(
         response_data: Dict[str, str],
         transformation_dict: Dict[str, TransformType]) -> Dict[str, int]:
-
     result = {}
 
     for qcode, value in response_data.items():
@@ -60,7 +59,6 @@ def perform_initial_transforms(
 def perform_derived_transforms(
         transformed_data: Dict[str, int],
         derived_transformation_dict: Dict[str, DerivedTransform]) -> Dict[str, int]:
-
     result = transformed_data.copy()
 
     for qcode, transform in derived_transformation_dict.items():
@@ -88,7 +86,6 @@ def perform_replacement_transforms(
         response_data: Dict[str, str],
         transformed_data: Dict[str, int],
         replacement_transforms: Dict[str, Dict[str, Callable[[str], int]]]) -> Dict[str, int]:
-
     for qcode, replacement_dict in replacement_transforms.items():
         v = response_data.get(qcode)
         if v:
@@ -130,6 +127,12 @@ def number_transform(value: str) -> int:
         raise ValueError("Non numeric value")
 
 
+def extract_pck_period(period: str) -> str:
+    if len(period) <= 2:
+        return period
+    return period[2:4]
+
+
 class ACASTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the ACAS survey."""
 
@@ -140,7 +143,7 @@ class ACASTransformer(SurveyTransformer):
             self.survey_response.instrument_id,
             self.survey_response.ru_ref,
             self.survey_response.ru_check,
-            self.survey_response.period
+            extract_pck_period(self.survey_response.period),
         )
         return pck
 
