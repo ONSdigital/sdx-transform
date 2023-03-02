@@ -27,7 +27,7 @@ class CSTransformer(SurveyTransformer):
 
     def _create_pck(self):
         template = env.get_template('pck.tmpl')
-        pck_transformer = PCKTransformer(self.survey_response)
+        pck_transformer = PCKTransformer(self.survey, self.survey_response)
         answers = pck_transformer.derive_answers()
         cs_form_id = pck_transformer.get_cs_form_id()
         sub_date_str = pck_transformer.get_subdate_str()

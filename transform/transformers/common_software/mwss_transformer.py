@@ -139,7 +139,7 @@ class MWSSTransformer(SurveyTransformer):
         ])
 
     def create_pck(self):
-        data = self.transform(self.survey_response.data)
+        data = self.transform(self.survey_response.data, self.survey)
         pck_name = CSFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
         pck = CSFormatter.get_pck(data, self.survey_response.instrument_id, self.survey_response.ru_ref,
                                   self.survey_response.ru_check, self.survey_response.period)
