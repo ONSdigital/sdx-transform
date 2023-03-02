@@ -9,6 +9,7 @@ from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer
 from transform.transformers.response import SurveyResponse
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
+from transform.transformers.spp.berd.berd_transformer import BERDTransformer
 from transform.transformers.survey_transformer import SurveyTransformer
 
 
@@ -22,8 +23,12 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
 
     survey_id = response.survey_id
 
+    # SPP
+    if survey_id == "002":
+        transformer = BERDTransformer(response, sequence_no)
+
     # CORA
-    if survey_id == "144":
+    elif survey_id == "144":
         transformer = UKISTransformer(response, sequence_no)
     elif survey_id == "092":
         transformer = MESTransformer(response, sequence_no)
