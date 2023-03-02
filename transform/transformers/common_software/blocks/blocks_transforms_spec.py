@@ -3,8 +3,7 @@ from typing import Dict
 import structlog
 
 from transform.settings import USE_IMAGE_SERVICE
-from transform.transformers.common_software.bricks.bricks_transform_spec import BRICKS_DICT, PREPEND_QCODE, Transform, \
-    ADDITION_DICT, TRANSFORMS_SPEC
+from transform.transformers.common_software.blocks.blocks_transforms import Transform, TRANSFORMS_SPEC
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
@@ -12,40 +11,21 @@ from transform.transformers.survey_transformer import SurveyTransformer
 logger = structlog.get_logger()
 
 
-def get_prepend_value(data: Dict[str, str]) -> str:
-    return BRICKS_DICT.get(data.get(PREPEND_QCODE), "")
+def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform]) -> Dict[str, str]:
 
-
-def prepend_to_qcode(qcode: str, value: str) -> str:
-    return f"{value}{qcode}"
-
-
-def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform]) -> Dict[str, int]:
-
-    prepend_value = get_prepend_value(data)
     output_dict = {}
 
     for k, v in transforms_spec.items():
+
         try:
-            if k not in data and k not in ADDITION_DICT:
+            if k not in data:
                 continue
 
-            if v == Transform.PREPEND:
-                output_dict[f"{prepend_value}{k}"] = int(data[k])
+            if v == Transform.NO_TRANSFORM:
+                output_dict[k] = int(data[k])
 
             elif v == Transform.TEXT:
                 output_dict[k] = 1 if data[k] != "" else 0
-
-            elif v == Transform.ADDITION:
-                qcode_list = ADDITION_DICT.get(k)
-                total = 0
-
-                for qcode in qcode_list:
-                    output = data.get(qcode, "0")
-
-                    total += int(output)
-
-                output_dict[k] = total
 
         except ValueError:
             logger.error(f"Unable to process qcode: {k} as received non numeric value: {v}")
@@ -53,7 +33,7 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
     return output_dict
 
 
-class BricksTransformer(SurveyTransformer):
+class BlocksTransformer(SurveyTransformer):
 
     def __init__(self, response: SurveyResponse, seq_nr=0):
         super().__init__(response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)

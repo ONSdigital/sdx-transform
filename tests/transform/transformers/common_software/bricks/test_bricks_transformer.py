@@ -38,8 +38,8 @@ class BricksTests(unittest.TestCase):
         }
 
         expected = {
-            "301": "22000",
-            "302": "5000",
+            "301": 22000,
+            "302": 5000,
         }
 
         result = perform_transforms(data, transforms_spec)
@@ -61,8 +61,7 @@ class BricksTests(unittest.TestCase):
         }
 
         expected = {
-            "301": "22000",
-            "302": "",
+            "301": 22000,
         }
 
         result = perform_transforms(data, transforms_spec)
@@ -84,9 +83,9 @@ class BricksTests(unittest.TestCase):
         }
 
         expected = {
-            "301": "22000",
-            "302": "5000",
-            "303": "insert text"
+            "301": 22000,
+            "302": 5000,
+            "303": 1
         }
 
         result = perform_transforms(data, transforms_spec)
@@ -118,16 +117,16 @@ class BricksTests(unittest.TestCase):
         }
 
         expected = {
-            "301": "1000",
-            "311": "1000",
-            "321": "1000",
-            "302": "10000",
-            "312": "10000",
-            "322": "10000",
-            "501": "3000",
-            "502": "30000",
-            "503": "0",
-            "504": "0"
+            "301": 1000,
+            "311": 1000,
+            "321": 1000,
+            "302": 10000,
+            "312": 10000,
+            "322": 10000,
+            "501": 3000,
+            "502": 30000,
+            "503": 0,
+            "504": 0
         }
 
         result = perform_transforms(data, transforms_spec)
@@ -143,20 +142,20 @@ class BricksTests(unittest.TestCase):
             print(actual)
 
             expected = {
-                '301': '22000',
-                '302': '5000',
-                '303': '8000',
-                '304': '7000',
-                '311': '9000',
-                '312': '1000',
-                '313': '2000',
-                '314': '6000',
-                '145': 'I love bricks!',
-                '146': 'Another comment?',
-                '501': '31000',
-                '502': '6000',
-                '503': '10000',
-                '504': '13000'
+                '301': 22000,
+                '302': 5000,
+                '303': 8000,
+                '304': 7000,
+                '311': 9000,
+                '312': 1000,
+                '313': 2000,
+                '314': 6000,
+                '145': 1,
+                '146': 1,
+                '501': 31000,
+                '502': 6000,
+                '503': 10000,
+                '504': 13000
             }
 
             self.assertEqual(expected, actual)
