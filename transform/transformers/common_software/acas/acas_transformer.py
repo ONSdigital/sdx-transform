@@ -18,8 +18,11 @@ logger = structlog.get_logger()
 def perform_transforms(response_data: Dict[str, str]) -> Dict[str, int]:
     transformed_data: Dict[str, int] = perform_initial_transforms(response_data, initial_transformations)
     transformed_data: Dict[str, int] = perform_derived_transforms(transformed_data, derived_transformations)
-
-    return perform_replacement_transforms(response_data, transformed_data, replacement_transformations)
+    transformed_data: Dict[str, int] = perform_replacement_transforms(response_data,
+                                                                      transformed_data,
+                                                                      replacement_transformations)
+    transformed_data: Dict[str, int] = perform_post_transforms(transformed_data)
+    return transformed_data
 
 
 def perform_initial_transforms(
@@ -53,10 +56,6 @@ def perform_initial_transforms(
 
         except ValueError:
             logging.error(f"ValueError with qcode {qcode}, with value {value}")
-
-    for k, v in no_comment_transformations.items():
-        if k not in result:
-            result[k] = v
 
     return result
 
@@ -98,6 +97,14 @@ def perform_replacement_transforms(
                 transformed_data[new_qcode] = func(v)
 
     return transformed_data
+
+
+def perform_post_transforms(response_data: Dict[str, int]) -> Dict[str, int]:
+    for k, v in no_comment_transformations.items():
+        if k not in response_data:
+            response_data[k] = v
+
+    return response_data
 
 
 def currency_transform(value: str) -> int:
