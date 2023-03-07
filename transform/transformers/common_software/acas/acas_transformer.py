@@ -8,7 +8,7 @@ import structlog
 
 from transform.transformers.common_software.acas.acas_transforms import TransformType, \
     DerivedTransform, DerivedTransformType, initial_transformations, derived_transformations, \
-    replacement_transformations
+    replacement_transformations, no_comment_transformations
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
@@ -18,6 +18,7 @@ logger = structlog.get_logger()
 def perform_transforms(response_data: Dict[str, str]) -> Dict[str, int]:
     transformed_data: Dict[str, int] = perform_initial_transforms(response_data, initial_transformations)
     transformed_data: Dict[str, int] = perform_derived_transforms(transformed_data, derived_transformations)
+
     return perform_replacement_transforms(response_data, transformed_data, replacement_transformations)
 
 
@@ -52,6 +53,10 @@ def perform_initial_transforms(
 
         except ValueError:
             logging.error(f"ValueError with qcode {qcode}, with value {value}")
+
+    for k, v in no_comment_transformations.items():
+        if k not in result:
+            result[k] = v
 
     return result
 
