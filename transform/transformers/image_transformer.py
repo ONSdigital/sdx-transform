@@ -28,8 +28,9 @@ class ImageTransformer(ImageBase):
     def __init__(self, logger, survey, response: SurveyResponse, current_time=None, sequence_no=1000,
                  base_image_path=""):
 
-        super().__init__(logger, survey, response, current_time, sequence_no, base_image_path)
+        super().__init__(logger, response, current_time, sequence_no, base_image_path)
 
+        self.survey = survey
         self._page_count = -1
         self.index_file = None
         self._pdf = None

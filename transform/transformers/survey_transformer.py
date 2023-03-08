@@ -25,11 +25,11 @@ class SurveyTransformer:
         self.survey_response = response
         self.sequence_no = sequence_no
         self.logger = logger
-        self.survey = Survey.load_survey(self.survey_response.survey_id, self.survey_response.instrument_id)
         if use_sdx_image:
-            self.image_transformer = ImageRequester(self.logger, self.survey, self.survey_response,
+            self.image_transformer = ImageRequester(self.logger, self.survey_response,
                                                     sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
         else:
+            self.survey = Survey.load_survey(self.survey_response.survey_id, self.survey_response.instrument_id)
             self.image_transformer = ImageTransformer(self.logger, self.survey, self.survey_response,
                                                       sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
 
