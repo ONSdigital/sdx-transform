@@ -6,7 +6,7 @@ from .response import SurveyResponse
 
 
 class ImageBase:
-    """Transforms a survey and _response into a zip file
+    """Transforms a survey and _response into a zip file.
     """
 
     def __init__(self, logger, response: SurveyResponse, current_time=None, sequence_no=1000,
