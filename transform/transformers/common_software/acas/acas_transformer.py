@@ -8,7 +8,7 @@ import structlog
 
 from transform.transformers.common_software.acas.acas_transforms import TransformType, \
     DerivedTransform, DerivedTransformType, initial_transformations, derived_transformations, \
-    replacement_transformations, no_comment_transformations
+    replacement_transformations
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
@@ -21,7 +21,7 @@ def perform_transforms(response_data: Dict[str, str]) -> Dict[str, int]:
     transformed_data: Dict[str, int] = perform_replacement_transforms(response_data,
                                                                       transformed_data,
                                                                       replacement_transformations)
-    transformed_data: Dict[str, int] = perform_post_transforms(transformed_data)
+    transformed_data: Dict[str, int] = perform_add_missing_text(transformed_data, initial_transformations)
     return transformed_data
 
 
@@ -99,12 +99,16 @@ def perform_replacement_transforms(
     return transformed_data
 
 
-def perform_post_transforms(response_data: Dict[str, int]) -> Dict[str, int]:
-    for k, v in no_comment_transformations.items():
-        if k not in response_data:
-            response_data[k] = v
+def perform_add_missing_text(transformed_data: Dict[str, int], initial_transforms: Dict[str, TransformType])\
+        -> Dict[str, int]:
+    """
+    Add qcodes to transformed data if the text field was empty
+    """
+    for k, v in initial_transforms.items():
+        if k not in transformed_data and v == TransformType.TEXT_FIELD:
+            transformed_data[k] = 2
 
-    return response_data
+    return transformed_data
 
 
 def currency_transform(value: str) -> int:

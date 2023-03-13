@@ -261,7 +261,3 @@ replacement_transformations: Dict[str, Dict[str, Callable[[str], int]]] = {
         "903": lambda v: 1 if v == "No" else 2,
     }
 }
-
-no_comment_transformations: Dict[str, int] = {
-    "146": 2
-}
