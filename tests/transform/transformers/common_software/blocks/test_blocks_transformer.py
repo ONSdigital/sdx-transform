@@ -1,6 +1,7 @@
 import unittest
 
-from transform.transformers.common_software.blocks.blocks_transformer import perform_transforms, Transform
+from transform.transformers.common_software.blocks.blocks_transformer import perform_transforms, Transform, \
+    extract_pck_period
 
 
 class BricksTests(unittest.TestCase):
@@ -35,4 +36,9 @@ class BricksTests(unittest.TestCase):
             "106": 2
         }
 
+        self.assertEqual(expected, actual)
+
+    def test_get_period_YYMM(self):
+        actual = extract_pck_period("201605")
+        expected = "1605"
         self.assertEqual(expected, actual)

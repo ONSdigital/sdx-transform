@@ -57,9 +57,9 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
 
 
 def extract_pck_period(period: str) -> str:
-    if len(period) <= 2:
+    if len(period) <= 4:
         return period
-    return period[2:4]
+    return period[2:]
 
 
 class BricksTransformer(SurveyTransformer):
