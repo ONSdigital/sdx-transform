@@ -18,7 +18,11 @@ logger = structlog.get_logger()
 def perform_transforms(response_data: Dict[str, str]) -> Dict[str, int]:
     transformed_data: Dict[str, int] = perform_initial_transforms(response_data, initial_transformations)
     transformed_data: Dict[str, int] = perform_derived_transforms(transformed_data, derived_transformations)
-    return perform_replacement_transforms(response_data, transformed_data, replacement_transformations)
+    transformed_data: Dict[str, int] = perform_replacement_transforms(response_data,
+                                                                      transformed_data,
+                                                                      replacement_transformations)
+    transformed_data: Dict[str, int] = perform_add_missing_text(transformed_data, initial_transformations)
+    return transformed_data
 
 
 def perform_initial_transforms(
@@ -91,6 +95,18 @@ def perform_replacement_transforms(
         if v:
             for new_qcode, func in replacement_dict.items():
                 transformed_data[new_qcode] = func(v)
+
+    return transformed_data
+
+
+def perform_add_missing_text(transformed_data: Dict[str, int], initial_transforms: Dict[str, TransformType])\
+        -> Dict[str, int]:
+    """
+    Add qcodes to transformed data if the text field was empty
+    """
+    for k, v in initial_transforms.items():
+        if k not in transformed_data and v == TransformType.TEXT_FIELD:
+            transformed_data[k] = 2
 
     return transformed_data
 

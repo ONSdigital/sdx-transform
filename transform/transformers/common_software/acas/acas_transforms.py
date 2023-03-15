@@ -208,7 +208,7 @@ initial_transformations: Dict[str, TransformType] = {
 
 
 derived_transformations: Dict[str, DerivedTransform] = {
-    '158': DerivedTransform(DerivedTransformType.ADDITION, ['150', '151', '152', '153', '154', '155', '156']),
+    '158': DerivedTransform(DerivedTransformType.ADDITION, ['150', '152', '154', '156']),
     '157': DerivedTransform(DerivedTransformType.NON_ZEROS, ['158']),
     '175': DerivedTransform(DerivedTransformType.ADDITION, ['159', '161', '163', '165', '167', '169', '171']),
     '176': DerivedTransform(DerivedTransformType.ADDITION, ['160', '162', '164', '166', '168', '170', '172', '173']),
