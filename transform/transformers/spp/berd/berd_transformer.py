@@ -22,7 +22,7 @@ class Answer:
 
 @dataclass(order=True)
 class SPP:
-    question_code: str
+    questioncode: str
     response: Union[str, None]
     instance: int
 
@@ -105,25 +105,28 @@ class BERDTransformer(SurveyTransformer):
     """
     Transformer for the BERD Survey.
     """
-    berd_data: List[SPP]
+    berd_result: Dict[str, Union[str, List]]
 
     def __init__(self, survey_response: SurveyResponse, seq_nr=0):
         try:
-            self.berd_data = convert_to_spp(extract_answers(survey_response.data))
+            berd_data = convert_to_spp(extract_answers(survey_response.data))
         except KeyError as e:
             raise InvalidDataException(e)
 
-        survey_response.response['data'] = self.berd_data
+        spp_result = SPPResult(
+            formtype=survey_response.instrument_id,
+            reference=survey_response.ru_ref,
+            period=survey_response.period,
+            survey=survey_response.survey_id,
+            responses=berd_data,
+        )
+
+        self.berd_result = asdict(spp_result)
+
+        survey_response.response['data'] = self.berd_result["responses"]
         super().__init__(survey_response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
 
     def get_json(self):
         json_name = Formatter.response_json_name(self.survey_response.survey_id, self.survey_response.tx_id)
-        result: SPPResult = SPPResult(
-            formtype=self.survey_response.instrument_id,
-            reference=self.survey_response.ru_ref,
-            period=self.survey_response.period,
-            survey=self.survey_response.survey_id,
-            responses=self.berd_data,
-        )
-        json_file = json.dumps(asdict(result))
+        json_file = json.dumps(self.berd_result)
         return json_name, json_file
