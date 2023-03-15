@@ -1,3 +1,4 @@
+import json
 from dataclasses import dataclass, asdict
 from typing import Union, Dict, List
 
@@ -6,6 +7,7 @@ import structlog
 from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.response import SurveyResponse, InvalidDataException
 from transform.transformers.survey_transformer import SurveyTransformer
+from transform.utilities.formatter import Formatter
 
 logger = structlog.get_logger()
 
@@ -103,19 +105,25 @@ class BERDTransformer(SurveyTransformer):
     """
     Transformer for the BERD Survey.
     """
+    berd_data: List[SPP]
 
     def __init__(self, survey_response: SurveyResponse, seq_nr=0):
         try:
-            data = convert_to_spp(extract_answers(survey_response.data))
+            self.berd_data = convert_to_spp(extract_answers(survey_response.data))
         except KeyError as e:
             raise InvalidDataException(e)
 
-        result: SPPResult = SPPResult(
-            formtype=survey_response.instrument_id,
-            reference=survey_response.ru_ref,
-            period=survey_response.period,
-            survey=survey_response.survey_id,
-            responses=data,
-        )
-        survey_response.response = asdict(result)
+        survey_response.response['data'] = self.berd_data
         super().__init__(survey_response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
+
+    def get_json(self):
+        json_name = Formatter.response_json_name(self.survey_response.survey_id, self.survey_response.tx_id)
+        result: SPPResult = SPPResult(
+            formtype=self.survey_response.instrument_id,
+            reference=self.survey_response.ru_ref,
+            period=self.survey_response.period,
+            survey=self.survey_response.survey_id,
+            responses=self.berd_data,
+        )
+        json_file = json.dumps(asdict(result))
+        return json_name, json_file
