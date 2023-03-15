@@ -1,7 +1,7 @@
 from transform.transformers.common_software import MBSTransformer, MWSSTransformer, CSTransformer
 from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
 from transform.transformers.common_software.acas.acas_transformer import ACASTransformer
-from transform.transformers.common_software.blocks.blocks_transforms_spec import BlocksTransformer
+from transform.transformers.common_software.blocks.blocks_transformer import BlocksTransformer
 from transform.transformers.common_software.bricks.bricks_transformer import BricksTransformer
 from transform.transformers.cora import UKISTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer

@@ -3,7 +3,7 @@ from typing import Dict
 import structlog
 
 from transform.settings import USE_IMAGE_SERVICE
-from transform.transformers.common_software.blocks.blocks_transforms import Transform, TRANSFORMS_SPEC
+from transform.transformers.common_software.blocks.blocks_transform_spec import Transform, TRANSFORMS_SPEC
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
@@ -11,26 +11,35 @@ from transform.transformers.survey_transformer import SurveyTransformer
 logger = structlog.get_logger()
 
 
-def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform]) -> Dict[str, str]:
+def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform]) -> Dict[str, int]:
 
     output_dict = {}
 
     for k, v in transforms_spec.items():
 
         try:
+            if v == Transform.TEXT:
+                if k not in data:
+                    output_dict[k] = 2
+                else:
+                    output_dict[k] = 1 if data.get(k) != "" else 2
+
             if k not in data:
                 continue
 
             if v == Transform.NO_TRANSFORM:
                 output_dict[k] = int(data[k])
 
-            elif v == Transform.TEXT:
-                output_dict[k] = 1 if data[k] != "" else 0
-
         except ValueError:
             logger.error(f"Unable to process qcode: {k} as received non numeric value: {v}")
 
     return output_dict
+
+
+def extract_pck_period(period: str) -> str:
+    if len(period) <= 2:
+        return period
+    return period[2:4]
 
 
 class BlocksTransformer(SurveyTransformer):
@@ -45,7 +54,7 @@ class BlocksTransformer(SurveyTransformer):
             self.survey_response.instrument_id,
             self.survey_response.ru_ref,
             self.survey_response.ru_check,
-            self.survey_response.period,
+            extract_pck_period(self.survey_response.period),
         )
         return pck
 

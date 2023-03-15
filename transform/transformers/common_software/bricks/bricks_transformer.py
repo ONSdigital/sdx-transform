@@ -27,16 +27,19 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
 
     for k, v in transforms_spec.items():
         try:
+            if v == Transform.TEXT:
+                if k not in data:
+                    output_dict[k] = 2
+                else:
+                    output_dict[k] = 1 if data.get(k) != "" else 2
+
             if k not in data and k not in ADDITION_DICT:
                 continue
 
             if v == Transform.PREPEND:
                 output_dict[f"{prepend_value}{k}"] = int(data[k])
 
-            elif v == Transform.TEXT:
-                output_dict[k] = 1 if data[k] != "" else 0
-
-            elif v == Transform.ADDITION:
+            if v == Transform.ADDITION:
                 qcode_list = ADDITION_DICT.get(k)
                 total = 0
 
@@ -53,6 +56,12 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
     return output_dict
 
 
+def extract_pck_period(period: str) -> str:
+    if len(period) <= 2:
+        return period
+    return period[2:4]
+
+
 class BricksTransformer(SurveyTransformer):
 
     def __init__(self, response: SurveyResponse, seq_nr=0):
@@ -65,7 +74,7 @@ class BricksTransformer(SurveyTransformer):
             self.survey_response.instrument_id,
             self.survey_response.ru_ref,
             self.survey_response.ru_check,
-            self.survey_response.period,
+            extract_pck_period(self.survey_response.period),
         )
         return pck
 

@@ -79,13 +79,15 @@ class BricksTests(unittest.TestCase):
         transforms_spec = {
             "01": Transform.PREPEND,
             "02": Transform.PREPEND,
-            "303": Transform.TEXT
+            "303": Transform.TEXT,
+            "304": Transform.TEXT
         }
 
         expected = {
             "301": 22000,
             "302": 5000,
-            "303": 1
+            "303": 1,
+            "304": 2,
         }
 
         result = perform_transforms(data, transforms_spec)
