@@ -2,9 +2,9 @@ import json
 import unittest
 
 import transform.transformers.spp.berd.berd_transformer
-from transform.transformers.response import SurveyResponse, InvalidDataException
+from transform.transformers.response import SurveyResponse, InvalidDataException, SurveyResponseV1
 from transform.transformers.spp.berd.berd_transformer import Answer, extract_answers, convert_to_spp, SPP, \
-    BERDTransformer
+    BERDTransformer, remove_prepend_values
 
 
 class ExtractAnswerTests(unittest.TestCase):
@@ -473,20 +473,20 @@ class BERDTransformerTests(unittest.TestCase):
             'period': '202212',
             'survey': '002',
             'responses': [
-                {'question_code': '101', 'response': 'Yes', 'instance': 1},
-                {'question_code': '102', 'response': 'No', 'instance': 1},
-                {'question_code': '101', 'response': 'Yes', 'instance': 2},
-                {'question_code': '102', 'response': 'No', 'instance': 2},
-                {'question_code': '101', 'response': 'Yes', 'instance': 3},
-                {'question_code': '102', 'response': 'No', 'instance': 3},
-                {'question_code': '103', 'response': 'Yes', 'instance': 1},
-                {'question_code': '104', 'response': 'No', 'instance': 1},
-                {'question_code': '105', 'response': 'x', 'instance': 0},
-                {'question_code': '106', 'response': 'y', 'instance': 0},
-                {'question_code': '107', 'response': 'x', 'instance': 1},
-                {'question_code': '108', 'response': 'y', 'instance': 1},
-                {'question_code': '107', 'response': 'x', 'instance': 2},
-                {'question_code': '108', 'response': 'y', 'instance': 2}
+                {'questioncode': 'c101', 'response': 'Yes', 'instance': 1},
+                {'questioncode': 'c102', 'response': 'No', 'instance': 1},
+                {'questioncode': 'd101', 'response': 'Yes', 'instance': 2},
+                {'questioncode': 'd102', 'response': 'No', 'instance': 2},
+                {'questioncode': 'c101', 'response': 'Yes', 'instance': 3},
+                {'questioncode': 'c102', 'response': 'No', 'instance': 3},
+                {'questioncode': 'c103', 'response': 'Yes', 'instance': 1},
+                {'questioncode': 'c104', 'response': 'No', 'instance': 1},
+                {'questioncode': '105', 'response': 'x', 'instance': 0},
+                {'questioncode': '106', 'response': 'y', 'instance': 0},
+                {'questioncode': '56e107', 'response': 'x', 'instance': 1},
+                {'questioncode': '56e108', 'response': 'y', 'instance': 1},
+                {'questioncode': '56f107', 'response': 'x', 'instance': 2},
+                {'questioncode': '56f108', 'response': 'y', 'instance': 2}
             ]
         }
 
@@ -515,3 +515,32 @@ class BERDTransformerTests(unittest.TestCase):
 
         with self.assertRaises(InvalidDataException):
             BERDTransformer(response)
+
+    def test_from_file(self):
+        transform.transformers.spp.berd.berd_transformer.USE_IMAGE_SERVICE = True
+        with open('tests/transform/transformers/spp/berd_survey.json') as f:
+            response = json.load(f)
+        print(response)
+        survey_response = SurveyResponseV1(response)
+        transformer = BERDTransformer(survey_response)
+        print(json.dumps(survey_response.response))
+        print(transformer.get_json()[1])
+
+    def test_prepend_values(self):
+        data = [
+                {'questioncode': 'c101', 'response': 'Yes', 'instance': 1},
+                {'questioncode': 'c102', 'response': 'No', 'instance': 1},
+                {'questioncode': 'd101', 'response': 'Yes', 'instance': 2},
+                {'questioncode': '56f108', 'response': 'y', 'instance': 2}
+            ]
+
+        actual = remove_prepend_values(data)
+
+        expected = [
+            {'questioncode': '101', 'response': 'Yes', 'instance': 1},
+            {'questioncode': '102', 'response': 'No', 'instance': 1},
+            {'questioncode': '101', 'response': 'Yes', 'instance': 2},
+            {'questioncode': '108', 'response': 'y', 'instance': 2}
+        ]
+
+        self.assertEqual(expected, actual)

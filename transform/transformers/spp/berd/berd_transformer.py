@@ -1,3 +1,4 @@
+import json
 from dataclasses import dataclass, asdict
 from typing import Union, Dict, List
 
@@ -6,6 +7,7 @@ import structlog
 from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.response import SurveyResponse, InvalidDataException
 from transform.transformers.survey_transformer import SurveyTransformer
+from transform.utilities.formatter import Formatter
 
 logger = structlog.get_logger()
 
@@ -20,7 +22,7 @@ class Answer:
 
 @dataclass(order=True)
 class SPP:
-    question_code: str
+    questioncode: str
     response: Union[str, None]
     instance: int
 
@@ -41,7 +43,7 @@ def extract_answers(data: Dict) -> List[Answer]:
     for x in data["answers"]:
 
         answer_id = x.get("answer_id")
-        value = x.get("value", "")
+        value = str(x.get("value", ""))
 
         qcode: Union[str, None] = None
         group: Union[str, None] = None
@@ -68,7 +70,6 @@ def extract_answers(data: Dict) -> List[Answer]:
                         list_item_id = '_list_item'
                         group = "default"
                     list_item_id = qcode[i] + list_item_id
-                    qcode = qcode[i + 1:]
                     break
 
         answer_list.append(Answer(qcode, value, list_item_id, group))
@@ -99,23 +100,51 @@ def convert_to_spp(answer_list: List[Answer]) -> List[SPP]:
     return spp_list
 
 
+def remove_prepend_values(reponses: List[Dict[str, Union[str, int]]]) -> List[Dict[str, Union[str, int]]]:
+    stripped_values = []
+    for i in range(0, len(reponses)):
+        code = reponses[i]['questioncode']
+        if not code.isnumeric():
+            for j in range(0, len(code)):
+                if code[j:].isnumeric():
+                    new = {
+                        'questioncode': code[j:],
+                        'response': reponses[i]['response'],
+                        'instance': reponses[i]['instance']
+                    }
+                    stripped_values.append(new)
+                    break
+
+    return stripped_values
+
+
 class BERDTransformer(SurveyTransformer):
     """
     Transformer for the BERD Survey.
     """
+    berd_result: Dict[str, Union[str, List]]
 
     def __init__(self, survey_response: SurveyResponse, seq_nr=0):
         try:
-            data = convert_to_spp(extract_answers(survey_response.data))
+            berd_data = convert_to_spp(extract_answers(survey_response.data))
         except KeyError as e:
             raise InvalidDataException(e)
 
-        result: SPPResult = SPPResult(
+        spp_result = SPPResult(
             formtype=survey_response.instrument_id,
             reference=survey_response.ru_ref,
             period=survey_response.period,
             survey=survey_response.survey_id,
-            responses=data,
+            responses=berd_data,
         )
-        survey_response.response = asdict(result)
+
+        self.berd_result = asdict(spp_result)
+
+        survey_response.response['data'] = self.berd_result["responses"]
         super().__init__(survey_response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
+
+    def get_json(self):
+        json_name = Formatter.response_json_name(self.survey_response.survey_id, self.survey_response.tx_id)
+        self.berd_result['responses'] = remove_prepend_values(self.berd_result['responses'])
+        json_file = json.dumps(self.berd_result)
+        return json_name, json_file
