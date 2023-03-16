@@ -43,7 +43,7 @@ def extract_answers(data: Dict) -> List[Answer]:
     for x in data["answers"]:
 
         answer_id = x.get("answer_id")
-        value = x.get("value", "")
+        value = str(x.get("value", ""))
 
         qcode: Union[str, None] = None
         group: Union[str, None] = None
@@ -70,7 +70,6 @@ def extract_answers(data: Dict) -> List[Answer]:
                         list_item_id = '_list_item'
                         group = "default"
                     list_item_id = qcode[i] + list_item_id
-                    qcode = qcode[i + 1:]
                     break
 
         answer_list.append(Answer(qcode, value, list_item_id, group))

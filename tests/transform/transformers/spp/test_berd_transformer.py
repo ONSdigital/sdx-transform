@@ -473,20 +473,20 @@ class BERDTransformerTests(unittest.TestCase):
             'period': '202212',
             'survey': '002',
             'responses': [
-                {'questioncode': '101', 'response': 'Yes', 'instance': 1},
-                {'questioncode': '102', 'response': 'No', 'instance': 1},
-                {'questioncode': '101', 'response': 'Yes', 'instance': 2},
-                {'questioncode': '102', 'response': 'No', 'instance': 2},
-                {'questioncode': '101', 'response': 'Yes', 'instance': 3},
-                {'questioncode': '102', 'response': 'No', 'instance': 3},
-                {'questioncode': '103', 'response': 'Yes', 'instance': 1},
-                {'questioncode': '104', 'response': 'No', 'instance': 1},
+                {'questioncode': 'c101', 'response': 'Yes', 'instance': 1},
+                {'questioncode': 'c102', 'response': 'No', 'instance': 1},
+                {'questioncode': 'd101', 'response': 'Yes', 'instance': 2},
+                {'questioncode': 'd102', 'response': 'No', 'instance': 2},
+                {'questioncode': 'c101', 'response': 'Yes', 'instance': 3},
+                {'questioncode': 'c102', 'response': 'No', 'instance': 3},
+                {'questioncode': 'c103', 'response': 'Yes', 'instance': 1},
+                {'questioncode': 'c104', 'response': 'No', 'instance': 1},
                 {'questioncode': '105', 'response': 'x', 'instance': 0},
                 {'questioncode': '106', 'response': 'y', 'instance': 0},
-                {'questioncode': '107', 'response': 'x', 'instance': 1},
-                {'questioncode': '108', 'response': 'y', 'instance': 1},
-                {'questioncode': '107', 'response': 'x', 'instance': 2},
-                {'questioncode': '108', 'response': 'y', 'instance': 2}
+                {'questioncode': '56e107', 'response': 'x', 'instance': 1},
+                {'questioncode': '56e108', 'response': 'y', 'instance': 1},
+                {'questioncode': '56f107', 'response': 'x', 'instance': 2},
+                {'questioncode': '56f108', 'response': 'y', 'instance': 2}
             ]
         }
 
