@@ -100,6 +100,24 @@ def convert_to_spp(answer_list: List[Answer]) -> List[SPP]:
     return spp_list
 
 
+def remove_prepend_values(reponses: List[Dict[str, Union[str, int]]]) -> List[Dict[str, Union[str, int]]]:
+    stripped_values = []
+    for i in range(0, len(reponses)):
+        code = reponses[i]['questioncode']
+        if not code.isnumeric():
+            for j in range(0, len(code)):
+                if code[j:].isnumeric():
+                    new = {
+                        'questioncode': code[j:],
+                        'response': reponses[i]['response'],
+                        'instance': reponses[i]['instance']
+                    }
+                    stripped_values.append(new)
+                    break
+
+    return stripped_values
+
+
 class BERDTransformer(SurveyTransformer):
     """
     Transformer for the BERD Survey.
@@ -127,5 +145,6 @@ class BERDTransformer(SurveyTransformer):
 
     def get_json(self):
         json_name = Formatter.response_json_name(self.survey_response.survey_id, self.survey_response.tx_id)
+        self.berd_result['responses'] = remove_prepend_values(self.berd_result['responses'])
         json_file = json.dumps(self.berd_result)
         return json_name, json_file

@@ -4,7 +4,7 @@ import unittest
 import transform.transformers.spp.berd.berd_transformer
 from transform.transformers.response import SurveyResponse, InvalidDataException, SurveyResponseV1
 from transform.transformers.spp.berd.berd_transformer import Answer, extract_answers, convert_to_spp, SPP, \
-    BERDTransformer
+    BERDTransformer, remove_prepend_values
 
 
 class ExtractAnswerTests(unittest.TestCase):
@@ -525,3 +525,22 @@ class BERDTransformerTests(unittest.TestCase):
         transformer = BERDTransformer(survey_response)
         print(json.dumps(survey_response.response))
         print(transformer.get_json()[1])
+
+    def test_prepend_values(self):
+        data = [
+                {'questioncode': 'c101', 'response': 'Yes', 'instance': 1},
+                {'questioncode': 'c102', 'response': 'No', 'instance': 1},
+                {'questioncode': 'd101', 'response': 'Yes', 'instance': 2},
+                {'questioncode': '56f108', 'response': 'y', 'instance': 2}
+            ]
+
+        actual = remove_prepend_values(data)
+
+        expected = [
+            {'questioncode': '101', 'response': 'Yes', 'instance': 1},
+            {'questioncode': '102', 'response': 'No', 'instance': 1},
+            {'questioncode': '101', 'response': 'Yes', 'instance': 2},
+            {'questioncode': '108', 'response': 'y', 'instance': 2}
+        ]
+
+        self.assertEqual(expected, actual)
