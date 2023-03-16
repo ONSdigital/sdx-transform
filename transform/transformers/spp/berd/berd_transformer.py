@@ -141,7 +141,7 @@ class BERDTransformer(SurveyTransformer):
         self.berd_result = asdict(spp_result)
 
         survey_response.response['data'] = self.berd_result["responses"]
-        super().__init__(survey_response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
+        super().__init__(survey_response, seq_nr, use_sdx_image=True)
 
     def get_json(self):
         json_name = Formatter.response_json_name(self.survey_response.survey_id, self.survey_response.tx_id)
