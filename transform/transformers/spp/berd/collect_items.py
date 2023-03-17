@@ -1,6 +1,6 @@
 from typing import List, Set
 
-from transform.transformers.spp.berd.berd_transformer import Answer
+from transform.transformers.spp.definitions import Answer
 
 
 def collect_list_items(answer_list: List[Answer]) -> List[Answer]:
@@ -8,7 +8,8 @@ def collect_list_items(answer_list: List[Answer]) -> List[Answer]:
 
     list_items: Set[str] = set()
     for answer in answer_list:
-        list_items.add(answer.list_item_id)
+        if answer.list_item_id:
+            list_items.add(answer.list_item_id)
 
     for answer in answer_list:
         changed = False
