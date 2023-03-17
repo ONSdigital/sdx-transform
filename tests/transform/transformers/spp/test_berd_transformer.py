@@ -2,9 +2,10 @@ import json
 import unittest
 
 import transform.transformers.spp.berd.berd_transformer
-from transform.transformers.response import SurveyResponse, InvalidDataException, SurveyResponseV1, SurveyResponseV2
+from transform.transformers.response import SurveyResponse, InvalidDataException, SurveyResponseV2
 from transform.transformers.spp.berd.berd_transformer import Answer, extract_answers, convert_to_spp, SPP, \
     BERDTransformer, remove_prepend_values
+from transform.transformers.spp.berd.collect_items import collect_list_items
 
 
 class ExtractAnswerTests(unittest.TestCase):
@@ -116,10 +117,10 @@ class ExtractAnswerTests(unittest.TestCase):
 
         actual = extract_answers(data)
         expected = [
-            Answer("101", "Yes", "caaa", "product_codes"),
-            Answer("102", "No", "caaa", "product_codes"),
-            Answer("101", "Yes", "daaa", "product_codes"),
-            Answer("102", "No", "daaa", "product_codes"),
+            Answer("c101", "Yes", "caaa", "product_codes"),
+            Answer("c102", "No", "caaa", "product_codes"),
+            Answer("d101", "Yes", "daaa", "product_codes"),
+            Answer("d102", "No", "daaa", "product_codes"),
         ]
 
         self.assertEqual(expected, actual)
@@ -545,7 +546,100 @@ class BERDTransformerTests(unittest.TestCase):
 
         self.assertEqual(expected, actual)
 
-    def test_example(self):
+    def test_extract_answers(self):
+        data = {
+            "answers": [
+                {"answer_id": "a1", "value": "Civil Research and Development", "list_item_id": "qObPqR"},
+                {"answer_id": "a1", "value": "Defence Research and Development", "list_item_id": "Uztndf"},
+                {"answer_id": "a1", "value": "Both, civil and defence Research and Development", "list_item_id": "GjDKpD"},
+                {"answer_id": "a6", "value": "1 - Agriculture", "list_item_id": "qObPqR"},
+                {"answer_id": "a6", "value": "2 - Mining and quarrying", "list_item_id": "Uztndf"},
+                {"answer_id": "a6", "value": "3 - Food products and beverages", "list_item_id": "GjDKpD"},
+                {"answer_id": "a2", "value": 10000, "list_item_id": "qObPqR"},
+                {"answer_id": "a2", "value": 5000, "list_item_id": "GjDKpD"},
+                {"answer_id": "a3", "value": 5000, "list_item_id": "qObPqR"},
+                {"answer_id": "a3", "value": 3000, "list_item_id": "GjDKpD"},
+                {"answer_id": "a4", "value": 1000, "list_item_id": "Uztndf"},
+                {"answer_id": "a4", "value": 3000, "list_item_id": "GjDKpD"},
+                {"answer_id": "a5", "value": 500, "list_item_id": "Uztndf"},
+                {"answer_id": "a5", "value": 1000, "list_item_id": "GjDKpD"}
+            ],
+            "lists": [
+                {"items": ["qObPqR", "Uztndf", "GjDKpD"], "name": "product_codes"},
+                {"items": ["ebQYeQ", "ImViOn"], "name": "product_codes_2"}
+            ],
+            "answer_codes": [
+                {"answer_id": "a1", "code": "200"},
+                {"answer_id": "a6", "code": "201"},
+                {"answer_id": "a2", "code": "c202"},
+                {"answer_id": "a3", "code": "c203"},
+                {"answer_id": "a4", "code": "d202"},
+                {"answer_id": "a5", "code": "d203"}
+            ]
+        }
+
+        expected = [
+            Answer(qcode='200', value='Civil Research and Development', list_item_id='qObPqR', group='product_codes'),
+            Answer(qcode='200', value='Defence Research and Development', list_item_id='Uztndf', group='product_codes'),
+            Answer(qcode='200', value='Both, civil and defence Research and Development', list_item_id='GjDKpD', group='product_codes'),
+            Answer(qcode='201', value='1 - Agriculture', list_item_id='qObPqR', group='product_codes'),
+            Answer(qcode='201', value='2 - Mining and quarrying', list_item_id='Uztndf', group='product_codes'),
+            Answer(qcode='201', value='3 - Food products and beverages', list_item_id='GjDKpD', group='product_codes'),
+            Answer(qcode='c202', value='10000', list_item_id='cqObPqR', group='product_codes'),
+            Answer(qcode='c202', value='5000', list_item_id='cGjDKpD', group='product_codes'),
+            Answer(qcode='c203', value='5000', list_item_id='cqObPqR', group='product_codes'),
+            Answer(qcode='c203', value='3000', list_item_id='cGjDKpD', group='product_codes'),
+            Answer(qcode='d202', value='1000', list_item_id='dUztndf', group='product_codes'),
+            Answer(qcode='d202', value='3000', list_item_id='dGjDKpD', group='product_codes'),
+            Answer(qcode='d203', value='500', list_item_id='dUztndf', group='product_codes'),
+            Answer(qcode='d203', value='1000', list_item_id='dGjDKpD', group='product_codes')]
+
+        actual = extract_answers(data)
+        self.assertEqual(expected, actual)
+
+    def test_collected_list_items(self):
+        answer_list = [
+            Answer(qcode='200', value='Civil Research and Development', list_item_id='cqObPqR', group='product_codes'),
+            Answer(qcode='200', value='Defence Research and Development', list_item_id='dUztndf', group='product_codes'),
+            Answer(qcode='200', value='Both, civil and defence Research and Development', list_item_id='cGjDKpD', group='product_codes'),
+            Answer(qcode='200', value='Both, civil and defence Research and Development', list_item_id='dGjDKpD', group='product_codes'),
+            Answer(qcode='201', value='1 - Agriculture, hunting and forestry; fishing', list_item_id='cqObPqR', group='product_codes'),
+            Answer(qcode='201', value='2 - Mining and quarrying (including solids, liquids and gases)', list_item_id='dUztndf', group='product_codes'),
+            Answer(qcode='201', value='3 - Food products and beverages', list_item_id='cGjDKpD', group='product_codes'),
+            Answer(qcode='201', value='3 - Food products and beverages', list_item_id='dGjDKpD', group='product_codes'),
+            Answer(qcode='c202', value='10000', list_item_id='cqObPqR', group='product_codes'),
+            Answer(qcode='c202', value='5000', list_item_id='cGjDKpD', group='product_codes'),
+            Answer(qcode='c203', value='5000', list_item_id='cqObPqR', group='product_codes'),
+            Answer(qcode='c203', value='3000', list_item_id='cGjDKpD', group='product_codes'),
+            Answer(qcode='d202', value='1000', list_item_id='dUztndf', group='product_codes'),
+            Answer(qcode='d202', value='3000', list_item_id='dGjDKpD', group='product_codes'),
+            Answer(qcode='d203', value='500', list_item_id='dUztndf', group='product_codes'),
+            Answer(qcode='d203', value='1000', list_item_id='dGjDKpD', group='product_codes')
+        ]
+
+        expected = [
+            SPP(questioncode='200', response='Civil Research and Development', instance=1),
+            SPP(questioncode='200', response='Defence Research and Development', instance=2),
+            SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=3),
+            SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=4),
+            SPP(questioncode='201', response='1 - Agriculture, hunting and forestry; fishing', instance=1),
+            SPP(questioncode='201', response='2 - Mining and quarrying (including solids, liquids and gases)', instance=2),
+            SPP(questioncode='201', response='3 - Food products and beverages', instance=3),
+            SPP(questioncode='201', response='3 - Food products and beverages', instance=4),
+            SPP(questioncode='c202', response='10000', instance=1),
+            SPP(questioncode='c202', response='5000', instance=3),
+            SPP(questioncode='c203', response='5000', instance=1),
+            SPP(questioncode='c203', response='3000', instance=3),
+            SPP(questioncode='d202', response='1000', instance=2),
+            SPP(questioncode='d202', response='3000', instance=4),
+            SPP(questioncode='d203', response='500', instance=2),
+            SPP(questioncode='d203', response='1000', instance=4)
+        ]
+
+        actual = convert_to_spp(answer_list)
+        self.assertEqual(expected, actual)
+
+    def test_full_example(self):
         data = {
             "answers": [
                 {"answer_id": "a1", "value": "Civil Research and Development", "list_item_id": "qObPqR"},
@@ -581,23 +675,25 @@ class BERDTransformerTests(unittest.TestCase):
         }
 
         expected = [
-            SPP(questioncode='200', response='Civil Research and Development', instance=1),
-            SPP(questioncode='200', response='Defence Research and Development', instance=2),
-            SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=3),
-            SPP(questioncode='201', response='1 - Agriculture, hunting and forestry; fishing', instance=1),
-            SPP(questioncode='201', response='2 - Mining and quarrying (including solids, liquids and gases)',
-                instance=2),
-            SPP(questioncode='201', response='3 - Food products and beverages', instance=3),
-            SPP(questioncode='c202', response='10000', instance=1),
-            SPP(questioncode='c202', response='5000', instance=3),
-            SPP(questioncode='c203', response='5000', instance=1),
-            SPP(questioncode='c203', response='3000', instance=3),
-            SPP(questioncode='d202', response='1000', instance=2),
-            SPP(questioncode='d202', response='3000', instance=4),
-            SPP(questioncode='d203', response='500', instance=2),
-            SPP(questioncode='d203', response='1000', instance=4)
+             SPP(questioncode='200', response='Civil Research and Development', instance=1),
+             SPP(questioncode='200', response='Defence Research and Development', instance=2),
+             SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=3),
+             SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=4),
+             SPP(questioncode='201', response='1 - Agriculture, hunting and forestry; fishing', instance=1),
+             SPP(questioncode='201', response='2 - Mining and quarrying (including solids, liquids and gases)',
+                 instance=2),
+             SPP(questioncode='201', response='3 - Food products and beverages', instance=3),
+             SPP(questioncode='201', response='3 - Food products and beverages', instance=4),
+             SPP(questioncode='c202', response='10000', instance=1),
+             SPP(questioncode='c202', response='5000', instance=3),
+             SPP(questioncode='c203', response='5000', instance=1),
+             SPP(questioncode='c203', response='3000', instance=3),
+             SPP(questioncode='d202', response='1000', instance=2),
+             SPP(questioncode='d202', response='3000', instance=4),
+             SPP(questioncode='d203', response='500', instance=2),
+             SPP(questioncode='d203', response='1000', instance=4)
         ]
 
-        actual = convert_to_spp(extract_answers(data))
+        actual = convert_to_spp(collect_list_items(extract_answers(data)))
 
         self.assertEqual(expected, actual)

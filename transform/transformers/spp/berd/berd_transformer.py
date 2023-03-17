@@ -4,8 +4,8 @@ from typing import Union, Dict, List
 
 import structlog
 
-from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.response import SurveyResponse, InvalidDataException
+from transform.transformers.spp.berd.collect_items import collect_list_items
 from transform.transformers.survey_transformer import SurveyTransformer
 from transform.utilities.formatter import Formatter
 
@@ -126,7 +126,7 @@ class BERDTransformer(SurveyTransformer):
 
     def __init__(self, survey_response: SurveyResponse, seq_nr=0):
         try:
-            berd_data = convert_to_spp(extract_answers(survey_response.data))
+            berd_data = convert_to_spp(collect_list_items(extract_answers(survey_response.data)))
         except KeyError as e:
             raise InvalidDataException(e)
 
