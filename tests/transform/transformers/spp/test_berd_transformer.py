@@ -2,7 +2,7 @@ import json
 import unittest
 
 import transform.transformers.spp.berd.berd_transformer
-from transform.transformers.response import SurveyResponse, InvalidDataException, SurveyResponseV1
+from transform.transformers.response import SurveyResponse, InvalidDataException, SurveyResponseV1, SurveyResponseV2
 from transform.transformers.spp.berd.berd_transformer import Answer, extract_answers, convert_to_spp, SPP, \
     BERDTransformer, remove_prepend_values
 
@@ -521,18 +521,18 @@ class BERDTransformerTests(unittest.TestCase):
         with open('tests/transform/transformers/spp/berd_survey.json') as f:
             response = json.load(f)
         print(response)
-        survey_response = SurveyResponseV1(response)
+        survey_response = SurveyResponseV2(response)
         transformer = BERDTransformer(survey_response)
         print(json.dumps(survey_response.response))
         print(transformer.get_json()[1])
 
     def test_prepend_values(self):
         data = [
-                {'questioncode': 'c101', 'response': 'Yes', 'instance': 1},
-                {'questioncode': 'c102', 'response': 'No', 'instance': 1},
-                {'questioncode': 'd101', 'response': 'Yes', 'instance': 2},
-                {'questioncode': '56f108', 'response': 'y', 'instance': 2}
-            ]
+            {'questioncode': 'c101', 'response': 'Yes', 'instance': 1},
+            {'questioncode': 'c102', 'response': 'No', 'instance': 1},
+            {'questioncode': 'd101', 'response': 'Yes', 'instance': 2},
+            {'questioncode': '56f108', 'response': 'y', 'instance': 2}
+        ]
 
         actual = remove_prepend_values(data)
 
@@ -542,5 +542,62 @@ class BERDTransformerTests(unittest.TestCase):
             {'questioncode': '101', 'response': 'Yes', 'instance': 2},
             {'questioncode': '108', 'response': 'y', 'instance': 2}
         ]
+
+        self.assertEqual(expected, actual)
+
+    def test_example(self):
+        data = {
+            "answers": [
+                {"answer_id": "a1", "value": "Civil Research and Development", "list_item_id": "qObPqR"},
+                {"answer_id": "a1", "value": "Defence Research and Development", "list_item_id": "Uztndf"},
+                {"answer_id": "a1", "value": "Both, civil and defence Research and Development",
+                 "list_item_id": "GjDKpD"},
+                {"answer_id": "a6", "value": "1 - Agriculture, hunting and forestry; fishing",
+                 "list_item_id": "qObPqR"},
+                {"answer_id": "a6", "value": "2 - Mining and quarrying (including solids, liquids and gases)",
+                 "list_item_id": "Uztndf"},
+                {"answer_id": "a6", "value": "3 - Food products and beverages", "list_item_id": "GjDKpD"},
+                {"answer_id": "a2", "value": 10000, "list_item_id": "qObPqR"},
+                {"answer_id": "a2", "value": 5000, "list_item_id": "GjDKpD"},
+                {"answer_id": "a3", "value": 5000, "list_item_id": "qObPqR"},
+                {"answer_id": "a3", "value": 3000, "list_item_id": "GjDKpD"},
+                {"answer_id": "a4", "value": 1000, "list_item_id": "Uztndf"},
+                {"answer_id": "a4", "value": 3000, "list_item_id": "GjDKpD"},
+                {"answer_id": "a5", "value": 500, "list_item_id": "Uztndf"},
+                {"answer_id": "a5", "value": 1000, "list_item_id": "GjDKpD"}
+            ],
+            "lists": [
+                {"items": ["qObPqR", "Uztndf", "GjDKpD"], "name": "product_codes"},
+                {"items": ["ebQYeQ", "ImViOn"], "name": "product_codes_2"}
+            ],
+            "answer_codes": [
+                {"answer_id": "a1", "code": "200"},
+                {"answer_id": "a6", "code": "201"},
+                {"answer_id": "a2", "code": "c202"},
+                {"answer_id": "a3", "code": "c203"},
+                {"answer_id": "a4", "code": "d202"},
+                {"answer_id": "a5", "code": "d203"}
+            ]
+        }
+
+        expected = [
+            SPP(questioncode='200', response='Civil Research and Development', instance=1),
+            SPP(questioncode='200', response='Defence Research and Development', instance=2),
+            SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=3),
+            SPP(questioncode='201', response='1 - Agriculture, hunting and forestry; fishing', instance=1),
+            SPP(questioncode='201', response='2 - Mining and quarrying (including solids, liquids and gases)',
+                instance=2),
+            SPP(questioncode='201', response='3 - Food products and beverages', instance=3),
+            SPP(questioncode='c202', response='10000', instance=1),
+            SPP(questioncode='c202', response='5000', instance=3),
+            SPP(questioncode='c203', response='5000', instance=1),
+            SPP(questioncode='c203', response='3000', instance=3),
+            SPP(questioncode='d202', response='1000', instance=2),
+            SPP(questioncode='d202', response='3000', instance=4),
+            SPP(questioncode='d203', response='500', instance=2),
+            SPP(questioncode='d203', response='1000', instance=4)
+        ]
+
+        actual = convert_to_spp(extract_answers(data))
 
         self.assertEqual(expected, actual)
