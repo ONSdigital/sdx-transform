@@ -429,3 +429,22 @@ class RemovePrependValuesTests(unittest.TestCase):
         ]
 
         self.assertEqual(expected, actual)
+
+    def test_prepend_values_some_without_prefix(self):
+        data = [
+            {'questioncode': '101', 'response': 'Yes', 'instance': 0},
+            {'questioncode': 'c102', 'response': 'No', 'instance': 1},
+            {'questioncode': 'd102', 'response': 'Yes', 'instance': 2},
+            {'questioncode': '56f108', 'response': 'y', 'instance': 2}
+        ]
+
+        actual = remove_prepend_values(data)
+
+        expected = [
+            {'questioncode': '101', 'response': 'Yes', 'instance': 0},
+            {'questioncode': '102', 'response': 'No', 'instance': 1},
+            {'questioncode': '102', 'response': 'Yes', 'instance': 2},
+            {'questioncode': '108', 'response': 'y', 'instance': 2}
+        ]
+
+        self.assertEqual(expected, actual)

@@ -4,6 +4,13 @@ from transform.transformers.spp.definitions import Answer
 
 
 def collect_list_items(answer_list: List[Answer]) -> List[Answer]:
+    """
+    Finds orphaned list_item_ids and updates them with
+    the correct id representing their collection.
+
+    Returns the list of answers with the updated list_item_ids
+    """
+
     result_list: List[Answer] = []
 
     list_items: Set[str] = set()

@@ -8,6 +8,9 @@ logger = structlog.get_logger()
 
 
 def extract_answers(data: Dict) -> List[Answer]:
+    """
+    Extracts list collector based data into a list of 'Answer's.
+    """
 
     answer_list: List[Answer] = []
 
@@ -49,6 +52,10 @@ def extract_answers(data: Dict) -> List[Answer]:
 
 
 def convert_to_spp(answer_list: List[Answer]) -> List[SPP]:
+    """
+    Converts answers to SPP objects by assigning an instance
+    based on list_item_id and group
+    """
 
     spp_list: List[SPP] = []
     group_dict: Dict[str, List[str]] = {}
@@ -71,19 +78,26 @@ def convert_to_spp(answer_list: List[Answer]) -> List[SPP]:
     return spp_list
 
 
-def remove_prepend_values(reponses: List[Dict[str, Union[str, int]]]) -> List[Dict[str, Union[str, int]]]:
+def remove_prepend_values(responses: List[Dict[str, Union[str, int]]]) -> List[Dict[str, Union[str, int]]]:
+    """
+    Removes any qcode prefixes and returns the updated responses.
+    """
+
     stripped_values = []
-    for i in range(0, len(reponses)):
-        code = reponses[i]['questioncode']
-        if not code.isnumeric():
-            for j in range(0, len(code)):
-                if code[j:].isnumeric():
-                    new = {
-                        'questioncode': code[j:],
-                        'response': reponses[i]['response'],
-                        'instance': reponses[i]['instance']
+    for response in responses:
+        code = response['questioncode']
+        if code.isnumeric():
+            stripped_values.append(response)
+        else:
+            for i in range(0, len(code)):
+                q_code = code[i:]
+                if q_code.isnumeric():
+                    stripped = {
+                        'questioncode': q_code,
+                        'response': response['response'],
+                        'instance': response['instance']
                     }
-                    stripped_values.append(new)
+                    stripped_values.append(stripped)
                     break
 
     return stripped_values

@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from transform.transformers.response import InvalidDataException, SurveyResponse, SurveyResponseV1
+from transform.transformers.response import InvalidDataException, SurveyResponse, SurveyResponseV1, SurveyResponseV2
 from transform.transformers.spp.berd.berd_transformer import BERDTransformer
 from transform.transformers.spp.berd.collect_items import collect_list_items
 from transform.transformers.spp.convert_data import convert_to_spp, extract_answers
@@ -113,6 +113,7 @@ class BERDTransformerTests(unittest.TestCase):
     def test_extract_answers(self):
         data = {
             "answers": [
+                {"answer_id": "q1", "value": "Yes, I can report for this period"},
                 {"answer_id": "a1", "value": "Civil Research and Development", "list_item_id": "qObPqR"},
                 {"answer_id": "a1", "value": "Defence Research and Development", "list_item_id": "Uztndf"},
                 {"answer_id": "a1", "value": "Both, civil and defence Research and Development", "list_item_id": "GjDKpD"},
@@ -133,6 +134,7 @@ class BERDTransformerTests(unittest.TestCase):
                 {"items": ["ebQYeQ", "ImViOn"], "name": "product_codes_2"}
             ],
             "answer_codes": [
+                {"answer_id": "q1", "code": "101"},
                 {"answer_id": "a1", "code": "200"},
                 {"answer_id": "a6", "code": "201"},
                 {"answer_id": "a2", "code": "c202"},
@@ -143,6 +145,7 @@ class BERDTransformerTests(unittest.TestCase):
         }
 
         expected = [
+            Answer(qcode='101', value='Yes, I can report for this period', list_item_id=None, group=None),
             Answer(qcode='200', value='Civil Research and Development', list_item_id='qObPqR', group='product_codes'),
             Answer(qcode='200', value='Defence Research and Development', list_item_id='Uztndf', group='product_codes'),
             Answer(qcode='200', value='Both, civil and defence Research and Development', list_item_id='GjDKpD', group='product_codes'),
@@ -163,6 +166,7 @@ class BERDTransformerTests(unittest.TestCase):
 
     def test_collected_list_items(self):
         answer_list = [
+            Answer(qcode='101', value='Yes, I can report for this period', list_item_id=None, group=None),
             Answer(qcode='200', value='Civil Research and Development', list_item_id='cqObPqR', group='product_codes'),
             Answer(qcode='200', value='Defence Research and Development', list_item_id='dUztndf', group='product_codes'),
             Answer(qcode='200', value='Both, civil and defence Research and Development', list_item_id='cGjDKpD', group='product_codes'),
@@ -182,6 +186,7 @@ class BERDTransformerTests(unittest.TestCase):
         ]
 
         expected = [
+            SPP(questioncode='101', response='Yes, I can report for this period', instance=0),
             SPP(questioncode='200', response='Civil Research and Development', instance=1),
             SPP(questioncode='200', response='Defence Research and Development', instance=2),
             SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=3),
@@ -239,34 +244,45 @@ class BERDTransformerTests(unittest.TestCase):
         }
 
         expected = [
-             SPP(questioncode='200', response='Civil Research and Development', instance=1),
-             SPP(questioncode='200', response='Defence Research and Development', instance=2),
-             SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=3),
-             SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=4),
-             SPP(questioncode='201', response='1 - Agriculture, hunting and forestry; fishing', instance=1),
-             SPP(questioncode='201', response='2 - Mining and quarrying (including solids, liquids and gases)',
-                 instance=2),
-             SPP(questioncode='201', response='3 - Food products and beverages', instance=3),
-             SPP(questioncode='201', response='3 - Food products and beverages', instance=4),
-             SPP(questioncode='c202', response='10000', instance=1),
-             SPP(questioncode='c202', response='5000', instance=3),
-             SPP(questioncode='c203', response='5000', instance=1),
-             SPP(questioncode='c203', response='3000', instance=3),
-             SPP(questioncode='d202', response='1000', instance=2),
-             SPP(questioncode='d202', response='3000', instance=4),
-             SPP(questioncode='d203', response='500', instance=2),
-             SPP(questioncode='d203', response='1000', instance=4)
+            SPP(questioncode='200', response='Civil Research and Development', instance=1),
+            SPP(questioncode='200', response='Defence Research and Development', instance=2),
+            SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=3),
+            SPP(questioncode='200', response='Both, civil and defence Research and Development', instance=4),
+            SPP(questioncode='201', response='1 - Agriculture, hunting and forestry; fishing', instance=1),
+            SPP(questioncode='201', response='2 - Mining and quarrying (including solids, liquids and gases)',
+                instance=2),
+            SPP(questioncode='201', response='3 - Food products and beverages', instance=3),
+            SPP(questioncode='201', response='3 - Food products and beverages', instance=4),
+            SPP(questioncode='c202', response='10000', instance=1),
+            SPP(questioncode='c202', response='5000', instance=3),
+            SPP(questioncode='c203', response='5000', instance=1),
+            SPP(questioncode='c203', response='3000', instance=3),
+            SPP(questioncode='d202', response='1000', instance=2),
+            SPP(questioncode='d202', response='3000', instance=4),
+            SPP(questioncode='d203', response='500', instance=2),
+            SPP(questioncode='d203', response='1000', instance=4)
         ]
 
         actual = convert_to_spp(collect_list_items(extract_answers(data)))
 
         self.assertEqual(expected, actual)
 
-    def test_from_file(self):
+    def test_from_file_v1(self):
         with open('tests/transform/transformers/spp/berd_survey_v1.json') as f:
             response = json.load(f)
-        print(response)
+        # print(response)
         survey_response = SurveyResponseV1(response)
         transformer = BERDTransformer(survey_response)
-        print(json.dumps(survey_response.response))
-        print(transformer.get_json()[1])
+        # print(json.dumps(survey_response.response))
+        result = transformer.get_json()[1]
+        self.assertTrue(result is not None)
+
+    def test_from_file_v2(self):
+        with open('tests/transform/transformers/spp/berd_survey_v2.json') as f:
+            response = json.load(f)
+        # print(response)
+        survey_response = SurveyResponseV2(response)
+        transformer = BERDTransformer(survey_response)
+        # print(json.dumps(survey_response.response))
+        result = transformer.get_json()[1]
+        self.assertTrue(result is not None)

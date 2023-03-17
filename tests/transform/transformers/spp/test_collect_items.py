@@ -1,7 +1,7 @@
 import unittest
 
-from transform.transformers.spp.berd.berd_transformer import Answer
 from transform.transformers.spp.berd.collect_items import is_subset_of, collect_list_items
+from transform.transformers.spp.definitions import Answer
 
 
 class CollectItemsTests(unittest.TestCase):
@@ -28,6 +28,22 @@ class CollectItemsTests(unittest.TestCase):
         ]
 
         expected = [
+            Answer(qcode='200', value="1", list_item_id='cqObPqR', group='product_codes'),
+            Answer(qcode='c201', value="2", list_item_id='cqObPqR', group='product_codes'),
+        ]
+
+        actual = collect_list_items(answer_list)
+        self.assertEqual(expected, actual)
+
+    def test_collect_no_item_id(self):
+        answer_list = [
+            Answer(qcode='101', value="Yes", list_item_id=None, group=None),
+            Answer(qcode='200', value="1", list_item_id='qObPqR', group='product_codes'),
+            Answer(qcode='c201', value="2", list_item_id='cqObPqR', group='product_codes'),
+        ]
+
+        expected = [
+            Answer(qcode='101', value="Yes", list_item_id=None, group=None),
             Answer(qcode='200', value="1", list_item_id='cqObPqR', group='product_codes'),
             Answer(qcode='c201', value="2", list_item_id='cqObPqR', group='product_codes'),
         ]
