@@ -1,24 +1,11 @@
 import os.path
-import requests
 import subprocess
-
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
 
 from transform.transformers.index_file import IndexFile
 from .image_base import ImageBase
 from .pdf_transformer import PDFTransformer
-
-# Configure the number of retries attempted before failing call
 from .response import SurveyResponse
 from ..utilities.formatter import Formatter
-
-session = requests.Session()
-
-retries = Retry(total=5, backoff_factor=0.1)
-
-session.mount('http://', HTTPAdapter(max_retries=retries))
-session.mount('https://', HTTPAdapter(max_retries=retries))
 
 
 class ImageTransformer(ImageBase):
