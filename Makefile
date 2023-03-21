@@ -6,8 +6,7 @@ build:
 test:
 	pipenv install install --dev
 	flake8 --exclude ./lib/*
-	pipenv run pytest -v --cov-report term-missing --cov=transform tests/
-	coverage html
+	pipenv run pytest -v --cov-report term-missing --cov=transform tests
 
 check-dependencies:
 ifndef PDFTOPPM

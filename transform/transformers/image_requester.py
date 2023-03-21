@@ -1,22 +1,13 @@
 import json
 import os.path
+import time
 
 import requests
 
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
-from urllib3.exceptions import MaxRetryError
-
 from transform.transformers.index_file import IndexFile
 from .image_base import ImageBase
-
-# Configure the number of retries attempted before failing call
 from .response import SurveyResponse
 from ..utilities.formatter import Formatter
-
-session = requests.Session()
-retries = Retry(total=5, backoff_factor=0.1)
-session.mount('http://', HTTPAdapter(max_retries=retries))
 
 
 class RetryableError(Exception):
@@ -25,6 +16,10 @@ class RetryableError(Exception):
     This should be used when the failure was caused by circumstances outside of this services
     control that might change e.g. another service being down.
     """
+    pass
+
+
+class ImageServiceError(Exception):
     pass
 
 
@@ -62,14 +57,29 @@ class ImageRequester(ImageBase):
 
     def _request_image(self):
         survey_json = json.dumps(self.response.response)
-        http_response = self._post(survey_json)
+        trying = True
+        retries = 0
+        max_retries = 3
+        http_response = None
+        while trying:
+            try:
+                http_response = self._post(survey_json)
+                trying = False
+            except RetryableError:
+                retries += 1
+                if retries > max_retries:
+                    trying = False
+                else:
+                    # sleep for 20 seconds
+                    time.sleep(20)
+                    self.logger.info("trying again...")
 
-        if http_response.status_code == 200:
+        if http_response and http_response.status_code == 200:
             return http_response.content
         else:
             msg = "Bad response from sdx-image"
             self.logger.error(msg, status_code=http_response.status_code)
-            raise Exception(msg)
+            raise ImageServiceError(http_response.reason)
 
     def _post(self, survey_json):
         """Constructs the http call to the transform service endpoint and posts the request"""
@@ -77,11 +87,8 @@ class ImageRequester(ImageBase):
         url = "http://sdx-image:80/image"
         self.logger.info(f"Calling {url}")
         try:
-            response = session.post(url, survey_json)
-        except MaxRetryError:
-            self.logger.error("Max retries exceeded", request_url=url)
-            raise RetryableError("Max retries exceeded")
-        except ConnectionError:
+            response = requests.post(url, survey_json)
+        except Exception:
             self.logger.error("Connection error", request_url=url)
             raise RetryableError("Connection error")
 

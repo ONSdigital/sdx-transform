@@ -6,6 +6,7 @@ from jinja2 import Environment, PackageLoader
 from structlog.contextvars import bind_contextvars
 
 from transform import app
+from transform.transformers.image_requester import ImageServiceError
 from transform.transformers.response import SurveyResponseV1, SurveyResponseV2, InvalidDataException
 from transform.transformers.survey import MissingSurveyException, MissingIdsException
 from transform.transformers.transform_selector import get_transformer
@@ -39,10 +40,10 @@ def client_error(error=None):
 
 @app.errorhandler(500)
 def server_error(error=None):
-    logger.error("Server error", error=repr(error))
+    logger.error("Server error", error=str(error))
     message = {
         'status': 500,
-        'message': "Internal server error: " + repr(error),
+        'message': "Internal server error: " + str(error),
     }
     resp = jsonify(message)
     resp.status_code = 500
@@ -82,6 +83,9 @@ def transform(sequence_no=1000):
 
     except InvalidDataException as ide:
         return client_error(str(ide))
+
+    except ImageServiceError as ise:
+        return server_error(ise)
 
     except Exception as e:
         logger.exception("TRANSFORM:could not create files for survey", tx_id=tx_id)
