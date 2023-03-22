@@ -48,10 +48,10 @@ class BlocksTransformer(SurveyTransformer):
         super().__init__(response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
 
     def _format_pck(self, transformed_data) -> str:
-        """Return a pck file using provided data"""
+        """Common software require Blocks to be form type 0001 even though it is 0002 in Author"""
         pck = CSFormatter.get_pck(
             transformed_data,
-            self.survey_response.instrument_id,
+            "0001",
             self.survey_response.ru_ref,
             self.survey_response.ru_check,
             extract_pck_period(self.survey_response.period),
