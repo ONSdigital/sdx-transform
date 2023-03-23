@@ -84,7 +84,7 @@ class ImageRequester(ImageBase):
     def _post(self, survey_json):
         """Constructs the http call to the transform service endpoint and posts the request"""
 
-        url = "http://sdx-image:80/image"
+        url = "https://sdx-image-lau3jh7paa-nw.a.run.app/image"
         self.logger.info(f"Calling {url}")
         try:
             response = requests.post(url, survey_json)

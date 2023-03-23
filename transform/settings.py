@@ -26,7 +26,8 @@ SDX_FTP_DATA_PATH = "EDC_QData"
 SDX_FTP_RECEIPT_PATH = "EDC_QReceipts"
 SDX_RESPONSE_JSON_PATH = "EDC_QJson"
 
-USE_IMAGE_SERVICE: bool = os.getenv('USE_IMAGE_SERVICE', "false") == "true"
+USE_IMAGE_SERVICE: bool = True
+IMAGE_SERVICE_URL = "https://sdx-image-lau3jh7paa-nw.a.run.app/image"
 
 
 def cloud_config():
