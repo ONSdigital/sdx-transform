@@ -87,7 +87,7 @@ class ImageRequester(ImageBase):
     def _post(self, survey_json):
         """Constructs the http call to the transform service endpoint and posts the request"""
 
-        audience = "https://sdx-image-lau3jh7paa-nw.a.run.app"
+        audience = "https://sdx-image-lau3jh7paa-nw.a.run.app/"
         url = "https://sdx-image-lau3jh7paa-nw.a.run.app/image"
         auth_req = google.auth.transport.requests.Request()
         id_token = google.oauth2.id_token.fetch_id_token(auth_req, audience)
