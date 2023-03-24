@@ -10,6 +10,7 @@ import google.oauth2.id_token
 from transform.transformers.index_file import IndexFile
 from .image_base import ImageBase
 from .response import SurveyResponse
+from ..settings import IMAGE_SERVICE_URL
 from ..utilities.formatter import Formatter
 
 
@@ -87,15 +88,15 @@ class ImageRequester(ImageBase):
     def _post(self, survey_json):
         """Constructs the http call to the transform service endpoint and posts the request"""
 
-        audience = "https://sdx-image-lau3jh7paa-nw.a.run.app/"
-        url = "https://sdx-image-lau3jh7paa-nw.a.run.app/image"
+        audience = IMAGE_SERVICE_URL
+        endpoint = f"{audience}/image"
         auth_req = google.auth.transport.requests.Request()
         id_token = google.oauth2.id_token.fetch_id_token(auth_req, audience)
-        self.logger.info(f"Calling {url}")
+        self.logger.info(f"Calling {endpoint}")
         try:
-            response = requests.post(url, survey_json, headers={"Authorization": f"Bearer {id_token}"})
+            response = requests.post(endpoint, survey_json, headers={"Authorization": f"Bearer {id_token}"})
         except Exception:
-            self.logger.error("Connection error", request_url=url)
+            self.logger.error("Connection error", request_url=endpoint)
             raise RetryableError("Connection error")
 
         return response
