@@ -28,35 +28,40 @@ def perform_transforms(
                 if transform_type == TransformType.CURRENCY:
                     converted_value = thousands_transform(value)
 
-                if transform_type == TransformType.YESNO:
+                elif transform_type == TransformType.YESNO:
                     converted_value = yes_no_transform(value)
 
-                if transform_type == TransformType.IMPORTANCE:
+                elif transform_type == TransformType.IMPORTANCE:
                     converted_value = importance_transform(value)
 
-                if transform_type == TransformType.CHECKBOX:
+                elif transform_type == TransformType.CHECKBOX:
                     converted_value = checkbox_transform(value)
                     remaining_checkbox_qcodes.remove(qcode)
 
-                if transform_type == TransformType.PERCENTRADIO:
+                elif transform_type == TransformType.PERCENTRADIO:
                     converted_value = percent_radio_transform(value)
 
-                if transform_type == TransformType.PERCENTAGE:
+                elif transform_type == TransformType.PERCENTAGE:
                     converted_value = percentage_transform(value)
 
-                if transform_type == TransformType.NUMBER:
+                elif transform_type == TransformType.NUMBER:
                     converted_value = number_transform(value)
 
-                if transform_type == TransformType.TEXT:
+                elif transform_type == TransformType.TEXT:
                     converted_value = text_transform(value)
 
-                if transform_type == TransformType.DISTANCERADIO:
+                elif transform_type == TransformType.DISTANCERADIO:
                     if qcode == "2121":
                         distance_qcodes = ["2121", "2122", "2123", "2124"]
                     elif qcode == "2131":
                         distance_qcodes = ["2131", "2132", "2133", "2134"]
+                    else:
+                        continue
                     converted_value_dict = distance_radio_transform(value, distance_qcodes)
                     result.update(converted_value_dict)
+                    continue
+
+                else:
                     continue
 
                 result[qcode] = converted_value
