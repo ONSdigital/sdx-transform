@@ -3,8 +3,8 @@ from transform.transformers.common_software.abs.abs_transformer import ABSTransf
 from transform.transformers.common_software.acas.acas_transformer import ACASTransformer
 from transform.transformers.common_software.blocks.blocks_transformer import BlocksTransformer
 from transform.transformers.common_software.bricks.bricks_transformer import BricksTransformer
-from transform.transformers.cora import UKISTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
+from transform.transformers.cora.ukis.ukis_transformer import UKISTransformer
 from transform.transformers.cord import EcommerceTransformer
 from transform.transformers.cord.des.des2021_transformer import DES2021Transformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
