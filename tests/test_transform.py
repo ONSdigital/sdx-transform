@@ -48,7 +48,7 @@ class TestTransformService(unittest.TestCase):
 
     def test_invalid_survey_id(self):
         # Create an invalid survey id payload
-        payload_str = get_file_as_string("./tests/pck/common_software/023.0203.json")
+        payload_str = get_file_as_string("./tests/pck/common_software/009.0106.json")
         payload_object = json.loads(payload_str)
         payload_object["survey_id"] = "666"
         payload = json.dumps(payload_object)
@@ -60,7 +60,7 @@ class TestTransformService(unittest.TestCase):
 
     def test_missing_survey_id(self):
         # Create a survey with missing survey id
-        payload_str = get_file_as_string("./tests/pck/common_software/023.0203.json")
+        payload_str = get_file_as_string("./tests/pck/common_software/009.0106.json")
         payload_object = json.loads(payload_str)
         del payload_object["survey_id"]
         payload = json.dumps(payload_object)

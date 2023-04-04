@@ -1,17 +1,22 @@
 from transform.transformers.common_software import MBSTransformer, MWSSTransformer, CSTransformer
 from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
 from transform.transformers.common_software.acas.acas_transformer import ACASTransformer
+from transform.transformers.common_software.blocks.blocks_transformer import BlocksTransformer
+from transform.transformers.common_software.bricks.bricks_transformer import BricksTransformer
+from transform.transformers.cora import UKISTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cora.ukis.ukis_transformer import UKISTransformer
 from transform.transformers.cord import EcommerceTransformer
+from transform.transformers.cord.des.des2021_transformer import DES2021Transformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer
-from transform.transformers.response import SurveyResponseV1
+from transform.transformers.response import SurveyResponse
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
+from transform.transformers.spp.berd.berd_transformer import BERDTransformer
 from transform.transformers.survey_transformer import SurveyTransformer
 
 
-def get_transformer(response: SurveyResponseV1, sequence_no=1000):
+def get_transformer(response: SurveyResponse, sequence_no=1000):
     """Returns the appropriate survey transformer based on survey_id
 
     :param dict response: A dictionary like object representing the survey response
@@ -21,8 +26,12 @@ def get_transformer(response: SurveyResponseV1, sequence_no=1000):
 
     survey_id = response.survey_id
 
+    # SPP
+    if survey_id == "002":
+        transformer = BERDTransformer(response, sequence_no)
+
     # CORA
-    if survey_id == "144":
+    elif survey_id == "144":
         transformer = UKISTransformer(response, sequence_no)
     elif survey_id == "092":
         transformer = MESTransformer(response, sequence_no)
@@ -30,13 +39,19 @@ def get_transformer(response: SurveyResponseV1, sequence_no=1000):
     # CORD
     elif survey_id == "187":
         if response.instrument_id in ['0001', '0002']:
-            transformer = DESTransformer(response, sequence_no)
+            if response.period == "2021":
+                transformer = DES2021Transformer(response, sequence_no)
+            else:
+                transformer = DESTransformer(response, sequence_no)
         else:
             transformer = EcommerceTransformer(response, sequence_no)
 
     # NO PCK INQUIRIES
     elif survey_id == "007":
         # Low Carbon
+        transformer = SurveyTransformer(response, sequence_no)
+    elif survey_id == "023":
+        # Retail Sales Inquiry (RSI)
         transformer = SurveyTransformer(response, sequence_no)
     elif survey_id == "024":
         # Fuels
@@ -57,6 +72,10 @@ def get_transformer(response: SurveyResponseV1, sequence_no=1000):
         transformer = ACASTransformer(response, sequence_no)
     elif survey_id == "202":
         transformer = ABSTransformer(response, sequence_no)
+    elif survey_id == "073":
+        transformer = BlocksTransformer(response, sequence_no)
+    elif survey_id == "074":
+        transformer = BricksTransformer(response, sequence_no)
     else:
         transformer = CSTransformer(response, sequence_no)
 
