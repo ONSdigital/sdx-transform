@@ -34,6 +34,9 @@ def perform_transforms(
                 if qcode in response_data:
                     converted_value_dict = distance_radio_transform(response_data[qcode], distance_qcodes)
                     result.update(converted_value_dict)
+                else:
+                    for qc in distance_qcodes:
+                        result[qc] = ""
 
             elif qcode in response_data:
                 value = response_data[qcode]
