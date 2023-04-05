@@ -23,6 +23,18 @@ def perform_transforms(
             if transform_type == TransformType.ZERO:
                 result[qcode] = "0"
 
+            elif transform_type == TransformType.DISTANCE_RADIO:
+                if qcode == "2121":
+                    distance_qcodes = ["2121", "2122", "2123", "2124"]
+                elif qcode == "2131":
+                    distance_qcodes = ["2131", "2132", "2133", "2134"]
+                else:
+                    continue
+
+                if qcode in response_data:
+                    converted_value_dict = distance_radio_transform(response_data[qcode], distance_qcodes)
+                    result.update(converted_value_dict)
+
             elif qcode in response_data:
                 value = response_data[qcode]
 
@@ -53,17 +65,6 @@ def perform_transforms(
                 elif transform_type == TransformType.TEXT:
                     converted_value = text_transform(value)
 
-                elif transform_type == TransformType.DISTANCE_RADIO:
-                    if qcode == "2121":
-                        distance_qcodes = ["2121", "2122", "2123", "2124"]
-                    elif qcode == "2131":
-                        distance_qcodes = ["2131", "2132", "2133", "2134"]
-                    else:
-                        continue
-                    converted_value_dict = distance_radio_transform(value, distance_qcodes)
-                    result.update(converted_value_dict)
-                    continue
-
                 else:
                     continue
 
@@ -87,13 +88,13 @@ def distance_radio_transform(value: str, qcode_list: List[str]) -> Dict[str, str
         qcode_list[3]: "0"
     }
 
-    if value.lower() == "within 15 miles of one of the physical sites of your business and within the uk":
+    if value.lower().startswith("within"):
         distance_radio_output[qcode_list[0]] = "1"
-    elif value.lower() == "further than 15 miles from the physical sites of your business and within the uk":
+    elif value.lower().startswith("further"):
         distance_radio_output[qcode_list[1]] = "1"
-    elif value.lower() == "outside of the uk":
+    elif value.lower().startswith("outside"):
         distance_radio_output[qcode_list[2]] = "1"
-    elif value.lower() == "your business worked with them remotely, with no face-to-face contact":
+    elif value.lower().startswith("your business"):
         distance_radio_output[qcode_list[3]] = "1"
 
     return distance_radio_output

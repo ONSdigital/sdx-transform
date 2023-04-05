@@ -230,6 +230,6 @@ ukis_transformations: Dict[str, TransformType] = {
     "2239": TransformType.YESNO,
     "2700": TransformType.TEXT,
     "2801": TransformType.NUMBER,
-    "2802": TransformType.NUMBER,
+    "2800": TransformType.NUMBER,
     "2900": TransformType.YESNO
 }
