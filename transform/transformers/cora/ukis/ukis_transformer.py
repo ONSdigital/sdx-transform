@@ -20,11 +20,17 @@ def perform_transforms(
 
     for qcode, transform_type in transformation_dict.items():
         try:
-            if qcode in response_data:
+            if transform_type == TransformType.ZERO:
+                result[qcode] = "0"
+
+            elif qcode in response_data:
                 value = response_data[qcode]
 
                 if transform_type == TransformType.CURRENCY:
                     converted_value = thousands_transform(value)
+
+                elif transform_type == TransformType.ZERO:
+                    converted_value = "0"
 
                 elif transform_type == TransformType.YESNO:
                     converted_value = yes_no_transform(value)

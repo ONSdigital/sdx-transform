@@ -12,9 +12,13 @@ class TransformType(Enum):
     TEXT = 7
     NUMBER = 8
     DISTANCE_RADIO = 9
+    ZERO = 10
 
 
 ukis_transformations: Dict[str, TransformType] = {
+    "0001": TransformType.ZERO,
+    "0002": TransformType.ZERO,
+    "0003": TransformType.ZERO,
     "2330": TransformType.CHECKBOX,
     "2310": TransformType.CHECKBOX,
     "2320": TransformType.CHECKBOX,

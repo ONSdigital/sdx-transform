@@ -154,6 +154,9 @@ class TestUkisTransforms(unittest.TestCase):
         }
 
         expected = {
+            '0001': '0',
+            '0002': '0',
+            '0003': '0',
             '0510': '10',
             '0520': '10',
             '0601': '',
