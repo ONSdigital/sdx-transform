@@ -8,28 +8,11 @@ class TransformType(Enum):
     CURRENCY = 3
     CHECKBOX = 4
     PERCENTAGE = 5
-    PERCENTRADIO = 6
+    PERCENT_RADIO = 6
     TEXT = 7
     NUMBER = 8
-    DISTANCERADIO = 9
+    DISTANCE_RADIO = 9
 
-
-checkbox_qcodes = [
-    "2330", "2310", "2320", "2340", "2350", "2360", "2370", "2380",
-    "1010", "1020", "1030", "1040", "1331", "1332", "1333", "1371",
-    "1372", "1373", "1374", "0601", "0602", "0603", "0604", "1510",
-    "1520", "1540", "2011", "2020", "2030", "2031", "2032", "2033",
-    "2101", "2102", "2103", "2104", "1812", "1813", "1814", "1811",
-    "1822", "1823", "1824", "1821", "1882", "1883", "1884", "1881",
-    "1892", "1893", "1894", "1891", "1842", "1843", "1844", "1841",
-    "1852", "1853", "1854", "1851", "1862", "1863", "1864", "1861",
-    "1872", "1873", "1874", "1871", "1876", "1877", "1878", "1875",
-    "1880", "1885", "1886", "1879", "1895", "1896", "1897", "1898",
-    "1901", "1902", "1903", "1904", "2668", "2669", "2670", "2671",
-    "2672", "2673", "2679", "2674", "2631", "2632", "2633", "2634",
-    "2635", "2636", "2637", "2201", "2202", "2203", "2204", "2205",
-    "2206", "2211", "2212", "2213", "2214", "2215", "2216"
-]
 
 ukis_transformations: Dict[str, TransformType] = {
     "2330": TransformType.CHECKBOX,
@@ -161,12 +144,12 @@ ukis_transformations: Dict[str, TransformType] = {
     "1863": TransformType.CHECKBOX,
     "1864": TransformType.CHECKBOX,
     "1861": TransformType.CHECKBOX,
-    "2121": TransformType.DISTANCERADIO,
+    "2121": TransformType.DISTANCE_RADIO,
     "1872": TransformType.CHECKBOX,
     "1873": TransformType.CHECKBOX,
     "1874": TransformType.CHECKBOX,
     "1871": TransformType.CHECKBOX,
-    "2131": TransformType.DISTANCERADIO,
+    "2131": TransformType.DISTANCE_RADIO,
     "2140": TransformType.YESNO,
     "1876": TransformType.CHECKBOX,
     "1877": TransformType.CHECKBOX,
@@ -184,13 +167,13 @@ ukis_transformations: Dict[str, TransformType] = {
     "1902": TransformType.CHECKBOX,
     "1903": TransformType.CHECKBOX,
     "1904": TransformType.CHECKBOX,
-    "2650": TransformType.PERCENTRADIO,
-    "2651": TransformType.PERCENTRADIO,
-    "2652": TransformType.PERCENTRADIO,
-    "2653": TransformType.PERCENTRADIO,
-    "2654": TransformType.PERCENTRADIO,
-    "2655": TransformType.PERCENTRADIO,
-    "2656": TransformType.PERCENTRADIO,
+    "2650": TransformType.PERCENT_RADIO,
+    "2651": TransformType.PERCENT_RADIO,
+    "2652": TransformType.PERCENT_RADIO,
+    "2653": TransformType.PERCENT_RADIO,
+    "2654": TransformType.PERCENT_RADIO,
+    "2655": TransformType.PERCENT_RADIO,
+    "2656": TransformType.PERCENT_RADIO,
     "2668": TransformType.CHECKBOX,
     "2669": TransformType.CHECKBOX,
     "2670": TransformType.CHECKBOX,
