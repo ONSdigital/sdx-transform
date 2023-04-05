@@ -6,7 +6,7 @@ from typing import Dict, List
 import structlog
 
 from transform.transformers.cora.cora_formatter import CORAFormatter
-from transform.transformers.cora.ukis.ukis_transforms import TransformType, ukis_transformations, checkbox_qcodes
+from transform.transformers.cora.ukis.ukis_transforms import TransformType, ukis_transformations
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
@@ -14,19 +14,23 @@ logger = structlog.get_logger()
 
 def perform_transforms(
         response_data: Dict[str, str],
-        transformation_dict: Dict[str, TransformType],
-        expected_checkbox_qcodes: List[str]) -> Dict[str, str]:
+        transformation_dict: Dict[str, TransformType]):
 
     result = {}
-    remaining_checkbox_qcodes = set(expected_checkbox_qcodes)
 
-    for qcode, value in response_data.items():
+    for qcode, transform_type in transformation_dict.items():
         try:
-            if qcode in transformation_dict:
-                transform_type = transformation_dict[qcode]
+            if transform_type == TransformType.ZERO:
+                result[qcode] = "0"
+
+            elif qcode in response_data:
+                value = response_data[qcode]
 
                 if transform_type == TransformType.CURRENCY:
                     converted_value = thousands_transform(value)
+
+                elif transform_type == TransformType.ZERO:
+                    converted_value = "0"
 
                 elif transform_type == TransformType.YESNO:
                     converted_value = yes_no_transform(value)
@@ -36,9 +40,8 @@ def perform_transforms(
 
                 elif transform_type == TransformType.CHECKBOX:
                     converted_value = checkbox_transform(value)
-                    remaining_checkbox_qcodes.remove(qcode)
 
-                elif transform_type == TransformType.PERCENTRADIO:
+                elif transform_type == TransformType.PERCENT_RADIO:
                     converted_value = percent_radio_transform(value)
 
                 elif transform_type == TransformType.PERCENTAGE:
@@ -50,7 +53,7 @@ def perform_transforms(
                 elif transform_type == TransformType.TEXT:
                     converted_value = text_transform(value)
 
-                elif transform_type == TransformType.DISTANCERADIO:
+                elif transform_type == TransformType.DISTANCE_RADIO:
                     if qcode == "2121":
                         distance_qcodes = ["2121", "2122", "2123", "2124"]
                     elif qcode == "2131":
@@ -66,11 +69,11 @@ def perform_transforms(
 
                 result[qcode] = converted_value
 
-        except ValueError:
-            logging.error(f"ValueError with qcode {qcode}, with value {value}")
+            else:
+                result[qcode] = ""
 
-    for qcode in remaining_checkbox_qcodes:
-        result[qcode] = ""
+        except ValueError:
+            logging.error(f"ValueError with qcode {qcode}")
 
     return result
 
@@ -164,9 +167,9 @@ def thousands_transform(value: str) -> str:
         decimal.getcontext().rounding = ROUND_HALF_UP
         return str(int(Decimal(round(Decimal(float(value))) / 1000).quantize(1)))
 
-    except TypeError:
-        logger.info("Tried to quantize a NoneType object. Returning an empty string")
-        raise ValueError("Invalid value")
+    except Exception:
+        logger.info(f"Could not convert {value} into a number:")
+        return ""
 
 
 class UKISTransformer(SurveyTransformer):
@@ -187,7 +190,7 @@ class UKISTransformer(SurveyTransformer):
     def create_pck(self):
         bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
-        transformed_data = perform_transforms(self.survey_response.data, ukis_transformations, checkbox_qcodes)
+        transformed_data = perform_transforms(self.survey_response.data, ukis_transformations)
         bound_logger.info("Data successfully transformed")
         pck_name = CORAFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
         pck = self._create_pck(transformed_data)

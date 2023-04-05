@@ -1,7 +1,7 @@
 import unittest
 
 from transform.transformers.cora.ukis.ukis_transformer import perform_transforms
-from transform.transformers.cora.ukis.ukis_transforms import ukis_transformations, checkbox_qcodes
+from transform.transformers.cora.ukis.ukis_transforms import ukis_transformations
 
 
 class TestUkisTransforms(unittest.TestCase):
@@ -154,6 +154,9 @@ class TestUkisTransforms(unittest.TestCase):
         }
 
         expected = {
+            '0001': '0',
+            '0002': '0',
+            '0003': '0',
             '0510': '10',
             '0520': '10',
             '0601': '',
@@ -288,6 +291,7 @@ class TestUkisTransforms(unittest.TestCase):
             '2132': '0',
             '2133': '1',
             '2134': '0',
+            '2140': '',
             '2201': '1',
             '2202': '',
             '2203': '1',
@@ -307,6 +311,7 @@ class TestUkisTransforms(unittest.TestCase):
             '2224': '10',
             '2225': '01',
             '2226': '01',
+            '2227': '',
             '2228': '10',
             '2229': '01',
             '2230': '10',
@@ -314,7 +319,9 @@ class TestUkisTransforms(unittest.TestCase):
             '2232': '10',
             '2233': '01',
             '2234': '01',
+            '2235': '',
             '2236': '01',
+            '2237': '',
             '2238': '10',
             '2239': '01',
             '2310': '1',
@@ -338,6 +345,7 @@ class TestUkisTransforms(unittest.TestCase):
             '2650': '0010',
             '2651': '0001',
             '2652': '0011',
+            '2653': '',
             '2654': '0100',
             '2655': '0011',
             '2656': '0010',
@@ -366,9 +374,10 @@ class TestUkisTransforms(unittest.TestCase):
             '2682': '0001',
             '2700': '1',
             '2801': '1',
+            '2802': '',
             '2900': '10'
         }
 
-        actual = perform_transforms(response_data, ukis_transformations, checkbox_qcodes)
+        actual = perform_transforms(response_data, ukis_transformations)
 
         self.assertEqual(expected, actual)
