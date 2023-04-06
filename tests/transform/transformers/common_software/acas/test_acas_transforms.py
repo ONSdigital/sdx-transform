@@ -399,7 +399,7 @@ class TestAcasTransforms(unittest.TestCase):
         response_data = {
             "9999": "Yes, I can report for this period",
             "9998": "Yes",
-            "150": "123456",
+            "150": "-20",
             "151": "23543",
             "152": "20210",
             "153": "5000",
@@ -578,7 +578,7 @@ class TestAcasTransforms(unittest.TestCase):
         }
         actual = perform_transforms(response_data)
         expected = {'146': 2,
-                    '150': 123,
+                    '150': 99999999999,
                     '151': 24,
                     '152': 20,
                     '153': 5,
@@ -586,7 +586,7 @@ class TestAcasTransforms(unittest.TestCase):
                     '155': 28,
                     '156': 12,
                     '157': 2,
-                    '158': 227,
+                    '158': 103,
                     '159': 21,
                     '160': 43,
                     '161': 10,

@@ -68,11 +68,6 @@ class TestPerformInitialTransforms(unittest.TestCase):
         expected = {}
         self.assertEqual(expected, actual)
 
-    def test_negative(self):
-        actual = perform_initial_transforms({"126": "-1"}, {"126": TransformType.NUMBER})
-        expected = {"126": 99999999999}
-        self.assertEqual(expected, actual)
-
     def test_multiple_qcodes(self):
         response_data = {
             "100": "982374",

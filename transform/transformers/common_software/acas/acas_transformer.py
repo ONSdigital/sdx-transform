@@ -22,6 +22,7 @@ def perform_transforms(response_data: Dict[str, str]) -> Dict[str, int]:
                                                                       transformed_data,
                                                                       replacement_transformations)
     transformed_data: Dict[str, int] = perform_add_missing_text(transformed_data, initial_transformations)
+    perform_replace_negatives(transformed_data, response_data)
     return transformed_data
 
 
@@ -52,7 +53,7 @@ def perform_initial_transforms(
                 else:
                     converted_value = number_transform(value)
 
-                result[qcode] = remove_negative(converted_value)
+                result[qcode] = converted_value
 
         except ValueError:
             logging.error(f"ValueError with qcode {qcode}, with value {value}")
@@ -111,12 +112,30 @@ def perform_add_missing_text(transformed_data: Dict[str, int], initial_transform
     return transformed_data
 
 
+def perform_replace_negatives(transformed_data: Dict[str, int], response_data: Dict[str, str]):
+    for qcode, value in response_data.items():
+        if value.startswith("-"):
+            if is_number(value):
+                transformed_data[qcode] = 99999999999
+
+
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+
 def currency_transform(value: str) -> int:
     """
     Round to the nearest thousand.
     """
     try:
         decimal.getcontext().rounding = ROUND_HALF_UP
+        v = float(value)
+        if v < 0:
+            return -1
         return int(Decimal(round(Decimal(float(value))) / 1000).quantize(1))
 
     except TypeError:
@@ -141,12 +160,6 @@ def number_transform(value: str) -> int:
         return int(value)
     except TypeError:
         raise ValueError("Non numeric value")
-
-
-def remove_negative(converted_value: int) -> int:
-    if converted_value < 0:
-        return 99999999999
-    return converted_value
 
 
 def extract_pck_period(period: str) -> str:
