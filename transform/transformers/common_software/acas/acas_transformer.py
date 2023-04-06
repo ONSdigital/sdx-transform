@@ -52,7 +52,7 @@ def perform_initial_transforms(
                 else:
                     converted_value = number_transform(value)
 
-                result[qcode] = converted_value
+                result[qcode] = remove_negative(converted_value)
 
         except ValueError:
             logging.error(f"ValueError with qcode {qcode}, with value {value}")
@@ -141,6 +141,12 @@ def number_transform(value: str) -> int:
         return int(value)
     except TypeError:
         raise ValueError("Non numeric value")
+
+
+def remove_negative(converted_value: int) -> int:
+    if converted_value < 0:
+        return 99999999999
+    return converted_value
 
 
 def extract_pck_period(period: str) -> str:
