@@ -133,9 +133,6 @@ def currency_transform(value: str) -> int:
     """
     try:
         decimal.getcontext().rounding = ROUND_HALF_UP
-        v = float(value)
-        if v < 0:
-            return -1
         return int(Decimal(round(Decimal(float(value))) / 1000).quantize(1))
 
     except TypeError:
