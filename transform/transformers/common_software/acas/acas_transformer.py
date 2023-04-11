@@ -22,6 +22,7 @@ def perform_transforms(response_data: Dict[str, str]) -> Dict[str, int]:
                                                                       transformed_data,
                                                                       replacement_transformations)
     transformed_data: Dict[str, int] = perform_add_missing_text(transformed_data, initial_transformations)
+    perform_replace_negatives(transformed_data, response_data)
     return transformed_data
 
 
@@ -109,6 +110,21 @@ def perform_add_missing_text(transformed_data: Dict[str, int], initial_transform
             transformed_data[k] = 2
 
     return transformed_data
+
+
+def perform_replace_negatives(transformed_data: Dict[str, int], response_data: Dict[str, str]):
+    for qcode, value in response_data.items():
+        if value.startswith("-"):
+            if is_number(value):
+                transformed_data[qcode] = 99999999999
+
+
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
 
 
 def currency_transform(value: str) -> int:
