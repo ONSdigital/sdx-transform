@@ -6,7 +6,7 @@ import structlog
 
 from transform.transformers.response import SurveyResponse, InvalidDataException
 from transform.transformers.spp.berd.collect_items import collect_list_items
-from transform.transformers.spp.convert_data import convert_to_spp, extract_answers, remove_prepend_values
+from transform.transformers.spp.convert_data import convert_to_spp, extract_answers, remove_prepend_values, spp_from_map
 from transform.transformers.spp.definitions import SPPResult
 from transform.transformers.survey_transformer import SurveyTransformer
 from transform.utilities.formatter import Formatter
@@ -22,7 +22,10 @@ class BERDTransformer(SurveyTransformer):
 
     def __init__(self, survey_response: SurveyResponse, seq_nr=0):
         try:
-            berd_data = convert_to_spp(collect_list_items(extract_answers(survey_response.data)))
+            if survey_response.instrument_id == "0001":
+                berd_data = convert_to_spp(collect_list_items(extract_answers(survey_response.data)))
+            else:
+                berd_data = spp_from_map(survey_response.data)
         except KeyError as e:
             raise InvalidDataException(e)
 
@@ -36,7 +39,9 @@ class BERDTransformer(SurveyTransformer):
 
         self.berd_result = asdict(spp_result)
 
-        survey_response.response['data'] = self.berd_result["responses"]
+        if survey_response.instrument_id == "0001":
+            survey_response.response['data'] = self.berd_result["responses"]
+
         super().__init__(survey_response, seq_nr, use_sdx_image=True)
 
     def get_json(self):

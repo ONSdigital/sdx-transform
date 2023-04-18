@@ -1,7 +1,26 @@
 import unittest
 
-from transform.transformers.spp.convert_data import convert_to_spp, extract_answers, remove_prepend_values
+from transform.transformers.spp.convert_data import convert_to_spp, extract_answers, remove_prepend_values, spp_from_map
 from transform.transformers.spp.definitions import Answer, SPP
+
+
+class SppFromMapTest(unittest.TestCase):
+
+    def test_spp_from_map(self):
+        data = {
+            "001": "01/01/2023",
+            "002": "56000",
+            "003": "My comment!",
+        }
+
+        actual = spp_from_map(data)
+        expected = [
+            SPP("001", "01/01/2023", 0),
+            SPP("002", "56000", 0),
+            SPP("003", "My comment!", 0),
+        ]
+
+        self.assertEqual(expected, actual)
 
 
 class ExtractAnswerTests(unittest.TestCase):
