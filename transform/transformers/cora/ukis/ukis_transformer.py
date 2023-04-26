@@ -5,8 +5,10 @@ from typing import Dict, List
 
 import structlog
 
+from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.cora.cora_formatter import CORAFormatter
 from transform.transformers.cora.ukis.ukis_transforms import TransformType, ukis_transformations
+from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
@@ -178,6 +180,9 @@ def thousands_transform(value: str) -> str:
 
 class UKISTransformer(SurveyTransformer):
     """Perform the transforms and formatting for the UKIS survey."""
+
+    def __init__(self, response: SurveyResponse, seq_nr=0):
+        super().__init__(response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
 
     def _create_pck(self, transformed_data):
         """Return a pck file using provided data"""
