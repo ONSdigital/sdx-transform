@@ -1,0 +1,37 @@
+{
+  "case_id": "953d26a6-3cba-4f7f-bab4-011d74c2396a",
+  "tx_id": "2864cccb-ddf7-4692-adc8-f4a884f0b473",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "0.0.1",
+  "origin": "uk.gov.ons.edc.eq",
+  "survey_id": "066",
+  "flushed": false,
+  "submitted_at": "2023-04-27T06:54:34+00:00",
+  "collection": {
+    "exercise_sid": "02c5dd07-48b7-4d31-b334-8f696c43def9",
+    "schema_name": "sand_land_0002",
+    "period": "201605",
+    "instrument_id": "land_0002"
+  },
+  "metadata": {
+    "user_id": "UNKNOWN",
+    "ru_ref": "12346789012A",
+    "ref_period_start_date": "2016-05-01",
+    "ref_period_end_date": "2016-05-31"
+  },
+  "launch_language_code": "en",
+  "data": {
+    "999": "Sand",
+    "998": "Gravel, Pebbles, Shingle, Flint",
+    "997": "Sand and gravel used for constructional fill",
+    "601": "10",
+    "602": "100",
+    "603": "1000",
+    "604": "20",
+    "605": "200",
+    "606": "2000",
+    "607": "7000",
+    "147": "hello",
+    "146": "hello again"
+  }
+}

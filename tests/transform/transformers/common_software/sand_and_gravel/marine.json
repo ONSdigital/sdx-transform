@@ -1,0 +1,38 @@
+{
+  "case_id": "dd5babc0-7651-40a5-a2be-d588671a7614",
+  "tx_id": "744ac9b3-5852-49fe-ae2f-9f436ae36b5e",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "0.0.1",
+  "origin": "uk.gov.ons.edc.eq",
+  "survey_id": "076",
+  "flushed": false,
+  "submitted_at": "2023-04-27T07:44:38+00:00",
+  "collection": {
+    "exercise_sid": "baedd544-3f75-4f7b-b1fb-7d694cce50e8",
+    "schema_name": "sand_marine_0002",
+    "period": "201605",
+    "instrument_id": "marine_0002"
+  },
+  "metadata": {
+    "user_id": "UNKNOWN",
+    "ru_ref": "12346789012A",
+    "ref_period_start_date": "2016-05-01",
+    "ref_period_end_date": "2016-05-31"
+  },
+  "launch_language_code": "en",
+  "data": {
+    "999": "Sand",
+    "998": "Gravel, Pebbles, Shingle, Flint",
+    "997": "Sand and gravel used for constructional fill",
+    "601": "10",
+    "602": "100",
+    "603": "1000",
+    "604": "20",
+    "605": "200",
+    "606": "2000",
+    "607": "3000",
+    "995": "PORTSMOUTH",
+    "148": "hello",
+    "146": "hello again"
+  }
+}
