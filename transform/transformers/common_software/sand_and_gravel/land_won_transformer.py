@@ -53,7 +53,7 @@ def extract_pck_period(period: str) -> str:
     return period[2:]
 
 
-class MarineTransformer(SurveyTransformer):
+class LandTransformer(SurveyTransformer):
 
     def __init__(self, response: SurveyResponse, seq_nr=0):
         super().__init__(response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
