@@ -3,20 +3,12 @@ import os.path
 import time
 
 import requests
+from sdx_gcp.errors import RetryableError
 
 from transform.transformers.index_file import IndexFile
 from .image_base import ImageBase
 from .response import SurveyResponse
 from ..utilities.formatter import Formatter
-
-
-class RetryableError(Exception):
-    """
-    Exception to be raised to indicate that the survey submission should be retried.
-    This should be used when the failure was caused by circumstances outside of this services
-    control that might change e.g. another service being down.
-    """
-    pass
 
 
 class ImageServiceError(Exception):

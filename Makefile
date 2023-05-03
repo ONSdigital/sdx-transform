@@ -1,12 +1,16 @@
 PDFTOPPM := $(shell command -v pdftoppm 2> /dev/null)
 
 build:
-	pipenv install
+	pip install -r requirements.txt
 
 test:
-	pipenv install install --dev
-	flake8 --exclude ./lib/*
-	pipenv run pytest -v --cov-report term-missing --cov=transform tests
+	pip install pytest-cov
+	pip install flake8
+	flake8
+	pytest -v --cov-report term-missing --disable-warnings --cov=transform tests/
+
+start:
+	python run.py
 
 check-dependencies:
 ifndef PDFTOPPM
@@ -14,4 +18,3 @@ ifndef PDFTOPPM
 else
 	@ echo "Dependencies OK"
 endif
-
