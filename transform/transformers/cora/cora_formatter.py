@@ -1,8 +1,8 @@
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.utilities.formatter import Formatter
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 class CORAFormatter(Formatter):
