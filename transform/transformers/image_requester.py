@@ -1,18 +1,11 @@
 import json
 import os.path
-import time
-
-import requests
-from sdx_gcp.errors import RetryableError
 
 from transform.transformers.index_file import IndexFile
 from .image_base import ImageBase
 from .response import SurveyResponse
+from ..settings import IMAGE_SERVICE_URL, sdx_app
 from ..utilities.formatter import Formatter
-
-
-class ImageServiceError(Exception):
-    pass
 
 
 class ImageRequester(ImageBase):
@@ -49,39 +42,5 @@ class ImageRequester(ImageBase):
 
     def _request_image(self):
         survey_json = json.dumps(self.response.response)
-        trying = True
-        retries = 0
-        max_retries = 3
-        http_response = None
-        while trying:
-            try:
-                http_response = self._post(survey_json)
-                trying = False
-            except RetryableError:
-                retries += 1
-                if retries > max_retries:
-                    trying = False
-                else:
-                    # sleep for 20 seconds
-                    time.sleep(20)
-                    self.logger.info("trying again...")
-
-        if http_response and http_response.status_code == 200:
-            return http_response.content
-        else:
-            msg = "Bad response from sdx-image"
-            self.logger.error(msg, status_code=http_response.status_code)
-            raise ImageServiceError(http_response.reason)
-
-    def _post(self, survey_json):
-        """Constructs the http call to the transform service endpoint and posts the request"""
-
-        url = "http://sdx-image:80/image"
-        self.logger.info(f"Calling {url}")
-        try:
-            response = requests.post(url, survey_json)
-        except Exception:
-            self.logger.error("Connection error", request_url=url)
-            raise RetryableError("Connection error")
-
-        return response
+        http_response = sdx_app.http_post(IMAGE_SERVICE_URL, "/image", survey_json)
+        return http_response.content

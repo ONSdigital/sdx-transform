@@ -25,7 +25,8 @@ SDX_FTP_DATA_PATH = "EDC_QData"
 SDX_FTP_RECEIPT_PATH = "EDC_QReceipts"
 SDX_RESPONSE_JSON_PATH = "EDC_QJson"
 
-USE_IMAGE_SERVICE: bool = os.getenv('USE_IMAGE_SERVICE', "false") == "true"
+USE_IMAGE_SERVICE: bool = os.getenv('USE_IMAGE_SERVICE', "true") == "true"
+IMAGE_SERVICE_URL = os.getenv('IMAGE_SERVICE_URL', "http://sdx-image:80")
 
 sdx_app = SdxApp("sdx-survey", PROJECT_ID)
 

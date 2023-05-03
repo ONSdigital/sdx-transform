@@ -1,9 +1,8 @@
 from flask import Request, send_file
 from jinja2 import Environment, PackageLoader
 from sdx_gcp.app import get_logger
-from sdx_gcp.errors import DataException, RetryableError
+from sdx_gcp.errors import DataException
 
-from transform.transformers.image_requester import ImageServiceError
 from transform.transformers.response import SurveyResponseV1, SurveyResponseV2, InvalidDataException
 from transform.transformers.survey import MissingSurveyException, MissingIdsException
 from transform.transformers.transform_selector import get_transformer
@@ -43,6 +42,3 @@ def transform(req: Request):
 
     except InvalidDataException as ide:
         raise DataException(str(ide))
-
-    except ImageServiceError as ise:
-        raise RetryableError(ise)
