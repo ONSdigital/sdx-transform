@@ -1,4 +1,4 @@
-FROM eu.gcr.io/ons-sdx-ci/sdx-gcp:1.1.0
+FROM eu.gcr.io/ons-sdx-ci/sdx-gcp:1.1.2
 RUN apt-get update && apt-get install -y poppler-utils
 COPY . /app
 WORKDIR /app

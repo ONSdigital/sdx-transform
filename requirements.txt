@@ -1,4 +1,4 @@
-sdx-gcp==1.1.0
+sdx-gcp==1.1.2
 pytest==7.3.1
 structlog~=23.1.0
 waitress~=2.1.2
