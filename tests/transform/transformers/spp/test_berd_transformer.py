@@ -286,3 +286,14 @@ class BERDTransformerTests(unittest.TestCase):
         # print(json.dumps(survey_response.response))
         result = transformer.get_json()[1]
         self.assertTrue(result is not None)
+
+    def test_from_short_file_v2(self):
+        with open('tests/transform/transformers/spp/berd_short_v1.json') as f:
+            response = json.load(f)
+        # print(response)
+        survey_response = SurveyResponseV1(response)
+        transformer = BERDTransformer(survey_response)
+        # print(json.dumps(survey_response.response))
+        result = transformer.get_json()[1]
+        # print(result)
+        self.assertTrue(result is not None)

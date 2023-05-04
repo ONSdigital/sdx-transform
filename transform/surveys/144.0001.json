@@ -1,1012 +1,2264 @@
 {
-  "title": "UK Innovation Survey",
-  "survey_id": "144",
-  "form_type": "0001",
-  "question_groups": [
-    {
-      "title": "Business Strategy and Practices",
-      "questions": [
+    "title": "UK Innovation Survey",
+    "survey_id": "144",
+    "form_type": "0001",
+    "question_groups": [
         {
-          "text": "Did the business make changes in any of the following areas?",
-          "question_id": "2310",
-          "number": "2310",
-          "type": "checkbox",
-          "options": [
-              "New business practices"
-          ]
-        }, {
-          "text": "Did the business make changes in any of the following areas?",
-          "question_id": "2320",
-          "number": "2320",
-          "type": "checkbox",
-          "options": [
-              "New methods of organising work responsibilities"
-          ]
-        },{
-          "text": "Did the business make changes in any of the following areas?",
-          "question_id": "2330",
-          "number": "2330",
-          "type": "checkbox",
-          "options": [
-              "New methods of organising external relationships"
-          ]
-        },{
-          "text": "Did the business make changes in any of the following areas?",
-          "question_id": "2340",
-          "number": "2340",
-          "type": "checkbox",
-          "options": [
-              "Implementation of significant changes"
-          ]
-        },{
-          "text": "Did the business make changes in any of the following areas?",
-          "question_id": "2350",
-          "number": "2350",
-          "type": "checkbox",
-          "options": [
-              "Logistics, delivery or distribution methods"
-          ]
-        },{
-          "text": "Did the business make changes in any of the following areas?",
-          "question_id": "2360",
-          "number": "2360",
-          "type": "checkbox",
-          "options": [
-              "Methods for information processing or communication"
-          ]
-        },{
-          "text": "Did the business make changes in any of the following areas?",
-          "question_id": "2370",
-          "number": "2370",
-          "type": "checkbox",
-          "options": [
-              "New business practices"
-          ]
-        },{
-          "text": "Did the business make changes in any of the following areas?",
-          "question_id": "2380",
-          "number": "2380",
-          "type": "checkbox",
-          "options": [
-              "No significant changes"
-          ]
-        }]
-    },
-    {
-      "title": "Innovation Investment",
-      "questions": [
-        {
-          "text": "Did the business invest in internal Research and Development for the purposes of current or future innovation?",
-          "question_id": "1310"
-        }, {
-          "text": "In which of the following years did the business invest in internal research and development?",
-          "question_id": "2675",
-          "number": "2675",
-          "type": "checkbox",
-          "options": [
-              "2018"
-          ]
-        },{
-          "text": "In which of the following years did the business invest in internal research and development?",
-          "question_id": "2676",
-          "number": "2676",
-          "type": "checkbox",
-          "options": [
-              "2019"
-          ]
-        },{
-          "text": "In which of the following years did the business invest in internal research and development?",
-          "question_id": "2677",
-          "number": "2677",
-          "type": "checkbox",
-          "options": [
-              "2020"
-          ]
-        },{
-          "text": "What was the estimated expenditure on internal Research and Development for the calendar year 2020 only?",
-          "question_id": "1410"
-        },{
-          "text": "Did the business invest in acquisition of Research and Development for the purposes of current or future innovation?",
-          "question_id": "1320"
-        },{
-          "text": "What was the estimated expenditure on acquisitions of Research and Development for the calendar year 2020 only?",
-          "question_id": "1420"
-        },{
-          "text": "Did the business invest in acquisition of advanced machinery, equipment or software for the purposes of current or future innovation?",
-          "question_id": "1330"
-        },{
-          "text": "Which of the following did the business invest in for the purposes of current or future innovation?",
-          "question_id": "1331",
-          "number": "1331",
-          "type": "checkbox",
-          "options": [
-              "Advanced machinery and equipment"
-          ]
-        },{
-          "text": "Which of the following did the business invest in for the purposes of current or future innovation?",
-          "question_id": "1332",
-          "number": "1332",
-          "type": "checkbox",
-          "options": [
-              "Computer hardware"
-          ]
-        },{
-          "text": "Which of the following did the business invest in for the purposes of current or future innovation?",
-          "question_id": "1333",
-          "number": "1333",
-          "type": "checkbox",
-          "options": [
-              "Computer software"
-          ]
-        },{
-          "text": "What was the estimated expenditure for the acquisition of advanced machinery, equipment and software for the calendar year 2020 only?",
-          "question_id": "1430"
-        },{
-          "text": "Did the business invest in the acquisition of existing knowledge for the purposes of current or future innovation?",
-          "question_id": "1340"
-        },{
-          "text": "What was the estimated expenditure for the acquisition of existing knowledge for the calendar year 2020 only?",
-          "question_id": "1440"
-        },{
-          "text": "Did the business invest in training for innovative activities for the purposes of current or future innovation?",
-          "question_id": "1350"
-        },{
-          "text": "What was the estimated expenditure on training for innovative activities for the calendar year 2020 only?",
-          "question_id": "1450"
-        },{
-          "text": "Did the business invest in any form of design activity for the purposes of current or future innovation?",
-          "question_id": "1360"
-        },{
-          "text": "What was the estimated expenditure for all forms of design activity for the calendar year 2020 only?",
-          "question_id": "1460"
-        },{
-          "text": "Did the business invest in market introduction of innovations for the purposes of current or future innovation?",
-          "question_id": "1370"
-        },{
-          "text": "Which of the following did the business invest in for the purposes of current or future innovation?",
-          "question_id": "1371",
-          "number": "1371",
-          "type": "checkbox",
-          "options": [
-              "Changes to product or service design"
-          ]
-        },{
-          "text": "Which of the following did the business invest in for the purposes of current or future innovation?",
-          "question_id": "1372",
-          "number": "1372",
-          "type": "checkbox",
-          "options": [
-              "Market research"
-          ]
-        },{
-          "text": "Which of the following did the business invest in for the purposes of current or future innovation?",
-          "question_id": "1373",
-          "number": "1373",
-          "type": "checkbox",
-          "options": [
-              "Changes to marketing methods"
-          ]
-        },{
-          "text": "Which of the following did the business invest in for the purposes of current or future innovation?",
-          "question_id": "1374",
-          "number": "1374",
-          "type": "checkbox",
-          "options": [
-              "Launch advertising"
-          ]
-        },{
-          "text": "What was the estimated expenditure for the market introduction of innovations for the calendar year 2020 only?",
-          "question_id": "1470"
-        }]
-    },
-    {
-      "title": "Goods and services innovation",
-      "questions": [
-        {
-          "text": "Did the business introduce new or significantly improved goods?",
-          "question_id": "0510"
-        }, {
-          "text": "Who was primarily responsible for developing these new or significantly improved goods?",
-          "question_id": "0610",
-          "number": "0610",
-          "type": "checkbox",
-          "options": [
-              "This business or enterprise group"
-          ]
-        },{
-          "text": "Who was primarily responsible for developing these new or significantly improved goods?",
-          "question_id": "0620",
-          "number": "0620",
-          "type": "checkbox",
-          "options": [
-              "This business with other businesses or organisations"
-          ]
-        },{
-          "text": "Did the business introduce new or significantly improved services?",
-          "question_id": "0520"
-        },{
-          "text": "Who was primarily responsible for developing these new or significantly improved services?",
-          "question_id": "0601",
-          "number": "0601",
-          "type": "checkbox",
-          "options": [
-              "This business or enterprise group"
-          ]
-        },{
-          "text": "Who was primarily responsible for developing these new or significantly improved services?",
-          "question_id": "0602",
-          "number": "0602",
-          "type": "checkbox",
-          "options": [
-              "This business with other businesses or organisations"
-          ]
-        },{
-          "text": "Were any of your goods and services innovations new to the market?",
-          "question_id": "0710"
-        },{
-          "text": "Were any of your goods and services only new to the business?",
-          "question_id": "0720"
-        }]
-    },
-    {
-      "title": "Process Innovation",
-      "questions": [
-        {
-          "text": "Did the business introduce any new or significantly improved processes for producing or supplying goods or services?",
-          "question_id": "0900"
-        },{
-          "text": "Who was primarily responsible for developing these processes?",
-          "question_id": "1010",
-          "number": "1010",
-          "type": "checkbox",
-          "options": [
-              "This business or enterprise group"
-          ]
-        },{
-          "text": "Who was primarily responsible for developing these processes?",
-          "question_id": "1020",
-          "number": "1020",
-          "type": "checkbox",
-          "options": [
-              "This business with other businesses or organisations"
-          ]
-        },{
-          "text": "Who was primarily responsible for developing these processes?",
-          "question_id": "1030",
-          "number": "1030",
-          "type": "checkbox",
-          "options": [
-              "Other businesses or organisations"
-          ]
-        }]
-    },
-    {
-      "title": "Constraints on innovation",
-      "questions": [
-        {
-          "text": "Did the business have any innovation activities that were abandoned, scaled back or ongoing at the end of 2018?",
-          "question_id": "1510",
-          "number": "1510",
-          "type": "checkbox",
-          "options": [
-              "Innovation activities were abandoned"
-          ]
+            "title": "Business process innovation",
+            "questions": [
+                {
+                    "Options": [
+                        "Methods for producing or developing goods or providing services"
+                    ],
+                    "question_id": "2330",
+                    "number": "2330",
+                    "text": "During the 3 year period 2020 to 2022 did the business introduce any of the following types of new or improved processes that differ significantly from the previous processes?",
+                    "type": "checkbox option"
+                },
+                {
+                    "Options": [
+                        "New business practices for organising procedures or external relations"
+                    ],
+                    "question_id": "2310",
+                    "number": "2310",
+                    "text": "During the 3 year period 2020 to 2022 did the business introduce any of the following types of new or improved processes that differ significantly from the previous processes?",
+                    "type": "checkbox option"
+                },
+                {
+                    "Options": [
+                        "New methods of organising work responsibilities, decision making or human resource management"
+                    ],
+                    "question_id": "2320",
+                    "number": "2320",
+                    "text": "During the 3 year period 2020 to 2022 did the business introduce any of the following types of new or improved processes that differ significantly from the previous processes?",
+                    "type": "checkbox option"
+                },
+                {
+                    "Options": [
+                        "Marketing methods for promotion, packaging, pricing, product placement or after sales services"
+                    ],
+                    "question_id": "2340",
+                    "number": "2340",
+                    "text": "During the 3 year period 2020 to 2022 did the business introduce any of the following types of new or improved processes that differ significantly from the previous processes?",
+                    "type": "checkbox option"
+                },
+                {
+                    "Options": [
+                        "Logistics, delivery or distribution methods"
+                    ],
+                    "question_id": "2350",
+                    "number": "2350",
+                    "text": "During the 3 year period 2020 to 2022 did the business introduce any of the following types of new or improved processes that differ significantly from the previous processes?",
+                    "type": "checkbox option"
+                },
+                {
+                    "Options": [
+                        "Methods for information processing or communication, the maintenance and provision of information and communication systems"
+                    ],
+                    "question_id": "2360",
+                    "number": "2360",
+                    "text": "During the 3 year period 2020 to 2022 did the business introduce any of the following types of new or improved processes that differ significantly from the previous processes?",
+                    "type": "checkbox option"
+                },
+                {
+                    "Options": [
+                        "Methods for accounting or administrative operations"
+                    ],
+                    "question_id": "2370",
+                    "number": "2370",
+                    "text": "During the 3 year period 2020 to 2022 did the business introduce any of the following types of new or improved processes that differ significantly from the previous processes?",
+                    "type": "checkbox option"
+                },
+                {
+                    "question_id": "2380",
+                    "number": "2380",
+                    "text": "During the 3 year period 2020 to 2022 did the business introduce any of the following types of new or improved processes that differ significantly from the previous processes?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "Options": [
+                        "Select all that apply"
+                    ],
+                    "question_id": "2380",
+                    "number": "2380",
+                    "text": "Who developed these process innovations?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "Options": [
+                        "Your business by itself"
+                    ],
+                    "question_id": "1010",
+                    "number": "1010",
+                    "text": "Who developed these process innovations?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "Options": [
+                        "Your business together with other businesses or organisations"
+                    ],
+                    "question_id": "1020",
+                    "number": "1020",
+                    "text": "Who developed these process innovations?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "Options": [
+                        "Your business by adapting or modifying processes originally developed by other businesses or organisations"
+                    ],
+                    "question_id": "1030",
+                    "number": "1030",
+                    "text": "Who developed these process innovations?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "Options": [
+                        "Other businesses or organisations"
+                    ],
+                    "question_id": "1040",
+                    "number": "1040",
+                    "text": "Who developed these process innovations?",
+                    "type": "mutually exclusive"
+                }
+            ]
         },
         {
-          "text": "Did the business have any innovation activities that were abandoned, scaled back or ongoing at the end of 2020?",
-          "question_id": "1520",
-          "number": "1520",
-          "type": "checkbox",
-          "options": [
-              "Innovation activities still ongoing"
-          ]
-        },{
-          "text": "Did the business have any innovation activities that were abandoned, scaled back or ongoing at the end of 2020?",
-          "question_id": "1530",
-          "number": "1530",
-          "type": "checkbox",
-          "options": [
-              "Innovation activities were scaled back"
-          ]
-        },{
-          "text": "Did the business have any innovation activities that were abandoned, scaled back or ongoing at the end of 2020?",
-          "question_id": "1540",
-          "number": "1540",
-          "type": "checkbox",
-          "options": [
-              "No"
-          ]
-        },{
-          "text": "How important was any excessive perceived economic risk in constraining innovation activities?",
-          "question_id": "2657"
-        },{
-          "text": "How important were the high costs of direct innovation in constraining innovation activities?",
-          "question_id": "2658"
-        },{
-          "text": "How important was the cost of finance in constraining innovation activities?",
-          "question_id": "2659"
-        },{
-          "text": "How important was the availability of finance in constraining innovation activities?",
-          "question_id": "2660"
-        },{
-          "text": "How important was the lack of available qualified personnel in constraining innovation activities?",
-          "question_id": "2661"
-        },{
-          "text": "How important was the lack of information on technology in constraining innovation activities?",
-          "question_id": "2662"
-        },{
-          "text": "How important was the lack of information on markets in constraining innovation activities?",
-          "question_id": "2663"
-        },{
-          "text": "How important was the effect of a market dominated by established businesses in constraining innovation activities?",
-          "question_id": "2664"
-        },{
-          "text": "How important was a perceived uncertain demand for innovative goods or services in constraining innovation activities?",
-          "question_id": "2665"
-        },{
-          "text": "How important were UK government regulations in constraining innovation activities?",
-          "question_id": "2666"
-        },{
-          "text": "How important were RU regulations (including standards) in constraining innovation activities?",
-          "question_id": "2667"
-        },{
-          "text": "How important was the outcome of the EU referendum in constraining innovation activities?",
-          "question_id": "2678"
-        },{
-          "text": "How important were the issues related to the Coronavirus (Covid-19) pandemic in constraining innovation activities?",
-          "question_id": "2680"
-        },{
-          "text": "If the business had no innovation activity, why has it not been necessary or possible to innovate?",
-          "question_id": "2011",
-          "number": "2011",
-          "type": "checkbox",
-          "options": [
-              "No need due to previous innovations"
-          ]
-        },{
-          "text": "If the business had no innovation activity, why has it not been necessary or possible to innovate?",
-          "question_id": "2020",
-          "number": "2020",
-          "type": "checkbox",
-          "options": [
-              "No need due to market conditions"
-          ]
-        },{
-          "text": "If the business had no innovation activity, why has it not been necessary or possible to innovate?",
-          "question_id": "2030",
-          "number": "2030",
-          "type": "checkbox",
-          "options": [
-              "The UK does not have a business environment which encourages companies to innovate"
-          ]
-        },{
-          "text": "If the business had no innovation activity, why has it not been necessary or possible to innovate?",
-          "question_id": "2040",
-          "number": "2040",
-          "type": "checkbox",
-          "options": [
-              "Other"
-          ]
-        }]
-    },
-    {
-      "title": "Factors affecting innovation",
-      "questions": [
+            "title": "Innovation investment",
+            "questions": [
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "1310",
+                    "number": "1310",
+                    "text": "During the 3 year period 2020 to 2022 did the business invest in internal Research and Development (R&D) for the purposes of current or future innovation?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Total expenditure on internal Research and Development (R&D)"
+                    ],
+                    "question_id": "1410",
+                    "number": "1410",
+                    "text": "How much did your business spend on internal Research and Development (R&D) in the calendar year 2022? Total expenditure on internal Research and Development (R&D)",
+                    "type": "currency"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "1320",
+                    "number": "1320",
+                    "text": "During the 3 year period 2020 to 2022, did the business invest in the acquisition of Research and Development for the purposes of current or future innovation?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Total expenditure on acquisition of Research and Development"
+                    ],
+                    "question_id": "1420",
+                    "number": "1420",
+                    "text": "How much did your business spend on acquisition of Research and Development in the calendar year 2022? Total expenditure on acquisition of Research and Development",
+                    "type": "currency"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "1330",
+                    "number": "1330",
+                    "text": "During the 3 year period 2020 to 2022, did the business invest in the acquisition of machinery and equipment, computer hardware or software for the purposes of current or future innovation?",
+                    "type": "radio"
+                },
+                {
+                    "question_id": "No q code needed",
+                    "number": "No q code needed",
+                    "text": "Which of the following did your business invest in for the purposes of current or future innovation?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Machinery and/or equipment"
+                    ],
+                    "question_id": "1331",
+                    "number": "1331",
+                    "text": "Which of the following did your business invest in for the purposes of current or future innovation?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Computer hardware"
+                    ],
+                    "question_id": "1332",
+                    "number": "1332",
+                    "text": "Which of the following did your business invest in for the purposes of current or future innovation?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Computer software"
+                    ],
+                    "question_id": "1333",
+                    "number": "1333",
+                    "text": "Which of the following did your business invest in for the purposes of current or future innovation?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Total expenditure for the acquisition of advanced machinery, equipment and software"
+                    ],
+                    "question_id": "1430",
+                    "number": "1430",
+                    "text": "How much did your business spend on the acquisition of machinery and equipment, computer hardware or software in the calendar year 2022? Total expenditure for the acquisition of advanced machinery, equipment and software",
+                    "type": "currency"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No "
+                    ],
+                    "question_id": "1340",
+                    "number": "1340",
+                    "text": "During the 3 year period 2020 to 2022, did the business invest in the acquisition of existing knowledge for the purposes of current or future innovation?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Total expenditure for the acquisition of existing knowledge"
+                    ],
+                    "question_id": "1440",
+                    "number": "1440",
+                    "text": "How much did your business spend on acquisitions of existing knowledge in the calendar year 2022? Total expenditure for the acquisition of existing knowledge",
+                    "type": "currency"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "1350",
+                    "number": "1350",
+                    "text": "During the 3 year period 2020 to 2022, did the business invest in training for innovative activities for the purposes of current or future innovation?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Total expenditure on training for innovative activities"
+                    ],
+                    "question_id": "1450",
+                    "number": "1450",
+                    "text": "How much did your business spend on training for innovative activities in the calendar year 2022? Total expenditure on training for innovative activities",
+                    "type": "currency"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "1360",
+                    "number": "1360",
+                    "text": "During the 3 year period 2020 to 2022, did the business invest in any form of design activity for the purposes of current or future innovation?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Total expenditure for all forms of design activity"
+                    ],
+                    "question_id": "1460",
+                    "number": "1460",
+                    "text": "How much did your business spend on all forms of design activity, for the purposes of current or future innovation, in the calendar year 2022? Total expenditure for all forms of design activity",
+                    "type": "currency"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "1370",
+                    "number": "1370",
+                    "text": "During the 3 year period 2020 to 2022, did the business invest in market introduction of innovations for the purposes of current or future innovation?",
+                    "type": "radio"
+                },
+                {
+                    "question_id": "No q code needed",
+                    "number": "No q code needed",
+                    "text": "Which of the following did your business invest in for the purposes of current or future innovation?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Changes to product or service design"
+                    ],
+                    "question_id": "1371",
+                    "number": "1371",
+                    "text": "Which of the following did your business invest in for the purposes of current or future innovation?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Market research"
+                    ],
+                    "question_id": "1372",
+                    "number": "1372",
+                    "text": "Which of the following did your business invest in for the purposes of current or future innovation?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Changes to marketing methods"
+                    ],
+                    "question_id": "1373",
+                    "number": "1373",
+                    "text": "Which of the following did your business invest in for the purposes of current or future innovation?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Advertising for a product or service launch"
+                    ],
+                    "question_id": "1374",
+                    "number": "1374",
+                    "text": "Which of the following did your business invest in for the purposes of current or future innovation?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Total expenditure for market introduction of innovations"
+                    ],
+                    "question_id": "1470",
+                    "number": "1470",
+                    "text": "How much did your business spend on the market introduction of innovations in the calendar year 2022? Total expenditure for market introduction of innovations",
+                    "type": "currency"
+                }
+            ]
+        },
         {
-          "text": "How important was entering new markets in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1211"
-        },{
-          "text": "How important was increasing the range of goods or services in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1210"
-        },{
-          "text": "How important was increasing market share in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1220"
-        },{
-          "text": "How important was increasing the quality of goods or services in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1230"
-        },{
-          "text": "How important was improving flexibility for producing goods or services in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1240"
-        },{
-          "text": "How important was improving capacity for producing goods or services in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1250"
-        },{
-          "text": "How important was increasing value added in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1290"
-        },{
-          "text": "How important was reducing costs per unit produced or provided in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1260"
-        },{
-          "text": "How important was improving health and safety in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1270"
-        },{
-          "text": "How important was reducing environmental impacts in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1212"
-        },{
-          "text": "How important was replacing outdated products or processes in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1213"
-        },{
-          "text": "How important was meeting regulatory requirements (including standards) in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1280"
-        },{
-          "text": "How important was the issues relating to the Coronavirus (Covid-19) pandemic in your decision to innovate in goods or services and/or processes?",
-          "question_id": "1281"
-        }]
-    },
-    {
-      "title": "Information needed for innovation",
-      "questions": [
+            "title": "Product (goods and services) innovation",
+            "questions": [
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "510",
+                    "number": "510",
+                    "text": "During the 3 year period 2020 to 2022, did the business introduce new or improved goods?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "520",
+                    "number": "520",
+                    "text": "During the 3 year period 2020 to 2022, did the business introduce new or improved services?",
+                    "type": "radio"
+                },
+                {
+                    "question_id": "520",
+                    "number": "520",
+                    "text": "Who developed these product innovations?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Your business by itself"
+                    ],
+                    "question_id": "601",
+                    "number": "601",
+                    "text": "Who developed these product innovations?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Your business with other businesses or organisations"
+                    ],
+                    "question_id": "602",
+                    "number": "602",
+                    "text": "Who developed these product innovations?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Your business by adapting or modifying processes originally developed by other businesses or organisations"
+                    ],
+                    "question_id": "603",
+                    "number": "603",
+                    "text": "Who developed these product innovations?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Other businesses or organisations"
+                    ],
+                    "question_id": "604",
+                    "number": "604",
+                    "text": "Who developed these product innovations?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "710",
+                    "number": "710",
+                    "text": "During the 3 year period 2020 to 2022, were any of your products (goods and services) innovations not previously offered by any of your competitors?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "720",
+                    "number": "720",
+                    "text": "During the 3 year period 2020 to 2022, were any of your products (goods and services) innovations identical or very similar to products already offered by your competitors?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Products (goods and services) introduced during the 3 years 2020 to 2022 that were not previously offered by any of your competitors"
+                    ],
+                    "question_id": "810",
+                    "number": "810",
+                    "text": "What was the estimated percentage of your business's total turnover in 2022 from products (goods and services) for each of the following definitions? Products (goods and services) introduced during the 3 years 2020 to 2022 that were not previously offered by any of your competitors",
+                    "type": "percentage"
+                },
+                {
+                    "Options": [
+                        "Products (goods and services) that were identical or very similar to products already offered by your competitors"
+                    ],
+                    "question_id": "820",
+                    "number": "820",
+                    "text": "What was the estimated percentage of your business's total turnover in 2022 from products (goods and services) for each of the following definitions? Products (goods and services) that were identical or very similar to products already offered by your competitors",
+                    "type": "percentage"
+                },
+                {
+                    "Options": [
+                        "Products (goods and services) that remained unchanged or only marginally modified during the 3 years 2020 to 2022"
+                    ],
+                    "question_id": "840",
+                    "number": "840",
+                    "text": "What was the estimated percentage of your business's total turnover in 2022 from products (goods and services) for each of the following definitions? Products (goods and services) that remained unchanged or only marginally modified during the 3 years 2020 to 2022",
+                    "type": "percentage"
+                }
+            ]
+        },
         {
-          "text": "How important to the business's innovation activities was information from within your business or enterprise group?",
-          "question_id": "1601"
-        },{
-          "text": "How important to the business's innovation activities was information from suppliers of equipment, materials, services or software?",
-          "question_id": "1620"
-        },{
-          "text": "How important to the business's innovation activities was information from clients or customers from the public sector?",
-          "question_id": "1632"
-        },{
-          "text": "How important to the business's innovation activities was information from clients or customers from the private sector?",
-          "question_id": "1631"
-        },{
-          "text": "How important to the business's innovation activities was information from competitors or other businesses in your industry?",
-          "question_id": "1640"
-        },{
-          "text": "How important to the business's innovation activities was information from consultants, commercial labs or private Research and Development institutes?",
-          "question_id": "1650"
-        },{
-          "text": "How important to the business's innovation activities was information from universities or other higher education institutes?",
-          "question_id": "1660"
-        },{
-          "text": "How important to the business's innovation activities was information from government or public research institutes?",
-          "question_id": "1670"
-        },{
-          "text": "How important to the business's innovation activities was information from conferences, trade fairs or exhibitions?",
-          "question_id": "1680"
-        },{
-          "text": "How important to the business's innovation activities was information from professional and industry associations?",
-          "question_id": "1610"
-        },{
-          "text": "How important to the business's innovation activities was information from technical, industry or service standards?",
-          "question_id": "1611"
-        },{
-          "text": "How important to the business's innovation activities was information from scientific journals and trade or technical publications?",
-          "question_id": "1690"
-        },{
-          "text": "How important to the business's innovation activities was information from social web based networks or crowd-sourcing?",
-          "question_id": "1691"
-        }]
-    },
-    {
-      "title": "Co-operation on innovation",
-      "questions": [
+            "title": "Constraints on innovation",
+            "questions": [
+                {
+                    "question_id": "No q code needed",
+                    "number": "No q code needed",
+                    "text": "During the 3 year period 2020 to 2022, did the business have any innovation activities that were abandoned or ongoing?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Innovation activities were abandoned"
+                    ],
+                    "question_id": "1510",
+                    "number": "1510",
+                    "text": "During the 3 year period 2020 to 2022, did the business have any innovation activities that were abandoned or ongoing?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Innovation activities were still ongoing at the end of 2022"
+                    ],
+                    "question_id": "1520",
+                    "number": "1520",
+                    "text": "During the 3 year period 2020 to 2022, did the business have any innovation activities that were abandoned or ongoing?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1540",
+                    "number": "1540",
+                    "text": "During the 3 year period 2020 to 2022, did the business have any innovation activities that were abandoned or ongoing?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2657",
+                    "number": "2657",
+                    "text": "During the 3 year period 2020 to 2022, how important was any excessive perceived economic risk, such as exchange rates or interest rates, in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2658",
+                    "number": "2658",
+                    "text": "During the 3 year period 2020 to 2022, how important were direct innovation costs being too high in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2659",
+                    "number": "2659",
+                    "text": "During the 3 year period 2020 to 2022, how important was the cost of finance in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2660",
+                    "number": "2660",
+                    "text": "During the 3 year period 2020 to 2022, how important was the availability of finance in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2661",
+                    "number": "2661",
+                    "text": "During the 3 year period 2020 to 2022, how important was the lack of available qualified personnel in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2662",
+                    "number": "2662",
+                    "text": "During the 3 year period 2020 to 2022, how important was the lack of information on technology in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2663",
+                    "number": "2663",
+                    "text": "During the 3 year period 2020 to 2022, how important was the lack of information on markets in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2664",
+                    "number": "2664",
+                    "text": "During the 3 year period 2020 to 2022, how important was the effect of a market dominated by established businesses in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2665",
+                    "number": "2665",
+                    "text": "During the 3 year period 2020 to 2022, how important was a perceived uncertain demand for innovative goods or services in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2666",
+                    "number": "2666",
+                    "text": "During the 3 year period 2020 to 2022, how important were UK government regulations in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2667",
+                    "number": "2667",
+                    "text": "During the 3 year period 2020 to 2022, how important were EU regulations in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2678",
+                    "number": "2678",
+                    "text": "During the 3 year period 2020 to 2022, how important was the withdrawal of the United Kingdom from the European Union in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2680",
+                    "number": "2680",
+                    "text": "During the 3 year period 2020 to 2022, how important were issues arising from the coronavirus (COVID-19) pandemic in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2681",
+                    "number": "2681",
+                    "text": "During the 3 year period 2020 to 2022, how important were technical, industry or service standards in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "2682",
+                    "number": "2682",
+                    "text": "During the 3 year period 2020 to 2022, how important were recent increases in energy prices in constraining innovation activities?",
+                    "type": "radio"
+                },
+                {
+                    "question_id": "No q code needed",
+                    "number": "No q code needed",
+                    "text": "During the 3 year period 2020 to 2022 if your business had no innovation activity, why has it not been necessary or possible to innovate?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "No need due to previous innovations"
+                    ],
+                    "question_id": "2011",
+                    "number": "2011",
+                    "text": "During the 3 year period 2020 to 2022 if your business had no innovation activity, why has it not been necessary or possible to innovate?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "No need due to market conditions"
+                    ],
+                    "question_id": "2020",
+                    "number": "2020",
+                    "text": "During the 3 year period 2020 to 2022 if your business had no innovation activity, why has it not been necessary or possible to innovate?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "The UK does not have a business environment which encourages companies to innovate"
+                    ],
+                    "question_id": "2030",
+                    "number": "2030",
+                    "text": "During the 3 year period 2020 to 2022 if your business had no innovation activity, why has it not been necessary or possible to innovate?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Lack of qualified personnel"
+                    ],
+                    "question_id": "2031",
+                    "number": "2031",
+                    "text": "During the 3 year period 2020 to 2022 if your business had no innovation activity, why has it not been necessary or possible to innovate?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Availability or costs of finance"
+                    ],
+                    "question_id": "2032",
+                    "number": "2032",
+                    "text": "During the 3 year period 2020 to 2022 if your business had no innovation activity, why has it not been necessary or possible to innovate?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Issues arising from the coronavirus (COVID-19) pandemic"
+                    ],
+                    "question_id": "2033",
+                    "number": "2033",
+                    "text": "During the 3 year period 2020 to 2022 if your business had no innovation activity, why has it not been necessary or possible to innovate?",
+                    "type": "checkbox"
+                }
+            ]
+        },
         {
-          "text": "If the business co-operated on any innovation activities with other businesses within your enterprise group, what was their location?",
-          "question_id": "1811",
-          "number": "1811",
-          "type": "checkbox",
-          "options": [
-              "None"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with other businesses within your enterprise group, what was their location?",
-          "question_id": "1812",
-          "number": "1812",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with other businesses within your enterprise group, what was their location?",
-          "question_id": "1813",
-          "number": "1813",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with other businesses within your enterprise group, what was their location?",
-          "question_id": "1814",
-          "number": "1814",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with suppliers of equipment, materials, services or software, what was their location?",
-          "question_id": "1821",
-          "number": "1821",
-          "type": "checkbox",
-          "options": [
-              "None"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with suppliers of equipment, materials, services or software, what was their location?",
-          "question_id": "1822",
-          "number": "1822",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with suppliers of equipment, materials, services or software, what was their location?",
-          "question_id": "1823",
-          "number": "1823",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with suppliers of equipment, materials, services or software, what was their location?",
-          "question_id": "1824",
-          "number": "1824",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with clients or customers from the private sector, what was their location?",
-          "question_id": "1881",
-          "number": "1881",
-          "type": "checkbox",
-          "options": [
-              "No cooperation with clients or customers from the private sector"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with clients or customers from the private sector, what was their location?",
-          "question_id": "1882",
-          "number": "1882",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with clients or customers from the private sector, what was their location?",
-          "question_id": "1883",
-          "number": "1883",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with clients or customers from the private sector, what was their location?",
-          "question_id": "1884",
-          "number": "1884",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with clients or customers from the public sector, what was their location?",
-          "question_id": "1891",
-          "number": "1891",
-          "type": "checkbox",
-          "options": [
-              "None"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with clients or customers from the public sector, what was their location?",
-          "question_id": "1892",
-          "number": "1892",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with clients or customers from the public sector, what was their location?",
-          "question_id": "1893",
-          "number": "1893",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with clients or customers from the public sector, what was their location?",
-          "question_id": "1894",
-          "number": "1894",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with competitors or other businesses in your industry, what was their location?",
-          "question_id": "1841",
-          "number": "1841",
-          "type": "checkbox",
-          "options": [
-              "None"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with competitors or other businesses in your industry, what was their location?",
-          "question_id": "1842",
-          "number": "1842",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with competitors or other businesses in your industry, what was their location?",
-          "question_id": "1843",
-          "number": "1843",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with competitors or other businesses in your industry, what was their location?",
-          "question_id": "1844",
-          "number": "1844",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with consultants, commercial labs or private research and development institutes, what was their location?",
-          "question_id": "1851",
-          "number": "1851",
-          "type": "checkbox",
-          "options": [
-              "None"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with consultants, commercial labs or private research and development institutes, what was their location?",
-          "question_id": "1852",
-          "number": "1852",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with consultants, commercial labs or private research and development institutes, what was their location?",
-          "question_id": "1853",
-          "number": "1853",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with consultants, commercial labs or private research and development institutes, what was their location?",
-          "question_id": "1854",
-          "number": "1854",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with universities or other higher education institutions, what was their location?",
-          "question_id": "1861",
-          "number": "1861",
-          "type": "checkbox",
-          "options": [
-              "None"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with universities or other higher education institutions, what was their location?",
-          "question_id": "1862",
-          "number": "1862",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with universities or other higher education institutions, what was their location?",
-          "question_id": "1863",
-          "number": "1863",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with universities or other higher education institutions, what was their location?",
-          "question_id": "1864",
-          "number": "1864",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with government or public research institutes, what was their location?",
-          "question_id": "1871",
-          "number": "1871",
-          "type": "checkbox",
-          "options": [
-              "None"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with government or public research institutes, what was their location?",
-          "question_id": "1872",
-          "number": "1872",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with government or public research institutes, what was their location?",
-          "question_id": "1873",
-          "number": "1873",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with government or public research institutes, what was their location?",
-          "question_id": "1874",
-          "number": "1874",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with other businesses outside your enterprise group, what was their location?",
-          "question_id": "1875",
-          "number": "1875",
-          "type": "checkbox",
-          "options": [
-              "None"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with other businesses outside your enterprise group, what was their location?",
-          "question_id": "1876",
-          "number": "1876",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with other businesses outside your enterprise group, what was their location?",
-          "question_id": "1877",
-          "number": "1877",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with other businesses outside your enterprise group, what was their location?",
-          "question_id": "1878",
-          "number": "1878",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with non-profit organisations, what was their location?",
-          "question_id": "1879",
-          "number": "1879",
-          "type": "checkbox",
-          "options": [
-              "None"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with non-profit organisations, what was their location?",
-          "question_id": "1880",
-          "number": "1880",
-          "type": "checkbox",
-          "options": [
-              "UK"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with non-profit organisations, what was their location?",
-          "question_id": "1885",
-          "number": "1885",
-          "type": "checkbox",
-          "options": [
-              "EU or EFTA countries"
-          ]
-        },{
-          "text": "If the business co-operated on any innovation activities with non-profit organisations, what was their location?",
-          "question_id": "1886",
-          "number": "1886",
-          "type": "checkbox",
-          "options": [
-              "All other countries"
-          ]
-        },{
-          "text": "What proportions of your innovations were protected by patents?",
-          "question_id": "2650"
-        },{
-          "text": "What proportions of your innovations were protected by design registration?",
-          "question_id": "2651"
-        },{
-          "text": "What proportions of your innovations were protected by copyright?",
-          "question_id": "2652"
-        },{
-          "text": "What proportions of your innovations were protected by trademarks?",
-          "question_id": "2653"
-        },{
-          "text": "What proportions of your innovations were protected by lead time advantages?",
-          "question_id": "2654"
-        },{
-          "text": "What proportions of your innovations were protected by complexity of goods or services?",
-          "question_id": "2655"
-        },{
-          "text": "What proportions of your innovations were protected by secrecy?",
-          "question_id": "2656"
-        }]
-    },
-    {
-      "title": "Public financial support for innovation",
-      "questions": [
+            "title": "Factors affecting innovation",
+            "questions": [
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1210",
+                    "number": "1210",
+                    "text": "During the 3 year period 2020 to 2022, how important was increasing the range of goods or services in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1211",
+                    "number": "1211",
+                    "text": "During the 3 year period 2020 to 2022, how important was entering new markets in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1220",
+                    "number": "1220",
+                    "text": "During the 3 year period 2020 to 2022, how important was increasing market share in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1230",
+                    "number": "1230",
+                    "text": "During the 3 year period 2020 to 2022, how important was improving the quality of goods or services in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1240",
+                    "number": "1240",
+                    "text": "During the 3 year period 2020 to 2022, how important was improving flexibility for producing goods or services in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1250",
+                    "number": "1250",
+                    "text": "During the 3 year period 2020 to 2022, how important was improving capacity for producing goods or services in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1290",
+                    "number": "1290",
+                    "text": "During the 3 year period 2020 to 2022, how important was increasing value added in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1260",
+                    "number": "1260",
+                    "text": "During the 3 year period 2020 to 2022, how important was reducing costs per unit produced or provided in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1270",
+                    "number": "1270",
+                    "text": "During the 3 year period 2020 to 2022, how important was improving health and safety in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1212",
+                    "number": "1212",
+                    "text": "During the 3 year period 2020 to 2022, how important was reducing environmental impacts in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1213",
+                    "number": "1213",
+                    "text": "During the 3 year period 2020 to 2022, how important was replacing outdated products or processes in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1280",
+                    "number": "1280",
+                    "text": "During the 3 year period 2020 to 2022, how important was meeting regulatory requirements in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1282",
+                    "number": "1282",
+                    "text": "During the 3 year period 2020 to 2022, how important was meeting technical, industry or service standards in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1281",
+                    "number": "1281",
+                    "text": "During the 3 year period 2020 to 2022, how important were issues arising from the coronavirus (COVID-19) pandemic in your decision to innovate?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1283",
+                    "number": "1283",
+                    "text": "During the 3 year period 2020 to 2022, how important were recent increases in energy prices in your decision to innovate?",
+                    "type": "radio"
+                }
+            ]
+        },
         {
-          "text": "Did the business receive public financial support for innovation activities from the following levels of government?",
-          "question_id": "2668",
-          "number": "2668",
-          "type": "checkbox",
-          "options": [
-              "UK local or regional authorities"
-          ]
-        },{
-          "text": "Did the business receive public financial support for innovation activities from the following levels of government?",
-          "question_id": "2669",
-          "number": "2669",
-          "type": "checkbox",
-          "options": [
-              "UK central government"
-          ]
-        },{
-          "text": "Did the business receive public financial support for innovation activities from the following levels of government?",
-          "question_id": "2670",
-          "number": "2670",
-          "type": "checkbox",
-          "options": [
-              "European (EU) institutions or programmes"
-          ]
-        },{
-          "text": "Did the business receive public financial support for innovation activities from the following levels of government?",
-          "question_id": "2671",
-          "number": "2671",
-          "type": "checkbox",
-          "options": [
-              "No public financial support was received for innovation activities from government"
-          ]
-        },{
-          "text": "What kind of financial support was received by the business from UK central government",
-          "question_id": "2672",
-          "number": "2672",
-          "type": "checkbox",
-          "options": [
-              "Direct financial support"
-          ]
-        }, {
-          "text": "What kind of financial support was received by the business from UK central government",
-          "question_id": "2673",
-          "number": "2673",
-          "type": "checkbox",
-          "options": [
-              "Indirect financial support"
-          ]
-        }, {
-          "text": "What kind of financial support was received by the business from UK central government",
-          "question_id": "2674",
-          "number": "2674",
-          "type": "checkbox",
-          "options": [
-              "Don't know"
-          ]
-        },{
-          "text": "What kind of financial support was received by the business from UK central government",
-          "question_id": "2679",
-          "number": "2679",
-          "type": "checkbox",
-          "options": [
-              "Indirect financial support - patent box - covid 19 support"
-          ]
-        }]
-    },
-    {
-      "title": "Turnover and exports",
-      "questions": [
+            "title": "Information needed for innovation",
+            "questions": [
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1601",
+                    "number": "1601",
+                    "text": "During the 3 year period 2020 to 2022, how important to the business's innovation activities was information from within your business or enterprise group?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1620",
+                    "number": "1620",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from suppliers of equipment, materials, services or software?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1631",
+                    "number": "1631",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from clients or customers from the private sector?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1632",
+                    "number": "1632",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from clients or customers from the public sector?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1640",
+                    "number": "1640",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from competitors or other businesses in your industry?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1650",
+                    "number": "1650",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from consultants, commercial laboratories or private Research and Development institutes?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1660",
+                    "number": "1660",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from universities or other higher education institutes?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1670",
+                    "number": "1670",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from government or public research institutes?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1680",
+                    "number": "1680",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from conferences, trade fairs or exhibitions?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1610",
+                    "number": "1610",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from professional and industry associations?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1611",
+                    "number": "1611",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from technical, industry or service standards?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1690",
+                    "number": "1690",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from scientific journals and trade or technical publications?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1691",
+                    "number": "1691",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from social web-based networks or crowd-sourcing?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "High importance",
+                        "Medium importance",
+                        "Low importance",
+                        "Not important"
+                    ],
+                    "question_id": "1692",
+                    "number": "1692",
+                    "text": "During the 3 year period 2020 to 2022, how important to your business's innovation activities was information from regulators and/or regulations?",
+                    "type": "radio"
+                }
+            ]
+        },
         {
-          "text": "What was the business's estimated total turnover (in £thousands) for the calendar years 2018 and 2020, excluding VAT? (2018)",
-          "question_id": "2410"
-        },{
-          "text": "What was the business's estimated total turnover (in £thousands) for the calendar years 2018 and 2020, excluding VAT? (2020)",
-          "question_id": "2420"
-        },{
-          "text": "What was the estimated percentage of the business's total turnover in 2020 from goods and services for each of the following definitions? (New to the market)",
-          "question_id": "0810"
-        },{
-          "text": "What was the estimated percentage of the business's total turnover in 2020 from goods and services for each of the following definitions? (Only new to this business) ",
-          "question_id": "0820"
-        },{
-          "text": "What was the estimated percentage of the business's total turnover in 2020 from goods and services for each of the following definitions? (Significantly Improved)",
-          "question_id": "0830"
-        },{
-          "text": "What was the estimated percentage of the business's total turnover in 2020 from goods and services for each of the following definitions? (Unchanged/Marginally modified)",
-          "question_id": "0840"
-        },{
-          "text": "What was the business's total estimated value of exports (in £thousands) for the calendar year 2020 only, excluding VAT?",
-          "question_id": "2440"
-        }]
-    },
-    {
-      "title": "Employees and skills",
-      "questions": [
+            "title": "Co-operation on innovation and R&D",
+            "questions": [
+                {
+                    "question_id": "1692",
+                    "number": "1692",
+                    "text": "During the 3 years 2020 to 2022, what did the business co-operate with other businesses or organisations on?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Research and development"
+                    ],
+                    "question_id": "2101",
+                    "number": "2101",
+                    "text": "During the 3 years 2020 to 2022, what did the business co-operate with other businesses or organisations on?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Other innovation activities"
+                    ],
+                    "question_id": "2102",
+                    "number": "2102",
+                    "text": "During the 3 years 2020 to 2022, what did the business co-operate with other businesses or organisations on?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Any other business activities"
+                    ],
+                    "question_id": "2103",
+                    "number": "2103",
+                    "text": "During the 3 years 2020 to 2022, what did the business co-operate with other businesses or organisations on?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "2104",
+                    "number": "2104",
+                    "text": "During the 3 years 2020 to 2022, what did the business co-operate with other businesses or organisations on?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "No Q code needed",
+                    "number": "No Q code needed",
+                    "text": "During the 3 year period 2020 to 2022, if the business co-operated with other businesses within your enterprise group, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1812",
+                    "number": "1812",
+                    "text": "During the 3 year period 2020 to 2022, if the business co-operated with other businesses within your enterprise group, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1813",
+                    "number": "1813",
+                    "text": "During the 3 year period 2020 to 2022, if the business co-operated with other businesses within your enterprise group, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1814",
+                    "number": "1814",
+                    "text": "During the 3 year period 2020 to 2022, if the business co-operated with other businesses within your enterprise group, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1811",
+                    "number": "1811",
+                    "text": "During the 3 year period 2020 to 2022, if the business co-operated with other businesses within your enterprise group, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "No Q code needed",
+                    "number": "No Q code needed",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with suppliers of equipment, materials, services or software, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1822",
+                    "number": "1822",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with suppliers of equipment, materials, services or software, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1823",
+                    "number": "1823",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with suppliers of equipment, materials, services or software, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1824",
+                    "number": "1824",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with suppliers of equipment, materials, services or software, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1821",
+                    "number": "1821",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with suppliers of equipment, materials, services or software, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "No Q code needed",
+                    "number": "No Q code needed",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the private sector, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1882",
+                    "number": "1882",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the private sector, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1883",
+                    "number": "1883",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the private sector, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1884",
+                    "number": "1884",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the private sector, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1881",
+                    "number": "1881",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the private sector, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "No Q code needed",
+                    "number": "No Q code needed",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the public sector, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1892",
+                    "number": "1892",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the public sector, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1893",
+                    "number": "1893",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the public sector, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1894",
+                    "number": "1894",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the public sector, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1891",
+                    "number": "1891",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with clients or customers from the public sector, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "No Q code needed",
+                    "number": "No Q code needed",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with competitors or other businesses in your industry, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1842",
+                    "number": "1842",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with competitors or other businesses in your industry, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1843",
+                    "number": "1843",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with competitors or other businesses in your industry, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1844",
+                    "number": "1844",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with competitors or other businesses in your industry, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1841",
+                    "number": "1841",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with competitors or other businesses in your industry, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "No Q code needed",
+                    "number": "No Q code needed",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with consultants, commercial laboratories or private research and development institutes, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1852",
+                    "number": "1852",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with consultants, commercial laboratories or private research and development institutes, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1853",
+                    "number": "1853",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with consultants, commercial laboratories or private research and development institutes, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1854",
+                    "number": "1854",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with consultants, commercial laboratories or private research and development institutes, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1851",
+                    "number": "1851",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with consultants, commercial laboratories or private research and development institutes, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "No Q code needed",
+                    "number": "No Q code needed",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with universities or other higher education institutions, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1862",
+                    "number": "1862",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with universities or other higher education institutions, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1863",
+                    "number": "1863",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with universities or other higher education institutions, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1864",
+                    "number": "1864",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with universities or other higher education institutions, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1861",
+                    "number": "1861",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with universities or other higher education institutions, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "Options": [
+                        "Within 15 miles of one of the physical sites of your business and within the UK",
+                        "Further than 15 miles from the physical sites of your business and within the UK",
+                        "Outside of the UK",
+                        "Your business worked with them remotely, with no face-to-face contact"
+                    ],
+                    "question_id": "2121",
+                    "number": "2121",
+                    "text": "Thinking about the most recent time your business worked with universities or other higher education institutions, where was the main university or institution located?",
+                    "type": "radio"
+                },
+                {
+                    "question_id": "No Q code needed",
+                    "number": "No Q code needed",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with government or public research institutes, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1872",
+                    "number": "1872",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with government or public research institutes, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1873",
+                    "number": "1873",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with government or public research institutes, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1874",
+                    "number": "1874",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with government or public research institutes, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1871",
+                    "number": "1871",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with government or public research institutes, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "Options": [
+                        "Within 15 miles of one of the physical sites of your business and within the UK",
+                        "Further than 15 miles from the physical sites of your business and within the UK",
+                        "Outside of the UK",
+                        "Your business worked with them remotely, with no face-to-face contact"
+                    ],
+                    "question_id": "2131",
+                    "number": "2131",
+                    "text": "Thinking about the most recent time your business worked with government or public research institutes, where was the main government or public research institute located?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2140",
+                    "number": "2140",
+                    "text": "During the 3 year period 2020 to 2022, was this co-operation carried out via a public procurement process?",
+                    "type": "radio"
+                },
+                {
+                    "question_id": "No Q code needed",
+                    "number": "No Q code needed",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with other businesses outside your enterprise group, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1876",
+                    "number": "1876",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with other businesses outside your enterprise group, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1877",
+                    "number": "1877",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with other businesses outside your enterprise group, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1878",
+                    "number": "1878",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with other businesses outside your enterprise group, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1875",
+                    "number": "1875",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with other businesses outside your enterprise group, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "1875",
+                    "number": "1875",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with non-profit organisations, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1880",
+                    "number": "1880",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with non-profit organisations, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1885",
+                    "number": "1885",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with non-profit organisations, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1886",
+                    "number": "1886",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with non-profit organisations, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1879",
+                    "number": "1879",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with non-profit organisations, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "No qcode needed",
+                    "number": "No qcode needed",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with regulatory bodies, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1895",
+                    "number": "1895",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with regulatory bodies, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1896",
+                    "number": "1896",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with regulatory bodies, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1897",
+                    "number": "1897",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with regulatory bodies, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1898",
+                    "number": "1898",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with regulatory bodies, what was their location?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "1898",
+                    "number": "1898",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with standard developing organisations, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK"
+                    ],
+                    "question_id": "1901",
+                    "number": "1901",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with standard developing organisations, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "EU or EFTA countries"
+                    ],
+                    "question_id": "1902",
+                    "number": "1902",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with standard developing organisations, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "All other countries"
+                    ],
+                    "question_id": "1903",
+                    "number": "1903",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with standard developing organisations, what was their location?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "1904",
+                    "number": "1904",
+                    "text": "During the 3 year period 2020 to 2022, if your business co-operated with standard developing organisations, what was their location?",
+                    "type": "mutually exclusive"
+                }
+            ]
+        },
         {
-          "text": "What was the business's estimated total number of employees in 2018?",
-          "question_id": "2510"
-        }, {
-          "text": "What was the business's estimated total number of employees in 2020?",
-          "question_id": "2520"
-        },{
-          "text": "What is the proportion of employees who hold a degree or higher qualification in the following areas for the calendar year 2020 only? (Science or engineering subjects)",
-          "question_id": "2610"
-        },{
-          "text": "What is the proportion of employees who hold a degree or higher qualification in the following areas for the calendar year 2020 only? (Other subjects)",
-          "question_id": "2620"
-        },{
-          "text": "Did the business employ individuals in-house with the following skills at any level, or obtain these skills form external sources?",
-          "question_id": "2631",
-          "number": "2631",
-          "type": "checkbox",
-          "options": [
-              "Graphic arts, layout, advertising"
-          ]
-        },{
-          "text": "Did the business employ individuals in-house with the following skills at any level, or obtain these skills form external sources?",
-          "question_id": "2632",
-          "number": "2632",
-          "type": "checkbox",
-          "options": [
-              "Design of objects or services"
-          ]
-        },{
-          "text": "Did the business employ individuals in-house with the following skills at any level, or obtain these skills form external sources?",
-          "question_id": "2633",
-          "number": "2633",
-          "type": "checkbox",
-          "options": [
-              "Multimedia, web design (for example audio, graphics, texts, still pictures, animation, video)"
-          ]
-        },{
-          "text": "Did the business employ individuals in-house with the following skills at any level, or obtain these skills form external sources?",
-          "question_id": "2634",
-          "number": "2634",
-          "type": "checkbox",
-          "options": [
-              "Software development, database management"
-          ]
-        },{
-          "text": "Did the business employ individuals in-house with the following skills at any level, or obtain these skills form external sources?",
-          "question_id": "2635",
-          "number": "2635",
-          "type": "checkbox",
-          "options": [
-              "Engineering, applied sciences"
-          ]
-        },{
-          "text": "Did the business employ individuals in-house with the following skills at any level, or obtain these skills form external sources?",
-          "question_id": "2636",
-          "number": "2636",
-          "type": "checkbox",
-          "options": [
-              "Mathematics, statistics"
-          ]
-        },{
-          "text": "Did the business employ individuals in-house with the following skills at any level, or obtain these skills form external sources?",
-          "question_id": "2637",
-          "number": "2637",
-          "type": "checkbox",
-          "options": [
-              "Data Scientists"
-          ]
-        }]
-    },
-    {
-      "title": "General information",
-      "questions": [
+            "title": "Innovation protection",
+            "questions": [
+                {
+                    "Options": [
+                        "Over 90%",
+                        "40-90%",
+                        "Less than 40%",
+                        "None"
+                    ],
+                    "question_id": "2650",
+                    "number": "2650",
+                    "text": "During the 3 year period 2020 to 2022, what proportions of your innovations were protected by patents?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Over 90%",
+                        "40-90%",
+                        "Less than 40%",
+                        "None"
+                    ],
+                    "question_id": "2651",
+                    "number": "2651",
+                    "text": "During the 3 year period 2020 to 2022, what proportions of your innovations were protected by design registration?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Over 90%",
+                        "40-90%",
+                        "Less than 40%",
+                        "None"
+                    ],
+                    "question_id": "2652",
+                    "number": "2652",
+                    "text": "During the 3 year period 2020 to 2022, what proportions of your innovations were protected by copyright?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Over 90%",
+                        "40-90%",
+                        "Less than 40%",
+                        "None"
+                    ],
+                    "question_id": "2653",
+                    "number": "2653",
+                    "text": "During the 3 year period 2020 to 2022, what proportions of your innovations were protected by trademarks?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Over 90%",
+                        "40-90%",
+                        "Less than 40%",
+                        "None"
+                    ],
+                    "question_id": "2654",
+                    "number": "2654",
+                    "text": "During the 3 year period 2020 to 2022, what proportions of your innovations were protected by lead time advantages?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Over 90%",
+                        "40-90%",
+                        "Less than 40%",
+                        "None"
+                    ],
+                    "question_id": "2655",
+                    "number": "2655",
+                    "text": "During the 3 year period 2020 to 2022, what proportions of your innovations were protected by complexity of goods or services?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Over 90%",
+                        "40-90%",
+                        "Less than 40%",
+                        "None"
+                    ],
+                    "question_id": "2656",
+                    "number": "2656",
+                    "text": "During the 3 year period 2020 to 2022, what proportions of your innovations were protected by secrecy?",
+                    "type": "radio"
+                }
+            ]
+        },
         {
-          "text": "Do you have any comments?",
-          "question_id": "2700"
-        }, {
-          "text": "How many hours did it take you to complete this survey?",
-          "question_id": "2801"
-        }, {
-          "text": "How many minutes did it take you to complete this survey?",
-          "question_id": "2800"
-        }, {
-          "text": "Would the business be willing to be approached by telephone by the Department for Business, Energy and Industrial Strategy or its appointed agents, to ask some further questions about innovation?",
-          "question_id": "2900"
-        }]
-    }
-  ]
+            "title": "Public financial support for innovation",
+            "questions": [
+                {
+                    "question_id": "No qcode needed",
+                    "number": "No qcode needed",
+                    "text": "During the 3 year period 2020 to 2022, did the business receive public financial support for innovation activities from the following levels of government?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK local or regional authorities"
+                    ],
+                    "question_id": "2668",
+                    "number": "2668",
+                    "text": "During the 3 year period 2020 to 2022, did the business receive public financial support for innovation activities from the following levels of government?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "UK central government"
+                    ],
+                    "question_id": "2669",
+                    "number": "2669",
+                    "text": "During the 3 year period 2020 to 2022, did the business receive public financial support for innovation activities from the following levels of government?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "European Union (EU) institutions or programmes"
+                    ],
+                    "question_id": "2670",
+                    "number": "2670",
+                    "text": "During the 3 year period 2020 to 2022, did the business receive public financial support for innovation activities from the following levels of government?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "2671",
+                    "number": "2671",
+                    "text": "During the 3 year period 2020 to 2022, did the business receive public financial support for innovation activities from the following levels of government?",
+                    "type": "mutually exclusive"
+                },
+                {
+                    "question_id": "No qcode needed",
+                    "number": "No qcode needed",
+                    "text": "What kind of financial support was received by your business from UK central government?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Direct financial support"
+                    ],
+                    "question_id": "2672",
+                    "number": "2672",
+                    "text": "What kind of financial support was received by your business from UK central government?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Indirect financial support: Research and Development tax credits"
+                    ],
+                    "question_id": "2673",
+                    "number": "2673",
+                    "text": "What kind of financial support was received by your business from UK central government?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Indirect financial support: Patent box, coronavirus (COVID-19) pandemic support"
+                    ],
+                    "question_id": "2679",
+                    "number": "2679",
+                    "text": "What kind of financial support was received by your business from UK central government?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "2674",
+                    "number": "2674",
+                    "text": "What kind of financial support was received by your business from UK central government?",
+                    "type": "mutually exclusive"
+                }
+            ]
+        },
+        {
+            "title": "Exports and skills",
+            "questions": [
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2450",
+                    "number": "2450",
+                    "text": "Did the business export in the calendar year 2022?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Science or engineering subjects"
+                    ],
+                    "question_id": "2610",
+                    "number": "2610",
+                    "text": "What was the proportion of employees who held a degree or higher qualification in the following areas for the calendar year 2022? Science or engineering subjects",
+                    "type": "percentage"
+                },
+                {
+                    "Options": [
+                        "Other subjects"
+                    ],
+                    "question_id": "2620",
+                    "number": "2620",
+                    "text": "What was the proportion of employees who held a degree or higher qualification in the following areas for the calendar year 2022? Other subjects",
+                    "type": "percentage"
+                },
+                {
+                    "question_id": "No qcode needed",
+                    "number": "No qcode needed",
+                    "text": "During the 3 year period 2020 to 2022, did your business employ individuals in-house with the following skills at any level, or obtain these skills from external sources?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Graphic arts, layout, advertising"
+                    ],
+                    "question_id": "2631",
+                    "number": "2631",
+                    "text": "During the 3 year period 2020 to 2022, did your business employ individuals in-house with the following skills at any level, or obtain these skills from external sources?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Design of objects or services"
+                    ],
+                    "question_id": "2632",
+                    "number": "2632",
+                    "text": "During the 3 year period 2020 to 2022, did your business employ individuals in-house with the following skills at any level, or obtain these skills from external sources?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Multimedia, web design"
+                    ],
+                    "question_id": "2633",
+                    "number": "2633",
+                    "text": "During the 3 year period 2020 to 2022, did your business employ individuals in-house with the following skills at any level, or obtain these skills from external sources?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Software development, database management"
+                    ],
+                    "question_id": "2634",
+                    "number": "2634",
+                    "text": "During the 3 year period 2020 to 2022, did your business employ individuals in-house with the following skills at any level, or obtain these skills from external sources?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Engineering, applied sciences"
+                    ],
+                    "question_id": "2635",
+                    "number": "2635",
+                    "text": "During the 3 year period 2020 to 2022, did your business employ individuals in-house with the following skills at any level, or obtain these skills from external sources?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Mathematics, statistics"
+                    ],
+                    "question_id": "2636",
+                    "number": "2636",
+                    "text": "During the 3 year period 2020 to 2022, did your business employ individuals in-house with the following skills at any level, or obtain these skills from external sources?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Data scientists"
+                    ],
+                    "question_id": "2637",
+                    "number": "2637",
+                    "text": "During the 3 year period 2020 to 2022, did your business employ individuals in-house with the following skills at any level, or obtain these skills from external sources?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "No qcode needed",
+                    "number": "No qcode needed",
+                    "text": "Which of the following management technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Accountancy software"
+                    ],
+                    "question_id": "2201",
+                    "number": "2201",
+                    "text": "Which of the following management technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Customer relationship management"
+                    ],
+                    "question_id": "2202",
+                    "number": "2202",
+                    "text": "Which of the following management technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Electronic invoicing (e-invoicing)"
+                    ],
+                    "question_id": "2203",
+                    "number": "2203",
+                    "text": "Which of the following management technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Enterprise resource planning (ERP) software"
+                    ],
+                    "question_id": "2204",
+                    "number": "2204",
+                    "text": "Which of the following management technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "HR management software"
+                    ],
+                    "question_id": "2205",
+                    "number": "2205",
+                    "text": "Which of the following management technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Videoconferencing software"
+                    ],
+                    "question_id": "2206",
+                    "number": "2206",
+                    "text": "Which of the following management technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "question_id": "2206",
+                    "number": "2206",
+                    "text": "Which of the following production-enhancing technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Artificial intelligence (AI), robotics or automation"
+                    ],
+                    "question_id": "2211",
+                    "number": "2211",
+                    "text": "Which of the following production-enhancing technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Business intelligence or business analytics"
+                    ],
+                    "question_id": "2212",
+                    "number": "2212",
+                    "text": "Which of the following production-enhancing technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Cloud based computing"
+                    ],
+                    "question_id": "2213",
+                    "number": "2213",
+                    "text": "Which of the following production-enhancing technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Computer aided design (CAD) software"
+                    ],
+                    "question_id": "2214",
+                    "number": "2214",
+                    "text": "Which of the following production-enhancing technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Internet of things (IoT)"
+                    ],
+                    "question_id": "2215",
+                    "number": "2215",
+                    "text": "Which of the following production-enhancing technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                },
+                {
+                    "Options": [
+                        "Virtual reality (VR) and augmented reality (AR)"
+                    ],
+                    "question_id": "2216",
+                    "number": "2216",
+                    "text": "Which of the following production-enhancing technologies did your business use, in the calendar year 2022?",
+                    "type": "checkbox"
+                }
+            ]
+        },
+        {
+            "title": "Environmental innovations",
+            "questions": [
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2220",
+                    "number": "2220",
+                    "text": "During the 3 years 2020 to 2022, did the business introduce innovations that reduced material or water use per unit of output?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2221",
+                    "number": "2221",
+                    "text": "Were these contributions of innovations that reduced material or water use per unit of output significant to environmental protection within your business?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2222",
+                    "number": "2222",
+                    "text": "During the 3 years 2020 to 2022, did your business introduce innovations that reduced energy usage or CO2 footprint?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2223",
+                    "number": "2223",
+                    "text": "Were these contributions of innovations that reduced energy usage or CO2 footprint significant to environmental protection within your business?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2224",
+                    "number": "2224",
+                    "text": "During the 3 years 2020 to 2022, did your business introduce innovations that reduced soil, noise, water or air pollution?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2225",
+                    "number": "2225",
+                    "text": "Were these contributions of innovations that reduced soil, noise, water or air pollution significant to environmental protection within your business?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2226",
+                    "number": "2226",
+                    "text": "During the 3 years 2020 to 2022, did your business introduce innovations that replaced a share of materials with less polluting or hazardous substitutes?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2227",
+                    "number": "2227",
+                    "text": "Were these contributions of innovations that replaced a share of materials with less polluting or hazardous substitutes significant to environmental protection within your business?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2228",
+                    "number": "2228",
+                    "text": "During the 3 years 2020 to 2022, did your business introduce innovations that replaced a share of fossil energy with renewable energy sources?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2229",
+                    "number": "2229",
+                    "text": "Were these contributions of innovations that replaced a share of fossil energy with renewable energy sources significant to environmental protection within your business?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2230",
+                    "number": "2230",
+                    "text": "During the 3 years 2020 to 2022, did your business introduce innovations that recycled waste, water or materials for own use or sale?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2231",
+                    "number": "2231",
+                    "text": "Were these contributions of innovations that recycled waste, water or materials for own use or sale significant to environmental protection within your business?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2232",
+                    "number": "2232",
+                    "text": "During the 3 years 2020 to 2022, did your business introduce innovations that reduced energy use or CO2 footprint during the consumption or use of a good or service by the end user?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2233",
+                    "number": "2233",
+                    "text": "Were these contributions of innovations that reduced energy use or CO2 footprint, during the consumption or use of a good or service by the end user, significant?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2234",
+                    "number": "2234",
+                    "text": "During the 3 years 2020 to 2022, did your business introduce innovations that reduced air, water, soil or noise pollution during the consumption or use of a good or service by the end user?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2235",
+                    "number": "2235",
+                    "text": "Were these contributions of innovations that reduced air, water, soil or noise pollution, during the consumption or use of a good or service by the end user, significant?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2236",
+                    "number": "2236",
+                    "text": "During the 3 years 2020 to 2022, did your business introduce innovations that facilitated recycling of product after use during the consumption or use of a good or service by the end user?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2237",
+                    "number": "2237",
+                    "text": "Were these contributions of innovations that facilitated recycling of product after use, during the consumption or use of a good or service by the end user, significant?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2238",
+                    "number": "2238",
+                    "text": "During the 3 years 2020 to 2022, did your business introduce innovations that extended product life through longer-lasting, more durable products during the consumption or use of a good or service by the end user?",
+                    "type": "radio"
+                },
+                {
+                    "Options": [
+                        "Yes, they were significant",
+                        "No, they were not significant"
+                    ],
+                    "question_id": "2239",
+                    "number": "2239",
+                    "text": "Were these contributions of innovations that extended product life through longer-lasting, more durable products, during the consumption or use of a good or service by the end user, significant?",
+                    "type": "radio"
+                }
+            ]
+        },
+        {
+            "title": "General information",
+            "questions": [
+                {
+                    "question_id": "2700",
+                    "number": "2700",
+                    "text": "Please provide any additional information that will help us understand the answers you have provided",
+                    "type": "text area"
+                },
+                {
+                    "question_id": "2801",
+                    "number": "2801",
+                    "text": "How long did it take you to complete this questionnaire?",
+                    "type": "number"
+                },
+                {
+                    "question_id": "2800",
+                    "number": "2800",
+                    "text": "How long did it take you to complete this questionnaire?",
+                    "type": "number"
+                },
+                {
+                    "Options": [
+                        "Yes",
+                        "No"
+                    ],
+                    "question_id": "2900",
+                    "number": "2900",
+                    "text": "Would the business be willing to be contacted by telephone by the Department for Business, Energy and Industrial Strategy or its appointed agents, to ask some further questions about innovation?",
+                    "type": "radio"
+                }
+            ]
+        }
+    ]
 }

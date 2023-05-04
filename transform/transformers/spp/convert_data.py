@@ -7,9 +7,16 @@ from transform.transformers.spp.definitions import Answer, SPP
 logger = structlog.get_logger()
 
 
+def spp_from_map(data: Dict[str, str]) -> List[SPP]:
+    """
+    Create a list of SPP from data in 0.0.1 format (map[qcode, value])
+    """
+    return [SPP(qcode, value, 0) for qcode, value in data.items()]
+
+
 def extract_answers(data: Dict) -> List[Answer]:
     """
-    Extracts list collector based data into a list of 'Answer's.
+    Extracts list collector based data (0.0.3) into a list of 'Answer's.
     """
 
     answer_list: List[Answer] = []
