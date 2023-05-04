@@ -16,5 +16,5 @@ check-dependencies:
 ifndef PDFTOPPM
 	$(error Missing dependency 'pdftoppm')
 else
-	@ echo "Dependencies OK!"
+	@ echo "Dependencies OK"
 endif
