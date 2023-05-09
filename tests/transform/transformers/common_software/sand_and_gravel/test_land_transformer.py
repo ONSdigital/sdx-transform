@@ -111,4 +111,3 @@ class LandTests(unittest.TestCase):
         }
 
         self.assertEqual(expected, actual)
-
