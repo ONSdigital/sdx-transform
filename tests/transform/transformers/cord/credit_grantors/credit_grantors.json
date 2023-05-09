@@ -1,0 +1,50 @@
+{
+  "case_id": "95747450-ac2b-4dad-abe5-17e9cbc6c706",
+  "tx_id": "b01e2ab6-079d-42a6-8ffa-ae52f9129e7e",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "0.0.1",
+  "origin": "uk.gov.ons.edc.eq",
+  "survey_id": "127",
+  "flushed": false,
+  "submitted_at": "2023-05-09T13:47:01+00:00",
+  "collection": {
+    "exercise_sid": "8d5b7e4d-e760-48d3-8bbd-9bd28d2d90a3",
+    "schema_name": "cg_0002",
+    "period": "201605",
+    "instrument_id": "0002"
+  },
+  "metadata": {
+    "user_id": "UNKNOWN",
+    "ru_ref": "12346789012A",
+    "ref_period_start_date": "2016-05-01",
+    "ref_period_end_date": "2016-05-31"
+  },
+  "launch_language_code": "en",
+  "data": {
+    "9999": "Yes, I can report for this period",
+    "9996": "Yes",
+    "9995": "Yes",
+    "9994": "first business, second business",
+    "9001": "5000",
+    "9003": "2000",
+    "9005": "1000",
+    "9007": "3000",
+    "9008": "2000",
+    "9010": "5000",
+    "9012": "1000",
+    "9014": "2000",
+    "9993": "Yes",
+    "9002": "3000",
+    "9004": "4000",
+    "9006": "1000",
+    "9009": "2000",
+    "9016": "3000",
+    "9011": "40000",
+    "9013": "9000",
+    "9015": "1000",
+    "9992": "This is a good comment"
+  },
+  "form_type": "0002",
+  "started_at": "2023-05-09T13:45:16.928604+00:00",
+  "submission_language_code": "en"
+}
