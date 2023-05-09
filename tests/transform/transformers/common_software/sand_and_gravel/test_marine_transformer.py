@@ -12,15 +12,15 @@ class MarineTests(unittest.TestCase):
             "998": "Gravel, Pebbles, Shingle, Flint",
             "997": "Sand and gravel used for constructional fill",
             "601": "10",
-            "602": "100",
-            "603": "1000",
-            "604": "20",
+            "602": "20",
+            "603": "30",
+            "604": "100",
             "605": "200",
-            "606": "2000",
-            "607": "3000",
-            "995": "PORTSMOUTH",
-            "148": "hello",
-            "146": "hello again"
+            "606": "300",
+            "607": "1000",
+            "995": "portsmouth",
+            "148": "Here is a good comment",
+            "146": "Another good comment"
         }
 
         transform_spec = {

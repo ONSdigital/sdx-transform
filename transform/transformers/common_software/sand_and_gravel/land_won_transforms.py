@@ -15,7 +15,7 @@ TRANSFORMS_SPEC = {
     "606": Transform.UNIT,
     "607": Transform.UNIT,
     "146": Transform.TEXT,
-    "148": Transform.TEXT,
+    "147": Transform.TEXT,
 }
 
 ADDITION_QCODES = {
