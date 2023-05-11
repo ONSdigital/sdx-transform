@@ -4,7 +4,6 @@ from enum import Enum
 class Transform(Enum):
     NO_TRANSFORM = 1
     TEXT = 2
-    ADDITION = 3
 
 
 TRANSFORMS_SPEC = {
@@ -24,9 +23,4 @@ TRANSFORMS_SPEC = {
     "9011": Transform.NO_TRANSFORM,
     "9013": Transform.NO_TRANSFORM,
     "9015": Transform.NO_TRANSFORM
-}
-
-ADDITION_SPEC = {
-    "9014": ["9001", "9003", "9005", "9007", "9008", "9010", "9012"],
-    "9015": ["9002", "9004", "9006", "9009", "9016", "9011", "9013"]
 }

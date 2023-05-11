@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from transform.transformers.cord.credit_grantors.credit_grantors_transform_spec import TRANSFORMS_SPEC, ADDITION_SPEC
+from transform.transformers.cord.credit_grantors.credit_grantors_transform_spec import TRANSFORMS_SPEC
 from transform.transformers.cord.credit_grantors.credit_grantors_transformer import perform_transforms
 
 
@@ -13,28 +13,27 @@ class BricksTests(unittest.TestCase):
             "9996": "Yes",
             "9995": "Yes",
             "9994": "first business, second business",
-            "9001": "5000",
+            "9001": "-5000",
             "9003": "2000",
             "9005": "1000",
             "9007": "3000",
-            "9008": "2000",
+            "9008": "-2000",
             "9010": "5000",
-            "9012": "1000",
+            "9012": "-1000",
             "9014": "2000",
-            "9993": "No",
         }
 
-        actual = perform_transforms(data, TRANSFORMS_SPEC, ADDITION_SPEC)
+        actual = perform_transforms(data, TRANSFORMS_SPEC)
 
         expected = {
-            '9001': 5000,
+            '9001': -5000,
             '9003': 2000,
             '9005': 1000,
             '9007': 3000,
-            '9008': 2000,
+            '9008': -2000,
             '9010': 5000,
-            '9012': 1000,
-            '9014': 19000,
+            '9012': -1000,
+            '9014': 2000,
         }
 
         self.assertEqual(expected, actual)
@@ -44,7 +43,7 @@ class BricksTests(unittest.TestCase):
             json_data = json.load(json_file)
             json_data = json_data["data"]
 
-            actual = perform_transforms(json_data, TRANSFORMS_SPEC, ADDITION_SPEC)
+            actual = perform_transforms(json_data, TRANSFORMS_SPEC)
             print(actual)
 
             expected = {
@@ -55,7 +54,7 @@ class BricksTests(unittest.TestCase):
                 '9008': 2000,
                 '9010': 5000,
                 '9012': 1000,
-                '9014': 19000,
+                '9014': 2000,
                 '9002': 3000,
                 '9004': 4000,
                 '9006': 1000,
@@ -63,7 +62,7 @@ class BricksTests(unittest.TestCase):
                 '9016': 3000,
                 '9011': 40000,
                 '9013': 9000,
-                '9015': 62000
+                '9015': 1000
             }
 
             self.assertEqual(expected, actual)

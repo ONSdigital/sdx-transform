@@ -1,19 +1,17 @@
-from typing import Dict, List
+from typing import Dict
 
 import structlog
 
 from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.common_software.cs_formatter import CSFormatter
-from transform.transformers.cord.credit_grantors.credit_grantors_transform_spec import Transform, TRANSFORMS_SPEC, \
-    ADDITION_SPEC
+from transform.transformers.cord.credit_grantors.credit_grantors_transform_spec import Transform, TRANSFORMS_SPEC
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = structlog.get_logger()
 
 
-def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform],
-                       addition_spec: Dict[str, List[str]]) -> Dict[str, int]:
+def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform]) -> Dict[str, int]:
 
     output_dict = {}
 
@@ -27,19 +25,6 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
 
         except ValueError:
             logger.error(f"Unable to process qcode: {k} as received non numeric value: {v}")
-
-    for k, v in addition_spec.items():
-        try:
-            if data["9993"] == "No" and k == "9015":
-                continue
-
-            total = 0
-            for value in v:
-                total += output_dict[value]
-            output_dict[k] = total
-
-        except ValueError:
-            logger.error("Unable to complete addition process, invalid value")
 
     return output_dict
 
@@ -69,7 +54,7 @@ class CreditGrantorsTransformer(SurveyTransformer):
     def create_pck(self):
         bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
-        transformed_data = perform_transforms(self.survey_response.data, TRANSFORMS_SPEC, ADDITION_SPEC)
+        transformed_data = perform_transforms(self.survey_response.data, TRANSFORMS_SPEC)
         bound_logger.info("Data successfully transformed")
 
         bound_logger.info("Creating PCK")
