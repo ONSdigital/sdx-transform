@@ -33,6 +33,7 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
 
         except ValueError:
             logger.error(f"Unable to process qcode: {k} as received non numeric value: {v}")
+            output_dict[k] = 0
 
     for k, v in addition_spec.items():
         try:
@@ -41,7 +42,7 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
                 total += output_dict[qcode]
             output_dict[k] = total
 
-        except ValueError:
+        except KeyError:
             logger.error("Unable to add qcodes during addition process")
 
     return output_dict

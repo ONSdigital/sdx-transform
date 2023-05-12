@@ -6,6 +6,34 @@ from transform.transformers.common_software.sand_and_gravel.marine_dredged_trans
 
 class MarineTests(unittest.TestCase):
 
+    def test_unit_test_sets_0_with_string(self):
+        data = {
+            "601": "hello",
+            "602": "20",
+            "603": "30",
+        }
+
+        transform_spec = {
+            "601": Transform.UNIT,
+            "602": Transform.UNIT,
+            "603": Transform.UNIT,
+        }
+
+        addition_spec = {
+            "101": ["601", "602", "603"]
+        }
+
+        expected = {
+            "601": 0,
+            "602": 20,
+            "603": 30,
+            "101": 50,
+        }
+
+        actual = perform_transforms(data, transform_spec, addition_spec)
+
+        self.assertEqual(expected, actual)
+
     def test_full_survey(self):
         data = {
             "999": "Sand",
