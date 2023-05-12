@@ -273,8 +273,10 @@ class BERDTransformerTests(unittest.TestCase):
         # print(response)
         survey_response = SurveyResponseV1(response)
         transformer = BERDTransformer(survey_response)
-        # print(json.dumps(survey_response.response))
+        # print(json.dumps(transformer.berd_result))
+        print(json.dumps(survey_response.response))
         result = transformer.get_json()[1]
+        # print(result)
         self.assertTrue(result is not None)
 
     def test_from_file_v2(self):
