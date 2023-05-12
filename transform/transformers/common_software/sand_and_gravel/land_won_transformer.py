@@ -21,7 +21,7 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
         try:
             if v == Transform.UNIT:
                 if k not in data:
-                    output_dict[k] = 0
+                    output_dict[k] = ""
                 else:
                     output_dict[k] = int(data[k])
 
@@ -39,7 +39,8 @@ def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transfor
         try:
             total = 0
             for qcode in v:
-                total += output_dict[qcode]
+                if qcode:
+                    total += output_dict[qcode]
             output_dict[k] = total
 
         except KeyError:

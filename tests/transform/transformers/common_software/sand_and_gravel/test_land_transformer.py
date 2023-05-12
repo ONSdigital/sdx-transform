@@ -8,7 +8,7 @@ class LandTests(unittest.TestCase):
 
     def test_addition_spec(self):
         data = {
-            "101": "0",
+            "101": "",
             "102": "10",
             "103": "10",
             "999": "1000"
