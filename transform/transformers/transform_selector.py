@@ -3,6 +3,8 @@ from transform.transformers.common_software.abs.abs_transformer import ABSTransf
 from transform.transformers.common_software.acas.acas_transformer import ACASTransformer
 from transform.transformers.common_software.blocks.blocks_transformer import BlocksTransformer
 from transform.transformers.common_software.bricks.bricks_transformer import BricksTransformer
+from transform.transformers.common_software.sand_and_gravel.land_won_transformer import LandTransformer
+from transform.transformers.common_software.sand_and_gravel.marine_dredged_transformer import MarineTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cora.ukis.ukis_transformer import UKISTransformer
 from transform.transformers.cord import EcommerceTransformer
@@ -75,6 +77,10 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
         transformer = BlocksTransformer(response, sequence_no)
     elif survey_id == "074":
         transformer = BricksTransformer(response, sequence_no)
+    elif survey_id == "066":
+        transformer = LandTransformer(response, sequence_no)
+    elif survey_id == "076":
+        transformer = MarineTransformer(response, sequence_no)
     else:
         transformer = CSTransformer(response, sequence_no)
 
