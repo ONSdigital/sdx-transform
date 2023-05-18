@@ -24,14 +24,12 @@ class SurveyTransformer:
     def __init__(self, response: SurveyResponse, sequence_no, use_sdx_image: bool = False):
         self.survey_response = response
         self.sequence_no = sequence_no
-        self.logger = logger
-        self.logger.bind(ru_ref=response.ru_ref, tx_id=response.tx_id)
         if use_sdx_image:
-            self.image_transformer = ImageRequester(self.logger, self.survey_response,
+            self.image_transformer = ImageRequester(self.survey_response,
                                                     sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
         else:
             self.survey = Survey.load_survey(self.survey_response.survey_id, self.survey_response.instrument_id)
-            self.image_transformer = ImageTransformer(self.logger, self.survey, self.survey_response,
+            self.image_transformer = ImageTransformer(self.survey, self.survey_response,
                                                       sequence_no=self.sequence_no, base_image_path=SDX_FTP_IMAGE_PATH)
 
     def create_pck(self):
@@ -43,7 +41,7 @@ class SurveyTransformer:
         return pck_name, pck
 
     def create_receipt(self):
-        self.logger.info("Creating IDBR receipt")
+        logger.info("Creating IDBR receipt")
         idbr_name = Formatter.idbr_name(self.survey_response.submitted_at, self.survey_response.tx_id)
         idbr = Formatter.get_idbr(
             self.survey_response.survey_id,
@@ -51,7 +49,7 @@ class SurveyTransformer:
             self.survey_response.ru_check,
             self.survey_response.period,
         )
-        self.logger.info("Successfully created IDBR receipt")
+        logger.info("Successfully created IDBR receipt")
         return idbr_name, idbr
 
     def _create_images(self, img_seq=None):

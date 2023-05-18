@@ -35,7 +35,7 @@ class TestTransformService(unittest.TestCase):
     transform_endpoint = "/transform"
 
     def setUp(self):
-        sdx_app = SdxApp("sdx-survey")
+        sdx_app = SdxApp("sdx-transform")
 
         sdx_app.add_post_endpoint(transform, rule="/transform")
 

@@ -12,10 +12,10 @@ class ImageRequester(ImageBase):
     """Transforms a survey and _response into a zip file
     """
 
-    def __init__(self, logger, response: SurveyResponse, current_time=None, sequence_no=1000,
+    def __init__(self, response: SurveyResponse, current_time=None, sequence_no=1000,
                  base_image_path=""):
 
-        super().__init__(logger, response, current_time, sequence_no, base_image_path)
+        super().__init__(response, current_time, sequence_no, base_image_path)
 
     def get_zipped_images(self, num_sequence=None):
         """Builds the images and the index_file file into the zip file.
@@ -33,7 +33,7 @@ class ImageRequester(ImageBase):
         return Formatter.get_image_name(tx_id, 1)
 
     def _create_index(self, image_name):
-        self.index_file = IndexFile(self.logger, self.response, 1, [image_name], self.current_time)
+        self.index_file = IndexFile(self.response, 1, [image_name], self.current_time)
 
     def _build_zip(self, image_name, image_bytes):
         self.zip.append(os.path.join(self.image_path, image_name), image_bytes)
