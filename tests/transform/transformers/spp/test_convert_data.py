@@ -1,6 +1,7 @@
 import unittest
 
-from transform.transformers.spp.convert_data import convert_to_spp, extract_answers, remove_prepend_values, spp_from_map
+from transform.transformers.spp.convert_data import convert_to_spp, extract_answers, remove_prepend_values, \
+    spp_from_map, convert_civil_defence
 from transform.transformers.spp.definitions import Answer, SPP
 
 
@@ -464,6 +465,104 @@ class RemovePrependValuesTests(unittest.TestCase):
             {'questioncode': '102', 'response': 'No', 'instance': 1},
             {'questioncode': '102', 'response': 'Yes', 'instance': 2},
             {'questioncode': '108', 'response': 'y', 'instance': 2}
+        ]
+
+        self.assertEqual(expected, actual)
+
+
+class ConvertCivilDefenceTests(unittest.TestCase):
+
+    def test_convert_civil(self):
+        data = [
+            {'questioncode': '200', 'response': 'Civil Research and Development', 'instance': 1},
+            {'questioncode': 'c202', 'response': '5000', 'instance': 1},
+        ]
+
+        actual = convert_civil_defence(data)
+
+        expected = [
+            {'questioncode': '200', 'response': 'C', 'instance': 1},
+            {'questioncode': 'c202', 'response': '5000', 'instance': 1},
+        ]
+
+        self.assertEqual(expected, actual)
+
+    def test_convert_defence(self):
+        data = [
+            {'questioncode': '300', 'response': 'Defence Research and Development', 'instance': 1},
+            {'questioncode': 'd302', 'response': '3000', 'instance': 1},
+        ]
+
+        actual = convert_civil_defence(data)
+
+        expected = [
+            {'questioncode': '300', 'response': 'D', 'instance': 1},
+            {'questioncode': 'd302', 'response': '3000', 'instance': 1},
+        ]
+
+        self.assertEqual(expected, actual)
+
+    def test_both(self):
+        data = [
+            {'questioncode': '200', 'response': "Both, civil and defence Research and Development", 'instance': 1},
+            {'questioncode': 'c202', 'response': '5000', 'instance': 1},
+            {'questioncode': '200', 'response': "Both, civil and defence Research and Development", 'instance': 2},
+            {'questioncode': 'd202', 'response': '3000', 'instance': 2},
+        ]
+
+        actual = convert_civil_defence(data)
+
+        expected = [
+            {'questioncode': '200', 'response': 'C', 'instance': 1},
+            {'questioncode': 'c202', 'response': '5000', 'instance': 1},
+            {'questioncode': '200', 'response': 'D', 'instance': 2},
+            {'questioncode': 'd202', 'response': '3000', 'instance': 2},
+        ]
+
+        self.assertEqual(expected, actual)
+
+    def test_different(self):
+        data = [
+            {'questioncode': '200', 'response': 'Defence Research and Development', 'instance': 1},
+            {'questioncode': 'd202', 'response': '5000', 'instance': 1},
+            {'questioncode': '300', 'response': 'Civil Research and Development', 'instance': 1},
+            {'questioncode': 'c302', 'response': '3000', 'instance': 1},
+        ]
+
+        actual = convert_civil_defence(data)
+
+        expected = [
+            {'questioncode': '200', 'response': 'D', 'instance': 1},
+            {'questioncode': 'd202', 'response': '5000', 'instance': 1},
+            {'questioncode': '300', 'response': 'C', 'instance': 1},
+            {'questioncode': 'c302', 'response': '3000', 'instance': 1},
+        ]
+
+        self.assertEqual(expected, actual)
+
+    def test_multiple(self):
+        data = [
+            {'questioncode': '200', 'response': 'Both, civil and defence Research and Development', 'instance': 1},
+            {'questioncode': 'd202', 'response': '5000', 'instance': 1},
+            {'questioncode': '200', 'response': 'Both, civil and defence Research and Development', 'instance': 2},
+            {'questioncode': 'd202', 'response': '4000', 'instance': 2},
+            {'questioncode': '200', 'response': 'Both, civil and defence Research and Development', 'instance': 3},
+            {'questioncode': 'd202', 'response': '3000', 'instance': 3},
+            {'questioncode': '200', 'response': 'Both, civil and defence Research and Development', 'instance': 4},
+            {'questioncode': 'c202', 'response': '2000', 'instance': 4},
+        ]
+
+        actual = convert_civil_defence(data)
+
+        expected = [
+            {'questioncode': '200', 'response': 'D', 'instance': 1},
+            {'questioncode': 'd202', 'response': '5000', 'instance': 1},
+            {'questioncode': '200', 'response': 'D', 'instance': 2},
+            {'questioncode': 'd202', 'response': '4000', 'instance': 2},
+            {'questioncode': '200', 'response': 'D', 'instance': 3},
+            {'questioncode': 'd202', 'response': '3000', 'instance': 3},
+            {'questioncode': '200', 'response': 'C', 'instance': 4},
+            {'questioncode': 'c202', 'response': '2000', 'instance': 4},
         ]
 
         self.assertEqual(expected, actual)
