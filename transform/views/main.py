@@ -1,7 +1,7 @@
-from flask import Request, send_file
 from jinja2 import Environment, PackageLoader
+from sdx_gcp import Request, Flask
 from sdx_gcp.app import get_logger
-from sdx_gcp.errors import DataException
+from sdx_gcp.errors import DataError
 
 from transform.transformers.response import SurveyResponseV1, SurveyResponseV2, InvalidDataException
 from transform.transformers.survey import MissingSurveyException, MissingIdsException
@@ -21,7 +21,7 @@ def transform(req: Request):
     try:
         response = req.get_json(force=True, silent=True)
         if response is None:
-            raise DataException("Response is not in json format")
+            raise DataError("Response is not in json format")
 
         version = req.args.get(VERSION, V1)
         if version == V2:
@@ -32,13 +32,13 @@ def transform(req: Request):
         transformer = get_transformer(survey_response)
         zip_file = transformer.get_zip()
         logger.info("Transformation was a success, returning zip file")
-        return send_file(zip_file, mimetype='application/zip', etag=False)
+        return Flask.send_file(zip_file, mimetype='application/zip', etag=False)
 
     except MissingSurveyException as me:
-        raise DataException(f"Unsupported survey/instrument id: {str(me)}")
+        raise DataError(f"Unsupported survey/instrument id: {str(me)}")
 
     except MissingIdsException as mi:
-        raise DataException(str(mi))
+        raise DataError(str(mi))
 
     except InvalidDataException as ide:
-        raise DataException(str(ide))
+        raise DataError(str(ide))

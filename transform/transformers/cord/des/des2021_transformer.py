@@ -1,14 +1,14 @@
 import decimal
 from decimal import Decimal, ROUND_HALF_UP
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.cord.cord_formatter import CORDFormatter
 from transform.transformers.cord.des.des2021_transforms import transformations
 from transform.transformers.cord.des.des2021_transforms import Transform
 from transform.transformers.survey_transformer import SurveyTransformer
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 def thousands(value: str) -> str:
@@ -178,13 +178,12 @@ class DES2021Transformer(SurveyTransformer):
         return pck
 
     def create_pck(self):
-        bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
-        bound_logger.info("Transforming data for processing")
+        logger.info("Transforming data for processing", ru_ref=self.survey_response.ru_ref)
         transformed_data = perform_transform(self.survey_response.data, transformations)
-        bound_logger.info("Data successfully transformed")
+        logger.info("Data successfully transformed")
 
-        bound_logger.info("Creating PCK")
+        logger.info("Creating PCK")
         pck_name = CORDFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
         pck = self._create_pck(transformed_data)
-        bound_logger.info("Successfully created PCK")
+        logger.info("Successfully created PCK")
         return pck_name, pck

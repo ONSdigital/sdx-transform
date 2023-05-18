@@ -1,7 +1,7 @@
 import json
 import os
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.settings import SDX_FTP_IMAGE_PATH, SDX_FTP_DATA_PATH, SDX_FTP_RECEIPT_PATH, SDX_RESPONSE_JSON_PATH
 from transform.transformers import ImageTransformer
@@ -10,7 +10,7 @@ from transform.transformers.response import SurveyResponse
 from transform.transformers.survey import Survey
 from transform.utilities.formatter import Formatter
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 class SurveyTransformer:

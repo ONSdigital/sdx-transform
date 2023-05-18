@@ -2,7 +2,7 @@ import json
 from dataclasses import asdict
 from typing import Union, Dict, List
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.response import SurveyResponse, InvalidDataException
 from transform.transformers.spp.berd.collect_items import collect_list_items
@@ -12,7 +12,7 @@ from transform.transformers.spp.definitions import SPPResult
 from transform.transformers.survey_transformer import SurveyTransformer
 from transform.utilities.formatter import Formatter
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 class BERDTransformer(SurveyTransformer):

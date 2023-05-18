@@ -2,15 +2,12 @@ PDFTOPPM := $(shell command -v pdftoppm 2> /dev/null)
 
 build:
 	pip install -r requirements.txt
-
-test:
-	pip install pytest-cov
-	pip install flake8
+start: build
+	python run.py
+test: build
+	pip install -r test-requirements.txt
 	flake8
 	pytest -v --cov-report term-missing --disable-warnings --cov=transform tests/
-
-start:
-	python run.py
 
 check-dependencies:
 ifndef PDFTOPPM

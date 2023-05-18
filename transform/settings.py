@@ -1,6 +1,5 @@
 import os
 
-import sdx_gcp.logger
 from sdx_gcp.app import get_logger, SdxApp
 
 
@@ -30,7 +29,6 @@ USE_IMAGE_SERVICE: bool = os.getenv('USE_IMAGE_SERVICE', "true") == "true"
 IMAGE_SERVICE_URL = os.getenv('IMAGE_SERVICE_URL', "http://sdx-image:80")
 
 sdx_app = SdxApp("sdx-survey", PROJECT_ID)
-sdx_gcp.logger.configure_logger()
 
 
 def cloud_config():

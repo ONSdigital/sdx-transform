@@ -1,11 +1,11 @@
 from datetime import datetime, date, timezone
 from typing import Union, Dict, Optional
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.survey import MissingIdsException, Survey
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 class InvalidDataException(Exception):
