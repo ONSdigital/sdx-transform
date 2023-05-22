@@ -2,23 +2,27 @@ import datetime
 import dateutil.parser
 
 from io import BytesIO
+
+from sdx_gcp.app import get_logger
+
 from transform import settings
 from transform.transformers.response import SurveyResponseV1
 from transform.utilities.formatter import Formatter
 from transform.views.image_filters import get_env, format_date
 
+logger = get_logger()
+
 
 class IndexFile:
     """Class for creating in memory index_file file using BytesIO."""
 
-    def __init__(self, logger, response_data, image_count, image_names,
+    def __init__(self, response_data, image_count, image_names,
                  current_time=None, sequence_no=1000):
 
         if current_time is None:
             current_time = datetime.datetime.utcnow()
 
         self.in_memory_index = BytesIO()
-        self.logger = logger
         self._response = response_data
         self._image_count = image_count
         self._creation_time = {
@@ -48,7 +52,7 @@ class IndexFile:
 
         msg = "Adding image to in_memory_index"
         for image_name in image_names:
-            self.logger.info(msg, file=image_name)
+            logger.info(msg, file=image_name)
 
         self.in_memory_index.write(template_output.encode())
         self.rewind()

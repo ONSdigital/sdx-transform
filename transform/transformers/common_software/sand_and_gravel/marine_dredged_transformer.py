@@ -1,6 +1,6 @@
 from typing import Dict, List
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.common_software.cs_formatter import CSFormatter
@@ -9,7 +9,7 @@ from transform.transformers.common_software.sand_and_gravel.marine_dredged_trans
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform],
@@ -72,13 +72,12 @@ class MarineTransformer(SurveyTransformer):
         return pck
 
     def create_pck(self):
-        bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
-        bound_logger.info("Transforming data for processing")
+        logger.info("Transforming data for processing", ru_ref=self.survey_response.ru_ref)
         transformed_data = perform_transforms(self.survey_response.data, TRANSFORMS_SPEC, ADDITION_QCODES)
-        bound_logger.info("Data successfully transformed")
+        logger.info("Data successfully transformed")
 
-        bound_logger.info("Creating PCK")
+        logger.info("Creating PCK")
         pck_name = CSFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
         pck = self._format_pck(transformed_data)
-        bound_logger.info("Successfully created PCK")
+        logger.info("Successfully created PCK")
         return pck_name, pck

@@ -3,7 +3,11 @@ import json
 import unittest
 import zipfile
 
-from transform import app
+from transform.settings import sdx_app
+from transform.views.main import transform
+
+sdx_app.add_post_endpoint(transform, rule="/transform")
+app = sdx_app.app
 
 
 class TestCSTransformService(unittest.TestCase):
@@ -127,7 +131,7 @@ class TestCSTransformService(unittest.TestCase):
 
     def test_creates_cs_sequence(self):
 
-        ziplist = self.get_zip_list(self.transform_cs_endpoint + "/2345")
+        ziplist = self.get_zip_list(self.transform_cs_endpoint)
 
         # Check that all expected contents are listed in the zip
         expected = [
@@ -141,7 +145,7 @@ class TestCSTransformService(unittest.TestCase):
 
         self.assertEqual(expected, ziplist)
 
-        ziplist = self.get_zip_list(self.transform_cs_endpoint + "/999")
+        ziplist = self.get_zip_list(self.transform_cs_endpoint)
 
         # Check that all expected contents are listed in the zip
         expected = [
@@ -159,7 +163,7 @@ class TestCSTransformService(unittest.TestCase):
         """Compare the dictionary loaded from the zip file json is the same as that submitted"""
         expected_json_data = json.loads(self.test_message)
 
-        zip_contents = self.get_zip_file_contents(self.transform_cs_endpoint + "/2345")
+        zip_contents = self.get_zip_file_contents(self.transform_cs_endpoint)
 
         z = zipfile.ZipFile(zip_contents)
         zfile = z.open('EDC_QJson/023_897fbe8cfa674406.json', 'r')

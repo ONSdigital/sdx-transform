@@ -12,10 +12,10 @@ class ImageTransformer(ImageBase):
     """Transforms a survey and _response into a zip file
     """
 
-    def __init__(self, logger, survey, response: SurveyResponse, current_time=None, sequence_no=1000,
+    def __init__(self, survey, response: SurveyResponse, current_time=None, sequence_no=1000,
                  base_image_path=""):
 
-        super().__init__(logger, response, current_time, sequence_no, base_image_path)
+        super().__init__(response, current_time, sequence_no, base_image_path)
 
         self.survey = survey
         self._page_count = -1
@@ -51,7 +51,7 @@ class ImageTransformer(ImageBase):
             self._image_names.append(self._get_image_name(i))
 
     def _create_index(self):
-        self.index_file = IndexFile(self.logger, self.response, self._page_count, self._image_names,
+        self.index_file = IndexFile(self.response, self._page_count, self._image_names,
                                     self.current_time, self.sequence_no)
 
     def _build_zip(self):

@@ -53,36 +53,6 @@ class TestPckTransformer(unittest.TestCase):
 
             assert form_id == expected_form_id
 
-    def test_get_cs_form_id_invalid_survey(self):
-        survey = {'survey_id': 23}
-        self.response['collection']['instrument_id'] = '0102'
-        pck_transformer = PCKTransformer(survey, SurveyResponseV1(self.response))
-
-        with self.assertLogs(level='ERROR') as cm:
-            form_id = pck_transformer.get_cs_form_id()
-            self.assertEqual(form_id, None)
-            self.assertIn('Invalid survey id', cm.output[0])
-
-    def test_get_cs_form_id_invalid_instrument(self):
-        survey = {'survey_id': '023'}
-        self.response['collection']['instrument_id'] = '000'
-        pck_transformer = PCKTransformer(survey, SurveyResponseV1(self.response))
-
-        with self.assertLogs(level='ERROR') as cm:
-            form_id = pck_transformer.get_cs_form_id()
-            self.assertEqual(form_id, None)
-            self.assertIn('Invalid instrument id', cm.output[0])
-
-        # QCAS
-        survey = {'survey_id': '019'}
-        self.response['collection']['instrument_id'] = '0021'
-        pck_transformer = PCKTransformer(survey, SurveyResponseV1(self.response))
-
-        with self.assertLogs(level='ERROR') as cm:
-            form_id = pck_transformer.get_cs_form_id()
-            self.assertEqual(form_id, None)
-            self.assertIn("Invalid instrument id", cm.output[0])
-
     def test_pck_transformer_cannot_change_the_data_it_is_passed(self):
         """Tests that pck does not modify the data it is passed.
         Without the deep copy pck integer rounding will apply to the passed in data

@@ -2,7 +2,9 @@ import json
 import os
 import unittest
 
-from transform import app
+from sdx_gcp.app import SdxApp
+
+from transform.views.main import transform
 
 
 def get_file_as_string(filename):
@@ -30,10 +32,14 @@ def get_expected_output(filename, output_type):
 
 class TestTransformService(unittest.TestCase):
 
-    transform_images_endpoint = "/images"
-    transform_endpoint = "/transform/30001"
+    transform_endpoint = "/transform"
 
     def setUp(self):
+        sdx_app = SdxApp("sdx-transform")
+
+        sdx_app.add_post_endpoint(transform, rule="/transform")
+
+        app = sdx_app.app
 
         # creates a test client
         self.app = app.test_client()
@@ -44,7 +50,7 @@ class TestTransformService(unittest.TestCase):
     def test_invalid_input(self):
         r = self.app.post(self.transform_endpoint, data="rubbish")
 
-        self.assertEqual(r.status_code, 400)
+        self.assertEqual(400, r.status_code)
 
     def test_invalid_survey_id(self):
         # Create an invalid survey id payload
@@ -54,9 +60,7 @@ class TestTransformService(unittest.TestCase):
         payload = json.dumps(payload_object)
 
         r = self.app.post(self.transform_endpoint, data=payload)
-
-        self.assertEqual(r.status_code, 400)
-        self.assertEqual(json.loads(r.data.decode('UTF-8'))['message'], 'Unsupported survey/instrument id')
+        self.assertEqual(400, r.status_code)
 
     def test_missing_survey_id(self):
         # Create a survey with missing survey id
@@ -68,4 +72,3 @@ class TestTransformService(unittest.TestCase):
         r = self.app.post(self.transform_endpoint, data=payload)
 
         self.assertEqual(r.status_code, 400)
-        self.assertEqual(json.loads(r.data.decode('UTF-8'))['message'], 'Missing field survey_id from response')

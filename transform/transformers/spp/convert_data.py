@@ -1,10 +1,10 @@
 from typing import Union, Dict, List
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.spp.definitions import Answer, SPP
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 QUESTION_CODE = "questioncode"

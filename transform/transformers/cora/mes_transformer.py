@@ -1,12 +1,12 @@
 import decimal
 from decimal import Decimal, ROUND_HALF_UP
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.cora.cora_formatter import CORAFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 # This dict defines how the transformation is done.  The key is the qcode, the value describes what transformation
 # needs to be done on the value.  A dict for the value generally describes what to do with a radio button input and a

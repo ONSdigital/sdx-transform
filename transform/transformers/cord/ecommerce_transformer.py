@@ -1,11 +1,11 @@
 from decimal import Decimal
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.cord.cord_formatter import CORDFormatter
 from transform.transformers.survey_transformer import SurveyTransformer
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 class EcommerceTransformer(SurveyTransformer):
