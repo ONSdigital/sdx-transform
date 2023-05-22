@@ -41,7 +41,7 @@ $ make test
 NOTE: .pck and .nobatch test files are required to not have a newline character at the end of the file.
 A simple way to remove it is to do the following command `perl -pi -e 'chomp if eof' filename`
 
-It's also possible to build sdx-transform-cs within a container using docker. From the sdx-transform-cs directory:
+It's also possible to build sdx-transform within a container using docker. From the sdx-transform-cs directory:
 
 ```bash
 $ docker build -t sdx-transform .
@@ -49,10 +49,10 @@ $ docker build -t sdx-transform .
 
 ## Usage
 
-To start sdx-transform-cs service locally, use the following command:
+To start sdx-transform service locally, use the following command:
 
 ```bash
-$ python server.py
+$ python run.py
 ```
 
 If you've built the image under docker, you can start using the following:
