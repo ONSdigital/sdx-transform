@@ -3,7 +3,7 @@ import logging
 from decimal import Decimal, ROUND_HALF_UP
 from typing import Dict, List
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.cora.cora_formatter import CORAFormatter
@@ -11,7 +11,7 @@ from transform.transformers.cora.ukis.ukis_transforms import TransformType, ukis
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 def perform_transforms(

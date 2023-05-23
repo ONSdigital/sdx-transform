@@ -1,57 +1,50 @@
-from typing import Dict
+from typing import Dict, List
 
 from sdx_gcp.app import get_logger
 
 from transform.settings import USE_IMAGE_SERVICE
-from transform.transformers.common_software.bricks.bricks_transform_spec import BRICKS_DICT, PREPEND_QCODE, Transform, \
-    ADDITION_DICT, TRANSFORMS_SPEC
 from transform.transformers.common_software.cs_formatter import CSFormatter
+from transform.transformers.common_software.sand_and_gravel.marine_dredged_transforms import Transform, TRANSFORMS_SPEC, \
+    ADDITION_QCODES
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
 logger = get_logger()
 
 
-def get_prepend_value(data: Dict[str, str]) -> str:
-    return BRICKS_DICT.get(data.get(PREPEND_QCODE), "")
+def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform],
+                       addition_spec: Dict[str, List[str]]) -> Dict[str, int]:
 
-
-def prepend_to_qcode(qcode: str, value: str) -> str:
-    return f"{value}{qcode}"
-
-
-def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform]) -> Dict[str, int]:
-
-    prepend_value = get_prepend_value(data)
     output_dict = {}
 
     for k, v in transforms_spec.items():
         try:
+            if v == Transform.UNIT:
+                if k not in data:
+                    output_dict[k] = ""
+                else:
+                    output_dict[k] = int(data[k])
+
             if v == Transform.TEXT:
                 if k not in data:
                     output_dict[k] = 2
                 else:
                     output_dict[k] = 1 if data.get(k) != "" else 2
 
-            if k not in data and k not in ADDITION_DICT:
-                continue
-
-            if v == Transform.PREPEND:
-                output_dict[f"{prepend_value}{k}"] = int(data[k])
-
-            if v == Transform.ADDITION:
-                qcode_list = ADDITION_DICT.get(k)
-                total = 0
-
-                for qcode in qcode_list:
-                    output = data.get(qcode, "0")
-
-                    total += int(output)
-
-                output_dict[k] = total
-
         except ValueError:
             logger.error(f"Unable to process qcode: {k} as received non numeric value: {v}")
+            output_dict[k] = 0
+
+    for k, v in addition_spec.items():
+        try:
+            total = 0
+            for qcode in v:
+                if qcode:
+                    total += output_dict[qcode]
+            output_dict[k] = total
+
+        except KeyError:
+            logger.error("Unable to add qcodes during addition process")
 
     return output_dict
 
@@ -62,7 +55,7 @@ def extract_pck_period(period: str) -> str:
     return period[2:]
 
 
-class BricksTransformer(SurveyTransformer):
+class MarineTransformer(SurveyTransformer):
 
     def __init__(self, response: SurveyResponse, seq_nr=0):
         super().__init__(response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
@@ -80,7 +73,7 @@ class BricksTransformer(SurveyTransformer):
 
     def create_pck(self):
         logger.info("Transforming data for processing", ru_ref=self.survey_response.ru_ref)
-        transformed_data = perform_transforms(self.survey_response.data, TRANSFORMS_SPEC)
+        transformed_data = perform_transforms(self.survey_response.data, TRANSFORMS_SPEC, ADDITION_QCODES)
         logger.info("Data successfully transformed")
 
         logger.info("Creating PCK")

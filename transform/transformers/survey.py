@@ -3,9 +3,9 @@ from datetime import datetime, date, timezone
 from json import JSONDecodeError
 from typing import Union
 
-import structlog
+from sdx_gcp.app import get_logger
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 class MissingIdsException(Exception):
@@ -70,7 +70,6 @@ class Survey:
         """
         return log.bind(
             ru_ref=ids.ru_ref,
-            tx_id=ids.tx_id,
             user_id=ids.user_id,
         )
 

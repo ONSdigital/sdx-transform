@@ -2,7 +2,7 @@ import decimal
 from datetime import datetime
 from decimal import Decimal, ROUND_HALF_UP
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.common_software.abs.abs_transforms import motor_trades, whole_sale, catering, \
@@ -13,7 +13,7 @@ from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 def round_and_divide_by_one_thousand(value):

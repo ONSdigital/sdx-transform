@@ -2,15 +2,15 @@ import json
 from io import StringIO
 
 import dateutil.parser
-import structlog
 from jinja2 import Environment, PackageLoader
+from sdx_gcp.app import get_logger
 
 from transform.transformers.common_software.pck_transformer import PCKTransformer
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 from transform.utilities.formatter import Formatter
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 env = Environment(loader=PackageLoader('transform', 'templates'))
 

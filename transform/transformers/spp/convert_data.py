@@ -1,10 +1,15 @@
 from typing import Union, Dict, List
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.spp.definitions import Answer, SPP
 
-logger = structlog.get_logger()
+logger = get_logger()
+
+
+QUESTION_CODE = "questioncode"
+RESPONSE = "response"
+INSTANCE = "instance"
 
 
 def spp_from_map(data: Dict[str, str]) -> List[SPP]:
@@ -92,7 +97,7 @@ def remove_prepend_values(responses: List[Dict[str, Union[str, int]]]) -> List[D
 
     stripped_values = []
     for response in responses:
-        code = response['questioncode']
+        code = response[QUESTION_CODE]
         if code.isnumeric():
             stripped_values.append(response)
         else:
@@ -101,10 +106,38 @@ def remove_prepend_values(responses: List[Dict[str, Union[str, int]]]) -> List[D
                 if q_code.isnumeric():
                     stripped = {
                         'questioncode': q_code,
-                        'response': response['response'],
-                        'instance': response['instance']
+                        'response': response[RESPONSE],
+                        'instance': response[INSTANCE]
                     }
                     stripped_values.append(stripped)
                     break
 
     return stripped_values
+
+
+def convert_civil_defence(responses: List[Dict[str, Union[str, int]]]) -> List[Dict[str, Union[str, int]]]:
+    """
+    Converts qcode 200 and 300 into 'C' or 'D' depending on whether they represent Civil or Defence.
+    This is ascertained by looking at the prefix of qcodes 202 and 300 within the same instance.
+    """
+    results = responses.copy()
+
+    instances_of_202: Dict[int, str] = {}
+    instances_of_302: Dict[int, str] = {}
+    for r in results:
+        if r[QUESTION_CODE] == 'c202' or r[QUESTION_CODE] == 'd202':
+            instances_of_202[r[INSTANCE]] = r[QUESTION_CODE]
+        elif r[QUESTION_CODE] == 'c302' or r[QUESTION_CODE] == 'd302':
+            instances_of_302[r[INSTANCE]] = r[QUESTION_CODE]
+
+    for r in results:
+        if r[QUESTION_CODE] == '200':
+            i = r[INSTANCE]
+            if i in instances_of_202:
+                r[RESPONSE] = instances_of_202[i][0:1].upper()
+        elif r[QUESTION_CODE] == '300':
+            i = r[INSTANCE]
+            if i in instances_of_302:
+                r[RESPONSE] = instances_of_302[i][0:1].upper()
+
+    return results

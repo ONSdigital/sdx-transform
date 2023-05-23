@@ -1,10 +1,9 @@
 import datetime
 import itertools
 import json
-import logging
 import time
 import unittest
-from structlog import wrap_logger
+
 from transform.transformers.image_transformer import ImageTransformer
 from transform.transformers.response import SurveyResponseV1
 
@@ -22,12 +21,11 @@ class ImageTransformTests(unittest.TestCase):
 
         with open("./tests/data/EDC_134_20170301_1000.csv", "rb") as fb:
             self.check = fb.read()
-        self.log = wrap_logger(logging.getLogger(__name__))
 
     def test_image_index(self):
 
         # Create page images from PDF
-        img_tfr = ImageTransformer(self.log, self.survey, self.reply, current_time=datetime.datetime(2017, 3, 7, 9, 45, 4))
+        img_tfr = ImageTransformer(self.survey, self.reply, current_time=datetime.datetime(2017, 3, 7, 9, 45, 4))
 
         img_tfr.get_zipped_images(itertools.count())
 
@@ -38,8 +36,8 @@ class ImageTransformTests(unittest.TestCase):
 
     def test_current_time_not_set_at_initialisation(self):
 
-        img_tfr1 = ImageTransformer(self.log, self.survey, self.reply)
+        img_tfr1 = ImageTransformer(self.survey, self.reply)
         time.sleep(0.01)
-        img_tfr2 = ImageTransformer(self.log, self.survey, self.reply)
+        img_tfr2 = ImageTransformer(self.survey, self.reply)
 
         self.assertNotEqual(img_tfr1.current_time, img_tfr2.current_time)

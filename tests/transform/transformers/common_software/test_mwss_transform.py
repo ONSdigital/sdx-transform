@@ -117,6 +117,7 @@ class OpTests(unittest.TestCase):
                 "ru_ref": "12345678901A"
             },
             "submitted_at": "2017-04-12T13:01:26Z",
+            "data": {},
         }
         transformer = MWSSTransformer(SurveyResponseV1(response), 0)
         self.assertTrue(transformer)

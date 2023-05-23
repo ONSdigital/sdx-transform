@@ -1,11 +1,11 @@
 from datetime import datetime, date, timezone
 from typing import Union, Dict, Optional
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.survey import MissingIdsException, Survey
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 class InvalidDataException(Exception):
@@ -65,7 +65,10 @@ class SurveyResponseV1(SurveyResponse):
 
         # extract object fields
         self.submitted_at: Union[datetime, date] = Survey.parse_timestamp(self.submitted_at_raw)
-        self.data: Dict[str, str] = response.get("data")
+        data = response.get("data")
+        if not isinstance(data, dict):
+            raise InvalidDataException("data is not a dictionary")
+        self.data: Dict[str, str] = data
 
         # these fields are only required by some transformers
         self.ref_period_start_date: str = self._extract_optional("metadata", "ref_period_start_date")
@@ -91,7 +94,10 @@ class SurveyResponseV2(SurveyResponse):
 
         # extract object fields
         self.submitted_at: Union[datetime, date] = Survey.parse_timestamp(self.submitted_at_raw)
-        self.data: Dict[str, str] = response.get("data")
+        data = response.get("data")
+        if not isinstance(data, dict):
+            raise InvalidDataException("data is not a dictionary")
+        self.data: Dict[str, str] = data
 
         # these fields are only required by some transformers
         self.ref_period_start_date: str = self._extract_optional("survey_metadata", "ref_p_start_date")

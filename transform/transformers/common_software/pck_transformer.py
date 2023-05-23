@@ -4,11 +4,11 @@ from datetime import datetime
 from decimal import Decimal, ROUND_HALF_UP
 
 import dateutil.parser
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.response import SurveyResponse
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 class PCKTransformer:

@@ -2,13 +2,13 @@ import datetime
 import decimal
 from decimal import ROUND_HALF_UP, Decimal
 
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 class MBSTransformer(SurveyTransformer):

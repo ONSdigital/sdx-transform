@@ -1,10 +1,9 @@
 import os
 
-import structlog
+from sdx_gcp.app import get_logger, SdxApp
 
-from transform.secret_manager import get_secret
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 def _get_value(key, default_value=None):
@@ -26,10 +25,12 @@ SDX_FTP_DATA_PATH = "EDC_QData"
 SDX_FTP_RECEIPT_PATH = "EDC_QReceipts"
 SDX_RESPONSE_JSON_PATH = "EDC_QJson"
 
-USE_IMAGE_SERVICE: bool = True
+USE_IMAGE_SERVICE: bool = os.getenv('USE_IMAGE_SERVICE', "true") == "true"
 IMAGE_SERVICE_URL = os.getenv('IMAGE_SERVICE_URL', "http://sdx-image:80")
+
+sdx_app = SdxApp("sdx-transform", PROJECT_ID)
 
 
 def cloud_config():
     global FTP_PATH
-    FTP_PATH = get_secret(PROJECT_ID, "ftp-path").decode("UTF-8")
+    FTP_PATH = sdx_app.secrets_get("ftp-path")[0]
