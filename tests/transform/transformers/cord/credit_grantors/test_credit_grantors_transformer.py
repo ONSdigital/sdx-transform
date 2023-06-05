@@ -5,7 +5,7 @@ from transform.transformers.cord.credit_grantors.credit_grantors_transform_spec 
 from transform.transformers.cord.credit_grantors.credit_grantors_transformer import perform_transforms
 
 
-class BricksTests(unittest.TestCase):
+class CreditTests(unittest.TestCase):
 
     def test_example_with_no_answer(self):
         data = {
