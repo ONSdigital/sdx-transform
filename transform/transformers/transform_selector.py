@@ -8,6 +8,7 @@ from transform.transformers.common_software.sand_and_gravel.marine_dredged_trans
 from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cora.ukis.ukis_transformer import UKISTransformer
 from transform.transformers.cord import EcommerceTransformer
+from transform.transformers.cord.credit_grantors.credit_grantors_transformer import CreditGrantorsTransformer
 from transform.transformers.cord.des.des2021_transformer import DES2021Transformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer
@@ -46,6 +47,8 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
                 transformer = DESTransformer(response, sequence_no)
         else:
             transformer = EcommerceTransformer(response, sequence_no)
+    elif survey_id == "127":
+        transformer = CreditGrantorsTransformer(response, sequence_no)
 
     # NO PCK INQUIRIES
     elif survey_id == "007":
