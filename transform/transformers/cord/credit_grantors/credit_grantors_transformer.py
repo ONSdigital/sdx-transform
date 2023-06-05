@@ -1,6 +1,5 @@
 from typing import Dict
-
-import structlog
+from sdx_gcp.app import get_logger
 
 from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.common_software.cs_formatter import CSFormatter
@@ -8,7 +7,7 @@ from transform.transformers.cord.credit_grantors.credit_grantors_transform_spec 
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey_transformer import SurveyTransformer
 
-logger = structlog.get_logger()
+logger = get_logger()
 
 
 def perform_transforms(data: Dict[str, str], transforms_spec: Dict[str, Transform]) -> Dict[str, int]:
