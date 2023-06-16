@@ -1,5 +1,5 @@
 from jinja2 import Environment, PackageLoader
-from sdx_gcp import Request, Flask
+from sdx_gcp import Request, Flask, TX_ID
 from sdx_gcp.app import get_logger
 from sdx_gcp.errors import DataError
 
@@ -16,7 +16,7 @@ V1 = "v1"
 V2 = "v2"
 
 
-def transform(req: Request):
+def transform(req: Request, tx_id: TX_ID):
 
     try:
         response = req.get_json(force=True, silent=True)
