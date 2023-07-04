@@ -1,0 +1,57 @@
+{
+  "title": "Build Spec ACAS",
+  "survey_id": "068",
+  "template": {
+    "011": "$1",
+    "012": "$1",
+    "150": "$2",
+    "225": "$3",
+    "904": "$4",
+    "158": "$5"
+  },
+  "transforms": {
+    "$1": {
+      "type": "function",
+      "spec": {
+        "name": "DATE",
+        "args": {
+            "format": "%d%m%Y"
+        }
+      }
+    },
+    "$2": {
+      "type": "function",
+      "spec": {
+        "name": "ROUND",
+        "args": {
+            "magnitude": "1000"
+        }
+      }
+    },
+    "$3": {
+      "type": "function",
+      "spec": {
+        "name": "IF_EXISTS",
+        "args": {
+            "true": "1",
+            "false": "2"
+        }
+      }
+    },
+    "$4": {
+      "type": "function",
+      "spec": {
+        "name": "TO_INT"
+      }
+    },
+    "$5": {
+      "type": "function",
+      "spec": {
+        "name": "ADDITION",
+        "args": {
+            "numbers": ["#150", "#152", "#154", "#156"]
+        }
+      }
+    }
+  }
+}
