@@ -7,7 +7,9 @@
     "150": "$2",
     "225": "$3",
     "904": "$4",
-    "158": "$5"
+    "158": "$5",
+    "902": "$7",
+    "903": "$8"
   },
   "transforms": {
     "$1": {
@@ -39,10 +41,10 @@
       }
     },
     "$4": {
-      "type": "function",
-      "spec": {
-        "name": "TO_INT"
-      }
+      "name": "ROUND",
+        "args": {
+            "magnitude": "1"
+        }
     },
     "$5": {
       "type": "function",
@@ -50,6 +52,42 @@
         "name": "ADDITION",
         "args": {
             "numbers": ["#150", "#152", "#154", "#156"]
+        }
+      }
+    },
+    "$6": {
+      "type": "function",
+      "spec": {
+        "name": "AND",
+        "args": {
+            "numbers": ["#175", "#176"],
+            "equal_to": "0",
+            "true": "1",
+            "false": "2"
+        }
+      }
+    },
+    "$7": {
+      "type": "function",
+      "spec": {
+        "name": "AND",
+        "args": {
+            "numbers": ["#9977"],
+            "equal_to": "Yes",
+            "true": "1",
+            "false": "2"
+        }
+      }
+    },
+    "$8": {
+      "type": "function",
+      "spec": {
+        "name": "AND",
+        "args": {
+            "numbers": ["#9977"],
+            "equal_to": "No",
+            "true": "1",
+            "false": "2"
         }
       }
     }
