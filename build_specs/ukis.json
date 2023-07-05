@@ -101,7 +101,7 @@
             "none": "0100"
           },
           "match_type": "exact",
-          "default": "" // TODO ask Jon about this
+          "default": ""
         }
       }
     },

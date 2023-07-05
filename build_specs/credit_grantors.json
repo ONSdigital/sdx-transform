@@ -1,0 +1,19 @@
+{
+  "title": "Build Spec Credit Grantors",
+  "survey_id": "127",
+  "target": "OPENROAD",
+  "template": {
+    "9001": "$1"
+  },
+  "transforms": {
+    "$1": {
+      "type": "function",
+      "spec": {
+        "name": "ROUND",
+        "args": {
+          "magnitude": "1"
+        }
+      }
+    }
+  }
+}
