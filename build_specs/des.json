@@ -1,0 +1,160 @@
+{
+  "title": "Build Spec DES",
+  "survey_id": "187",
+  "target": "OPENROAD",
+  "template": {
+    "022": "#022",
+    "356": "$2",
+    "277": "$3",
+    "278": "$4",
+    "279": "$5",
+    "280": "$6",
+    "497": "$7",
+    "498": "$8",
+    "499": "$9",
+    "600": "$10",
+    "608": "$11",
+    "500": "$12"
+  },
+  "transforms": {
+    "$2": {
+      "type": "function",
+      "spec": {
+        "name": "LOOKUP",
+        "args": {
+          "mappings": {
+            "Yes": "10",
+            "No": "01"
+          },
+          "match_type": "exact"
+        }
+      }
+    },
+    "$3": {
+      "type": "function",
+      "spec": {
+        "name": "MATCHES",
+        "args": {
+          "condition": {
+            "value": "Less than 2Mbps"
+          },
+          "true": "1",
+          "false": "0"
+        }
+      }
+    },
+    "$4": {
+      "type": "function",
+      "spec": {
+        "qcode": "277",
+        "name": "MATCHES",
+        "args": {
+          "condition": {
+            "value": "2Mbps or more, but less than 10Mbps"
+          },
+          "true": "1",
+          "false": "0"
+        }
+      }
+    },
+    "$5": {
+      "type": "function",
+      "spec": {
+        "qcode": "277",
+        "name": "MATCHES",
+        "args": {
+          "condition": {
+            "value": "10Mbps or more, but less than 30Mbps"
+          },
+          "true": "1",
+          "false": "0"
+        }
+      }
+    },
+    "$6": {
+      "type": "function",
+      "spec": {
+        "qcode": "277",
+        "name": "MATCHES",
+        "args": {
+          "condition": {
+            "value": "30Mbps or more, but less than 100Mbps"
+          },
+          "true": "1",
+          "false": "0"
+        }
+      }
+    },
+    "$7": {
+      "type": "function",
+      "spec": {
+        "qcode": "277",
+        "name": "MATCHES",
+        "args": {
+          "condition": {
+            "value": "100Mbps or more, but less than 500Mbps"
+          },
+          "true": "1",
+          "false": "0"
+        }
+      }
+    },
+    "$8": {
+      "type": "function",
+      "spec": {
+        "qcode": "277",
+        "name": "MATCHES",
+        "args": {
+          "condition": {
+            "value": "500Mbps or more, but less than 1000Mbps (1Gbps)"
+          },
+          "true": "1",
+          "false": "0"
+        }
+      }
+    },
+    "$9": {
+      "type": "function",
+      "spec": {
+        "qcode": "277",
+        "name": "MATCHES",
+        "args": {
+          "condition": {
+            "value": "1000Mbps (1Gbps) or more"
+          },
+          "true": "1",
+          "false": "0"
+        }
+      }
+    },
+    "$10": {
+      "type": "function",
+      "spec": {
+        "name": "IF_EXISTS",
+        "args": {
+          "true": "1",
+          "false": "0"
+        }
+      }
+    },
+    "$11": {
+      "type": "function",
+      "spec": {
+        "name": "ROUND",
+        "args": {
+          "magnitude": "1000"
+        }
+      }
+    },
+    "$12": {
+      "type": "function",
+      "spec": {
+        "name": "IF_EXISTS",
+        "args": {
+          "true": "1",
+          "false": "0"
+        }
+      }
+    }
+  }
+}
