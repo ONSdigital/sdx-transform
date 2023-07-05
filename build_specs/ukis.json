@@ -48,10 +48,13 @@
       }
     },
     "$4": {
-      "name": "ROUND",
+      "type": "function",
+      "spec": {
+        "name": "ROUND",
         "args": {
-            "magnitude": "1"
+          "magnitude": "1"
         }
+      }
     },
     "$5": {
       "type": "function",
@@ -89,27 +92,35 @@
     "$8": {
       "type": "function",
       "spec": {
-        "name": "PERCENT_RADIO",
+        "name": "LOOKUP",
         "args": {
-
+          "mappings": {
+            "over 90%": "0001",
+            "40-90%": "0100",
+            "less than 40%": "0011",
+            "none": "0100"
+          },
+          "match_type": "exact",
+          "default": "" // TODO ask Jon about this
         }
       }
     },
     "$9": {
       "type": "function",
       "spec": {
-        "name": "YESNO",
+        "name": "IF_EXISTS",
         "args": {
-
+          "true": "1",
+          "false": "2"
         }
       }
     },
     "$10": {
       "type": "function",
       "spec": {
-        "name": "NUMBER",
+        "name": "ROUND",
         "args": {
-
+          "magnitude": "1"
         }
       }
     }
