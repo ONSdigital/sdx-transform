@@ -1,6 +1,7 @@
 {
   "title": "Build Spec ACAS",
-  "survey_id": "068",
+  "survey_id": "171",
+  "target": "COMMON SOFTWARE",
   "template": {
     "011": "$1",
     "012": "$1",

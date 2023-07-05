@@ -1,6 +1,7 @@
 {
   "title": "Build Spec UKIS",
-  "survey_id": "068",
+  "survey_id": "144",
+  "target": "CORA",
   "template": {
     "0001": "$1",
     "2330": "$2",
@@ -72,6 +73,7 @@
             "low importance": "0010",
             "not important": "0001"
           },
+          "match_type": "exact"
         }
       }
     },
