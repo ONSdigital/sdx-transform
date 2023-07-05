@@ -1,0 +1,115 @@
+{
+  "title": "Build Spec UKIS",
+  "survey_id": "068",
+  "template": {
+    "0001": "$1",
+    "2330": "$2",
+    "1310": "$3",
+    "1410": "$4",
+    "0810": "$5",
+    "2657": "$6",
+    "2121": "$7",
+    "2650": "$8",
+    "2700": "$9",
+    "2801": "$10"
+  },
+  "transforms": {
+    "$1": {
+      "type": "function",
+      "spec": {
+        "name": "SET_TO_VALUE",
+        "args": {
+            "value": "0"
+        }
+      }
+    },
+    "$2": {
+      "type": "function",
+      "spec": {
+        "name": "IF_EXISTS",
+        "args": {
+            "true": "1",
+            "false": ""
+        }
+      }
+    },
+    "$3": {
+      "type": "function",
+      "spec": {
+        "name": "LOOKUP",
+        "args": {
+          "mappings": {
+            "yes": "10",
+            "no": "01"
+          },
+          "match_type": "contains"
+        }
+      }
+    },
+    "$4": {
+      "name": "ROUND",
+        "args": {
+            "magnitude": "1"
+        }
+    },
+    "$5": {
+      "type": "function",
+      "spec": {
+        "name": "PERCENTAGE",
+        "args": {
+
+        }
+      }
+    },
+    "$6": {
+      "type": "function",
+      "spec": {
+        "name": "LOOKUP",
+        "args": {
+          "mappings": {
+            "high importance": "1000",
+            "medium importance": "0100",
+            "low importance": "0010",
+            "not important": "0001"
+          },
+        }
+      }
+    },
+    "$7": {
+      "type": "function",
+      "spec": {
+        "name": "DISTANCE_RADIO",
+        "args": {
+
+        }
+      }
+    },
+    "$8": {
+      "type": "function",
+      "spec": {
+        "name": "PERCENT_RADIO",
+        "args": {
+
+        }
+      }
+    },
+    "$9": {
+      "type": "function",
+      "spec": {
+        "name": "YESNO",
+        "args": {
+
+        }
+      }
+    },
+    "$10": {
+      "type": "function",
+      "spec": {
+        "name": "NUMBER",
+        "args": {
+
+        }
+      }
+    }
+  }
+}
