@@ -1,0 +1,176 @@
+import itertools
+import re
+from _decimal import InvalidOperation
+from collections import OrderedDict
+from decimal import Decimal, ROUND_DOWN, ROUND_HALF_UP
+from functools import partial
+
+from transform.transformers.common_software.cs_formatter import CSFormatter
+from transform.transformers.processor import Processor
+
+
+from transform.transformers.survey_transformer import SurveyTransformer
+
+
+
+def aggregate(qid: str, data: dict[str, str], default: int, weights: list[tuple[str, int]], precision=None,
+              rounding_direction=ROUND_HALF_UP):
+    """Calculate the weighted sum of a question group.
+
+    :param str qid: The question id.
+    :param data: The full survey data.
+    :param default: The default value for the question.
+    :param weights: A sequence of 2-tuples giving the weight value for each
+        question in the group.
+    :param precision: A string representing the precision of the Decimal
+        after rounding. To get an integer, use '1.'.
+    :type precision: str
+    :param rounding_direction: How rounding should be carried out. Uses the
+        decimal standard library module's rounding modes
+        https://docs.python.org/3/library/decimal.html#rounding-modes
+    """
+    try:
+        val = Decimal(data.get(qid, 0)) \
+              + sum(Decimal(scale) * Decimal(data.get(q, 0))
+                    for q, scale in weights)
+
+        if precision:
+            val = Processor.round_towards(
+                val, precision=precision, rounding_direction=rounding_direction)
+        return type(default)(val)
+
+    except (InvalidOperation, ValueError):
+        return default
+
+
+class MWSSTransformer2(SurveyTransformer):
+    """Perform the transforms and formatting for the MWSS survey.
+
+    Weights = A sequence of 2-tuples giving the weight value for each question in the group.
+    The weight of a question is dependant on the type so 40f is a fortnightly question
+    so it will have a different weighting when it's transformed.
+
+    Group = A sequence of question ids.
+
+    """
+
+    defn = [
+        (40, 0, partial(aggregate, weights=[("40f", 1)])),
+        (50, 0, partial(aggregate, weights=[("50f", 0.5)],
+                        precision='1.',
+                        rounding_direction=ROUND_HALF_UP)),
+        (60, 0, partial(aggregate, weights=[("60f", 0.5)],
+                        precision='1.',
+                        rounding_direction=ROUND_HALF_UP)),
+        (70, 0, partial(aggregate, weights=[("70f", 0.5)],
+                        precision='1.',
+                        rounding_direction=ROUND_HALF_UP)),
+        (80, 0, partial(aggregate, weights=[("80f", 0.5)],
+                        precision='1.',
+                        rounding_direction=ROUND_HALF_UP)),
+        (90, False, partial(
+            Processor.evaluate,
+            group=[
+                "90w", "90f",
+            ],
+            convert=re.compile("^((?!No).)+$").search, op=lambda x, y: x or y)),
+        (100, False, partial(Processor.mean, group=["100f"])),
+        (110, [], partial(Processor.events, group=["110f"])),
+        (120, False, partial(Processor.mean, group=["120f"])),
+        (range(130, 133, 1), False, Processor.survey_string),
+        (140, 0, partial(
+            aggregate,
+            weights=[
+                ("140m", 1), ("140w4", 1), ("140w5", 1)
+            ])),
+        (range(151, 154, 1), 0, partial(Processor.unsigned_integer,
+                                        precision='1.',
+                                        rounding_direction=ROUND_HALF_UP)),
+        (range(171, 174, 1), 0, partial(Processor.unsigned_integer,
+                                        precision='1.',
+                                        rounding_direction=ROUND_HALF_UP)),
+        (range(181, 184, 1), 0, partial(Processor.unsigned_integer,
+                                        precision='1.',
+                                        rounding_direction=ROUND_HALF_UP)),
+        (190, False, partial(
+            Processor.evaluate,
+            group=[
+                "190w4", "190m", "190w5",
+            ],
+            convert=re.compile("^((?!No).)+$").search, op=lambda x, y: x or y)),
+        (200, False, partial(Processor.boolean, group=["200w4", "200w5"])),
+        (210, [], partial(Processor.events, group=["210w4", "210w5"])),
+        (220, False, partial(Processor.mean, group=["220w4", "220w5"])),
+        (300, False, partial(
+            Processor.evaluate,
+            group=[
+                "300w", "300f", "300m", "300w4", "300w5",
+            ],
+            convert=str, op=lambda x, y: x + "\n" + y)),
+    ]
+
+    def __init__(self, response, seq_nr=0, log=None):
+        """Create a transformer object to process a survey response."""
+
+        super().__init__(response, seq_nr)
+
+
+    @staticmethod
+    def transform(data, survey=None):
+        """Perform a transform on survey data.
+
+        We generate defaults only for certain mandatory values.
+        We will not receive any value for an aggregate total.
+
+        """
+        pattern = re.compile("[0-9]+")
+
+        # Taking the question_id for each supplied answer, and then also
+        # rounding down the first numeric component of each answered question_id
+        # gives us the set of downstream questions we have data for.
+        supplied = set(itertools.chain.from_iterable((
+            Decimal(i.group(0)),
+            (Decimal(i.group(0)) / 10).quantize(Decimal(1), rounding=ROUND_DOWN) * 10)
+            for i in (pattern.match(key) for key in data)
+            if i is not None
+        ))
+        mandatory = {Decimal("130"), Decimal("131"), Decimal("132")}
+
+        if 'd50' in data or 'd50f' in data:
+            mandatory.update([Decimal("50"), Decimal("60"), Decimal("70"), Decimal("80")])
+
+        if 'd151' in data:
+            mandatory.update([Decimal("151"), Decimal("171"), Decimal("181")])
+
+        if 'd152' in data:
+            mandatory.update([Decimal("152"), Decimal("172"), Decimal("182")])
+
+        if 'd153' in data:
+            mandatory.update([Decimal("153"), Decimal("173"), Decimal("183")])
+
+        return OrderedDict(
+            (question_id, funct(question_id, data, default))
+            for question_id, (default, funct) in MWSSTransformer2.ops().items()
+            if Decimal(question_id) in supplied.union(mandatory)
+        )
+
+    @classmethod
+    def ops(cls):
+        """Publish the sequence of operations for the transform.
+
+        Return an ordered mapping from question id to default value and processing function.
+
+        """
+        result: OrderedDict = OrderedDict()
+        for rng, dflt, fn in cls.defn:
+            for qNr in (rng if isinstance(rng, range) else [rng]):
+                result["{0:02}".format(qNr)] = (dflt, fn)
+
+        return result
+
+    def create_pck(self):
+        data = self.transform(self.survey_response.data, self.survey)
+        pck_name = CSFormatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
+        pck = CSFormatter.get_pck(data, self.survey_response.instrument_id, self.survey_response.ru_ref,
+                                  self.survey_response.ru_check, self.survey_response.period)
+        return pck_name, pck

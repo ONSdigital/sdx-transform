@@ -25,8 +25,8 @@ class TestIndividualSurveyTransformer(unittest.TestCase):
 
         self.maxDiff = None
 
-        filename = "./tests/pck/cord/187.0002.json"
-        expected_filename = "./tests/pck/cord/187.0002.pck"
+        filename = "./tests/pck/common_software/134.0005.json"
+        expected_filename = "./tests/pck/common_software/134.0005.nobatch"
 
         submission_dict = get_file_as_dict(filename)
         expected = get_file_as_string(expected_filename)
