@@ -3,8 +3,7 @@ from sdx_gcp.app import get_logger
 from decimal import Decimal
 from transform.settings import USE_IMAGE_SERVICE
 from transform.transformers.common_software.cs_formatter import CSFormatter
-from transform.transformers.common_software.mwss.mwss_transform_spec import MatchType
-from transform.transformers.cord.credit_grantors.credit_grantors_transform_spec import Transform, TRANSFORMS_SPEC
+from transform.transformers.common_software.mwss.mwss_transform_spec import MatchType, TEMPLATE, TRANSFORMS, Transform
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey import Survey
 from transform.transformers.survey_transformer import SurveyTransformer
@@ -12,22 +11,58 @@ from transform.transformers.survey_transformer import SurveyTransformer
 logger = get_logger()
 
 
-def perform_transforms(data: dict[str, str], transforms_spec: dict[str, Transform]) -> dict[str, int]:
+def perform_transforms(
+        data: dict[str, str],
+        template: dict[str, str]) -> dict[str, int]:
 
-    output_dict = {}
+    result = {}
 
-    for k, v in transforms_spec.items():
-        try:
-            if k not in data:
-                continue
+    for qcode, v in template.items():
+        if v.startswith("#"):
+            x = data[v[1:]]
+        elif v.startswith("$"):
+            x = execute_transform(value=data.get(qcode, None), identifier=v)
+        else:
+            x = None
 
-            if v == Transform.NO_TRANSFORM:
-                output_dict[k] = int(data[k])
+        if x is not None:
+            result[qcode] = int(x)
 
-        except ValueError:
-            logger.error(f"Unable to process qcode: {k} as received non numeric value: {v}")
+    return result
 
-    return output_dict
+
+def execute_transform(value: str, identifier: str) -> str:
+    transform = TRANSFORMS.get(identifier)
+    name = transform["name"]
+    args = transform["args"]
+    post = transform.get("post", None)
+    x = ""
+
+    if name == Transform.EXISTS:
+        x = exists(value, **args)
+    elif name == Transform.ROUND:
+        x = round_towards(value, **args)
+    elif name == Transform.AGGREGATE:
+        x = aggregate(value, **args)
+    elif name == Transform.ANY_MATCHES:
+        x = any_matches(value, **args)
+    elif name == Transform.MEAN:
+        x = mean(value, **args)
+    elif name == Transform.ANY_DATE:
+        x = any_date(value, **args)
+    elif name == Transform.CONCAT:
+        x = concat(value, **args)
+
+    if post is not None:
+        x = execute_transform(value=x, identifier=post)
+
+    return x
+
+
+def exists(value: str, on_true: str, on_false: str) -> str:
+    if value is not None and value != "":
+        return on_true
+    return on_false
 
 
 def round_towards(value: str, precision: str, rounding_direction: str) -> str:
@@ -38,8 +73,9 @@ def round_towards(value: str, precision: str, rounding_direction: str) -> str:
 
 
 def aggregate(value: str, values: list[str], weight: str) -> str:
-    """Calculate the weighted sum of a question group."""
-    return str(Decimal(value) + sum(Decimal(v) * Decimal(weight) for v in values))
+    if value is None:
+        value = 0
+    return str(Decimal(value) + sum(Decimal(v) * Decimal(weight) for v in values if v is not None))
 
 
 def any_matches(value: str, values: list[str], match: str, match_type: MatchType, on_true: str, on_false: str) -> str:
@@ -65,6 +101,10 @@ def any_date(value: str, values: list[str], on_true: str, on_false: str) -> str:
     return on_false
 
 
+def concat(value: str, values: list[str], seperator: str) -> str:
+    values.append(value)
+    return seperator.join(values)
+
 
 def mean(value: str, values: list[str]) -> str:
     values.append(value)
@@ -73,14 +113,12 @@ def mean(value: str, values: list[str]) -> str:
     return str(sum(data) / divisor)
 
 
-
-class MWSSTransformer(SurveyTransformer):
+class MWSSTransformer2(SurveyTransformer):
 
     def __init__(self, response: SurveyResponse, seq_nr=0):
         super().__init__(response, seq_nr, use_sdx_image=USE_IMAGE_SERVICE)
 
     def _format_pck(self, transformed_data) -> str:
-        """Common software require Blocks to be form type 0001 even though it is 0002 in Author"""
         pck = CSFormatter.get_pck(
             transformed_data,
             self.survey_response.instrument_id,
@@ -93,7 +131,7 @@ class MWSSTransformer(SurveyTransformer):
     def create_pck(self):
         bound_logger = logger.bind(ru_ref=self.survey_response.ru_ref, tx_id=self.survey_response.tx_id)
         bound_logger.info("Transforming data for processing")
-        transformed_data = perform_transforms(self.survey_response.data, TRANSFORMS_SPEC)
+        transformed_data = perform_transforms(self.survey_response.data, TEMPLATE)
         bound_logger.info("Data successfully transformed")
 
         bound_logger.info("Creating PCK")

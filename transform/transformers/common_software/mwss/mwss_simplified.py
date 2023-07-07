@@ -43,7 +43,7 @@ def aggregate(qid: str, data: dict[str, str], default: int, weights: list[tuple[
         return default
 
 
-class MWSSTransformer2(SurveyTransformer):
+class MWSSTransformer3(SurveyTransformer):
     """Perform the transforms and formatting for the MWSS survey.
 
     Weights = A sequence of 2-tuples giving the weight value for each question in the group.

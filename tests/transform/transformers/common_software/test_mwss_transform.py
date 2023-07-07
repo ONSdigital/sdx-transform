@@ -5,8 +5,8 @@ import unittest
 import zipfile
 from collections import OrderedDict
 from transform.transformers.common_software.cs_formatter import CSFormatter
+from transform.transformers.common_software.mwss.mwss_transformer import MWSSTransformer2
 from transform.transformers.common_software.mwss_transformer import MWSSTransformer
-from transform.transformers.mwss_transformer_2 import MWSSTransformer2
 from transform.transformers.processor import Processor
 from transform.transformers.response import SurveyResponseV1
 from transform.transformers.survey import Survey
@@ -1017,16 +1017,26 @@ class PackingTests(unittest.TestCase):
         self.assertEqual(actual_json_data, expected_json_data)
 
 
-class TransformTests(unittest.TestCase):
+class TransformTests2(unittest.TestCase):
 
     def test_transforms(self):
         with open("./tests/pck/common_software/134.0005.json") as f:
             response_data = json.load(f)
 
         response = SurveyResponseV1(response_data)
-        mwss = MWSSTransformer2(response, 1000)
+        mwss = MWSSTransformer(response, 1000)
         result: dict[str, str] = mwss.transform(mwss.survey_response.data, mwss.survey)
         actual = {r[0]: r[1] for r in result.items()}
 
         expected = {'40': 15, '50': 507128, '60': 340461, '70': 729350, '80': 607182, '90': True, '100': True, '110': [datetime.date(2016, 2, 1), datetime.date(2017, 3, 2)], '120': True, '130': True, '131': True, '132': True, '140': 90, '151': 321321, '152': 98765, '153': 13134, '171': 121212, '172': 443322, '173': 989, '181': 999999, '182': 767676, '183': 9112, '190': True, '200': True, '210': [datetime.date(2018, 4, 3), datetime.date(2019, 5, 4), datetime.date(2020, 6, 5)], '220': True, '300': True}
         self.assertEqual(expected, actual)
+
+    def test_comparison(self):
+        with open("./tests/pck/common_software/134.0005.json") as f:
+            response_data = json.load(f)
+
+        response = SurveyResponseV1(response_data)
+        _, expected_pck = MWSSTransformer(response, 1000).create_pck()
+        _, actual_pck = MWSSTransformer2(response, 1000).create_pck()
+
+        self.assertEqual(expected_pck, actual_pck)
