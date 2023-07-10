@@ -8,7 +8,7 @@ from transform.transformers.common_software.cs_formatter import CSFormatter
 from transform.transformers.common_software.mwss.mwss_transformer import MWSSTransformer2
 from transform.transformers.common_software.mwss_transformer import MWSSTransformer
 from transform.transformers.processor import Processor
-from transform.transformers.response import SurveyResponseV1
+from transform.transformers.response import SurveyResponseV1, SurveyResponseV2
 from transform.transformers.survey import Survey
 from transform.transformers.transform_selector import get_transformer
 
@@ -1040,3 +1040,27 @@ class TransformTests2(unittest.TestCase):
         _, actual_pck = MWSSTransformer2(response, 1000).create_pck()
 
         self.assertEqual(expected_pck, actual_pck)
+
+    def test_full_json(self):
+        with open("tests/transform/transformers/common_software/mwss/mwss_full.json") as f:
+            response_data = json.load(f)
+
+        response = SurveyResponseV2(response_data)
+        mwss = MWSSTransformer(response, 1000)
+        result: dict[str, str] = mwss.transform(mwss.survey_response.data, mwss.survey)
+        actual = {r[0]: r[1] for r in result.items()}
+
+        expected = {'40': 30, '50': 49450, '60': 1300, '70': 1050, '80': 1600, '90': True, '100': True, '110': [datetime.date(2023, 7, 15)], '120': True, '130': True, '131': True, '132': True, '140': 31, '151': 22000, '152': 56346, '153': 59300, '171': 30, '172': 12, '173': 0, '181': 5000, '182': 700, '183': 0, '190': True, '200': True, '210': [datetime.date(2023, 7, 21), datetime.date(2023, 7, 25)], '220': True, '300': True}
+        self.assertEqual(expected, actual)
+
+    def test_min_json(self):
+        with open("tests/transform/transformers/common_software/mwss/mwss_minimal.json") as f:
+            response_data = json.load(f)
+
+        response = SurveyResponseV2(response_data)
+        mwss = MWSSTransformer(response, 1000)
+        result: dict[str, str] = mwss.transform(mwss.survey_response.data, mwss.survey)
+        actual = {r[0]: r[1] for r in result.items()}
+
+        expected = {'40': 1, '50': 100, '60': 10, '70': 20, '80': 30, '90': False, '130': False, '131': False, '132': False, '300': True}
+        self.assertEqual(expected, actual)

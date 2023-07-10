@@ -1,0 +1,37 @@
+{
+  "case_id": "3cd4edf9-f052-459b-be12-fc522a5a9e84",
+  "tx_id": "5713e473-4964-474d-a62e-5c9de9d817ee",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "v2",
+  "data_version": "0.0.1",
+  "origin": "uk.gov.ons.edc.eq",
+  "collection_exercise_sid": "f4a7819c-9b7b-4131-95fd-a717e443c4db",
+  "schema_name": "1_0005",
+  "flushed": false,
+  "submitted_at": "2023-07-10T09:09:46+00:00",
+  "launch_language_code": "en",
+  "survey_metadata": {
+    "survey_id": "134",
+    "period_str": "May 2017",
+    "user_id": "UNKNOWN",
+    "ref_p_start_date": "2016-05-01",
+    "ru_ref": "12346789012A",
+    "period_id": "201605",
+    "ru_name": "ESSENTIAL ENTERPRISE LTD.",
+    "ref_p_end_date": "2016-05-31",
+    "trad_as": "ESSENTIAL ENTERPRISE LTD.",
+    "form_type": "0005"
+  },
+  "data": {
+    "133w": "Weekly",
+    "40": "1",
+    "50": "100",
+    "60": "10",
+    "70": "20",
+    "80": "30",
+    "90w": "No",
+    "300": "A fantastic comment "
+  },
+  "started_at": "2023-07-10T09:08:54.812822+00:00",
+  "submission_language_code": "en"
+}
