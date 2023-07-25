@@ -26,7 +26,7 @@ def get_pck(survey_response: SurveyResponse) -> bytes:
             "tx_id": tx_id,
             "survey_id": survey_response.survey_id,
             "period_id": survey_response.period,
-            "ru_ref": survey_response.ru_ref,
+            "ru_ref": survey_response.full_ru_ref,
             "form_type": survey_response.instrument_id,
         }
     )
