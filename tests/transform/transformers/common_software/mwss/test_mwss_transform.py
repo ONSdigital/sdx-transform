@@ -1064,3 +1064,13 @@ class TransformTests2(unittest.TestCase):
 
         expected = {'40': 1, '50': 100, '60': 10, '70': 20, '80': 30, '90': False, '130': False, '131': False, '132': False, '300': True}
         self.assertEqual(expected, actual)
+
+    def test_min_json_pck(self):
+        with open("tests/transform/transformers/common_software/mwss/mwss_minimal.json") as f:
+            response_data = json.load(f)
+
+        response = SurveyResponseV2(response_data)
+        mwss = MWSSTransformer(response, 1000)
+        name, pck = mwss.create_pck()
+        print("\n")
+        print(pck)
