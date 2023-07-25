@@ -22,6 +22,7 @@ class SurveyResponse:
         self.period: str = ""
         self.ru_ref: str = ""
         self.ru_check: str = ""
+        self.full_ru_ref: str = ""
         self.submitted_at_raw: str = ""
         self.submitted_at: Union[datetime, date] = datetime.now()
         self.data: Dict[str, str] = {}
@@ -58,6 +59,7 @@ class SurveyResponseV1(SurveyResponse):
         self.instrument_id: str = self._extract("collection", "instrument_id")
         self.period: str = self._extract("collection", "period")
         ru_ref = self._extract("metadata", "ru_ref")
+        self.full_ru_ref: str = ru_ref
         self.ru_ref: str = ru_ref[0:-1] if ru_ref[-1].isalpha() else ru_ref
         self.ru_check: str = ru_ref[-1] if ru_ref and ru_ref[-1].isalpha() else ""
         submitted_at = self.response.get("submitted_at")
@@ -87,6 +89,7 @@ class SurveyResponseV2(SurveyResponse):
         self.instrument_id: str = self._extract("survey_metadata", "form_type")
         self.period: str = self._extract("survey_metadata", "period_id")
         ru_ref = self._extract("survey_metadata", "ru_ref")
+        self.full_ru_ref: str = ru_ref
         self.ru_ref: str = ru_ref[0:-1] if ru_ref[-1].isalpha() else ru_ref
         self.ru_check: str = ru_ref[-1] if ru_ref and ru_ref[-1].isalpha() else ""
         submitted_at = self.response.get("submitted_at")
