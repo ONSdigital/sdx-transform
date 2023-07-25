@@ -93,10 +93,13 @@ class DelegatedTransformer(SurveyTransformer):
     SurveyTransformer is necessary.
     """
 
+    def __init__(self, response: SurveyResponse, use_sdx_image: bool = False):
+        super().__init__(response, 1000, use_sdx_image)
+
     def create_pck(self):
         pck_name = self.get_pck_name()
         pck = get_pck(self.survey_response)
         return pck_name, pck
 
     def get_pck_name(self) -> str:
-        return ""
+        return Formatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)

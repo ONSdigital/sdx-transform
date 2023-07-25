@@ -1,4 +1,4 @@
-from transform.transformers.common_software import MBSTransformer, MWSSTransformer, CSTransformer
+from transform.transformers.common_software import MBSTransformer, CSTransformer
 from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
 from transform.transformers.common_software.acas.acas_transformer import ACASTransformer
 from transform.transformers.common_software.blocks.blocks_transformer import BlocksTransformer
@@ -15,7 +15,7 @@ from transform.transformers.no_pck.ari_transformer import ARITransformer
 from transform.transformers.response import SurveyResponse
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
 from transform.transformers.spp.berd.berd_transformer import BERDTransformer
-from transform.transformers.survey_transformer import SurveyTransformer
+from transform.transformers.survey_transformer import SurveyTransformer, DelegatedTransformer
 
 
 def get_transformer(response: SurveyResponse, sequence_no=1000):
@@ -71,7 +71,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
     elif survey_id == "009":
         transformer = MBSTransformer(response, sequence_no)
     elif survey_id == "134":
-        transformer = MWSSTransformer(response, sequence_no)
+        transformer = DelegatedTransformer(response)
     elif survey_id == "171":
         transformer = ACASTransformer(response, sequence_no)
     elif survey_id == "202":
