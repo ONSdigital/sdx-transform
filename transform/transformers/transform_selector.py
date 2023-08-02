@@ -1,6 +1,5 @@
 from transform.transformers.common_software import MBSTransformer, CSTransformer
 from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
-from transform.transformers.common_software.acas.acas_transformer import ACASTransformer
 from transform.transformers.common_software.blocks.blocks_transformer import BlocksTransformer
 from transform.transformers.common_software.bricks.bricks_transformer import BricksTransformer
 from transform.transformers.common_software.sand_and_gravel.land_won_transformer import LandTransformer
@@ -8,14 +7,13 @@ from transform.transformers.common_software.sand_and_gravel.marine_dredged_trans
 from transform.transformers.cora.mes_transformer import MESTransformer
 from transform.transformers.cora.ukis.ukis_transformer import UKISTransformer
 from transform.transformers.cord import EcommerceTransformer
-from transform.transformers.cord.credit_grantors.credit_grantors_transformer import CreditGrantorsTransformer
 from transform.transformers.cord.des.des2021_transformer import DES2021Transformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer
 from transform.transformers.response import SurveyResponse
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
 from transform.transformers.spp.berd.berd_transformer import BERDTransformer
-from transform.transformers.survey_transformer import SurveyTransformer, DelegatedTransformer
+from transform.transformers.survey_transformer import SurveyTransformer, DelegatedTransformer, DelegatedImageTransformer
 
 
 def get_transformer(response: SurveyResponse, sequence_no=1000):
@@ -48,7 +46,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
         else:
             transformer = EcommerceTransformer(response, sequence_no)
     elif survey_id == "127":
-        transformer = CreditGrantorsTransformer(response, sequence_no)
+        transformer = DelegatedImageTransformer(response)
 
     # NO PCK INQUIRIES
     elif survey_id == "007":
@@ -73,7 +71,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
     elif survey_id == "134":
         transformer = DelegatedTransformer(response)
     elif survey_id == "171":
-        transformer = ACASTransformer(response, sequence_no)
+        transformer = DelegatedTransformer(response)
     elif survey_id == "202":
         transformer = ABSTransformer(response, sequence_no)
     elif survey_id == "073":

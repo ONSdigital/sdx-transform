@@ -85,12 +85,10 @@ class SurveyTransformer:
 
 
 class DelegatedTransformer(SurveyTransformer):
-    """To be used as a super class for transformers that want
-    to delegate the creation of the pck to sdx-transformer.
-
-    Subclasses should provide their own implementation for get_pck_name()
-    and can override any of the common functionality from
-    SurveyTransformer is necessary.
+    """
+    To be used as a super class for transformers that want
+    to delegate the creation of the pck to sdx-transformer
+    but keep the image processing inside sdx-transform
     """
 
     def __init__(self, response: SurveyResponse, use_sdx_image: bool = False):
@@ -103,3 +101,14 @@ class DelegatedTransformer(SurveyTransformer):
 
     def get_pck_name(self) -> str:
         return Formatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
+
+
+class DelegatedImageTransformer(DelegatedTransformer):
+    """
+    To be used as a super class for transformers that want
+    to delegate the creation of the pck to sdx-transformer
+    and the image creation to sdx-image.
+    """
+
+    def __init__(self, response: SurveyResponse):
+        super().__init__(response, use_sdx_image=True)
