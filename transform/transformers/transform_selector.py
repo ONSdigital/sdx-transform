@@ -47,7 +47,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
         else:
             transformer = EcommerceTransformer(response, sequence_no)
     elif survey_id == "127":
-        transformer = DelegatedImageTransformer(response, sequence_no)
+        transformer = DelegatedImageTransformer(response)
 
     # NO PCK INQUIRIES
     elif survey_id == "007":
