@@ -6,7 +6,6 @@ from transform.transformers.common_software.bricks.bricks_transformer import Bri
 from transform.transformers.common_software.sand_and_gravel.land_won_transformer import LandTransformer
 from transform.transformers.common_software.sand_and_gravel.marine_dredged_transformer import MarineTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
-from transform.transformers.cora.ukis.ukis_transformer import UKISTransformer
 from transform.transformers.cord import EcommerceTransformer
 from transform.transformers.cord.des.des2021_transformer import DES2021Transformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
@@ -33,7 +32,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
 
     # CORA
     elif survey_id == "144":
-        transformer = UKISTransformer(response, sequence_no)
+        transformer = DelegatedImageTransformer(response)
     elif survey_id == "092":
         transformer = MESTransformer(response, sequence_no)
 
