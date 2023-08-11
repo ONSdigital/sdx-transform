@@ -6,16 +6,14 @@ from transform.transformers.common_software.bricks.bricks_transformer import Bri
 from transform.transformers.common_software.sand_and_gravel.land_won_transformer import LandTransformer
 from transform.transformers.common_software.sand_and_gravel.marine_dredged_transformer import MarineTransformer
 from transform.transformers.cora.mes_transformer import MESTransformer
-from transform.transformers.cora.ukis.ukis_transformer import UKISTransformer
 from transform.transformers.cord import EcommerceTransformer
-from transform.transformers.cord.credit_grantors.credit_grantors_transformer import CreditGrantorsTransformer
 from transform.transformers.cord.des.des2021_transformer import DES2021Transformer
 from transform.transformers.cord.des.des_transformer import DESTransformer
 from transform.transformers.no_pck.ari_transformer import ARITransformer
 from transform.transformers.response import SurveyResponse
 from transform.transformers.no_pck.qfi_transformer import QFITransformer
 from transform.transformers.spp.berd.berd_transformer import BERDTransformer
-from transform.transformers.survey_transformer import SurveyTransformer
+from transform.transformers.survey_transformer import SurveyTransformer, DelegatedImageTransformer
 
 
 def get_transformer(response: SurveyResponse, sequence_no=1000):
@@ -34,7 +32,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
 
     # CORA
     elif survey_id == "144":
-        transformer = UKISTransformer(response, sequence_no)
+        transformer = DelegatedImageTransformer(response)
     elif survey_id == "092":
         transformer = MESTransformer(response, sequence_no)
 
@@ -48,7 +46,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
         else:
             transformer = EcommerceTransformer(response, sequence_no)
     elif survey_id == "127":
-        transformer = CreditGrantorsTransformer(response, sequence_no)
+        transformer = DelegatedImageTransformer(response)
 
     # NO PCK INQUIRIES
     elif survey_id == "007":

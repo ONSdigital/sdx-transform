@@ -5,6 +5,7 @@ from sdx_gcp.app import get_logger
 
 from transform.settings import SDX_FTP_IMAGE_PATH, SDX_FTP_DATA_PATH, SDX_FTP_RECEIPT_PATH, SDX_RESPONSE_JSON_PATH
 from transform.transformers import ImageTransformer
+from transform.transformers.call_transformer import get_pck
 from transform.transformers.image_requester import ImageRequester
 from transform.transformers.response import SurveyResponse
 from transform.transformers.survey import Survey
@@ -81,3 +82,33 @@ class SurveyTransformer:
             self.image_transformer.zip.append(os.path.join(SDX_RESPONSE_JSON_PATH, json_name), json_file)
 
         return self.image_transformer.get_zip()
+
+
+class DelegatedTransformer(SurveyTransformer):
+    """
+    To be used as a super class for transformers that want
+    to delegate the creation of the pck to sdx-transformer
+    but keep the image processing inside sdx-transform
+    """
+
+    def __init__(self, response: SurveyResponse, use_sdx_image: bool = False):
+        super().__init__(response, 1000, use_sdx_image)
+
+    def create_pck(self):
+        pck_name = self.get_pck_name()
+        pck = get_pck(self.survey_response)
+        return pck_name, pck
+
+    def get_pck_name(self) -> str:
+        return Formatter.pck_name(self.survey_response.survey_id, self.survey_response.tx_id)
+
+
+class DelegatedImageTransformer(DelegatedTransformer):
+    """
+    To be used as a super class for transformers that want
+    to delegate the creation of the pck to sdx-transformer
+    and the image creation to sdx-image.
+    """
+
+    def __init__(self, response: SurveyResponse):
+        super().__init__(response, use_sdx_image=True)

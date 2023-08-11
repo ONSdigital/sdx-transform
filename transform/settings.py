@@ -27,6 +27,7 @@ SDX_RESPONSE_JSON_PATH = "EDC_QJson"
 
 USE_IMAGE_SERVICE: bool = os.getenv('USE_IMAGE_SERVICE', "true") == "true"
 IMAGE_SERVICE_URL = os.getenv('IMAGE_SERVICE_URL', "http://sdx-image:80")
+TRANSFORMER_SERVICE_URL = os.getenv('TRANSFORMER_SERVICE_URL', "transformer-url")
 
 sdx_app = SdxApp("sdx-transform", PROJECT_ID)
 
