@@ -28,6 +28,8 @@ def get_pck(survey_response: SurveyResponse) -> bytes:
             "period_id": survey_response.period,
             "ru_ref": survey_response.full_ru_ref,
             "form_type": survey_response.instrument_id,
+            "period_start_date": survey_response.ref_period_start_date,
+            "period_end_date": survey_response.ref_period_end_date,
         }
     )
 
