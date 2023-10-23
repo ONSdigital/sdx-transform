@@ -25,8 +25,8 @@ class TestIndividualSurveyTransformer(unittest.TestCase):
 
         self.maxDiff = None
 
-        filename = "./tests/pck/cord/187.0002.json"
-        expected_filename = "./tests/pck/cord/187.0002.pck"
+        filename = "./tests/pck/common_software/009.0106.json"
+        expected_filename = "./tests/pck/common_software/009.0106.nobatch"
 
         submission_dict = get_file_as_dict(filename)
         expected = get_file_as_string(expected_filename)
@@ -38,6 +38,9 @@ class TestIndividualSurveyTransformer(unittest.TestCase):
 
         actual = pck
         print("\n======ACTUAL=======\n")
-        print(actual)
+        # print(actual)
+
+        json_name, json_file = transformer.get_json()
+        print(json_file)
 
         self.assertEqual(expected, actual)
