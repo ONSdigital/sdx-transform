@@ -73,7 +73,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
     elif survey_id == "171":
         transformer = ACASTransformer(response, sequence_no)
     elif survey_id == "202":
-        transformer = ABSTransformer(response, sequence_no)
+        transformer = ABSTransformer(response)
     elif survey_id == "073":
         transformer = BlocksTransformer(response, sequence_no)
     elif survey_id == "074":
