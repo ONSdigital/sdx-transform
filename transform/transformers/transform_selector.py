@@ -1,4 +1,4 @@
-from transform.transformers.common_software import MBSTransformer, MWSSTransformer, CSTransformer
+from transform.transformers.common_software import MWSSTransformer, CSTransformer
 from transform.transformers.common_software.abs.abs_transformer import ABSTransformer
 from transform.transformers.common_software.acas.acas_transformer import ACASTransformer
 from transform.transformers.common_software.blocks.blocks_transformer import BlocksTransformer
@@ -67,7 +67,7 @@ def get_transformer(response: SurveyResponse, sequence_no=1000):
 
     # COMMON SOFTWARE
     elif survey_id == "009":
-        transformer = MBSTransformer(response, sequence_no)
+        transformer = DelegatedImageTransformer(response)
     elif survey_id == "134":
         transformer = MWSSTransformer(response, sequence_no)
     elif survey_id == "171":
